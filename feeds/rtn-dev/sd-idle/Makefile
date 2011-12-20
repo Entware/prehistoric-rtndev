@@ -1,0 +1,40 @@
+# 
+# Copyright (C) 2010-2011 OpenWrt.org
+#
+# This is free software, licensed under the GNU General Public License v2.
+#
+# Copyright (C) 2010-2011 zyxmon.org
+#
+#
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=sd-idle
+PKG_VERSION:=2.6
+PKG_RELEASE:=1
+
+include $(INCLUDE_DIR)/package.mk
+
+define Package/sd-idle
+  SECTION:=utils
+  CATEGORY:=Utilities
+  SUBMENU:=disc
+  TITLE:=Disk idle spindown program
+  URL:=http://tomatousb.org/forum/t-271603/sd-idle-2-6-disk-idle-spindown-program-for-2-6
+endef
+
+define Package/sd-idle/description
+  sd-idle-2.6 is a disk idle spindown program for router firmware based on linux 2.6.
+endef
+
+define Build/Prepare
+	mkdir -p $(PKG_BUILD_DIR)
+	$(CP) ./src/* $(PKG_BUILD_DIR)
+endef
+
+define Package/sd-idle/install
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sd-idle-2.6 $(1)/opt/bin
+endef
+
+$(eval $(call BuildPackage,sd-idle))
