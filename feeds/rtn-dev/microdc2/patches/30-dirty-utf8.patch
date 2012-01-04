@@ -1,0 +1,28 @@
+--- a/lib/quotearg.c
++++ b/lib/quotearg.c
+@@ -405,6 +405,25 @@ quotearg_buffer_restyled (char *buffer, 
+ 
+ 	    bool printable;
+ 
++            /* Dirty hack - zyxmon. Test if UTF-8 2 or 3 bytes char */
++            if (((c & 0xe0) == 0xc0) && ((arg[i+1] & 0xc0) == 0x80))
++            {
++                STORE(c);
++                c=arg[i+1];
++                i++;
++                goto store_c;
++            }
++            if (((c & 0xf0) == 0xe0) && ((arg[i+1] & 0xc0) == 0x80) && ((arg[i+2] & 0xc0) == 0x80))
++            {
++                STORE(c);
++                c=arg[i+1];
++                i++;
++                STORE(c);
++                c=arg[i+1];
++                i++;
++                goto store_c;
++            }
++
+ 	    if (unibyte_locale)
+ 	      {
+ 		m = 1;

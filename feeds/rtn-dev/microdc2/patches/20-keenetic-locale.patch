@@ -1,0 +1,38 @@
+--- a/src/charsets.c
++++ b/src/charsets.c
+@@ -69,7 +69,7 @@ void set_main_charset(const char* charse
+ 
+         if (charset != NULL) {
+             if (*charset == '\0') {
+-                main_charset = xstrdup(nl_langinfo(CODESET));
++                main_charset = xstrdup("UTF-8");
+             } else {
+                 main_charset = xstrdup(charset);
+             }
+@@ -111,7 +111,7 @@ void set_hub_charset(const char* charset
+ 
+         if (charset != NULL) {
+             if (*charset == '\0') {
+-                hub_charset = xstrdup(nl_langinfo(CODESET));
++                hub_charset = xstrdup("UTF-8");
+             } else {
+                 hub_charset = xstrdup(charset);
+             }
+@@ -151,7 +151,7 @@ void set_fs_charset(const char* charset)
+ 
+         if (charset != NULL) {
+             if (*charset == '\0') {
+-                fs_charset = xstrdup(nl_langinfo(CODESET));
++                fs_charset = xstrdup("UTF-8");
+             } else {
+                 fs_charset = xstrdup(charset);
+             }
+@@ -185,7 +185,7 @@ void set_log_charset(const char* charset
+ 
+         if (charset != NULL) {
+             if (*charset == '\0') {
+-                log_charset = xstrdup(nl_langinfo(CODESET));
++                log_charset = xstrdup("UTF-8");
+             } else {
+                 log_charset = xstrdup(charset);
+             }
