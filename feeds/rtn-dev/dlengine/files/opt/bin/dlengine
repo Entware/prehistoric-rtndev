@@ -1,0 +1,130 @@
+#!/opt/bin/bash
+
+# Download Engine v2.0 by Megarem
+# Do not edit this script - all settings are in /opt/etc/dlengine.conf
+
+. /opt/var/lib/dlengine/utils
+
+isfiledone()
+{
+if [ -n "`echo $1 | grep \"The file is already fully retrieved\"`" ]; then return 0; fi
+if [ -n "`echo $1 | grep -e \"^.*$2' saved.*\$\"`" ]; then return 0; fi
+return 1
+}
+
+isfilerror()
+{
+if [ -n "`echo $1 | grep \"404 Not Found\"`" ]; then return 0; fi
+if [ -n "`echo $1 | grep \"Login incorrect.\"`" ]; then return 0; fi
+if [ -n "`echo $1 | grep \"Name or service not known\"`" ]; then return 0; fi
+return 1
+}
+
+isfiledelay()
+{
+return 1
+}
+
+find_plugin()
+{
+local server=$(echo $1 | sed 's/.*\/\///;s/^www.//;s/\/.*//')
+local plugin="$(ls -1 "$PLUGINS_DIR" | grep -iF "${server}.sh")"
+eval $2="'$plugin'"
+}
+
+### Initialization ###
+
+declare auth
+declare -a queue
+rm $TASKPID &>/dev/null
+echo $$ >$MAINPID
+mkdir -p $PARTIALDIR
+mkdir -p $COMPLETEDIR
+touch $LOGFILE $QUEUEFILE $ERRFILE $DONEFILE
+
+### Main Loop ###
+
+DLE_PLUG=""
+DLE_URL=""
+DLE_NAME=""
+DLE_LINK=""
+DLE_WAIT=0
+
+while /bin/true; do
+   if [ ! -e $TASKPID ] || [ -z "`pidof wget | grep -w -f $TASKPID`" ]; then
+
+      ### No file was downloaded, start new download
+      if [ -z "$DLE_NAME" ]; then
+
+         # Extract url from queue
+         readqueue
+         url=${queue[0]}
+         if [ -z "$url" ]; then
+            if [ $EXITEMPTYQUEUE == "YES" ]; then exit; fi
+            sleep $REFRESHTIME;
+            continue;
+         fi
+         echo "===DLE=== Downloading $url" >$LOGFILE
+         DLE_URL="$url"
+         newname=""
+         if [ ! -z `echo "$url" | grep "&loc_fname="` ]; then
+            newname=${url##*&loc_fname=}
+            url=${url%&loc_fname=*}
+         fi
+
+         # Find plugin
+         find_plugin "$url" DLE_PLUG
+
+         # Get direct link
+         auth=""
+         cookies=""
+         if [ -z "$DLE_PLUG" ]; then
+            DLE_LINK="$url"
+            get_login_password "$url"
+         else
+            log "===DLE=== Invoking plugin $DLE_PLUG"
+            . $PLUGINS_DIR"$DLE_PLUG" "$url"
+            if [ "$?" != "0" ]; then
+               deleteurl 0
+               savequeue
+               echo "$DLE_URL" >>$ERRFILE
+               DLE_NAME=""
+               continue
+            fi
+         fi
+
+         # Make filename
+         if [ -z "$DLE_NAME" ]; then DLE_NAME=${DLE_LINK##*/}; fi
+         if [ -n "$newname" ]; then DLE_NAME="$newname"; fi
+         if [ -n "$cookies" ]; then cookies="--load-cookies=$cookies"; fi
+
+         # Run wget
+         log "===DLE=== Direct link - $DLE_LINK"
+         log "===DLE=== Filename - $DLE_NAME"
+         log "===DLE=== Starting wget"
+         $WGETBIN "$DLE_LINK" -c -a $LOGFILE $auth $cookies -O "$PARTIALDIR$DLE_NAME" --connect-timeout=60 --read-timeout=60 --no-glob --user-agent="$USERAGENT" --limit-rate=$LIMITSPEED --no-check-certificate &
+         echo $! >$TASKPID
+         continue
+
+      ### Wget terminated, analyze log
+      else
+         # Check if log includes our file
+         if [ ! -z "`head -n50 $LOGFILE | grep -e "^.* $DLE_LINK\$"`" ]; then
+            tailog=`tail -n8 $LOGFILE`
+            if isfilerror "$tailog"; then
+               echo "$DLE_URL" >>$ERRFILE
+               deleteurlbyname "$DLE_URL"
+            elif isfiledone "$tailog" "$DLE_NAME"; then
+               /opt/bin/mv --backup=numbered "$PARTIALDIR$DLE_NAME" "$COMPLETEDIR$DLE_NAME"
+               echo "$DLE_URL" >>$DONEFILE
+               deleteurlbyname "$DLE_URL"
+            elif isfiledelay "$tailog"; then
+               deleteurlbyname "$DLE_URL"
+               echo $DLE_URL >>$QUEUEFILE
+            fi
+         fi
+         DLE_NAME=""
+      fi
+   fi
+   sleep $REFRESHTIME
+done
