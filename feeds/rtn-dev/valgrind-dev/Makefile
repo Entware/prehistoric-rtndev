@@ -38,6 +38,7 @@ endef
 
 define Package/valgrind-dev/install
 	$(INSTALL_DIR) $(1)/opt
+	rm -rf $(PKG_BUILD_DIR)/opt/share
 	$(CP) $(PKG_BUILD_DIR)/opt/* $(1)/opt
 endef
 
