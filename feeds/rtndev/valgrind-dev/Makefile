@@ -20,17 +20,20 @@ include $(INCLUDE_DIR)/package.mk
 PKG_UNPACK=tar -O -xf $(DL_DIR)/$(PKG_SOURCE) ./data.tar.gz | tar -xzC $(PKG_BUILD_DIR)
 
 define Package/valgrind-dev
-  SECTION:=utils
-  CATEGORY:=Utilities
-  DEPENDS:=
-  TITLE:=debugging and profiling Linux programs
-  URL:=http://www.valgrind.org
+	SECTION:=utils
+	CATEGORY:=Utilities
+	DEPENDS:=
+	TITLE:=debugging and profiling Linux programs
+	URL:=http://www.valgrind.org
 endef
 
 define Package/valgrind-dev/description
-Valgrind is an award-winning suite of tools for debugging and
-profiling Linux programs. Binaries from 1.9.2.7-rtn firmware site.
-NB! MIPS32r2 platform only !!!
+	Valgrind is an award-winning suite of tools for debugging and
+	profiling Linux programs. Binaries from 1.9.2.7-rtn firmware site.
+	NB! MIPS32r2 platform only !!!
+endef
+
+define Build/Configure
 endef
 
 define Build/Compile
