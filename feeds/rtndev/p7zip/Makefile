@@ -1,0 +1,46 @@
+# (c) Cezary Jackiewicz <cezary@eko.one.pl>
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=p7zip
+PKG_VERSION:=9.20.1
+PKG_RELEASE:=1
+
+PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION)_src_all.tar.bz2
+PKG_SOURCE_URL:=@SF/p7zip
+PKG_MD5SUM:=bd6caaea567dc0d995c990c5cc883c89
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)_$(PKG_VERSION)
+PKG_INSTALL:=1
+
+include $(INCLUDE_DIR)/package.mk
+
+define Package/p7zip
+	SECTION:=utils
+	CATEGORY:=Utilities
+	SUBMENU:=compression
+	TITLE:=Command line version of 7-zip for POSIX systems.
+	URL:=http://p7zip.sourceforge.net/
+	DEPENDS:=+libpthread +libstdcpp
+endef
+
+define Package/p7zip/description
+	Command line version of 7-zip for POSIX systems.
+endef
+
+MAKE_FLAGS += \
+	7za 7zr\
+	CXX="$(TARGET_CXX) -Os -pipe -s -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -DNDEBUG -D_REENTRANT -DENV_UNIX -D_7ZIP_LARGE_PAGES -DBREAK_HANDLER -DUNICODE -D_UNICODE -fPIC" \
+	CC="$(TARGET_CC) -Os -pipe -s -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -DNDEBUG -D_REENTRANT -DENV_UNIX -D_7ZIP_LARGE_PAGES -DBREAK_HANDLER -DUNICODE -D_UNICODE -fPIC" \
+	CPPFLAGS="-c -I. -I../../../../C -I../../../myWindows -I../../../include_windows -I../../.. " \
+	CXXFLAGS="-c -I. -I../../../../C -I../../../myWindows -I../../../include_windows -I../../.. " \
+	LIBS="-lpthread -ldl" \
+	DEST_HOME="$(PKG_INSTALL_DIR)/opt"
+
+define Package/p7zip/install
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/7zr $(1)/opt/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/7za $(1)/opt/bin/
+endef
+
+$(eval $(call BuildPackage,p7zip))
