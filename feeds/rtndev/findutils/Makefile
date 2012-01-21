@@ -13,7 +13,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).orig.tar.gz
 PKG_SOURCE_URL:=http://ftp.debian.org/debian/pool/main/f/findutils
-
+PKG_MD5SUM:=06bd1e0c0026e134c591c07de83dd94b
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
