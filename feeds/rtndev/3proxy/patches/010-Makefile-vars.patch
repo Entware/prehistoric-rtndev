@@ -1,0 +1,23 @@
+--- a/Makefile.Linux	2009-09-17 12:01:30.000000000 +0400
++++ b/Makefile.Linux	2012-01-22 15:55:59.364169360 +0400
+@@ -9,17 +9,15 @@
+ # library support. Add -DSAFESQL for poorely written ODBC library / drivers.
+ 
+ BUILDDIR =
+-CC = gcc
+ 
+-CFLAGS = -Wall -g -O2 -c -pthread -DGETHOSTBYNAME_R -D_THREAD_SAFE -D_REENTRANT -DNOODBC -DWITH_STD_MALLOC -DFD_SETSIZE=4096 -DWITH_POLL
++CFLAGS = -c -pthread -DGETHOSTBYNAME_R -D_THREAD_SAFE -D_REENTRANT -DNOODBC -DWITH_STD_MALLOC -DFD_SETSIZE=4096 -DWITH_POLL
+ COUT = -o 
+-LN = gcc
++LN = $(CC)
+ DCFLAGS = -fpic
+-LDFLAGS = -Wall -O2 -pthread
+ DLFLAGS = -shared
+ DLSUFFICS = .ld.so
+ # -lpthreads may be reuqired on some platforms instead of -pthreads
+-LIBS = -ldl
++LIBS = -ldl -pthread
+ LNOUT = -o 
+ EXESUFFICS =
+ OBJSUFFICS = .o

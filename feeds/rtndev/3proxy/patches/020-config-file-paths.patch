@@ -1,0 +1,35 @@
+--- a/scripts/3proxy.cfg	2012-01-22 16:33:25.243937488 +0400
++++ b/scripts/3proxy.cfg	2012-01-22 16:36:27.553641434 +0400
+@@ -1,22 +1,21 @@
+-#!/usr/local/bin/3proxy
+ daemon
+-pidfile /usr/local/etc/3proxy/3proxy.pid
++pidfile /opt/var/lock/3proxy.pid
+ nscache 65536
+ nserver 127.0.0.1
+ 
+-monitor /usr/local/etc/3proxy/3proxy.cfg
+-monitor /usr/local/etc/3proxy/counters
+-monitor /usr/local/etc/3proxy/passwd
+-monitor /usr/local/etc/3proxy/bandlimiters
++monitor /opt/etc/3proxy/3proxy.cfg
++monitor /opt/etc/3proxy/counters
++monitor /opt/etc/3proxy/passwd
++monitor /opt/etc/3proxy/bandlimiters
+ 
+-log /usr/local/etc/3proxy/log/log D
++log /opt/var/log/3proxy.log D
+ rotate 60
+-counter /usr/local/etc/3proxy/3proxy.3cf
++counter /opt/var/3proxy.3cf
+ 
+-users $/usr/local/etc/3proxy/passwd
++users $/opt/etc/3proxy/passwd
+ 
+-include /usr/local/etc/3proxy/counters
+-include /usr/local/etc/3proxy/bandlimiters
++include /opt/etc/3proxy/counters
++include /opt/etc/3proxy/bandlimiters
+ 
+ auth strong
+ deny * * 127.0.0.1

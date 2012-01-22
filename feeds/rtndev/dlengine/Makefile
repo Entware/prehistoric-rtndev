@@ -18,13 +18,13 @@ define Package/dlengine
   CATEGORY:=Network
   SUBMENU:=File Transfer
   DEPENDS:=+bash +coreutils-mv +wget 
-  TITLE:=Simple multi WAN configuration
+  TITLE:=Download Engine
   URL:=http://www.wl500g.info/showthread.php?t=9947
   MAINTAINER:=megarem@mail.ru
 endef
 
 define Package/dlengine/description
-Download script (with file sharing sites support)
+  Download script (with file sharing sites support)
 endef
 
 define Package/dlengine/conffiles
