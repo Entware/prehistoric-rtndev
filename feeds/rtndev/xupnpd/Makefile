@@ -58,13 +58,13 @@ define Package/xupnpd/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/xupnpd $(1)/opt/bin
 	$(INSTALL_DIR) $(1)/opt/share/xupnpd
-	$(CP) $(PKG_BUILD_DIR)/*.lua $(1)/opt/share/xupnpd
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/*.lua $(1)/opt/share/xupnpd
 	$(INSTALL_DIR) $(1)/opt/share/xupnpd/ui
-	$(CP) $(PKG_BUILD_DIR)/ui/* $(1)/opt/share/xupnpd/ui
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/ui/* $(1)/opt/share/xupnpd/ui
 	$(INSTALL_DIR) $(1)/opt/share/xupnpd/www
-	$(CP) $(PKG_BUILD_DIR)/www/* $(1)/opt/share/xupnpd/www
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/www/* $(1)/opt/share/xupnpd/www
 	$(INSTALL_DIR) $(1)/opt/share/xupnpd/plugins
-	$(CP) $(PKG_BUILD_DIR)/plugins/* $(1)/opt/share/xupnpd/plugins
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/plugins/* $(1)/opt/share/xupnpd/plugins
 	$(INSTALL_DIR) $(1)/opt/share/xupnpd/config
 	$(INSTALL_DIR) $(1)/opt/share/xupnpd/playlists
 	$(CP) $(PKG_BUILD_DIR)/playlists/* $(1)/opt/share/xupnpd/playlists

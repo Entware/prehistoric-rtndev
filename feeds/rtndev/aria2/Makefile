@@ -42,14 +42,11 @@ CONFIGURE_ARGS += \
 	--disable-static \
 	--oldincludedir=$(PKG_BUILD_DIR)
 
-
-
-
 define Package/aria2/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/aria2c $(1)/opt/bin/
 	$(INSTALL_DIR) $(1)/opt/etc/aria2
-	$(CP) ./files/aria2.conf $(1)/opt/etc/aria2/aria2.conf
+	$(INSTALL_CONF) ./files/aria2.conf $(1)/opt/etc/aria2/aria2.conf
 endef
 
 $(eval $(call BuildPackage,aria2))

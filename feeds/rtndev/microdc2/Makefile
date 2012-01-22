@@ -40,10 +40,10 @@ endef
 
 define Package/microdc2/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/microdc2 $(1)/opt/bin/
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/tthsum $(1)/opt/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/microdc2 $(1)/opt/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/tthsum $(1)/opt/bin/
 	$(INSTALL_DIR) $(1)/opt/etc
-	$(CP) ./files/microdc2.conf $(1)/opt/etc/
+	$(INSTALL_CONF) ./files/microdc2.conf $(1)/opt/etc/
 endef
 
 $(eval $(call BuildPackage,microdc2))

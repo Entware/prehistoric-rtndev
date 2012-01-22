@@ -36,7 +36,7 @@ endef
 
 define Package/25volt/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_BUILD_DIR)/25volt $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/25volt $(1)/opt/bin
 endef
 
 $(eval $(call BuildPackage,25volt))
