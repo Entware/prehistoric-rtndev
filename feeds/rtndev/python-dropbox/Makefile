@@ -26,7 +26,7 @@ define Package/python-dropbox
   CATEGORY:=Languages
   TITLE:=Dropbox SDK for Python
   URL:=https://www.dropbox.com/developers/reference/sdk
-  DEPENDS:=+python +distribute +python-oauth +simplejson
+  DEPENDS:=+python +distribute +python-oauth +simplejson +python-openssl
 endef
 
 define Package/python-dropbox/description
