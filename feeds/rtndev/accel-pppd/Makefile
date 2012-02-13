@@ -19,7 +19,7 @@ define Package/accel-pppd
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=accel-pppd
-	DEPENDS+= +libopenssl +libpcre +libnl
+	DEPENDS+= +libopenssl +libpcre
 endef
 
 define Package/accel-pppd/description
