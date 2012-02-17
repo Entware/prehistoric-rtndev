@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=adsuck
-PKG_VERSION:=2.4.1
+PKG_VERSION:=2.4.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=https://opensource.conformal.com/snapshots/adsuck/
-PKG_MD5SUM:=a74bc9a70653f8e6b993c9e9e7e6584d
+PKG_MD5SUM:=ecdf08c6c2b232152ef3b5b5e761d8ad
 
 include $(INCLUDE_DIR)/package.mk
 

@@ -48,10 +48,11 @@ endef
 define Package/gogoclient/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/gw6c $(1)/opt/bin/
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/template/linux.sh $(1)/opt/bin/gw6c_configure.sh
-	$(SED) 's,$(PKG_INSTALL_DIR),,g' $(PKG_INSTALL_DIR)/opt/bin/gw6c.conf
+	$(INSTALL_DIR) $(1)/opt/share/gw6c/template
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/template/linux.sh $(1)/opt/share/gw6c/template
 	$(INSTALL_DIR) $(1)/opt/etc
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/bin/gw6c.conf $(1)/opt/etc/
+	$(INSTALL_DATA) ./files/gw6c.conf $(1)/opt/etc/
+	$(INSTALL_DIR) $(1)/opt/var/log
 endef
 
 define Package/gogoclient/conffiles
