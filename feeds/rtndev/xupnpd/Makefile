@@ -9,9 +9,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=xupnpd
-PKG_REV:=275
+PKG_REV:=291
 PKG_VERSION:=$(PKG_REV)
-PKG_RELEASE:=2
+PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=svn
 PKG_SOURCE_VERSION:=$(PKG_REV)
@@ -52,7 +52,6 @@ endef
 define Package/xupnpd/conffiles
 /opt/share/xupnpd/xupnpd.lua
 endef
-
 
 define Package/xupnpd/install
 	$(INSTALL_DIR) $(1)/opt/bin
