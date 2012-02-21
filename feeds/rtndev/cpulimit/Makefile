@@ -1,15 +1,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cpulimit
+PKG_VERSION:=1.5
 PKG_RELEASE:=1
-PKG_REV:=41
-PKG_VERSION:=r$(PKG_REV)
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=https://cpulimit.svn.sourceforge.net/svnroot/cpulimit/trunk
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=r$(PKG_REV)
-PKG_SOURCE_PROTO:=svn
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=@SF/limitcpu
+PKG_MD5SUM:=d44f79353950fb5b97bcdd6ffd0a186c
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -22,12 +19,6 @@ endef
 
 define Package/cpulimit/description
 	cpulimit is a simple program which attempts to limit the cpu usage of a process
-endef
-
-
-define Package/cpulimit/compile
-	$(MAKE) -C "$(PKG_BUILD_DIR)" \
-	CFLAGS="$(CFLAGS)"
 endef
 
 define Package/cpulimit/install

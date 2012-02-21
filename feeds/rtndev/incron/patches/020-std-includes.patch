@@ -1,0 +1,66 @@
+diff -u a/appargs.cpp b/appargs.cpp
+--- a/appargs.cpp	2009-06-22 00:27:24.000000000 +0400
++++ b/appargs.cpp	2012-02-20 17:50:34.830356829 +0400
+@@ -18,6 +18,7 @@
+  * please visit http://www.gnu.org/licenses/license-list.html.
+  * 
+  */
++#include <stdio.h>
+ 
+ 
+ #include <cstring>
+diff -u a/icd-main.cpp b/icd-main.cpp
+--- a/icd-main.cpp	2009-06-22 00:27:24.000000000 +0400
++++ b/icd-main.cpp	2012-02-20 17:50:34.822352930 +0400
+@@ -15,6 +15,7 @@
+ 
+ #include <map>
+ #include <signal.h>
++#include <stdio.h>
+ #include <wait.h>
+ #include <fcntl.h>
+ #include <pwd.h>
+diff -u a/ict-main.cpp b/ict-main.cpp
+--- a/ict-main.cpp	2009-06-22 00:27:24.000000000 +0400
++++ b/ict-main.cpp	2012-02-20 17:50:34.830356829 +0400
+@@ -17,7 +17,8 @@
+  */
+ 
+ 
+-#include <argp.h>
++#include <errno.h>
++#include <unistd.h>
+ #include <pwd.h>
+ #include <string>
+ #include <stdio.h>
+@@ -492,7 +493,7 @@
+       if (uid != 0) {
+         fprintf(stderr, "insufficient privileges to use custom configuration (will use default)\n");
+       }
+-      else if (euidaccess(cfg.c_str(), R_OK) != 0) {
++      else if (access(cfg.c_str(), R_OK) != 0) {
+         perror("cannot read configuration file (will use default)");
+       }
+     }
+diff -u a/inotify-cxx.cpp b/inotify-cxx.cpp
+--- a/inotify-cxx.cpp	2009-06-22 00:27:24.000000000 +0400
++++ b/inotify-cxx.cpp	2012-02-20 17:50:34.826354880 +0400
+@@ -21,6 +21,7 @@
+  
+ 
+ #include <errno.h>
++#include <stdio.h>
+ #include <unistd.h>
+ #include <fcntl.h>
+ 
+diff -u a/usertable.cpp b/usertable.cpp
+--- a/usertable.cpp	2009-06-22 00:27:24.000000000 +0400
++++ b/usertable.cpp	2012-02-20 17:50:34.826354880 +0400
+@@ -18,6 +18,7 @@
+  */
+ 
+ 
++#include <stdio.h>
+ #include <pwd.h>
+ #include <syslog.h>
+ #include <errno.h>

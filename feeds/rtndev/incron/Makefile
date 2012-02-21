@@ -1,0 +1,45 @@
+#
+# Copyright (C) 2010-2011 OpenWrt.org
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=incron
+PKG_VERSION:=0.5.9
+PKG_RELEASE:=1
+
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=http://inotify.aiken.cz/download/incron/
+PKG_MD5SUM:=a285b9e14af7bf9f9524fe051a06255f
+
+include $(INCLUDE_DIR)/package.mk
+
+define Package/incron
+	SECTION:=utils
+	CATEGORY:=Utilities
+	SUBMENU:=Filesystem
+	DEPENDS:=+libstdcpp
+	TITLE:=inotify cron, a daemon system analogous to cron
+	URL:=http://inotify.aiken.cz
+endef
+
+define Package/incron/description
+	This program is the "inotify cron" system.  You can use it a similar way 
+	as the regular cron. The difference is that the inotify cron handles 
+	filesystem events rather than time periods.
+endef
+
+define Package/incron/install
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/incrontab $(1)/opt/bin
+	$(INSTALL_DIR) $(1)/opt/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/incrond $(1)/opt/sbin
+	$(INSTALL_DIR) $(1)/opt/var/spool/incron $(1)/opt/etc/incron.d
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/incron.conf.example  $(1)/opt/etc/incron.conf
+	$(INSTALL_DIR) $(1)/opt/var/run
+endef
+
+$(eval $(call BuildPackage,incron))

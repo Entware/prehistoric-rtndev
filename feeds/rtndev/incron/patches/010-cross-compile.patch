@@ -1,0 +1,11 @@
+--- a/Makefile	2009-06-22 00:27:24.000000000 +0400
++++ b/Makefile	2012-02-20 17:47:30.363802826 +0400
+@@ -17,8 +17,6 @@
+ WARNINGS = -Wall
+ CXXAUX = -pipe
+ 
+-CXXFLAGS = $(OPTIMIZE) $(DEBUG) $(WARNINGS) $(CXXAUX)
+-LDFLAGS = $(WARNINGS)
+ 
+ PROGRAMS = incrond incrontab
+ 
