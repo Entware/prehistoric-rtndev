@@ -33,6 +33,9 @@ define Package/dnscrypt-proxy/description
 	has very low overhead and adds virtually no latency to queries.
 endef
 
+CONFIGURE_VARS += \
+	ax_cv_check_cflags___fstack_protector_all=no
+
 define Package/dnscrypt-proxy/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/dnscrypt-proxy $(1)/opt/sbin

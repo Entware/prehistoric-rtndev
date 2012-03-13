@@ -41,10 +41,6 @@ define Package/mediatomb/conffiles
 /opt/etc/mediatomb/mediatomb.db
 endef
 
-CONFIGURE_VARS += \
-	ac_cv_func_malloc_0_nonnull=yes \
-	ac_cv_func_realloc_0_nonnull=yes 
-
 TARGET_LDFLAGS += -Wl,-rpath-link=$(STAGING_DIR)/opt/lib
 
 CONFIGURE_ARGS += \
