@@ -14,7 +14,7 @@ PKG_RELEASE:=1
 PKG_SOURCE:=oauth-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/o/oauth
 PKG_MD5SUM:=30ed3cc8c11d7841a89feab437aabf81
-PKG_BUILD_DEPENDS:=python
+PKG_BUILD_DEPENDS:=distribute/host
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/oauth-$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
@@ -26,7 +26,7 @@ define Package/python-oauth
   CATEGORY:=Languages
   TITLE:=Library for OAuth version 1.0a.
   URL:=http://code.google.com/p/oauth/
-  DEPENDS:=+python +distribute
+  DEPENDS:=+python
 endef
 
 define Package/python-oauth/description
