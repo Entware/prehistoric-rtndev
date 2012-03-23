@@ -4,7 +4,7 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-# vovic67, mediatomb for Keenetic
+# vovic67 @ forum.zyxmon.org, mediatomb for Keenetic
 #
 
 include $(TOPDIR)/rules.mk
@@ -12,7 +12,7 @@ include $(INCLUDE_DIR)/nls.mk
 
 PKG_NAME:=mediatomb
 PKG_VERSION:=0.12.1
-PKG_RELEASE:=5
+PKG_RELEASE:=6
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/mediatomb
@@ -27,7 +27,7 @@ define Package/mediatomb
   CATEGORY:=Multimedia
   TITLE:=A powerfull UPNP media server
   URL:=http://www.mediatomb.cc/
-  DEPENDS:=+libexif +libsqlite3 +id3lib +file \
+  DEPENDS:=+libexif +libsqlite3 +id3lib +file +libpthread +libmagic \
         +libjs +libexpat +libffmpeg +libstdcpp +$(ICONV_DEPENDS)
 endef
 
@@ -41,7 +41,8 @@ define Package/mediatomb/conffiles
 /opt/etc/mediatomb/mediatomb.db
 endef
 
-TARGET_LDFLAGS += -Wl,-rpath-link=$(STAGING_DIR)/opt/lib
+TARGET_LDFLAGS += \
+	-Wl,-rpath-link=$(STAGING_DIR)/opt/lib
 
 CONFIGURE_ARGS += \
 	--prefix=/opt \
@@ -58,8 +59,8 @@ CONFIGURE_ARGS += \
 	--enable-libjs \
 	--disable-tombdebug \
 	--disable-upnpdebug \
-	--disable-youtube \
-	--disable-curl \
+	--enable-youtube \
+	--enable-curl \
 	--enable-sqlite3 \
 	--enable-sqlite-backup-defaults \
 	--disable-mysql \
@@ -68,6 +69,7 @@ CONFIGURE_ARGS += \
 	--disable-libmp4v2 \
 	--disable-lastfmlib \
 	--enable-libexif \
+	--enable-iconv-lib \
 	--with-iconv-h=$(ICONV_PREFIX)/include \
 	--with-iconv-libs=$(ICONV_PREFIX)/lib \
 	--with-js-h=$(STAGING_DIR)/opt/include/js \
