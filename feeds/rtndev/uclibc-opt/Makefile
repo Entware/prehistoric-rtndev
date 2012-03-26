@@ -35,6 +35,7 @@ define Build/Compile
 endef
 
 define Package/uclibc-opt/install
+	$(INSTALL_DIR) $(1)/opt/etc
 	$(INSTALL_DIR) $(1)/opt/usr/lib
 endef
 
