@@ -35,8 +35,7 @@ define Build/Compile
 endef
 
 define Package/uclibc-opt/install
-	$(INSTALL_DIR) $(1)/opt/tmp
-	touch $(1)/opt/tmp/.uclibc-opt-placeholder
+	$(INSTALL_DIR) $(1)/opt/usr/lib
 endef
 
 define Package/uclibc-opt/postinst
