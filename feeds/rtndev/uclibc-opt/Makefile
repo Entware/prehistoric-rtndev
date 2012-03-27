@@ -36,12 +36,12 @@ endef
 
 define Package/uclibc-opt/install
 	$(INSTALL_DIR) $(1)/opt/etc
+	touch $(1)/opt/etc/ld.so.conf
 	$(INSTALL_DIR) $(1)/opt/usr/lib
 endef
 
 define Package/uclibc-opt/postinst
 #!/bin/sh
-touch /opt/etc/ld.so.conf
 
 echo "Updating /opt/etc/ld.so.cache"
 /opt/bin/ldconfig
