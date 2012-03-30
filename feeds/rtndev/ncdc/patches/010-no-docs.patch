@@ -1,0 +1,17 @@
+--- a/GNUmakefile.am	2012-03-30 09:27:07.199770654 +0400
++++ b/GNUmakefile.am	2012-03-30 09:27:13.298737836 +0400
+@@ -1,2 +1,2 @@
+-SUBDIRS=doc src util
++SUBDIRS=src util
+ EXTRA_DIST = ChangeLog
+--- a/GNUmakefile.in	2012-03-30 09:27:27.181503408 +0400
++++ b/GNUmakefile.in	2012-03-30 09:27:52.037613871 +0400
+@@ -210,7 +210,7 @@
+ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-SUBDIRS = doc src util
++SUBDIRS = src util
+ EXTRA_DIST = ChangeLog
+ all: config.h
+ 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
