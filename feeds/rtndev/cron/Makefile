@@ -1,0 +1,51 @@
+# Copyright (C) 2012 ryzhov_al
+# standar vixie cron, patches ported from Optware
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=cron
+PKG_VERSION:=4.1
+PKG_RELEASE:=1
+
+PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).shar
+PKG_SOURCE_URL:=ftp://ftp.isc.org/isc/cron
+PKG_MD5SUM:=5e1be9dbde66295821ac7899f2e1f561
+
+include $(INCLUDE_DIR)/package.mk
+
+PKG_UNPACK=cd $(PKG_BUILD_DIR) && cat $(DL_DIR)/$(PKG_SOURCE) | sh -x
+
+define Package/cron
+	SECTION:=utils
+	CATEGORY:=Utilities
+	TITLE:=Vixie cron
+	URL:=ftp://ftp.isc.org/isc/cron
+endef
+
+define Package/cron/description
+	Standart Vixie cron, with cron.d addition
+endef
+
+define Package/cron/conffiles
+/opt/etc/crontab
+endef
+
+#define Build/Configure
+#	$(CP) $(PKG_BUILD_DIR)/Makefile.Linux $(PKG_BUILD_DIR)/Makefile
+#endef
+
+define Package/cron/install
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/crontab $(1)/opt/bin
+	$(INSTALL_BIN) ./files/run-parts $(1)/opt/bin
+	$(INSTALL_DIR) $(1)/opt/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/cron $(1)/opt/sbin
+	$(INSTALL_DIR) $(1)/opt/etc/cron.d
+	$(INSTALL_CONF) ./files/crontab $(1)/opt/etc
+	$(INSTALL_DIR) \
+		$(1)/opt/var/run \
+		$(1)/opt/var/cron/crontabs \
+		$(1)/opt/etc/cron.{1min,5min,hourly,daily,weekly,monthly}
+endef
+
+$(eval $(call BuildPackage,cron))
