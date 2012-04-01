@@ -9,7 +9,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=xupnpd
-PKG_REV:=291
+PKG_REV:=301
 PKG_VERSION:=$(PKG_REV)
 PKG_RELEASE:=1
 
@@ -19,27 +19,7 @@ PKG_SOURCE_SUBDIR:=xupnpd-$(PKG_VERSION)
 PKG_SOURCE_URL:=http://tsdemuxer.googlecode.com/svn/trunk/xupnpd/src/
 PKG_SOURCE:=$(PKG_SOURCE_SUBDIR).tar.gz
 
-
 include $(INCLUDE_DIR)/package.mk
-
-
-TARGET_CFLAGS += -fno-exceptions -fno-rtti -DWITH_URANDOM
-
-define Build/Compile
-	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(PKG_BUILD_DIR) -I$(STAGING_DIR)/opt/include -o $(PKG_BUILD_DIR)/luaxcore.o $(PKG_BUILD_DIR)/luaxcore.cpp
-	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(PKG_BUILD_DIR) -I$(STAGING_DIR)/opt/include -o $(PKG_BUILD_DIR)/luaxlib.o $(PKG_BUILD_DIR)/luaxlib.cpp
-	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(PKG_BUILD_DIR) -I$(STAGING_DIR)/opt/include -o $(PKG_BUILD_DIR)/main.o $(PKG_BUILD_DIR)/main.cpp
-	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(PKG_BUILD_DIR) -I$(STAGING_DIR)/opt/include -o $(PKG_BUILD_DIR)/mem.o $(PKG_BUILD_DIR)/mem.cpp
-	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(PKG_BUILD_DIR) -I$(STAGING_DIR)/opt/include -o $(PKG_BUILD_DIR)/soap.o $(PKG_BUILD_DIR)/soap.cpp
-	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(PKG_BUILD_DIR) -I$(STAGING_DIR)/opt/include -o $(PKG_BUILD_DIR)/mcast.o $(PKG_BUILD_DIR)/mcast.cpp
-	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(PKG_BUILD_DIR) -I$(STAGING_DIR)/opt/include -o $(PKG_BUILD_DIR)/md5c.o $(PKG_BUILD_DIR)/md5c.c
-	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(PKG_BUILD_DIR) -I$(STAGING_DIR)/opt/include -o $(PKG_BUILD_DIR)/luajson.o $(PKG_BUILD_DIR)/luajson.cpp
-	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(PKG_BUILD_DIR) -I$(STAGING_DIR)/opt/include -o $(PKG_BUILD_DIR)/luajson_parser.o $(PKG_BUILD_DIR)/luajson_parser.cpp
-	$(TARGET_CC) $(TARGET_CFLAGS) -o $(PKG_BUILD_DIR)/xupnpd -L$(STAGING_DIR)/opt/lib \
-		$(PKG_BUILD_DIR)/main.o $(PKG_BUILD_DIR)/soap.o $(PKG_BUILD_DIR)/luaxcore.o \
-		$(PKG_BUILD_DIR)/mem.o $(PKG_BUILD_DIR)/luaxlib.o $(PKG_BUILD_DIR)/mcast.o \
-		$(PKG_BUILD_DIR)/md5c.o $(PKG_BUILD_DIR)/luajson.o $(PKG_BUILD_DIR)/luajson_parser.o -llua -lm -ldl -Wl,-rpath,/opt/lib
-endef
 
 define Package/xupnpd
   SECTION:=multimedia

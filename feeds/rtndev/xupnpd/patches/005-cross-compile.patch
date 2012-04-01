@@ -1,0 +1,28 @@
+--- a/Makefile	2012-04-01 18:38:06.704175493 +0400
++++ b/Makefile	2012-04-01 19:02:07.298065370 +0400
+@@ -1,8 +1,10 @@
+ LUA     = lua-5.1.4
+ #LUA     = lua-5.2.0
+-CFLAGS  = -fno-exceptions -fno-rtti -O2 -I$(LUA) -L$(LUA)
++CFLAGS  += -fno-exceptions -fno-rtti
+ SRC     = main.cpp soap.cpp mem.cpp mcast.cpp luaxlib.cpp luaxcore.cpp luajson.cpp luajson_parser.cpp
+ 
++all: embedded
++
+ x86:
+ 	make -C $(LUA) CC=gcc a
+ 	gcc -O2 -c -o md5.o md5c.c
+@@ -38,11 +40,8 @@
+ 
+ 
+ embedded:
+-	export PATH
+-	make -C $(LUA) CC=$(SDK)/gcc a
+-	$(SDK)/gcc -O2 -c -o md5.o md5c.c
+-	$(SDK)/gcc $(CFLAGS) -DWITH_URANDOM -o xupnpd-$(TARGET) $(SRC) md5.o -lm -llua -ldl
+-	$(SDK)/strip xupnpd-$(TARGET)
++	$(CC) -O2 -c -o md5.o md5c.c
++	$(CC) $(CFLAGS) $(LDFLAGS) -DWITH_URANDOM -o xupnpd $(SRC) md5.o -lm -llua -ldl
+ 
+ clean:
+ 	make -C $(LUA) clean
