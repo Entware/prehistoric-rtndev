@@ -34,7 +34,7 @@ endef
 
 define Package/sd-idle/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sd-idle-2.6 $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sd-idle-2.6 $(1)/opt/bin/sd-idle
 endef
 
 $(eval $(call BuildPackage,sd-idle))

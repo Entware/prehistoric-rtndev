@@ -30,10 +30,6 @@ define Package/cron/conffiles
 /opt/etc/crontab
 endef
 
-#define Build/Configure
-#	$(CP) $(PKG_BUILD_DIR)/Makefile.Linux $(PKG_BUILD_DIR)/Makefile
-#endef
-
 define Package/cron/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/crontab $(1)/opt/bin

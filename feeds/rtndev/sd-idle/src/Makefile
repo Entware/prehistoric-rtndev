@@ -5,7 +5,7 @@ all: sd-idle-2.6
 	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) -c -I. -Iinclude -o $@ $^
 
 sd-idle-2.6: sd-idle-2.6.o
-	$(CC) -o $@ $^ -L.
+	$(CC) $(LDFLAGS) -o $@ $^ -L.
 
 clean:
 	rm -f *.o sd-idle-2.6
