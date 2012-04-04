@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=p0f
-PKG_VERSION:=3.03b
+PKG_VERSION:=3.04b
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=http://lcamtuf.coredump.cx/p0f3/releases/
-PKG_MD5SUM:=034d068deb68badfbede6dcc89cc80cf
+PKG_MD5SUM:=2806f03e872b1acbc13f9e6836880fcb
 
 include $(INCLUDE_DIR)/package.mk
 
