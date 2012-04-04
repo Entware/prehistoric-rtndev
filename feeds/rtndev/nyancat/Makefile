@@ -8,10 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nyancat
-PKG_VERSION:=0.2
-PKG_REV:=71bb300117f4fd0a0acc16c8fd97079acb00a29f
-PKG_RELEASE:=1
-
+PKG_VERSION:=0.1
+PKG_REV:=5a88b86b6abe3aae7f8c1e6f7545f2cc2ed260d7
+PKG_RELEASE:=3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
@@ -32,14 +31,10 @@ define Package/nyancat/description
 	Nyancat rendered in your terminal.
 endef
 
-define Build/Configure
-endef
-
-define Buid/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR) \
-	    $(TARGET_CONFIGURE_OPTS) \
-	    CFLAGS="$(TARGET_CFLAGS) -I./include/ $(TARGET_CPPFLAGS)" \
-	    LDFLAGS="$(TARGET_LDFLAGS) -lmad -lao -lpthread"
+define Build/Compile
+	$(MAKE) -C $(PKG_BUILD_DIR)/src \
+	    LFLAGS="$(TARGET_CFLAGS) $(TARGET_LDFLAGS)" \
+	    CC="$(TARGET_CC)"
 endef
 
 define Package/nyancat/install
@@ -48,4 +43,3 @@ define Package/nyancat/install
 endef
 
 $(eval $(call BuildPackage,nyancat))
-
