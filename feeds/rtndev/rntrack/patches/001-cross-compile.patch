@@ -1,0 +1,18 @@
+--- a/MakeFiles/linux/Makefile	2012-04-05 12:31:18.974535587 +0400
++++ b/MakeFiles/linux/Makefile	2012-04-05 12:33:07.001177641 +0400
+@@ -10,12 +10,12 @@
+ # CONFIG=/path/to/config.file
+ #    Alternate config file location
+ 
+-CC	= g++
+-CFLAGS	= -Wall -fno-rtti -I../../hpp -I../../src -O3
++#CC	= g++
++CFLAGS	= -Wall -fno-rtti -I../../hpp -I../../src $(EXTRA_CFLAGS)
+ CDEFS	= -Dunix -D__linux__ -DHAVE_UNISTD_H -DHAVE_FCNTL_H -DHAVE_MALLOC_H \
+           -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_SYS_TIME_H -DHAVE_UTIME_H \
+ 	  -DHAVE_LOCALE_H
+-LFLAGS	= -s -L$(SRCDIR)smapi -lsmapilnx
++LFLAGS	= -s -L$(SRCDIR)smapi -lsmapilnx $(LDFLAGS)
+ SRCDIR	= ../../src/
+ #CONFIG	= /etc/ftn/rntrack.cfg
+ 
