@@ -1,0 +1,11 @@
+--- a/mkfls/unix/Makefile.in	2012-04-05 16:51:04.748615572 +0400
++++ b/mkfls/unix/Makefile.in	2012-04-05 16:51:22.460394418 +0400
+@@ -16,7 +16,7 @@
+ AUTODEFS=@DEFS@
+ AUTOLIBS=@LIBS@
+ DEFINES=$(AUTODEFS) -DHAVE_FORK -DUNIX -DOS="\"UNIX\""
+-CFLAGS=$(DEFINES) @CFLAGS@
++CFLAGS=$(DEFINES) @CFLAGS@ @CPPFLAGS@
+ LIBS=$(AUTOLIBS)
+ 
+ all: compile banner
