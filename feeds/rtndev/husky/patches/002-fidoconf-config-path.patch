@@ -1,0 +1,11 @@
+--- a/fidoconf/Makefile	2012-04-06 13:41:09.476262739 +0400
++++ b/fidoconf/Makefile	2012-04-06 13:42:36.095839685 +0400
+@@ -28,7 +28,7 @@
+   EXENAMEFLAG=-o
+ endif
+ 
+-CDEFS=-D$(OSTYPE) $(ADDCDEFS) -DCFGDIR=\"$(CFGDIR)\"
++CDEFS=-D$(OSTYPE) $(ADDCDEFS) -DCFGDIR=\"/opt/etc/fido\"
+ ifdef CFGNAME
+ CDEFS+= -DCFGNAME=\"$(CFGNAME)\"
+ endif

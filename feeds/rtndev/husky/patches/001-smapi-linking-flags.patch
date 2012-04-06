@@ -1,0 +1,11 @@
+--- a/smapi/Makefile	2012-04-06 13:05:18.567941468 +0400
++++ b/smapi/Makefile	2012-04-06 13:06:06.883334101 +0400
+@@ -54,7 +54,7 @@
+ 	$(LD) $(LFLAGS) -o $(TARGETDLL).$(VER) $(OBJS) $(LIBS)
+   else
+ $(TARGETDLL).$(VER): $(OBJS)
+-	$(CC) -shared -Wl,-soname,$(TARGETDLL).$(VERH) \
++	$(CC) -shared -Wl,-soname,$(TARGETDLL).$(VERH) $(LFLAGS) \
+           -o $(TARGETDLL).$(VER) $(OBJS) $(LIBS)
+   endif
+ 

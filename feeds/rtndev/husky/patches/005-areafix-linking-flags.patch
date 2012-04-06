@@ -1,0 +1,11 @@
+--- a/areafix/Makefile	2012-04-06 16:19:40.254556262 +0400
++++ b/areafix/Makefile	2012-04-06 16:20:03.154268804 +0400
+@@ -56,7 +56,7 @@
+ 	$(LD) $(LFLAGS) -o $(TARGETDLL).$(VER) $(OBJS) $(LIBS)
+   else
+ $(TARGETDLL).$(VER): $(OBJS)
+-	$(CC) -shared -Wl,-soname,$(TARGETDLL).$(VERH) \
++	$(CC) -shared -Wl,-soname,$(TARGETDLL).$(VERH) $(LFLAGS) \
+           -o $(TARGETDLL).$(VER) $(OBJS) $(LIBS)
+   endif
+ 

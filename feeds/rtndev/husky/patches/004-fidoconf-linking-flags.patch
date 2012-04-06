@@ -1,0 +1,11 @@
+--- a/fidoconf/Makefile	2012-04-06 16:14:32.126432284 +0400
++++ b/fidoconf/Makefile	2012-04-06 16:14:53.918158983 +0400
+@@ -88,7 +88,7 @@
+ 	$(LD) $(LFLAGS) $(EXENAMEFLAG) $(TARGETDLL).$(VER) $(LOBJS) $(LIBS)
+ else
+ $(TARGETDLL).$(VER): $(LOBJS)
+-	$(CC) -shared -Wl,-soname,$(TARGETDLL).$(VERH) \
++	$(CC) -shared -Wl,-soname,$(TARGETDLL).$(VERH) $(LFLAGS) \
+ 	-o $(TARGETDLL).$(VER) $(LOBJS) $(LIBS)
+ endif
+ 	$(LN) $(LNOPT) $(TARGETDLL).$(VER) $(TARGETDLL).$(VERH) ;\
