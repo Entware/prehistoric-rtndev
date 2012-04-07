@@ -30,7 +30,8 @@ TARGET_CFLAGS += \
 	-I$(PKG_INSTALL_DIR)/opt/include
 
 TARGET_LDFLAGS += \
-	-L$(PKG_INSTALL_DIR)/opt/lib
+	-L$(PKG_INSTALL_DIR)/opt/lib \
+	-Wl,-rpath-link=$(PKG_INSTALL_DIR)/opt/lib
 
 define Build/Compile
 	$(CP) ./files/Makefile $(PKG_BUILD_DIR)
@@ -49,8 +50,8 @@ define Build/Compile
 endef
 
 define Package/husky/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/* $(1)/opt/bin
+	$(INSTALL_DIR) $(1)/opt/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/* $(1)/opt/sbin
 	$(INSTALL_DIR) $(1)/opt/lib
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/lib{areafix,fidoconfig,husky}.so{,.1.9,.1.9.0} \
 	    $(PKG_INSTALL_DIR)/opt/lib/libsmapi.so{,.2.5,.2.5.0} \
