@@ -11,9 +11,9 @@ Aka 2:5020/828
 OurAka 2:5020/828.555
 Password 12345678
 allowEmptyPktPwd on
-AutoAreaCreate on
-AutoAreaCreateDefaults -g F -p 14 -dupeCheck move -dupeHistory 11
-AutoFileCreate on
+#AutoAreaCreate on
+#AutoAreaCreateDefaults -g F -p 14 -dupeCheck move -dupeHistory 11
+#AutoFileCreate on
 Packer zip
 accessgrp F
 Route normal 2:5020/828.0 1:* 2:* 3:* 4:* 5:*

@@ -19,11 +19,11 @@ define Package/golded-plus
 	SECTION:=net
 	CATEGORY:=Network
 	DEPENDS:=+libncursesw +libstdcpp
-	TITLE:=GoldED+ FTN Editor
+	TITLE:=GoldED Plus FTN Editor
 	URL:=http://golded-plus.sourceforge.net/
 endef
 
-define Package/golded/description
+define Package/golded-plus/description
 	GoldED+ is a offline message reader for Fidonet and Usenet.
 	This package contains only binaries without any configs.
 endef

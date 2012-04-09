@@ -31,7 +31,7 @@ endef
 define Build/Compile
 endef
 
-define Package/fido/postinst
+define Package/fidoip/postinst
 #!/bin/sh
 
 echo "Just type setup_config.bash to set up IP-point settings."

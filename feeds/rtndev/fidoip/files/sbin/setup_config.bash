@@ -338,27 +338,6 @@ echo ""
 if [ "$reply" = "y" ];
 	then 
 
-if [ -e /opt/etc/binkd.cfg ]; then
-echo '------------------------------------------------------------------------'
-echo 'Previos configuration files saved to file:'
-echo ''
-echo $CWD/$shortname
-echo ''
-echo '------------------------------------------------------------------------'
-echo ''
-
-tar -cf $CWD/$shortname /opt/etc/binkd.cfg /opt/etc/golded+/g* /opt/etc/fido/config /opt/sbin/recv /opt/sbin/send > /dev/null 2>&1
-sleep 3 
-fi
-
-mkdir -p /opt/etc/fidoip/
-cp -p /opt/etc/fidoip/binkd.cfg.template /opt/etc/binkd.cfg
-cp -p /opt/etc/fidoip/config.template  /opt/etc/fido/config
-cp -p /opt/etc/fidoip/decode.txt.template /opt/etc/golded+/golded.cfg
-cp -p /opt/etc/fidoip/recv.template /opt/sbin/recv
-cp -p /opt/etc/fidoip/send.template /opt/sbin/send
-
-
 #if [ "$T2" = "$OSNAME" ]; then
 echo ''
 echo 'Detecting OS...'

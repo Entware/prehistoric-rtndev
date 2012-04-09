@@ -20,12 +20,12 @@ define Package/golded-nsf
 	SUBMENU:=FTN
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=+libncursesw +libpcrecpp +screen
+	DEPENDS:=+libncurses +libpcrecpp +screen
 	TITLE:=GoldEd-NSF FTN Editor
 	URL:=http://fghi.pp.ru/golded/
 endef
 
-define Package/golded/description
+define Package/golded-nsf/description
 	GoldEd-NSF is a offline message reader for Fidonet and Usenet.
 	Its a successor of GoldEd+ with hypertext support and other usefull
 	features.
@@ -49,11 +49,11 @@ TARGET_CFLAGS += \
 define Package/golded-nsf/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/{gedlnx,gnlnx,rddtlnx} $(1)/opt/sbin
-	$(INSTALL_DIR) $(1)/opt/etc/golded+/map
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/chsgen/map/* $(1)/opt/etc/golded+/map
-	$(INSTALL_DIR) $(1)/opt/etc/golded+/cfgs
-	$(CP) $(PKG_BUILD_DIR)/cfgs/* $(1)/opt/etc/golded+/cfgs
-	$(INSTALL_CONF) ./files/* $(1)/opt/etc/golded+
+	$(INSTALL_DIR) $(1)/opt/etc/golded\+/map
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/chsgen/map/* $(1)/opt/etc/golded\+/map
+	$(INSTALL_DIR) $(1)/opt/etc/golded\+/cfgs
+	$(CP) $(PKG_BUILD_DIR)/cfgs/* $(1)/opt/etc/golded\+/cfgs
+	$(INSTALL_CONF) ./files/* $(1)/opt/etc/golded\+
 endef
 
 $(eval $(call BuildPackage,golded-nsf))
