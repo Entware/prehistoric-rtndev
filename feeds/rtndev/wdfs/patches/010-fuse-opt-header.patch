@@ -1,0 +1,11 @@
+--- a/src/wdfs-main.c	2012-04-13 15:34:50.564827185 +0400
++++ b/src/wdfs-main.c	2012-04-13 15:35:00.080709108 +0400
+@@ -32,7 +32,7 @@
+ #include <assert.h>
+ #include <unistd.h>
+ #include <glib.h>
+-#include <fuse_opt.h>
++#include <fuse/fuse_opt.h>
+ #include <ne_props.h>
+ #include <ne_dates.h>
+ #include <ne_redirect.h>
