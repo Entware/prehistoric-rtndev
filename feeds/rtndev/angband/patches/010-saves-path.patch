@@ -1,0 +1,11 @@
+--- a/src/config.h	2012-05-07 23:33:59.524510810 +0400
++++ b/src/config.h	2012-05-07 23:34:53.303834711 +0400
+@@ -54,7 +54,7 @@
+  */
+ #ifdef SET_UID
+ # ifndef PRIVATE_USER_PATH
+-#  define PRIVATE_USER_PATH "~/.angband"
++#  define PRIVATE_USER_PATH "/opt/var"
+ # endif /* PRIVATE_USER_PATH */
+ #endif /* SET_UID */
+ 
