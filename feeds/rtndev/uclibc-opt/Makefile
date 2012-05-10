@@ -9,17 +9,14 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=uclibc-opt
 PKG_VERSION:=0.9.32
-PKG_RELEASE:=1
-
-#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-#PKG_SOURCE_URL:=http://uclibc-opt.ru/download
+PKG_RELEASE:=2
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/uclibc-opt
 	SECTION:=libs
 	CATEGORY:=Libraries
-	DEPENDS:=+libc +libgcc +libstdcpp +libpthread +librt +ldconfig
+	DEPENDS:=+libc +libgcc +libstdcpp +libpthread +librt +ldconfig +findutils
 	TITLE:=uclibc-opt metapackage provides basic uclibc libraries
 	URL:=http://uclibc.org/
 endef
@@ -35,7 +32,9 @@ define Build/Compile
 endef
 
 define Package/uclibc-opt/install
-	$(INSTALL_DIR) $(1)/opt/etc
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/rc.unslung $(1)/opt/etc/init.d/
+	$(INSTALL_DATA) ./files/rc.func $(1)/opt/etc/init.d/
 	touch $(1)/opt/etc/ld.so.conf
 	$(INSTALL_DIR) $(1)/opt/usr/lib
 endef
