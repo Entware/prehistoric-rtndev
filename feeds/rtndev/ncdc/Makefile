@@ -1,12 +1,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ncdc
-PKG_VERSION:=1.10
+PKG_VERSION:=1.11
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://dev.yorhel.nl/download
-PKG_MD5SUM:=a56c5b16d2fd98157a70ab7eb0aea24d
+PKG_MD5SUM:=bcfa3b0e4997ed5f433a5dd26f9a9c7f
 
 PKG_FIXUP:=libtool
 PKG_INSTALL:=1
@@ -19,7 +19,7 @@ define Package/ncdc
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=ncdc is a modern and lightweight DC client
-	DEPENDS:=+libncursesw +bzip2 +libsqlite3 +glib2 +libxml2 +libgnutls $(ICONV_DEPENDS)
+	DEPENDS:=+libncursesw +bzip2 +libgnutls +libsqlite3 +glib2 $(ICONV_DEPENDS)
 	URL:=http://dev.yorhel.nl/ncdc
 endef
 
@@ -28,11 +28,13 @@ define Package/ncdc/description
 	ncurses interface.
 endef
 
-CONFIGURE_ARGS += \
-	ac_cv_file__git_=no
-
 TARGET_LDFLAGS += \
 	-Wl,-rpath-link=$(STAGING_DIR)/opt/lib
+
+define Build/Compile
+	$(HOSTCC) $(PKG_BUILD_DIR)/deps/makeheaders.c -o $(PKG_BUILD_DIR)/makeheaders
+	$(call Build/Compile/Default)
+endef
 
 define Package/ncdc/install
 	$(INSTALL_DIR) $(1)/opt/bin
