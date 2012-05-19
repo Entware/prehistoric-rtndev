@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=davfs2
 PKG_VERSION:=1.4.6-18032012
 #PKG_VERSION:=1.4.6
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 
@@ -53,6 +53,8 @@ CONFIGURE_ARGS += \
 	ssbindir=/opt/sbin \
 	dav_localstatedir=/opt/var/run \
 	dav_syscachedir=/opt/var/cache \
+
+TARGET_CPPFLAGS += -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE
 
 define Package/davfs2/install
 	$(INSTALL_DIR) $(1)/opt/sbin
