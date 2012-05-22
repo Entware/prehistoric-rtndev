@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dnscrypt-proxy
-PKG_VERSION:=0.9.3
+PKG_VERSION:=0.9.4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=https://github.com/opendns/dnscrypt-proxy/downloads
-PKG_MD5SUM:=132cb569ef69217e9e27349ca82d2415
+PKG_MD5SUM:=b13fdb10f7ab2b50e94545925dad59de
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
