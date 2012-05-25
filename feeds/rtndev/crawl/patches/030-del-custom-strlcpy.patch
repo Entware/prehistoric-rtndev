@@ -1,0 +1,40 @@
+--- a/source/libutil.cc	2012-04-10 23:47:22.000000000 +0400
++++ b/source/libutil.cc	2012-05-23 17:30:57.124457877 +0400
+@@ -982,27 +982,6 @@
+ 
+ mouse_mode mouse_control::ms_current_mode = MOUSE_MODE_NORMAL;
+ 
+-size_t strlcpy(char *dst, const char *src, size_t n)
+-{
+-    if (!n)
+-        return strlen(src);
+-
+-    const char *s = src;
+-
+-    while (--n > 0)
+-        if (!(*dst++ = *s++))
+-            break;
+-
+-    if (!n)
+-    {
+-        *dst++ = 0;
+-        while (*s++)
+-            ;
+-    }
+-
+-    return s - src - 1;
+-}
+-
+ #ifdef TARGET_OS_WINDOWS
+ // FIXME: This function should detect if aero is running, but the DwmIsCompositionEnabled
+ // function isn't included in msys, so I don't know how to do that. Instead, I just check
+--- a/source/libutil.h	2012-04-10 23:47:22.000000000 +0400
++++ b/source/libutil.h	2012-05-23 17:27:53.634764655 +0400
+@@ -74,7 +74,6 @@
+ 
+ int numcmp(const char *a, const char *b, int limit = 0);
+ bool numcmpstr(std::string a, std::string b);
+-size_t strlcpy(char *dst, const char *src, size_t n);
+ 
+ int strwidth(const char *s);
+ int strwidth(const std::string &s);

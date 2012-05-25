@@ -1,0 +1,72 @@
+--- ./source/Makefile.orig	2012-04-10 23:47:14.000000000 +0400
++++ ./source/Makefile	2012-05-25 12:19:52.820141364 +0400
+@@ -119,13 +119,13 @@
+ CFOPTIMIZE += -flto=jobserver -fwhole-program
+ endif
+ 
+-CFOTHERS := -pipe $(EXTERNAL_FLAGS)
++CFOTHERS := $(EXTERNAL_FLAGS)
+ CFWARN := -Wall -Wformat-security
+ CFWARN_L := -Wundef
+ 
+ DEFINES := $(EXTERNAL_DEFINES)
+ 
+-LDFLAGS := $(EXTERNAL_LDFLAGS)
++LDFLAGS += $(EXTERNAL_LDFLAGS)
+ 
+ #
+ # The GCC and GXX variables are set later.
+@@ -265,7 +265,7 @@
+ LIBPNG := contrib/install/$(ARCH)/lib/libpng.a
+ LIBSDLIMAGE := contrib/install/$(ARCH)/lib/libSDL_image.a
+ LIBFREETYPE := contrib/install/$(ARCH)/lib/libfreetype.a
+-LIBSQLITE := contrib/install/$(ARCH)/lib/libsqlite3.a
++LIBSQLITE := -lsqlite3
+ ifdef USE_LUAJIT
+ LIBLUA := contrib/install/$(ARCH)/lib/libluajit.a
+ else
+@@ -387,7 +387,6 @@
+ 
+ 
+ INCLUDES_L += -Icontrib/install/$(ARCH)/include
+-LIBS += -Lcontrib/install/$(ARCH)/lib
+ 
+ INCLUDES_L += -Iutil -I.
+ 
+@@ -811,10 +810,8 @@
+ NC_INCLUDE = $(NC_PREFIX)/include/ncursesw
+ endif
+ 
+-INCLUDES_L += -I$(NC_INCLUDE)
+-
+ ifndef TILES
+-LIBS += -L$(NC_PREFIX)/lib -l$(NC_LIB)
++LIBS += -l$(NC_LIB)
+ endif
+ 
+ endif
+@@ -835,13 +832,12 @@
+ CFWARN_L :=
+ endif
+ 
+-LDFLAGS += $(CFOPTIMIZE) $(CFOPTIMIZE_L)
+ 
+ ifdef REPORT
+ CFOTHERS += -ftime-report
+ endif
+ 
+-CFLAGS   := $(CFOPTIMIZE) $(CFOTHERS) $(CFWARN)
++CFLAGS   += $(CFOTHERS) $(CFWARN)
+ CFLAGS_L := $(CFOPTIMIZE_L) $(DEFINES_L) $(CFWARN_L) $(INCLUDES_L) $(CFOTHERS_L)
+ ALL_CFLAGS := $(CFLAGS) $(CFLAGS_L)
+ YACC_CFLAGS  := $(ALL_CFLAGS) -Wno-unused-function -Wno-sign-compare -DYYENABLE_NLS=0 -DYYLTYPE_IS_TRIVIAL=0
+@@ -936,8 +932,7 @@
+ CONTRIB_LIBS += $(LIBLUA)
+ endif
+ ifdef BUILD_SQLITE
+-CONTRIBS += sqlite
+-CONTRIB_LIBS += $(LIBSQLITE)
++LIBS += $(LIBSQLITE)
+ endif
+ 
+ EXTRA_OBJECTS += version.o
