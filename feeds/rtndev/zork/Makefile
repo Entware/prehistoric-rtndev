@@ -39,6 +39,8 @@ define Build/Configure
 	cat $(PKG_BUILD_DIR)/MAKEFILE_original | tr "\032" "\n" > $(PKG_BUILD_DIR)/Makefile
 endef
 
+MAKE_FLAGS += LIBS="$(TARGET_LDFLAGS)"
+
 define Package/zork/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/dungeon $(1)/opt/bin

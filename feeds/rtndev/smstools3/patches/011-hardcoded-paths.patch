@@ -36,26 +36,6 @@
        if ((fd = mkstemp(tmp_data)) == -1)
          error = "Cannot create test data file.";
        else
---- a/src/smsd_cfg.h	2012-04-12 13:16:23.516492500 +0400
-+++ b/src/smsd_cfg.h	2012-04-12 13:20:55.760880121 +0400
-@@ -23,7 +23,7 @@
- #ifndef __FreeBSD__
- #define DEFAULT_CONFIGFILE "/etc/smsd.conf"
- #else
--#define DEFAULT_CONFIGFILE "%%PREFIX%%/etc/smsd.conf"
-+#define DEFAULT_CONFIGFILE "/opt/etc/smsd.conf"
- #endif
- 
- #define DATETIME_DEFAULT "%y-%m-%d %H:%M:%S"
-@@ -32,7 +32,7 @@
- 
- #define CONCATENATED_DIR_FNAME "%s/%s-concatenated"
- 
--#define MM_CORE_FNAME "/tmp/mm_smsd_%i" /* %i is PID */
-+#define MM_CORE_FNAME "/opt/tmp/mm_smsd_%i" /* %i is PID */
- 
- #define NUMS 64
- #define SIZE_NUM 16
 --- a/src/smsd.c	2010-09-21 13:47:47.000000000 +0400
 +++ b/src/smsd.c	2012-04-12 13:22:49.161297293 +0400
 @@ -817,7 +817,7 @@
@@ -76,3 +56,26 @@
  				fd = mkstemp(tmp_filename);
  				write(fd, answer, strlen(answer));
  				write(fd, "\n", 1);
+--- a/src/smsd_cfg.h	2010-09-20 15:11:26.000000000 +0400
++++ b/src/smsd_cfg.h	2012-05-27 16:07:44.040846557 +0400
+@@ -21,9 +21,9 @@
+ #include <time.h>
+ 
+ #ifndef __FreeBSD__
+-#define DEFAULT_CONFIGFILE "/etc/smsd.conf"
++#define DEFAULT_CONFIGFILE "/opt/etc/smsd.conf"
+ #else
+-#define DEFAULT_CONFIGFILE "%%PREFIX%%/etc/smsd.conf"
++#define DEFAULT_CONFIGFILE "/opt/etc/smsd.conf"
+ #endif
+ 
+ #define DATETIME_DEFAULT "%y-%m-%d %H:%M:%S"
+@@ -32,7 +32,7 @@
+ 
+ #define CONCATENATED_DIR_FNAME "%s/%s-concatenated"
+ 
+-#define MM_CORE_FNAME "/tmp/mm_smsd_%i" /* %i is PID */
++#define MM_CORE_FNAME "/opt/tmp/mm_smsd_%i" /* %i is PID */
+ 
+ #define NUMS 64
+ #define SIZE_NUM 16
