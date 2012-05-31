@@ -42,6 +42,8 @@ define Package/cron/install
 		$(1)/opt/var/run \
 		$(1)/opt/var/cron/crontabs \
 		$(1)/opt/etc/cron.{1min,5min,hourly,daily,weekly,monthly}
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S10cron $(1)/opt/etc/init.d/
 endef
 
 $(eval $(call BuildPackage,cron))

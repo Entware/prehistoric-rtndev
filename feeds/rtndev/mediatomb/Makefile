@@ -87,6 +87,8 @@ define Package/mediatomb/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/mediatomb $(1)/opt/bin/
 	$(CP)  $(PKG_INSTALL_DIR)/opt/share/* $(1)/opt/share/
 	$(INSTALL_DATA) ./files/config.xml $(1)/opt/etc/mediatomb/
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S90mediatomb $(1)/opt/etc/init.d
 endef
 
 $(eval $(call BuildPackage,mediatomb))

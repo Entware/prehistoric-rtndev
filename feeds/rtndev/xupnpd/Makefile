@@ -49,6 +49,8 @@ define Package/xupnpd/install
 	$(CP) $(PKG_BUILD_DIR)/playlists/* $(1)/opt/share/xupnpd/playlists
 	$(INSTALL_DIR) $(1)/opt/share/xupnpd/playlists/example
 	$(CP) $(PKG_BUILD_DIR)/playlists/example/* $(1)/opt/share/xupnpd/playlists/example
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S94xupnpd $(1)/opt/etc/init.d
 endef
 
 $(eval $(call BuildPackage,xupnpd))

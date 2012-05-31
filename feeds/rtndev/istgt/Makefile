@@ -45,6 +45,8 @@ define Package/istgt/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/istgtcontrol $(1)/opt/bin
 	$(INSTALL_DIR) $(1)/opt/etc/istgt
 	$(INSTALL_CONF) $(PKG_INSTALL_DIR)/opt/etc/istgt/{auth,istgt,istgt.large,istgtcontrol}.conf.sample $(1)/opt/etc/istgt
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S13istgt $(1)/opt/etc/init.d
 endef
 
 $(eval $(call BuildPackage,istgt))

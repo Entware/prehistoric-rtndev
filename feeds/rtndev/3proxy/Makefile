@@ -57,6 +57,8 @@ define Package/3proxy/install
 	touch $(1)/opt/etc/3proxy/bandlimiters
 	chmod 0600 $(1)/opt/etc/3proxy/*
 	$(CP) $(PKG_BUILD_DIR)/scripts/add3proxyuser.sh $(1)/opt/etc/3proxy
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S23proxy $(1)/opt/etc/init.d
 endef
 
 $(eval $(call BuildPackage,3proxy))

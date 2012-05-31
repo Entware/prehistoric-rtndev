@@ -76,6 +76,8 @@ define Package/pvpgn/install
 	$(INSTALL_DIR) $(1)/opt/var/bak/{charinfo,charsave}
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/var/files/* $(1)/opt/var/files/
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/$(PVPGN_SUPP)/* $(1)/opt/var/files/
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S97bnetd $(1)/opt/etc/init.d
 endef
 
 $(eval $(call BuildPackage,pvpgn))

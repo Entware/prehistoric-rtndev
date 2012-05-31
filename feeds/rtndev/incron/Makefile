@@ -40,6 +40,8 @@ define Package/incron/install
 	$(INSTALL_DIR) $(1)/opt/var/spool/incron $(1)/opt/etc/incron.d
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/incron.conf.example  $(1)/opt/etc/incron.conf
 	$(INSTALL_DIR) $(1)/opt/var/run
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S12incron $(1)/opt/etc/init.d
 endef
 
 $(eval $(call BuildPackage,incron))

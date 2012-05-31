@@ -39,6 +39,8 @@ CONFIGURE_VARS += \
 define Package/dnscrypt-proxy/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/dnscrypt-proxy $(1)/opt/sbin
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S09dnscrypt-proxy $(1)/opt/etc/init.d/
 endef
 
 $(eval $(call BuildPackage,dnscrypt-proxy))

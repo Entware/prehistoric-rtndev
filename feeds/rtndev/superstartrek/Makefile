@@ -14,13 +14,13 @@ include $(INCLUDE_DIR)/package.mk
 define Package/superstartrek
 	SECTION:=games
 	CATEGORY:=Games
-	TITLE:=A quite possibly the best of the "Star Trek" games from the 1970's
+	TITLE:=A quite possibly the best of the Star Trek games from the 1970s
 	URL:=http://www.almy.us/sst.html
 endef
 
 define Package/superstartrek/description
-	Super Star Trek is quite possibly the best of the "Star Trek" games 
-	from the 1970's. Of course, it does not make use of graphics, or even 
+	Super Star Trek is quite possibly the best of the Star Trek games 
+	from the 1970s. Of course, it does not make use of graphics, or even 
 	assume a video display, but it still an interesting game to play, 
 	particularly for those of us who don't have the reflexes we used to and 
 	prefer a more cerebral computer game.

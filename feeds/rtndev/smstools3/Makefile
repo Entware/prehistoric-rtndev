@@ -40,6 +40,8 @@ define Package/smstools3/install
 	$(INSTALL_DIR) $(1)/opt/etc
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/examples/smsd.conf.easy $(1)/opt/etc/smsd.conf
 	$(INSTALL_DIR) $(1)/opt/var/spool/sms/{incoming,outgoing,checked} $(1)/opt/var/run
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S53smstools3 $(1)/opt/etc/init.d/
 endef
 
 $(eval $(call BuildPackage,smstools3))

@@ -53,6 +53,8 @@ define Package/gogoclient/install
 	$(INSTALL_DIR) $(1)/opt/etc
 	$(INSTALL_DATA) ./files/gw6c.conf $(1)/opt/etc/
 	$(INSTALL_DIR) $(1)/opt/var/log
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S11gw6c $(1)/opt/etc/init.d/
 endef
 
 define Package/gogoclient/conffiles

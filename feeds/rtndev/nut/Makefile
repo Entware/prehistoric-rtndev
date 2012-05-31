@@ -70,6 +70,8 @@ define Package/nut/install
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/{cmdvartab,driver.list} $(1)/opt/share
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/www/nut/{bottom.html,header.html,index.html,nut-banner.png} $(1)/opt/share/www/nut
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/share/www/cgi-bin/nut/*.cgi $(1)/opt/share/www/cgi-bin/nut
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/{S14usbhid-ups,S15upsd} $(1)/opt/etc/init.d/
 endef
 
 $(eval $(call BuildPackage,nut))
