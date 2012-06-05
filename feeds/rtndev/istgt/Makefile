@@ -17,8 +17,6 @@ PKG_MD5SUM:=f9a685851e127f018502a07181d7799e
 
 PKG_INSTALL:=1
 
-#PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
-
 include $(INCLUDE_DIR)/package.mk
 
 define Package/istgt
