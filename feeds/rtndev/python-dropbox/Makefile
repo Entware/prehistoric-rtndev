@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-dropbox
-PKG_VERSION:=1.4
+PKG_VERSION:=1.4.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=dropbox-python-sdk-$(PKG_VERSION).zip
 PKG_SOURCE_URL:=https://www.dropbox.com/static/developers
-PKG_MD5SUM:=e8db82d88697951a0dfb887f1450c60a
+PKG_MD5SUM:=29f8f691b864f393b4956ddeba92b63e
 PKG_BUILD_DEPENDS:=python
 PKG_BUILD_DIR:=$(BUILD_DIR)/dropbox-$(PKG_VERSION)
 
