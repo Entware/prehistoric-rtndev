@@ -1,0 +1,31 @@
+--- a/rutorrent/conf/config.php	2012-05-04 15:21:00.000000000 +0400
++++ b/rutorrent/conf/config.php	2012-06-05 15:10:04.000000000 +0400
+@@ -17,7 +17,7 @@
+ 	@define('PHP_GZIP_LEVEL', 2, true);
+ 
+ 	$do_diagnostic = true;
+-	$log_file = '/tmp/errors.log';		// path to log file (comment or leave blank to disable logging)
++	$log_file = '/opt/tmp/errors.log';		// path to log file (comment or leave blank to disable logging)
+ 
+ 	$saveUploadedTorrents = true;		// Save uploaded torrents to profile/torrents directory or not
+ 	$overwriteUploadedTorrents = false;     // Overwrite existing uploaded torrents in profile/torrents directory or make unique name
+@@ -25,15 +25,15 @@
+ 	$topDirectory = '/';			// Upper available directory. Absolute path with trail slash.
+ 	$forbidUserSettings = false;
+ 
+-	$scgi_port = 5000;
+-	$scgi_host = "127.0.0.1";
++	// $scgi_port = 5000;
++	// $scgi_host = "127.0.0.1";
+ 
+ 	// For web->rtorrent link through unix domain socket 
+ 	// (scgi_local in rtorrent conf file), change variables 
+ 	// above to something like this:
+ 	//
+-	// $scgi_port = 0;
+-	// $scgi_host = "unix:///tmp/rpc.socket";
++	$scgi_port = 0;
++	$scgi_host = "unix:///opt/var/rpc.socket";
+ 
+ 	$XMLRPCMountPoint = "/RPC2";		// DO NOT DELETE THIS LINE!!! DO NOT COMMENT THIS LINE!!!
+ 
