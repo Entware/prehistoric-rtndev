@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=incron
-PKG_VERSION:=0.5.9
+PKG_VERSION:=0.5.10
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://inotify.aiken.cz/download/incron/
-PKG_MD5SUM:=a285b9e14af7bf9f9524fe051a06255f
+PKG_MD5SUM:=67f8b671db8169edccc8ef11c7d2c8be
 
 include $(INCLUDE_DIR)/package.mk
 
