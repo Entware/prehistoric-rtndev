@@ -1,12 +1,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cpulimit
-PKG_VERSION:=1.5
-PKG_RELEASE:=2
+PKG_VERSION:=1.7
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/limitcpu
-PKG_MD5SUM:=d44f79353950fb5b97bcdd6ffd0a186c
+PKG_MD5SUM:=7440198b930ac77bcb13b4e24c72e06f
 
 include $(INCLUDE_DIR)/package.mk
 
