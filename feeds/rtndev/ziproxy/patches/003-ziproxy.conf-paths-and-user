@@ -1,0 +1,106 @@
+--- ./etc/ziproxy/ziproxy.conf.orig	2010-09-04 06:06:15.000000000 +0400
++++ ./etc/ziproxy/ziproxy.conf	2012-06-05 09:35:06.000000000 +0400
+@@ -42,3 +42,3 @@
+ ## default: unspecified (dumps PID to stdout)
+-# PIDFile = "/var/run/ziproxy.pid"
++# PIDFile = "/opt/var/run/ziproxy.pid"
+ 
+@@ -49,3 +49,3 @@
+ ## default: unspecified (does not change user)
+-# RunAsUser = "ziproxy"
++RunAsUser = "nobody"
+ 
+@@ -56,3 +56,3 @@
+ ## default: unspecified (does not change group)
+-# RunAsGroup = "ziproxy"
++RunAsGroup = "nobody"
+ 
+@@ -122,3 +122,3 @@
+ ## Default: none
+-# TOSMarkAsDiffURL = "/etc/ziproxy/change_tos.list"
++# TOSMarkAsDiffURL = "/opt/etc/ziproxy/change_tos.list"
+ 
+@@ -196,3 +196,3 @@
+ ## Disabled by default.
+-# DebugLog = "/var/log/ziproxy/debug.log"
++# DebugLog = "/opt/var/log/ziproxy/debug.log"
+ 
+@@ -211,3 +211,3 @@
+ ## Default: undefined (dumps to stderr).
+-# ErrorLog = "/var/log/ziproxy/error.log"
++# ErrorLog = "/opt/var/log/ziproxy/error.log"
+ 
+@@ -243,3 +243,3 @@
+ ## Disabled by default.
+-# AccessLog = "/var/log/ziproxy/access.log"
++# AccessLog = "/opt/var/log/ziproxy/access.log"
+ 
+@@ -263,3 +263,3 @@
+ ## 1: plain text file
+-## 2: SASL (auxprop, see /etc/ziproxy/sasl/ziproxy.conf)
++## 2: SASL (auxprop, see /opt/etc/ziproxy/sasl/ziproxy.conf)
+ ##
+@@ -281,3 +281,3 @@
+ ## See also: AuthMode
+-# AuthPasswdFile = "/etc/ziproxy/http.passwd"
++# AuthPasswdFile = "/opt/etc/ziproxy/http.passwd"
+ 
+@@ -288,5 +288,5 @@
+ ##
+-## Default: (default SASL setting, OS-dependent, may be /etc/sasl2/)
++## Default: (default SASL setting, OS-dependent, may be /opt/etc/sasl2/)
+ ## See also: AuthMode
+-# AuthSASLConfPath = "/etc/ziproxy/sasl/"
++# AuthSASLConfPath = "/opt/etc/ziproxy/sasl/"
+ 
+@@ -332,3 +332,3 @@
+ ## See also: BindOutgoingExAddr
+-# BindOutgoingExList="/etc/ziproxy/bo_exception.list"
++# BindOutgoingExList="/opt/etc/ziproxy/bo_exception.list"
+ 
+@@ -704,3 +704,3 @@
+ ## Default: empty (no file specified, inactive)
+-# URLNoProcessing = "/etc/ziproxy/noprocess.list"
++# URLNoProcessing = "/opt/etc/ziproxy/noprocess.list"
+ 
+@@ -723,3 +723,3 @@
+ ## See also: URLReplaceDataCT
+-# URLReplaceData = "/etc/ziproxy/replace.list"
++# URLReplaceData = "/opt/etc/ziproxy/replace.list"
+ 
+@@ -737,3 +737,3 @@
+ ## See also: URLReplaceDataCTList, URLReplaceData
+-# URLReplaceDataCT = "/etc/ziproxy/replace_ct.list"
++# URLReplaceDataCT = "/opt/etc/ziproxy/replace_ct.list"
+ 
+@@ -763,3 +763,3 @@
+ ## Default: empty (no file specified, inactive)
+-# URLDeny = "/etc/ziproxy/deny.list"
++# URLDeny = "/opt/etc/ziproxy/deny.list"
+ 
+@@ -771,17 +771,17 @@
+ ## 400 - Bad request (malformed URL, or unknown URL type)
+-# CustomError400="/var/ziproxy/error/400.html"
++# CustomError400="/opt/var/ziproxy/error/400.html"
+ ## 403 - Forbidden
+-# CustomError403="/var/ziproxy/error/403.html"
++# CustomError403="/opt/var/ziproxy/error/403.html"
+ ## 404 - Unknown host (Ziproxy will not issue 'page not found' errors itself)
+-# CustomError404="/var/ziproxy/error/404.html"
++# CustomError404="/opt/var/ziproxy/error/404.html"
+ ## 407 - Proxy Authentication Required
+-# CustomError407="/var/ziproxy/error/407.html"
++# CustomError407="/opt/var/ziproxy/error/407.html"
+ ## 408 - Request timed out
+-# CustomError408="/var/ziproxy/error/408.html"
++# CustomError408="/opt/var/ziproxy/error/408.html"
+ ## 409 - Conflict
+-# CustomError409="/var/ziproxy/error/409.html"
++# CustomError409="/opt/var/ziproxy/error/409.html"
+ ## 500 - Internal error (or empty response from server)
+-# CustomError500="/var/ziproxy/error/500.html"
++# CustomError500="/opt/var/ziproxy/error/500.html"
+ ## 503 - Connection refused (or service unavailable)
+-# CustomError503="/var/ziproxy/error/503.html"
++# CustomError503="/opt/var/ziproxy/error/503.html"
+ 

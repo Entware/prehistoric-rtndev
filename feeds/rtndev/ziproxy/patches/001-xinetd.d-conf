@@ -1,0 +1,13 @@
+--- ./etc/xinetd.d/ziproxy.original	2008-01-15 21:01:38.000000000 +0300
++++ ./etc/xinetd.d/ziproxy	2012-06-04 14:39:37.000000000 +0400
+@@ -4,8 +4,8 @@
+  	socket_type		= stream
+  	wait			= no
+  	user			= root
+- 	server			= /usr/bin/ziproxy
+-	server_args		= -i -c /etc/ziproxy/ziproxy.conf
++ 	server			= /opt/bin/ziproxy
++	server_args		= -i -c /opt/etc/ziproxy/ziproxy.conf
+  	log_on_success		+= USERID
+  	log_on_failure		+= USERID
+  	disable			= yes

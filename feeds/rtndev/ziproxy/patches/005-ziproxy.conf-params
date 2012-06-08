@@ -1,0 +1,46 @@
+--- ./etc/ziproxy/ziproxy.conf.p003	2012-06-05 09:36:54.000000000 +0400
++++ ./etc/ziproxy/ziproxy.conf	2012-06-05 09:43:41.000000000 +0400
+@@ -33,3 +33,3 @@
+ ## default: 0 (no limit -- relies on OS limit instead)
+-# MaxActiveUserConnections = 20
++MaxActiveUserConnections = 4
+ 
+@@ -42,3 +42,3 @@
+ ## default: unspecified (dumps PID to stdout)
+-# PIDFile = "/opt/var/run/ziproxy.pid"
++PIDFile = "/opt/var/run/ziproxy.pid"
+ 
+@@ -522,3 +522,3 @@
+ ##   (default used to be "0" in ziproxy 2.3.0 and earlier)
+-# MaxSize = 1048576
++MaxSize = 524288
+ 
+@@ -618,4 +618,4 @@
+ ##
+-# ProcessHTML = false
+-# ProcessCSS = false
++ProcessHTML = true
++ProcessCSS = true
+ # ProcessJS = false
+@@ -629,9 +629,9 @@
+ ##
+-# ProcessHTML_CSS = true
+-# ProcessHTML_JS = true
+-# ProcessHTML_tags = true
+-# ProcessHTML_text = true
+-# ProcessHTML_PRE = true
+-# ProcessHTML_NoComments = true
+-# ProcessHTML_TEXTAREA = true
++ProcessHTML_CSS = true
++ProcessHTML_JS = false
++ProcessHTML_tags = true
++ProcessHTML_text = true
++ProcessHTML_PRE = true
++ProcessHTML_NoComments = true
++ProcessHTML_TEXTAREA = true
+ 
+@@ -670,3 +670,3 @@
+ ## Image quality is specified in integers between 100 (best) and 0 (worst).
+-ImageQuality = {30,25,25,20}
++ImageQuality = {35,30,25,20}
+ 
