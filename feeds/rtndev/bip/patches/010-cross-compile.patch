@@ -1,0 +1,11 @@
+--- a/configure.ac	2011-04-12 04:14:18.000000000 +0400
++++ b/configure.ac	2012-06-10 13:55:34.087958514 +0400
+@@ -52,8 +52,6 @@
+ 		backtrace="(with backtrace)"
+ 	])
+ ], [
+-	CFLAGS="-O2 -g -W -Wall"
+-	LDFLAGS="-g"
+ 	enable_debug=no
+ ])
+ 
