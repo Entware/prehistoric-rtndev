@@ -34,7 +34,7 @@ endef
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_BUILD_DIR)/include $(1)/opt/include/
+	$(CP) $(PKG_BUILD_DIR)/include/* $(1)/opt/include/
 	$(INSTALL_DIR) $(1)/opt/lib
 	$(CP) $(PKG_BUILD_DIR)/uv.a $(1)/opt/lib/
 endef

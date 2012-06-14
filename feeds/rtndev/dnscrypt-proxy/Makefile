@@ -8,10 +8,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dnscrypt-proxy
-PKG_VERSION:=0.9.3
-PKG_RELEASE:=1
+PKG_VERSION:=0.9.5
+PKG_RELEASE:=2
 
-PKG_REV:=756f1b59608173ccfa682ae83b99957e43b4e1de
+PKG_REV:=241a3e800e4078a23d2af876255e903aeb054197
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -20,6 +20,7 @@ PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_INSTALL:=1
 PKG_FIXUP:=libtool
+PKG_BUILD_DEPENDS:=nacl libuv
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -39,7 +40,10 @@ define Package/dnscrypt-proxy/description
 endef
 
 CONFIGURE_VARS += \
-	ax_cv_check_cflags___fstack_protector_all=no
+	LIBS="$(STAGING_DIR)/opt/lib/uv.a"
+
+TARGET_LDFLAGS += \
+	-Wl,--gc-sections
 
 define Package/dnscrypt-proxy/install
 	$(INSTALL_DIR) $(1)/opt/sbin
