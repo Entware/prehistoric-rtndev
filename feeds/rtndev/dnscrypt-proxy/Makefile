@@ -9,10 +9,11 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dnscrypt-proxy
 PKG_VERSION:=0.9.5
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
-PKG_REV:=241a3e800e4078a23d2af876255e903aeb054197
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_BRANCH:=libevent
+PKG_REV:=5078cf19a40787402a7b48680e0cd4682d79a7b0
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_BRANCH)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=git://github.com/opendns/dnscrypt-proxy.git
@@ -20,7 +21,6 @@ PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_INSTALL:=1
 PKG_FIXUP:=libtool
-PKG_BUILD_DEPENDS:=nacl libuv
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -38,12 +38,6 @@ define Package/dnscrypt-proxy/description
 	high-speed high-security elliptic-curve cryptography. Best of all, DNSCurve 
 	has very low overhead and adds virtually no latency to queries.
 endef
-
-CONFIGURE_VARS += \
-	LIBS="$(STAGING_DIR)/opt/lib/uv.a"
-
-TARGET_LDFLAGS += \
-	-Wl,--gc-sections
 
 define Package/dnscrypt-proxy/install
 	$(INSTALL_DIR) $(1)/opt/sbin
