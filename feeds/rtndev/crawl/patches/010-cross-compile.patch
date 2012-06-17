@@ -1,5 +1,5 @@
---- ./source/Makefile.orig	2012-04-10 23:47:14.000000000 +0400
-+++ ./source/Makefile	2012-05-25 12:19:52.820141364 +0400
+--- a/source/Makefile	2012-04-10 23:47:14.000000000 +0400
++++ b/source/Makefile	2012-06-17 17:14:44.494311069 +0400
 @@ -119,13 +119,13 @@
  CFOPTIMIZE += -flto=jobserver -fwhole-program
  endif
@@ -25,6 +25,15 @@
  ifdef USE_LUAJIT
  LIBLUA := contrib/install/$(ARCH)/lib/libluajit.a
  else
+@@ -275,7 +275,7 @@
+ 
+ ifndef CROSSHOST
+ 	LUA_INCLUDE_DIR := /usr/include/lua5.1
+-	SQLITE_INCLUDE_DIR := /usr/include
++	SQLITE_INCLUDE_DIR := .
+ else
+ 	# This is totally wrong, works only with some old-style setups, and
+ 	# on some architectures of Debian/new FHS multiarch -- excluding, for
 @@ -387,7 +387,6 @@
  
  
