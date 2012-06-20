@@ -1,3 +1,9 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -16,13 +22,14 @@ include $(INCLUDE_DIR)/package.mk
 define Package/zork
 	SECTION:=games
 	CATEGORY:=Games
-	TITLE:=Zork (also named as 'Dungeon') is a text adventure game
+	TITLE:=Zork (also named as Dungeon) is a text adventure game
 	URL:=http://richelbilderbeek.nl/GameZork.htm
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/zork/description
-	Zork (also named as 'Dungeon') is a text adventure game written by 
-	Tim Anderson, Marc Blank, Bruce Daniels, and Dave Lebling in 1980.
+ Zork (also named as Dungeon) is a text adventure game written by
+ Tim Anderson, Marc Blank, Bruce Daniels, and Dave Lebling in 1980.
 endef
 
 define Build/Configure

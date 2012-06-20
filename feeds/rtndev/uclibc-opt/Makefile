@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -18,11 +18,12 @@ define Package/uclibc-opt
 	CATEGORY:=Libraries
 	DEPENDS:=+libc +libgcc +libstdcpp +libpthread +librt +ldconfig +findutils
 	TITLE:=uclibc-opt metapackage provides basic uclibc libraries
-	URL:=http://uclibc.org/
+	URL:=http://uclibc.org
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/uclibc-opt/description
-	uclibc-opt used to configure libraries search path to /opt/lib. Nothing more.
+ uclibc-opt used to configure libraries search path to /opt/lib. Nothing more.
 endef
 
 define Build/Configure

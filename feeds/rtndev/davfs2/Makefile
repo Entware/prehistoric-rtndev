@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2007-2008 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -9,14 +9,9 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=davfs2
 PKG_VERSION:=1.4.6-18032012
-#PKG_VERSION:=1.4.6
 PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-
-#PKG_SOURCE_URL:=http://download.savannah.gnu.org/releases/davfs2
-#PKG_MD5SUM:=c9e8aeb15daeba4b6283b40bb640e908
-
 PKG_SOURCE_URL:=:pserver:anonymous@cvs.sv.gnu.org:/sources/davfs2
 PKG_SOURCE_SUBDIR:=davfs2
 PKG_SOURCE_VERSION:=-D'03/19/2012'
@@ -31,17 +26,18 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/davfs2
-  SECTION:=net
-  CATEGORY:=Network
-  SUBMENU:=Filesystem
-  DEPENDS:=+libneon +libfuse +libopenssl $(ICONV_DEPENDS) $(INTL_DEPENDS)
-  TITLE:=Mounts a WebDAV resource
-  URL:=http://savannah.nongnu.org/projects/davfs2
+	SECTION:=net
+	CATEGORY:=Network
+	SUBMENU:=Filesystem
+	DEPENDS:=+libneon +libfuse +libopenssl $(ICONV_DEPENDS) $(INTL_DEPENDS)
+	TITLE:=Mounts a WebDAV resource
+	URL:=http://savannah.nongnu.org/projects/davfs2
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/davfs2/description
-	Mount a WebDAV resource as a regular file system. davfs2 will work with
-	most WebDAV servers needing little or no configuration.
+ Mount a WebDAV resource as a regular file system. davfs2 will work with
+ most WebDAV servers needing little or no configuration.
 endef
 
 CONFIGURE_ARGS += \

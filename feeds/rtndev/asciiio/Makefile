@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -23,14 +23,15 @@ include $(INCLUDE_DIR)/package.mk
 define Package/asciiio
 	SECTION:=utils
 	CATEGORY:=Utilities
+	SUBMENU:=Terminal
 	DEPENDS:=+python +python-bzip2 +coreutils-stty +curl
 	TITLE:=A terminal sessions recorder
-	URL:=http://ascii.io/
-	SUBMENU:=Terminal
+	URL:=http://ascii.io
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/asciiio/description
-	ascii.io lets you record your terminal sessions and share them with other geeks
+ ascii.io lets you record your terminal sessions and share it with other geeks.
 endef
 
 define Build/Configure

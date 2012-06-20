@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -21,15 +21,16 @@ define Package/p0f
 	SECTION:=net
 	CATEGORY:=Network
 	DEPENDS:=+libpcap
-	TITLE:=purely passive traffic fingerprinting
-	URL:=http://lcamtuf.coredump.cx/p0f3/
+	TITLE:=Purely passive traffic fingerprinting
+	URL:=http://lcamtuf.coredump.cx/p0f3
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/p0f/description
-	P0f is a tool that utilizes an array of sophisticated, purely passive traffic
-	fingerprinting mechanisms to identify the players behind any incidental TCP/IP
-	communications (often as little as a single normal SYN) without interfering in
-	any way.
+ P0f is a tool that utilizes an array of sophisticated, purely passive traffic
+ fingerprinting mechanisms to identify the players behind any incidental TCP/IP
+ communications (often as little as a single normal SYN) without interfering in
+ any way.
 endef
 
 define Package/p0f/install

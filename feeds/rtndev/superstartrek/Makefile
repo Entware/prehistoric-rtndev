@@ -1,3 +1,10 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=superstartrek
@@ -16,14 +23,15 @@ define Package/superstartrek
 	CATEGORY:=Games
 	TITLE:=A quite possibly the best of the Star Trek games from the 1970s
 	URL:=http://www.almy.us/sst.html
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/superstartrek/description
-	Super Star Trek is quite possibly the best of the Star Trek games 
-	from the 1970s. Of course, it does not make use of graphics, or even 
-	assume a video display, but it still an interesting game to play, 
-	particularly for those of us who don't have the reflexes we used to and 
-	prefer a more cerebral computer game.
+ Super Star Trek is quite possibly the best of the Star Trek games
+ from the 1970s. Of course, it does not make use of graphics, or even assume
+ a video display, but it still an interesting game to play, particularly for
+ those of us who don't have the reflexes we used to and  prefer a more cerebral
+ computer game.
 endef
 
 define Build/Configure

@@ -1,3 +1,10 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=smstools3
@@ -15,14 +22,15 @@ include $(INCLUDE_DIR)/package.mk
 define Package/smstools3
 	SECTION:=net
 	CATEGORY:=Network
-	TITLE:=smstools3
 	DEPENDS:=+iconv
-	URL:=http://smstools3.kekekasvi.com/
+	TITLE:=smstools3
+	URL:=http://smstools3.kekekasvi.com
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/smstools3/description
-	The SMS Server Tools 3 is a SMS Gateway software which can send and receive
-	short messages through GSM modems and mobile phones.
+ The SMS Server Tools 3 is a SMS Gateway software which can send and receive
+ short messages through GSM modems and mobile phones.
 endef
 
 define Build/Compile

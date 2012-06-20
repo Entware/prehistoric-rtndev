@@ -1,3 +1,10 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ncdc
@@ -15,17 +22,18 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/ncdc
-	SUBMENU:=P2P
 	SECTION:=net
 	CATEGORY:=Network
+	SUBMENU:=P2P
 	TITLE:=ncdc is a modern and lightweight DC client
 	DEPENDS:=+libncursesw +bzip2 +libgnutls +libsqlite3 +glib2 $(ICONV_DEPENDS)
 	URL:=http://dev.yorhel.nl/ncdc
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/ncdc/description
-	ncdc is a modern and lightweight direct connect client with a friendly
-	ncurses interface.
+ ncdc is a modern and lightweight direct connect client with a friendly
+ ncurses interface.
 endef
 
 TARGET_LDFLAGS += \

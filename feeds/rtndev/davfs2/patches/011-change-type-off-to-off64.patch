@@ -1,5 +1,5 @@
---- ./src/webdav.h.orig	2012-04-13 13:38:47.731142835 +0400
-+++ ./src/webdav.h	2012-04-13 13:39:05.498924039 +0400
+--- a/src/webdav.h	2012-04-13 13:38:47.731142835 +0400
++++ b/src/webdav.h	2012-04-13 13:39:05.498924039 +0400
 @@ -252,7 +252,7 @@
     If quota information is not
     available, an error is returned and available and used are not changed. */ 

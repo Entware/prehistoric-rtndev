@@ -1,3 +1,10 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ziproxy
@@ -17,10 +24,13 @@ define Package/ziproxy
 	DEPENDS:=+giflib +libjpeg +libpng +zlib +libsasl2
 	TITLE:=compressing HTTP proxy server
 	URL:=http://ziproxy.sourceforge.net
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/ziproxy/description
-	ziproxy is a forwarding, non-caching and compressing HTTP proxy server. Basically it squeezes images by converting them to lower quality JPEGs and compresses (gzip) HTML and other text-like data
+ ziproxy is a forwarding, non-caching and compressing HTTP proxy server.
+ Basically it squeezes images by converting them to lower quality JPEGs
+ and compresses (gzip) HTML and other text-like data.
 endef
 
 define Package/ziproxy/conffiles
@@ -37,9 +47,9 @@ define Package/ziproxy/conffiles
 endef
 
 CONFIGURE_ARGS += \
-        --without-jasper \
-        --exec-prefix=/opt \
-        --prefix=/opt \
+	--without-jasper \
+	--exec-prefix=/opt \
+	--prefix=/opt \
 	--with-cfgfile=/opt/etc/ziproxy/ziproxy.conf
 
 define Package/ziproxy/install
@@ -48,7 +58,6 @@ define Package/ziproxy/install
 		$(PKG_BUILD_DIR)/src/ziproxy \
 		$(PKG_BUILD_DIR)/src/tools/ziproxylogtool \
 		$(PKG_BUILD_DIR)/src/tools/ziproxy_genhtml_stats.sh $(1)/opt/bin/
-	$(INSTALL_DIR) $(1)/opt/etc
 	$(INSTALL_DIR) $(1)/opt/etc/xinetd.d
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/etc/xinetd.d/ziproxy $(1)/opt/etc/xinetd.d/ziproxy
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
@@ -56,18 +65,18 @@ define Package/ziproxy/install
 	$(INSTALL_DIR) $(1)/opt/etc/ziproxy
 	$(INSTALL_CONF) \
 		$(PKG_BUILD_DIR)/etc/ziproxy/ziproxy.conf \
+		$(PKG_BUILD_DIR)/etc/ziproxy/http.passwd \
 		$(PKG_BUILD_DIR)/etc/ziproxy/bo_exception.list \
 		$(PKG_BUILD_DIR)/etc/ziproxy/change_tos.list \
 		$(PKG_BUILD_DIR)/etc/ziproxy/deny.list \
-		$(PKG_BUILD_DIR)/etc/ziproxy/http.passwd \
 		$(PKG_BUILD_DIR)/etc/ziproxy/noprocess.list \
 		$(PKG_BUILD_DIR)/etc/ziproxy/replace.list \
-		$(PKG_BUILD_DIR)/etc/ziproxy/replace_ct.list $(1)/opt/etc/ziproxy/
+		$(PKG_BUILD_DIR)/etc/ziproxy/replace_ct.list \
+			$(1)/opt/etc/ziproxy/
 	$(INSTALL_DIR) $(1)/opt/etc/ziproxy/sasl
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/etc/ziproxy/sasl/ziproxy.conf $(1)/opt/etc/ziproxy/sasl/
 	$(INSTALL_DIR) $(1)/opt/var/log/ziproxy
 	touch $(1)/opt/var/log/ziproxy/access.log
-
 endef
 
 $(eval $(call BuildPackage,ziproxy))

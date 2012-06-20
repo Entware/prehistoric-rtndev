@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2007-2008 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -20,18 +20,19 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/istgt
-  SECTION:=net
-  CATEGORY:=Network
-  SUBMENU:=Filesystem
-  DEPENDS:=+libopenssl
-  TITLE:=An iSCSI target implementation
-  URL:=http://savannah.nongnu.org/projects/istgt
+	SECTION:=net
+	CATEGORY:=Network
+	SUBMENU:=Filesystem
+	DEPENDS:=+libopenssl
+	TITLE:=An iSCSI target implementation
+	URL:=http://savannah.nongnu.org/projects/istgt
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/istgt/description
-	This is a BSD Port of istgt, which  provides iSCSI target side protocol
-	(refer to RFC3720 about iSCSI) and SPC-3 (SCSI Primary Commands - 3)
-	based logical unit emulation.
+ This is a BSD Port of istgt, which  provides iSCSI target side protocol
+ (refer to RFC3720 about iSCSI) and SPC-3 (SCSI Primary Commands - 3)
+ based logical unit emulation.
 endef
 
 CONFIGURE_ARGS += \

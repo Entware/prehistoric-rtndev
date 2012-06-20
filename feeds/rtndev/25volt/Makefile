@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -21,12 +21,14 @@ define Package/25volt
 	SECTION:=utils
 	CATEGORY:=Utilities
 	DEPENDS:=+libusb
-	TITLE:=25volt a tool for monitoring ups POWERCOM Imperial series.
-	URL:=http://25volt.ru/
+	TITLE:=25volt a tool for monitoring ups POWERCOM Imperial series
+	URL:=http://25volt.ru
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/25volt/description
-	25volt - A lightweight tool for monitoring ups POWERCOM Imperial IMD-1025AP and maybe other for FreeBSD and Linux.
+ 25volt - A lightweight tool for monitoring ups POWERCOM Imperial IMD-1025AP
+ and maybe other for FreeBSD and Linux.
 endef
 
 define Build/Compile

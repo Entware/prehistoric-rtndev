@@ -1,5 +1,11 @@
-# Copyright (C) 2012 ryzhov_al
-# standar vixie cron, patches ported from Optware
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+# Original patches ported from Optware
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -20,10 +26,11 @@ define Package/cron
 	CATEGORY:=Utilities
 	TITLE:=Vixie cron
 	URL:=ftp://ftp.isc.org/isc/cron
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/cron/description
-	Standart Vixie cron, with cron.d addition
+ Standart Vixie cron, with cron.d addition.
 endef
 
 define Package/cron/conffiles

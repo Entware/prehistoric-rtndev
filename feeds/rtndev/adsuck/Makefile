@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -20,16 +20,17 @@ include $(INCLUDE_DIR)/package.mk
 define Package/adsuck
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=+libldns +libevent2
-	TITLE:=adsuck is a small DNS server that spoofs blacklisted addresses.
-	URL:=https://opensource.conformal.com/wiki/adsuck
 	SUBMENU:=IP Addresses and Names
+	DEPENDS:=+libldns +libevent2
+	TITLE:=adsuck is a small DNS server that spoofs blacklisted addresses
+	URL:=https://opensource.conformal.com/wiki/adsuck
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/adsuck/description
-	adsuck is a small DNS server that spoofs blacklisted addresses and forwards 
-	all other queries. The idea is to be able to prevent connections 
-	to undesirable sites such as ad servers, crawlers and other nasties.
+ adsuck is a small DNS server that spoofs blacklisted addresses and forwards
+ all other queries. The idea is to be able to prevent connections
+ to undesirable sites such as ad servers, crawlers and other nasties.
 endef
 
 TARGET_LDFLAGS += \

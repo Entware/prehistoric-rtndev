@@ -1,3 +1,10 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rntrack
@@ -13,20 +20,20 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/ftrack-as
 include $(INCLUDE_DIR)/package.mk
 
 define Package/rntrack
-	SUBMENU:=FTN
 	SECTION:=net
 	CATEGORY:=Network
+	SUBMENU:=FTN
 	DEPENDS:=+libstdcpp
 	TITLE:=A FTN Messages tracker
-	URL:=http://sourceforge.net/projects/ftrack-as/
+	URL:=http://sourceforge.net/projects/ftrack-as
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/rntrack/description
-	It's purpose is to process netmail on
-	netmail hubs, though it can be useful for an ordinary node. It parses PKTs or
-	message bases, compares messages with patterns and does a specified action if
-	a pattern is matched. With some limitations RNTrack may also be used for 
-	echomail.
+ It\'s purpose is to process netmail on netmail hubs, though it can be useful
+ for an ordinary node. It parses PKTs or message bases, compares messages
+ with patterns and does a specified action if a pattern is matched. With some
+ limitations RNTrack may also be used for echomail.
 endef
 
 define Package/rntrack/conffiles

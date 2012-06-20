@@ -1,3 +1,9 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
 # (c) Cezary Jackiewicz <cezary@eko.one.pl>
 
 include $(TOPDIR)/rules.mk
@@ -19,13 +25,14 @@ define Package/p7zip
 	SECTION:=utils
 	CATEGORY:=Utilities
 	SUBMENU:=compression
-	TITLE:=Command line version of 7-zip for POSIX systems.
-	URL:=http://p7zip.sourceforge.net/
 	DEPENDS:=+libpthread +libstdcpp
+	TITLE:=Command line version of 7-zip for POSIX systems
+	URL:=http://p7zip.sourceforge.net
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/p7zip/description
-	Command line version of 7-zip for POSIX systems.
+ Command line version of 7-zip for POSIX systems.
 endef
 
 MAKE_FLAGS += \

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2007-2010 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -20,16 +20,17 @@ PKG_FIXUP:=autoreconf
 include $(INCLUDE_DIR)/package.mk
 
 define Package/php5-mod-eaccelerator
-  SUBMENU:=PHP
-  SECTION:=lang
-  CATEGORY:=Languages
-  TITLE:=php5-mod-eaccelerator
-  URL:=http://sourceforge.net/projects/eaccelerator/
-  DEPENDS:=+php5
+	SECTION:=lang
+	CATEGORY:=Languages
+	SUBMENU:=PHP
+	DEPENDS:=+php5
+	TITLE:=php5-mod-eaccelerator
+	URL:=http://sourceforge.net/projects/eaccelerator
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/php5-mod-eaccelerator/description
-  eAccelerator is a free open source PHP accelerator and optimizer for PHP.
+ eAccelerator is a free open source PHP accelerator and optimizer for PHP.
 endef
 
 TARGET_CPPFLAGS += \
@@ -62,4 +63,3 @@ define Package/php5-mod-eaccelerator/install
 endef
 
 $(eval $(call BuildPackage,php5-mod-eaccelerator))
-

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -24,17 +24,18 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/asterisk18-chan-dongle
-  SUBMENU:=Telephony
-  SECTION:=net
-  CATEGORY:=Network
-  TITLE:=Huawei UMTS 3G dongle support
-  URL:=http://code.google.com/p/asterisk-chan-dongle/
-  DEPENDS:=+asterisk18 $(ICONV_DEPENDS) $(INTL_DEPENDS)
+	SECTION:=net
+	CATEGORY:=Network
+	SUBMENU:=Telephony
+	DEPENDS:=+asterisk18 $(ICONV_DEPENDS) $(INTL_DEPENDS)
+	TITLE:=Huawei UMTS 3G dongle support
+	URL:=http://code.google.com/p/asterisk-chan-dongle
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/asterisk18-chan-dongle/description
-  Asterisk channel driver for Huawei UMTS cards.
-  This channel driver is in alpha stage.
+ Asterisk channel driver for Huawei UMTS cards.
+ This channel driver is in alpha stage.
 endef
 
 CONFIGURE_ARGS += \

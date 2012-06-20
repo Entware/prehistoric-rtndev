@@ -1,4 +1,11 @@
-#Thanks to N0SF3R@TU @ ganjanetwork.ru for his URL support.
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+# Thanks to N0SF3R@TU @ ganjanetwork.ru for his URL support.
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -17,18 +24,18 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
 include $(INCLUDE_DIR)/package.mk
 
 define Package/golded-nsf
-	SUBMENU:=FTN
 	SECTION:=net
 	CATEGORY:=Network
+	SUBMENU:=FTN
 	DEPENDS:=+libncurses +libpcrecpp +screen
 	TITLE:=GoldEd-NSF FTN Editor
-	URL:=http://fghi.pp.ru/golded/
+	URL:=http://fghi.pp.ru/golded
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/golded-nsf/description
-	GoldEd-NSF is a offline message reader for Fidonet and Usenet.
-	Its a successor of GoldEd+ with hypertext support and other usefull
-	features.
+ GoldEd-NSF is a offline message reader for Fidonet and Usenet. Its a successor
+ of GoldEd+ with hypertext support and other usefull features.
 endef
 
 define Build/Prepare

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -22,15 +22,15 @@ PKG_UNPACK=tar -O -xf $(DL_DIR)/$(PKG_SOURCE) ./data.tar.gz | tar -xzC $(PKG_BUI
 define Package/valgrind-dev
 	SECTION:=utils
 	CATEGORY:=Utilities
-	DEPENDS:=
 	TITLE:=debugging and profiling Linux programs
 	URL:=http://www.valgrind.org
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/valgrind-dev/description
-	Valgrind is an award-winning suite of tools for debugging and
-	profiling Linux programs. Binaries from 1.9.2.7-rtn firmware site.
-	NB! MIPS32r2 platform only !!!
+ Valgrind is an award-winning suite of tools for debugging and profiling Linux
+ programs. Binaries from 1.9.2.7-rtn firmware site.
+ NB! MIPS32r2 platform only! Oleg's firmware only!
 endef
 
 define Build/Configure

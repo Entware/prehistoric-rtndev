@@ -1,9 +1,11 @@
-# 
-# Copyright (C) 2009 Brice DUBOST
-# L. Trifonov used as template for tvheadend 
+#
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
+#
+# Copyright (C) 2009 Brice DUBOST
+# L. Trifonov used as template for tvheadend 
 #
 
 include $(TOPDIR)/rules.mk
@@ -23,22 +25,23 @@ EXTRA_CPPFLAGS += \
 	-std=gnu99
 
 CONFIGURE_VARS += \
-	PKG_CONFIG_LIBDIR="$(STAGING_DIR)/opt/lib/pkgconfig"
-	PKG_CONFIG_PATH="$(STAGING_DIR)/opt/lib/pkgconfig"
-	 
+	PKG_CONFIG_LIBDIR="$(STAGING_DIR)/opt/lib/pkgconfig" \
+	PKG_CONFIG_PATH="$(STAGING_DIR)/opt/lib/pkgconfig" \
+
 include $(INCLUDE_DIR)/package.mk
 
 
 define Package/tvheadend
-	SECTION:=net
-	CATEGORY:=Network
+	SECTION:=multimedia
+	CATEGORY:=Multimedia
 	DEPENDS:=+libopenssl
-	TITLE:=Tvheadend streaming software
+	TITLE:=TVHeadend streaming software
 	URL:=https://www.lonelycoder.com/hts/tvheadend_overview.html
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/tvheadend/description
-	Tvheadend streaming software
+ TVHeadend streaming software
 endef
 
 define Build/Configure

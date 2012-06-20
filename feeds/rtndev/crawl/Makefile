@@ -1,3 +1,9 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -18,13 +24,14 @@ define Package/crawl
 	DEPENDS:=+zlib +libstdcpp +libncursesw +libsqlite3
 	TITLE:=Dungeon Crawl Stone Soup is a role-playing roguelike game
 	URL:=http://crawl.develz.org
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/crawl/description
-	Dungeon Crawl Stone Soup is an open-source, single-player, role-playing 
-	roguelike game of exploration and treasure-hunting in dungeons filled 
-	with dangerous and unfriendly monsters in a quest to rescue 
-	the mystifyingly fabulous Orb of Zot.
+ Dungeon Crawl Stone Soup is an open-source, single-player, role-playing
+ roguelike game of exploration and treasure-hunting in dungeons filled
+ with dangerous and unfriendly monsters in a quest to rescue
+ the mystifyingly fabulous Orb of Zot.
 endef
 
 define Build/Configure
@@ -39,7 +46,7 @@ MAKE_FLAGS += \
 
 define Build/Compile
 	$(MAKE_VARS) $(MAKE) $(PKG_JOBS) -C $(PKG_BUILD_DIR)/source \
-	    $(MAKE_FLAGS)
+		$(MAKE_FLAGS)
 endef
 
 define Package/crawl/install

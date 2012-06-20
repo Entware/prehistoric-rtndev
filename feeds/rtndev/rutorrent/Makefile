@@ -1,8 +1,10 @@
-# Thanks to AndreyUA @ wl500g.info
-# Copyright (C) 2011 OpenWrt.org
+#
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
+#
+# Thanks to AndreyUA @ wl500g.info
 #
 
 include $(TOPDIR)/rules.mk
@@ -21,17 +23,17 @@ PKG_SOURCE:=$(PKG_SOURCE_SUBDIR).tar.gz
 include $(INCLUDE_DIR)/package.mk
 
 define Package/rutorrent/Default
-	SUBMENU:=BitTorrent
 	SECTION:=net
 	CATEGORY:=Network
+	SUBMENU:=BitTorrent
 	DEPENDS:=+rtorrent +php5-cgi +coreutils-stat +coreutils-id
 	TITLE:=Yet another web front-end for rTorrent
-	MAINTAINTER:=Alexander Ryzhov <ryzhov_al@hotbox.ru>
 	URL:=http://rutorrent.googlecode.com
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/rutorrent/Default/description
-	ruTorrent is a front-end for the popular Bittorrent client rTorrent.
+ ruTorrent is a front-end for the popular Bittorrent client rTorrent.
 endef
 
 define Package/rutorrent

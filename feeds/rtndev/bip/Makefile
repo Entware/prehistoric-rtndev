@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2006-2009 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -21,18 +21,19 @@ PKG_FIXUP:=autoreconf
 include $(INCLUDE_DIR)/package.mk
 
 define Package/bip
-  SUBMENU:=Instant Messaging
-  SECTION:=net
-  CATEGORY:=Network
-  DEPENDS:=+libopenssl
-  TITLE:=multi user irc proxy
-  URL:=https://projects.duckcorp.org/projects/bip
+	SECTION:=net
+	CATEGORY:=Network
+	SUBMENU:=Instant Messaging
+	DEPENDS:=+libopenssl
+	TITLE:=multi user irc proxy
+	URL:=https://projects.duckcorp.org/projects/bip
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/bip/description
-  Bip is an IRC proxy, which means it keeps connected to your preferred
-  IRC servers, can store the logs for you, and even send them back to your
-  IRC client(s) upon connection.
+ Bip is an IRC proxy, which means it keeps connected to your preferred
+ IRC servers, can store the logs for you, and even send them back to your
+ IRC client(s) upon connection.
 endef
 
 define Package/ziproxy/conffiles

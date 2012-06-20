@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -26,12 +26,13 @@ define Package/nut
 	DEPENDS:=+libusb +libopenssl +libltdl +libneon +libgd
 	TITLE:=Network UPS Tools
 	URL:=http://www.networkupstools.org
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/nut/description
-	Network UPS Tools is a collection of programs which provide a common
-	interface for monitoring and administering UPS, PDU and SCD hardware.
-	It uses a layered approach to connect all of the parts.
+ Network UPS Tools is a collection of programs which provide a common
+ interface for monitoring and administering UPS, PDU and SCD hardware.
+ It uses a layered approach to connect all of the parts.
 endef
 
 CONFIGURE_ARGS += \

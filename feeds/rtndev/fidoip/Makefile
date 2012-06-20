@@ -1,3 +1,10 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=fidoip
@@ -7,17 +14,19 @@ PKG_RELEASE:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/fidoip
-	SUBMENU:=FTN
 	SECTION:=net
 	CATEGORY:=Network
+	SUBMENU:=FTN
 	DEPENDS:=+binkd +husky +golded-nsf +zip +unzip +bash
 	TITLE:=Complete Fidonet software suite
-	URL:=http://sourceforge.net/projects/fidoip/
+	URL:=http://sourceforge.net/projects/fidoip
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/fidoip/description
-	Fidoip is a complete Fidonet software suite with all necessery script and
-	configuration files. It's intended to be use well both in IP-point or in IP-node mode.
+ Fidoip is a complete Fidonet software suite with all necessery script and
+ configuration files. It\'s intended to be use well both in IP-point or in
+ IP-node mode.
 endef
 
 define Package/fidoip/conffiles

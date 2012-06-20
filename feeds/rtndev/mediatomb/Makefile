@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -23,17 +23,18 @@ PKG_BUILD_PARALLEL:=0
 include $(INCLUDE_DIR)/package.mk
 
 define Package/mediatomb
-  SECTION:=multimedia
-  CATEGORY:=Multimedia
-  TITLE:=A powerfull UPNP media server
-  URL:=http://www.mediatomb.cc/
-  DEPENDS:=+libexif +libsqlite3 +id3lib +file +libpthread +libmagic \
-        +libjs +libexpat +libffmpeg +libstdcpp +$(ICONV_DEPENDS)
+	SECTION:=multimedia
+	CATEGORY:=Multimedia
+	DEPENDS:=+libexif +libsqlite3 +id3lib +file +libpthread +libmagic \
+		+libjs +libexpat +libffmpeg +libstdcpp +$(ICONV_DEPENDS)
+	TITLE:=A powerfull UPNP media server
+	URL:=http://www.mediatomb.cc
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/mediatomb/description
-  MediaTomb is an open source (GPL) UPnP MediaServer with a web user interface and
-  with the aim of being fully compliant with DLNA/UPnP-AV clients.
+ MediaTomb is an open source (GPL) UPnP MediaServer with a web UI and
+ with the aim of being fully compliant with DLNA/UPnP-AV clients.
 endef
 
 define Package/mediatomb/conffiles

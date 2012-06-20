@@ -1,3 +1,9 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
 
 include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
@@ -18,13 +24,17 @@ include $(INCLUDE_DIR)/package.mk
 define Package/accel-pppd
 	SECTION:=net
 	CATEGORY:=Network
-	TITLE:=accel-pppd
-	DEPENDS+= +libopenssl +libpcre
+	SUBMENU:=VPN
+	DEPENDS:=+libopenssl +libpcre
+	TITLE:=accel-pppd VPN server
+	URL:=http://sourceforge.net/apps/trac/accel-ppp/wiki
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/accel-pppd/description
-	The ACCEL-PPTP is completly new implementation of PPTP/PPPoE/L2TP which was written from null.
-	Userspace daemon has its own PPP implementation, so it does not uses pppd and one process (multi-threaded) manages all connections.
+ The ACCEL-PPTP is completly new implementation of PPTP/PPPoE/L2TP which was
+ written from null. Userspace daemon has its own PPP implementation, so it
+ does not uses pppd and one process (multi-threaded) manages all connections.
 endef
 
 define Build/Configure

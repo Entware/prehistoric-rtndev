@@ -1,5 +1,11 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
 # Patches and post-inst files taken from http://svn.nslu2-linux.org/svnroot/optware/trunk/sources/nethack/
-# Adapted by Ryzhov Alexander (ryzhov_al @ wl500g.info)
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -19,13 +25,14 @@ define Package/nethack
 	DEPENDS:=+libncurses
 	TITLE:=NetHack is a single player dungeon exploration game
 	URL:=http://www.nethack.org
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/nethack/description
-	Unlike many other Dungeons & Dragons-inspired games, the emphasis in 
-	NetHack is on discovering the detail of the dungeon and not simply 
-	killing everything in sight - in fact, killing everything in sight is a 
-	good way to die quickly.
+ Unlike many other Dungeons & Dragons-inspired games, the emphasis in
+ NetHack is on discovering the detail of the dungeon and not simply killing
+ everything in sight - in fact, killing everything in sight is a good way
+ to die quickly.
 endef
 
 define Build/Configure
@@ -45,7 +52,6 @@ define Build/Compile
 		LFLAGS="$(TARGET_LDFLAGS)" \
 		PREFIX=$(PKG_INSTALL_DIR)
 endef
-
 
 define Package/nethack/install
 	$(INSTALL_DIR) $(1)/opt/bin

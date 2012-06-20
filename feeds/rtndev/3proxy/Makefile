@@ -1,4 +1,9 @@
-# Copyright (C) 2012 zyxmon.org
+#
+# Copyright (C) 2011-2012 Entware, 2012 Zyxmon.org
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -13,16 +18,18 @@ PKG_MD5SUM:=03790467a12e16ed8785ae688ecf9b68
 include $(INCLUDE_DIR)/package.mk
 
 define Package/3proxy
-  SUBMENU:=Web Servers/Proxies
-  SECTION:=net
-  CATEGORY:=Network
-  TITLE:=3proxy free proxy server
-  URL:=http://www.3proxy.ru/
+	SECTION:=net
+	CATEGORY:=Network
+	SUBMENU:=Web Servers/Proxies
+	TITLE:=3proxy free proxy server
+	URL:=http://www.3proxy.ru
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/3proxy/description
-  3proxy is universal proxy server. It can be used to provide internal users with fully controllable 
-  access to external resources or to provide external users with access to internal resources.
+ 3proxy is universal proxy server. It can be used to provide internal users
+ with fully controllable access to external resources or to provide external
+ users with access to internal resources.
 endef
 
 define Package/3proxy/conffiles

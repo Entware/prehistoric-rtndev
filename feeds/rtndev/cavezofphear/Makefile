@@ -1,3 +1,9 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -19,12 +25,13 @@ define Package/cavezofphear
 	DEPENDS:=+libncurses
 	TITLE:=CAVEZ of PHEAR is a boulder dash / digger like game
 	URL:=$(PKG_SOURCE_URL)
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/cavezofphear/description
-	CAVEZ of PHEAR is a boulder dash / digger like game for console / terminals 
-	using ncurses. The goal of this game is to escape through the caves by 
-	collecting diamonds and avoid falling stones.
+ CAVEZ of PHEAR is a boulder dash / digger like game for console / terminals
+ using ncurses. The goal of this game is to escape through the caves by
+ collecting diamonds and avoid falling stones.
 endef
 
 define Package/cavezofphear/install

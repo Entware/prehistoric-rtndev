@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2007-2008 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -22,22 +22,24 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/wdfs
-  SECTION:=net
-  CATEGORY:=Network
-  SUBMENU:=Filesystem
-  DEPENDS:=+libneon +libfuse +libopenssl +glib2 $(ICONV_DEPENDS) $(INTL_DEPENDS)
-  TITLE:=webdav filesystem for fuse
-  URL:=$(PKG_SOURCE_URL)
+	SECTION:=net
+	CATEGORY:=Network
+	SUBMENU:=Filesystem
+	DEPENDS:=+libneon +libfuse +libopenssl +glib2 $(ICONV_DEPENDS) $(INTL_DEPENDS)
+	TITLE:=webdav filesystem for fuse
+	URL:=$(PKG_SOURCE_URL)
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/wdfs/description
-	wdfs is a webdav filesystem that makes it possible to mount a webdav share
-	under linux, freebsd and apple mac os x. wdfs has some special features
-	for accessing subversion repositories via webdav.
+ wdfs is a webdav filesystem that makes it possible to mount a webdav share
+ under linux, freebsd and apple mac os x. wdfs has some special features
+ for accessing subversion repositories via webdav.
 endef
 
 TARGET_LDFLAGS += \
 	-Wl,-rpath-link=$(STAGING_DIR)/opt/lib
+
 define Package/wdfs/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/wdfs $(1)/opt/bin

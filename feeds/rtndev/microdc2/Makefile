@@ -1,5 +1,11 @@
-include $(TOPDIR)/rules.mk
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
 
+include $(TOPDIR)/rules.mk
 
 PKG_NAME:=microdc2
 PKG_VERSION:=0.15.6
@@ -16,13 +22,15 @@ include $(INCLUDE_DIR)/nls.mk
 define Package/microdc2
 	SECTION:=net
 	CATEGORY:=Network
-	TITLE:=microdc2
+	SUBMENU:=P2P
 	DEPENDS:=$(ICONV_DEPENDS) +libxml2 +libreadline +libncurses
+	TITLE:=microdc2
 	URL:=http://corsair626.no-ip.org/microdc
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/microdc2/description
-	A command-line based Direct Connect client.
+ A command-line based Direct Connect client.
 endef
 
 CONFIGURE_ARGS += \

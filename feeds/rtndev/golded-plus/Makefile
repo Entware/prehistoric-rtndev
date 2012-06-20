@@ -1,4 +1,11 @@
-#Makefile taken from here https://sites.google.com/site/fidonetbe/home/software/binkdopenwrt
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+# Original Makefile taken from here https://sites.google.com/site/fidonetbe/home/software/binkdopenwrt
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -15,12 +22,13 @@ include $(INCLUDE_DIR)/package.mk
 PKG_UNPACK:=bzip2 -c -d $(DL_DIR)/$(PKG_SOURCE) | $(TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xf -
 
 define Package/golded-plus
-	SUBMENU:=FTN
 	SECTION:=net
 	CATEGORY:=Network
+	SUBMENU:=FTN
 	DEPENDS:=+libncursesw +libstdcpp
 	TITLE:=GoldED Plus FTN Editor
-	URL:=http://golded-plus.sourceforge.net/
+	URL:=http://golded-plus.sourceforge.net
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/golded-plus/description

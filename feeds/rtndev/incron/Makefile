@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -24,12 +24,13 @@ define Package/incron
 	DEPENDS:=+libstdcpp
 	TITLE:=inotify cron, a daemon system analogous to cron
 	URL:=http://inotify.aiken.cz
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/incron/description
-	This program is the "inotify cron" system.  You can use it a similar way 
-	as the regular cron. The difference is that the inotify cron handles 
-	filesystem events rather than time periods.
+ This program is the "inotify cron" system.  You can use it a similar way
+ as the regular cron. The difference is that the inotify cron handles
+ filesystem events rather than time periods.
 endef
 
 define Package/incron/install

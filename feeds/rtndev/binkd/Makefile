@@ -1,3 +1,12 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+# Please note: Embedded dev support was broken between r562 and r565
+#
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=binkd
@@ -7,7 +16,6 @@ PKG_RELEASE:=1
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=:pserver:binkd@cvs.happy.kiev.ua:/cvs
 PKG_SOURCE_SUBDIR:=binkd
-#Embedded dev support was broken between r562 and r565
 PKG_SOURCE_VERSION:=-D'08/19/2011'
 PKG_SOURCE_PROTO:=cvs
 
@@ -16,19 +24,19 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 include $(INCLUDE_DIR)/package.mk
 
 define Package/binkd
-	SUBMENU:=FTN
 	SECTION:=net
 	CATEGORY:=Network
+	SUBMENU:=FTN
 	DEPENDS:=+zlib +libbz2
 	TITLE:=transfers files between two Fidonet systems over TCP/IP
 	URL:=cvs.happy.kiev.ua
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/binkd/description
-	Binkd is a Fidonet mailer designed to operate via TCP/IP networks. As a
-	FTN-compatible internet daemon, it makes possible efficient utilization
-	of  TCP/IP protocol suite as a transport layer in FTN-based (Fido Tech-
-	nology Network) networks.
+ Binkd is a Fidonet mailer designed to operate via TCP/IP networks.
+ As a FTN-compatible internet daemon, it makes possible efficient utilization
+ of TCP/IP protocol suite as a transport layer in FTN-based networks.
 endef
 
 define Package/binkd/conffiles

@@ -19,16 +19,16 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/findutils
-  SECTION:=utils
-  CATEGORY:=Utilities
-  TITLE:=File finding utilities
-  URL:=$(PKG_SOURCE_URL)
+	SECTION:=utils
+	CATEGORY:=Utilities
+	TITLE:=File finding utilities
+	URL:=$(PKG_SOURCE_URL)
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/findutils/description
-	GNU Find Utilities are the basic directory searching utilities of the GNU operating system
+ GNU Find Utilities are the basic directory searching utilities of the GNU OS.
 endef
-
 
 define Package/findutils/install
 	$(INSTALL_DIR) $(1)/opt/bin
@@ -37,4 +37,3 @@ define Package/findutils/install
 endef
 
 $(eval $(call BuildPackage,findutils))
-

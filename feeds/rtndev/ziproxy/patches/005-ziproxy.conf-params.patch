@@ -1,5 +1,5 @@
---- ./etc/ziproxy/ziproxy.conf.p003	2012-06-05 09:36:54.000000000 +0400
-+++ ./etc/ziproxy/ziproxy.conf	2012-06-05 09:43:41.000000000 +0400
+--- a/etc/ziproxy/ziproxy.conf	2012-06-05 09:36:54.000000000 +0400
++++ b/etc/ziproxy/ziproxy.conf	2012-06-05 09:43:41.000000000 +0400
 @@ -33,3 +33,3 @@
  ## default: 0 (no limit -- relies on OS limit instead)
 -# MaxActiveUserConnections = 20

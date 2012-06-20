@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -26,16 +26,17 @@ include $(INCLUDE_DIR)/package.mk
 define Package/dnscrypt-proxy
 	SECTION:=net
 	CATEGORY:=Network
+	SUBMENU:=IP Addresses and Names
 	TITLE:=A tool for securing communications between a client and a DNS resolver
 	URL:=http://www.opendns.com/technology/dnscrypt
-	SUBMENU:=IP Addresses and Names
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/dnscrypt-proxy/description
-	dnscrypt-proxy is a slight variation on DNSCurve.
-	DNSCurve improves the confidentiality and integrity of DNS requests using 
-	high-speed high-security elliptic-curve cryptography. Best of all, DNSCurve 
-	has very low overhead and adds virtually no latency to queries.
+ dnscrypt-proxy is a slight variation on DNSCurve.
+ DNSCurve improves the confidentiality and integrity of DNS requests using
+ high-speed high-security elliptic-curve cryptography. Best of all, DNSCurve
+ has very low overhead and adds virtually no latency to queries.
 endef
 
 define Package/dnscrypt-proxy/install

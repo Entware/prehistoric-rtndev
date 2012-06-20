@@ -1,3 +1,9 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -15,15 +21,16 @@ define Package/vitetris
 	SECTION:=games
 	CATEGORY:=Games
 	DEPENDS:=+libncurses
-	TITLE:=vitetris is a terminal-based Tetris clone by Victor Nilsson.
-	URL:=http://www.victornils.net/tetris/
+	TITLE:=Terminal-based Tetris clone
+	URL:=http://www.victornils.net/tetris
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/vitetris/description
-	Vitetris is a terminal-based Tetris clone by Victor Nilsson. Gameplay is 
-	much like the early Tetris games by Nintendo. Features include: 
-	configurable keys, highscore table, two-player mode with garbage,
-	network play 
+ Vitetris is a terminal-based Tetris clone by Victor Nilsson. Gameplay is
+ much like the early Tetris games by Nintendo. Features include:
+ configurable keys, highscore table, two-player mode with garbage,
+ network play.
 endef
 
 define Build/Configure

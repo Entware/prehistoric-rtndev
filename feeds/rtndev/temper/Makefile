@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -22,11 +22,12 @@ define Package/temper
 	CATEGORY:=Utilities
 	DEPENDS:=+libusb
 	TITLE:=TEMPer Temperature Sensor Linux Driver
-	URL:=http://relavak.wordpress.com/2009/10/17/temper-temperature-sensor-linux-driver/
+	URL:=http://relavak.wordpress.com/2009/10/17/temper-temperature-sensor-linux-driver
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/temper/description
-	a USB temperature data logger for a cheap USB thermometer dongles
+ A USB temperature data logger for a cheap USB thermometer dongles.
 endef
 
 define Build/Configure

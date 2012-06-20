@@ -1,4 +1,11 @@
-# (c) MercuryV @ wl500g.info
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+# Thanks to MercuryV @ wl500g.info
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -20,14 +27,15 @@ define Package/angband
 	CATEGORY:=Games
 	DEPENDS:=+libncurses
 	TITLE:=single-player, text-based, dungeon simulation game
-	URL:=http://rephial.org/
+	URL:=http://rephial.org
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/angband/description
-	Angband is a single-player, text-based, dungeon simulation derived from 
-	the game Moria, which was in turn based on Rogue. It is often described 
-	as a "roguelike" game because the look and feel of the game is still 
-	quite similar to Rogue.
+ Angband is a single-player, text-based, dungeon simulation derived from
+ the game Moria, which was in turn based on Rogue. It is often described
+ as a \"roguelike\" game because the look and feel of the game is still
+ quite similar to Rogue.
 endef
 
 CONFIGURE_ARGS += \

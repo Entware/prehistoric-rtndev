@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2007-2008 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -21,20 +21,21 @@ PKG_SOURCE_VERSION:=$(PKG_REV)
 include $(INCLUDE_DIR)/package.mk
 
 define Package/nyancat
-  SECTION:=utils
-  CATEGORY:=Utilities
-  TITLE:=Nyancat rendered in your terminal
-  URL:=$(PKG_SOURCE_URL)
+	SECTION:=utils
+	CATEGORY:=Utilities
+	TITLE:=Nyancat rendered in your terminal
+	URL:=$(PKG_SOURCE_URL)
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/nyancat/description
-	Nyancat rendered in your terminal.
+ Nyancat rendered in your terminal.
 endef
 
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/src \
-	    LFLAGS="$(TARGET_CFLAGS) $(TARGET_LDFLAGS)" \
-	    CC="$(TARGET_CC)"
+		LFLAGS="$(TARGET_CFLAGS) $(TARGET_LDFLAGS)" \
+		CC="$(TARGET_CC)"
 endef
 
 define Package/nyancat/install

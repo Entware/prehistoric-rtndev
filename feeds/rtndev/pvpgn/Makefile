@@ -1,3 +1,10 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pvpgn
@@ -15,16 +22,17 @@ include $(INCLUDE_DIR)/cmake.mk
 define Package/pvpgn
 	SECTION:=net
 	CATEGORY:=Network
-	TITLE:=A bnetd based gaming network server emulation project
-	URL:=http://pvpgn.berlios.de/
 	DEPENDS:=+libsqlite3 +libstdcpp +zlib
+	TITLE:=A bnetd based gaming network server emulation project
+	URL:=http://pvpgn.berlios.de
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/pvpgn/description
-	The PvPGN is a bnetd based gaming network server emulation project.
-	It curently supports all Westwood Online clients (Tiberian Sun,
-	Red Alert 1/2, Renegade, Emperor, NOX) and all Battle.Net clients
-	(Diablo 1/2, Starcraft/Broodwar, Warcraft 2/3 ROC/TFT).
+ The PvPGN is a bnetd based gaming network server emulation project.
+ It curently supports all Westwood Online clients (Tiberian Sun,
+ Red Alert 1/2, Renegade, Emperor, NOX) and all Battle.Net clients
+ (Diablo 1/2, Starcraft/Broodwar, Warcraft 2/3 ROC/TFT).
 endef
 
 CMAKE_OPTIONS += \

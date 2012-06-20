@@ -20,18 +20,18 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/gw6c-6_0_1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/gogoclient
-  SECTION:=ipv6
-  CATEGORY:=IPv6
-  TITLE:=GOGO Gateway6 Client
-  URL:=http://ipv6now.com.au/downloads.php
-  DEPENDS:=+libopenssl +libpthread +libstdcpp
+	SECTION:=ipv6
+	CATEGORY:=IPv6
+	DEPENDS:=+libopenssl +libpthread +libstdcpp
+	TITLE:=GOGO Gateway6 Client
+	URL:=http://ipv6now.com.au/downloads.php
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/gogoclient/description
-	The Gateway6 Client is used on the host computer to connect 
-	to a tunnel broker using the TSP protocol and to get the information 
-	for its tunnel. When it receives the information for the tunnel, the 
-	Gateway6 client creates the static tunnel
+ The Gateway6 Client is used on the host computer to connect to a tunnel broker
+ using the TSP protocol and to get the information for its tunnel. When it
+ receives the information for the tunnel, the client creates the static tunnel.
 endef
 
 define Build/Compile

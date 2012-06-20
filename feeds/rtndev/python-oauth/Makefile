@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 OpenWrt.org
+# Copyright (C) 2011-2012 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -21,16 +21,17 @@ include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
 define Package/python-oauth
-  SUBMENU:=Python
-  SECTION:=lang
-  CATEGORY:=Languages
-  TITLE:=Library for OAuth version 1.0a.
-  URL:=http://code.google.com/p/oauth/
-  DEPENDS:=+python
+	SECTION:=lang
+	CATEGORY:=Languages
+	SUBMENU:=Python
+	DEPENDS:=+python
+	TITLE:=Library for OAuth 1.0a
+	URL:=http://code.google.com/p/oauth
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/python-oauth/description
-  Library for OAuth version 1.0a.
+ Library for OAuth version 1.0a.
 endef
 
 define Build/Compile
@@ -40,8 +41,8 @@ endef
 define Package/python-oauth/install
 	$(INSTALL_DIR) $(1)$(PYTHON_PKG_DIR)
 	$(CP) \
-	    $(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
-	    $(1)$(PYTHON_PKG_DIR)
+		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
+		$(1)$(PYTHON_PKG_DIR)
 endef
 
 $(eval $(call BuildPackage,python-oauth))
