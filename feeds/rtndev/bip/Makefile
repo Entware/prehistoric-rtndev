@@ -16,7 +16,7 @@ PKG_SOURCE_URL:=https://projects.duckcorp.org/attachments/download/39
 PKG_MD5SUM:=261d53ead8a35d08caa7dc0f76566b98
 
 PKG_INSTALL:=1
-PKG_FIXUP:=libtool
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 

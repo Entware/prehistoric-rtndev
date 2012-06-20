@@ -15,7 +15,7 @@ PKG_SOURCE:=eaccelerator-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/eaccelerator
 PKG_MD5SUM:=32ccd838e06ef5613c2610c1c65ed228
 PKG_BUILD_DIR:=$(BUILD_DIR)/eaccelerator-$(PKG_VERSION)
-PKG_FIXUP:=libtool
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 

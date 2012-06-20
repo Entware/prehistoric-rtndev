@@ -19,7 +19,7 @@ PKG_SOURCE_URL:=git://github.com/opendns/dnscrypt-proxy.git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_INSTALL:=1
-PKG_FIXUP:=libtool
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
