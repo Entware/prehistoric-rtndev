@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ziproxy
 PKG_VERSION:=3.2.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/ziproxy
@@ -76,7 +76,7 @@ define Package/ziproxy/install
 	$(INSTALL_DIR) $(1)/opt/etc/ziproxy/sasl
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/etc/ziproxy/sasl/ziproxy.conf $(1)/opt/etc/ziproxy/sasl/
 	$(INSTALL_DIR) $(1)/opt/var/log/ziproxy
-	touch $(1)/opt/var/log/ziproxy/access.log
+	$(INSTALL_DIR) $(1)/opt/var/run
 endef
 
 $(eval $(call BuildPackage,ziproxy))
