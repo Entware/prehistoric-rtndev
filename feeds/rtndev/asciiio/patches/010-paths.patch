@@ -1,0 +1,20 @@
+--- a/bin/asciiio.py.orig	2012-05-28 16:50:38.000000000 +0400
++++ b/bin/asciiio.py	2012-07-04 01:20:59.000000000 +0400
+@@ -22,7 +22,7 @@
+ import shutil
+ 
+ SCRIPT_NAME = os.path.basename(sys.argv[0])
+-BASE_DIR = os.path.expanduser("~/.ascii.io")
++BASE_DIR = "/opt/etc/ascii.io"
+ 
+ 
+ class AsciiCast(object):
+@@ -394,7 +394,7 @@
+     config.add_section('api')
+     config.add_section('record')
+ 
+-    cfg_file = os.path.expanduser('~/.ascii.io/config')
++    cfg_file = BASE_DIR +"/config"
+     try:
+         config.read(cfg_file)
+     except ConfigParser.ParsingError:

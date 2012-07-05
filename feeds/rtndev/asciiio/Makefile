@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=asciiio
 PKG_VERSION:=a69caa6c48
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_REV:=a69caa6c4885f35e3795d9bf07f5c0ace5f7b241
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
@@ -24,7 +24,7 @@ define Package/asciiio
 	SECTION:=utils
 	CATEGORY:=Utilities
 	SUBMENU:=Terminal
-	DEPENDS:=+python +python-bzip2 +coreutils-stty +curl
+	DEPENDS:=+python +python-bzip2 +ncurses-bin +curl
 	TITLE:=A terminal sessions recorder
 	URL:=http://ascii.io
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
