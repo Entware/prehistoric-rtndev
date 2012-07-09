@@ -5,10 +5,3 @@
 -# define ENABLE_NLS
 +/* # define ENABLE_NLS */
  #endif
---- a/whois.c.orig	2010-07-28 01:40:02.000000000 +0400
-+++ b/whois.c	2012-07-01 00:36:37.000000000 +0400
-@@ -847,3 +847,3 @@
-     hints.ai_socktype = SOCK_STREAM;
--    hints.ai_flags = AI_ADDRCONFIG | AI_IDN;
-+    hints.ai_flags = AI_ADDRCONFIG;
- 

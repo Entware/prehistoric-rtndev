@@ -8,13 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=whois
-PKG_VERSION:=5.0.10
+PKG_VERSION:=5.0.17
 PKG_RELEASE:=1
 
-PKG_SOURCE:=whois_$(PKG_VERSION).tar.gz
+PKG_SOURCE:=whois_$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=http://ftp.debian.org/debian/pool/main/w/whois
-PKG_MD5SUM:=d7626a3f789da85e70e4b931b6b34a26
-PKG_CAT:=zcat
+PKG_MD5SUM:=754ff9a089913bf198400eb937e24055
 PKG_BUILD_DIR:=$(BUILD_DIR)/whois-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
@@ -22,12 +21,15 @@ include $(INCLUDE_DIR)/package.mk
 define Package/whois
 	SECTION:=net
 	CATEGORY:=Network
-	TITLE:=WHOIS commandline utility
+	TITLE:=intelligent WHOIS client
 	URL:=http://ftp.debian.org/debian/pool/main/w/whois
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/whois/description
-  Utility to display information from WHOIS servers
+  This package provides a commandline client for the WHOIS (RFC 3912) protocol,
+  which queries online servers for information such as contact details for domains
+  and IP address assignments. It can intelligently select the appropriate WHOIS server for most queries.
 endef
 
 define Package/whois/conffiles
