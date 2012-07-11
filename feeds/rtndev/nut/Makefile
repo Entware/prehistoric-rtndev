@@ -53,7 +53,6 @@ CONFIGURE_ARGS += \
 	--disable-static
 
 TARGET_LDFLAGS += \
-	-Wl,-rpath-link=$(STAGING_DIR)/opt/lib \
 	-lm
 
 define Package/nut/install

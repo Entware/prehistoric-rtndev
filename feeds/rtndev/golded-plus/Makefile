@@ -46,7 +46,7 @@ MAKE_FLAGS += \
 	PLATFORM=lnx
 
 MAKE_VARS += \
-	LNKFLAGS="$(TARGET_LDFLAGS) -Wl,-rpath-link=$(STAGING_DIR)/opt/lib"
+	LNKFLAGS="$(TARGET_LDFLAGS)"
 
 TARGET_CFLAGS += \
 	-I$(STAGING_DIR)/opt/include/ncursesw

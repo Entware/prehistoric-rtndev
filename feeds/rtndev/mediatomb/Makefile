@@ -42,9 +42,6 @@ define Package/mediatomb/conffiles
 /opt/etc/mediatomb/mediatomb.db
 endef
 
-TARGET_LDFLAGS += \
-	-Wl,-rpath-link=$(STAGING_DIR)/opt/lib
-
 CONFIGURE_ARGS += \
 	--prefix=/opt \
 	--enable-pthread-lib \

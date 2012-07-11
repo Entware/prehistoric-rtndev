@@ -37,9 +37,6 @@ define Package/wdfs/description
  for accessing subversion repositories via webdav.
 endef
 
-TARGET_LDFLAGS += \
-	-Wl,-rpath-link=$(STAGING_DIR)/opt/lib
-
 define Package/wdfs/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/wdfs $(1)/opt/bin

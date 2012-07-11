@@ -36,9 +36,6 @@ define Package/ncdc/description
  ncurses interface.
 endef
 
-TARGET_LDFLAGS += \
-	-Wl,-rpath-link=$(STAGING_DIR)/opt/lib
-
 define Build/Compile
 	$(HOSTCC) $(PKG_BUILD_DIR)/deps/makeheaders.c -o $(PKG_BUILD_DIR)/makeheaders
 	$(call Build/Compile/Default)

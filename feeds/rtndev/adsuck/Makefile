@@ -33,9 +33,6 @@ define Package/adsuck/description
  to undesirable sites such as ad servers, crawlers and other nasties.
 endef
 
-TARGET_LDFLAGS += \
-	-Wl,-rpath-link=$(STAGING_DIR)/opt/lib
-
 define Build/Compile
 	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(STAGING_DIR)/opt/include -D_GNU_SOURCE -D_BSD_SOURCE -o $(PKG_BUILD_DIR)/adsuck.o $(PKG_BUILD_DIR)/adsuck.c
 	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(STAGING_DIR)/opt/include -D_GNU_SOURCE -D_BSD_SOURCE -o $(PKG_BUILD_DIR)/log.o $(PKG_BUILD_DIR)/log.c

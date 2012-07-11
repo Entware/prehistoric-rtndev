@@ -48,7 +48,7 @@ MAKE_FLAGS += \
 	PLATFORM=lnx
 
 MAKE_VARS += \
-	LNKFLAGS="$(TARGET_LDFLAGS) -Wl,-rpath-link=$(STAGING_DIR)/opt/lib -lpcrecpp"
+	LNKFLAGS="$(TARGET_LDFLAGS) -lpcrecpp"
 
 TARGET_CFLAGS += \
 	-I$(STAGING_DIR)/opt/include/ncursesw
