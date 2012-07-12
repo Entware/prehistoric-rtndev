@@ -23,7 +23,7 @@ define Package/istgt
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=Filesystem
-	DEPENDS:=+libopenssl
+	DEPENDS:=+libopenssl +libpthread
 	TITLE:=An iSCSI target implementation
 	URL:=http://savannah.nongnu.org/projects/istgt
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com

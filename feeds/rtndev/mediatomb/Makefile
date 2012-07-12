@@ -26,7 +26,8 @@ define Package/mediatomb
 	SECTION:=multimedia
 	CATEGORY:=Multimedia
 	DEPENDS:=+libexif +libsqlite3 +id3lib +file +libpthread +libmagic \
-		+libjs +libexpat +libffmpeg +libstdcpp +$(ICONV_DEPENDS)
+		+libjs +libexpat +libffmpeg +libstdcpp +libcurl +libopenssl \
+		+$(ICONV_DEPENDS)
 	TITLE:=A powerfull UPNP media server
 	URL:=http://www.mediatomb.cc
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com

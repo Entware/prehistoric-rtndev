@@ -21,6 +21,7 @@ define Package/3proxy
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=Web Servers/Proxies
+	DEPENDS:=+libpthread
 	TITLE:=3proxy free proxy server
 	URL:=http://www.3proxy.ru
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com

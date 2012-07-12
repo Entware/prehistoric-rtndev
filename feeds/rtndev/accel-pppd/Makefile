@@ -25,7 +25,7 @@ define Package/accel-pppd
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=VPN
-	DEPENDS:=+libopenssl +libpcre
+	DEPENDS:=+libopenssl +libpcre +libpthread +librt
 	TITLE:=accel-pppd VPN server
 	URL:=http://sourceforge.net/apps/trac/accel-ppp/wiki
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com

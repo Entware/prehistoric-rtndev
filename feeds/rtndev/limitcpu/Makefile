@@ -23,6 +23,7 @@ define Package/limitcpu
 	SECTION:=utils
 	CATEGORY:=Utilities
 	SUBMENU:=CPU tools
+	DEPENDS:=+librt
 	TITLE:=CPU usage limiter
 	URL:=http://limitcpu.sourceforge.net
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com

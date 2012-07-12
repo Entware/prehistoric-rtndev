@@ -34,7 +34,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/tvheadend
 	SECTION:=multimedia
 	CATEGORY:=Multimedia
-	DEPENDS:=+libopenssl
+	DEPENDS:=+libopenssl +libpthread +librt
 	TITLE:=TVHeadend streaming software
 	URL:=https://www.lonelycoder.com/hts/tvheadend_overview.html
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
