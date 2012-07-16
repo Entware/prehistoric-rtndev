@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=crawl
-PKG_VERSION:=0.10.2
+PKG_VERSION:=0.10.3
 PKG_RELEASE:=1
 
 PKG_SOURCE:=stone_soup-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=@SF/crawl-ref/Stone%20Soup/$(PKG_VERSION)
-PKG_MD5SUM:=9acf8c1fe2a93d88946b86add3f482d3
+PKG_MD5SUM:=bf1183a44a0d3dbe39c8a2b38749ace1
 PKG_BUILD_DIR:=$(BUILD_DIR)/stone_soup-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
