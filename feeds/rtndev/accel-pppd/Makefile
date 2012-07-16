@@ -9,12 +9,12 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=accel-pppd
-PKG_VERSION:=1.5.0
+PKG_VERSION:=1.7.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=accel-ppp-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/accel-ppp
-PKG_MDSUM:=c216f83bd5e4c60a68f90490422089e8
+PKG_MDSUM:=094f004dd9e00f182d4efa83b727f767
 PKG_INSTALL:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/accel-ppp-$(PKG_VERSION)
@@ -56,10 +56,8 @@ define Build/Configure
 	LIBS="$(STAGING_DIR)/opt/lib/)" \
 	cmake \
 		-DBUILD_DRIVER=FALSE \
-		-DKDIR=$(LINUX_DIR) \
 		-DCMAKE_INSTALL_PREFIX=/opt \
 		-DLOG_PGSQL=FALSE \
-		-DSHAPER=FALSE \
 		-DRADIUS=FALSE \
 		-DNETSNMP=FALSE \
 		-DLOG_FILE=FALSE
@@ -70,29 +68,11 @@ define Package/accel-pppd/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/accel-pppd $(1)/opt/sbin/
 	$(INSTALL_DIR) $(1)/opt/lib/accel-ppp
 	$(INSTALL_BIN) \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libauth_chap_md5.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libauth_mschap_v1.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libauth_mschap_v2.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libauth_pap.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libchap-secrets.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libippool.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libipv6_dhcp.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libipv6_nd.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libipv6pool.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libl2tp.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/liblog_syslog.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/liblog_tcp.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libpppd_compat.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libpppoe.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libpptp.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libsigchld.so \
-		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/libtriton.so \
+		$(PKG_INSTALL_DIR)/opt/lib/accel-ppp/lib*.so \
 		$(1)/opt/lib/accel-ppp
 	$(INSTALL_DIR) $(1)/opt/share/accel-ppp/l2tp
 	$(INSTALL_DATA) \
-		$(PKG_INSTALL_DIR)/opt/share/accel-ppp/l2tp/dictionary \
-		$(PKG_INSTALL_DIR)/opt/share/accel-ppp/l2tp/dictionary.rfc2661 \
-		$(PKG_INSTALL_DIR)/opt/share/accel-ppp/l2tp/dictionary.rfc3931 \
+		$(PKG_INSTALL_DIR)/opt/share/accel-ppp/l2tp/dictionary{,.rfc2661,.rfc3931} \
 		$(1)/opt/share/accel-ppp/l2tp
 	$(INSTALL_DIR) $(1)/opt/etc
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/etc/accel-ppp.conf.dist $(1)/opt/etc
