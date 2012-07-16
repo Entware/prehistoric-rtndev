@@ -8,13 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=davfs2
-PKG_VERSION:=1.4.6-18032012
+PKG_VERSION:=1.4.6-03062012
 PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=:pserver:anonymous@cvs.sv.gnu.org:/sources/davfs2
 PKG_SOURCE_SUBDIR:=davfs2
-PKG_SOURCE_VERSION:=-D'03/19/2012'
+PKG_SOURCE_VERSION:=-D'06/03/2012'
 PKG_SOURCE_PROTO:=cvs
 
 PKG_FIXUP:=autoreconf
