@@ -10,7 +10,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rutorrent
-PKG_REV:=2074
+PKG_REV:=2084
 PKG_VERSION:=$(PKG_REV)
 PKG_RELEASE:=1
 
@@ -22,6 +22,17 @@ PKG_SOURCE:=$(PKG_SOURCE_SUBDIR).tar.gz
 
 include $(INCLUDE_DIR)/package.mk
 
+RUTORRENT_PLUGINS := \
+	autotools check_port chunks cookies cpuload create data datadir \
+	diskspace edit erasedata extratio extsearch feeds filedrop geoip \
+	_getdir history httprpc ipad loginmgr mediainfo ratio retrackers \
+	rpc rss rssurlrewrite rutracker_check scheduler screenshots seedingtime \
+	show_peers_like_wtorrent source _task theme throttle tracklabels \
+	trafic unpack
+
+DEPENDS_screenshots = +ffmpeg
+DEPENDS_unpack = +unrar
+
 define Package/rutorrent/Default
 	SECTION:=net
 	CATEGORY:=Network
@@ -32,27 +43,29 @@ define Package/rutorrent/Default
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
-define Package/rutorrent/Default/description
- ruTorrent is a front-end for the popular Bittorrent client rTorrent.
-endef
-
 define Package/rutorrent
-$(call Package/rutorrent/Default)
+	$(call Package/rutorrent/Default)
+	TITLE:=Yet another web front-end for rTorrent
+	MENU:=1
 endef
 
 define Package/rutorrent/description
-$(call Package/rutorrent/Default/description)
+ ruTorrent is a front-end for the popular Bittorrent client rTorrent.
 endef
 
-define Package/rutorrent-plugins
-$(call Package/rutorrent/Default)
-	TITLE+= (plugins)
+define GenPlugin
+ define Package/$(1)
+	$(call Package/rutorrent/Default)
+	DEPENDS:=rutorrent $(DEPENDS_$(2))
+	TITLE:=ruTorrent $(2) plugin
+ endef
+
+ define Package/$(1)/description
+  This is a $(2) Rutorrent plugin.
+ endef
 endef
 
-define Package/rutorrent-plugins/description
-$(call Package/rutorrent/Default/description)
-	This package includes all avaliable plugins.
-endef
+$(foreach a,$(RUTORRENT_PLUGINS),$(eval $(call GenPlugin,rutorrent-plugin-$(a),$(a))))
 
 define Build/Configure
 endef
@@ -65,10 +78,14 @@ define Package/rutorrent/install
 	$(CP) $(PKG_BUILD_DIR)/rutorrent/* $(1)/opt/share/www/rutorrent/
 endef
 
-define Package/rutorrent-plugins/install
-	$(INSTALL_DIR) $(1)/opt/share/www/rutorrent/plugins
-	$(CP) $(PKG_BUILD_DIR)/plugins/* $(1)/opt/share/www/rutorrent/plugins/
+define BuildPlugin
+  define Package/$(1)/install
+	$(INSTALL_DIR) $$(1)/opt/share/www/rutorrent/plugins/$(2)
+	$(CP) $(PKG_BUILD_DIR)/plugins/$(2)/* $$(1)/opt/share/www/rutorrent/plugins/$(2)/
+  endef
+
+  $$(eval $$(call BuildPackage,$(1)))
 endef
 
 $(eval $(call BuildPackage,rutorrent))
-$(eval $(call BuildPackage,rutorrent-plugins))
+$(foreach a,$(RUTORRENT_PLUGINS),$(eval $(call BuildPlugin,rutorrent-plugin-$(a),$(a))))
