@@ -1,53 +1,48 @@
---- a/configure.ac	2012-06-18 15:47:41.000000000 +0400
-+++ b/configure.ac	2012-06-18 15:50:45.338532386 +0400
-@@ -19,46 +19,12 @@
- 
- AS_IF([test "$cross_compiling" != no],
-   AC_DEFINE(CROSS_COMPILING,,[define if you are cross-compiling])
--)
--
+--- ./configure.ac.orig	2012-07-16 16:18:20.000000000 +0400
++++ ./configure.ac	2012-07-16 17:18:04.543534491 +0400
+@@ -27,41 +27,6 @@
+     [CFLAGS="$CFLAGS -fPIC"]
+   )
+ ])
 -AX_CHECK_COMPILE_FLAG([-fPIE], [
 -  AX_CHECK_LINK_FLAG([-fPIE],
 -    [CFLAGS="$CFLAGS -fPIE"]
 -  )
- ])
- 
- AX_CHECK_COMPILE_FLAG([-fcatch-undefined-c99-behavior], [CFLAGS="$CFLAGS -fcatch-undefined-c99-behavior"])
- AX_CHECK_COMPILE_FLAG([-fno-strict-aliasing], [CFLAGS="$CFLAGS -fno-strict-aliasing"])
- AX_CHECK_COMPILE_FLAG([-fno-strict-overflow], [CFLAGS="$CFLAGS -fno-strict-overflow"])
- 
--AS_IF([echo `(uname -s) 2>/dev/null` | $GREP "CYGWIN" > /dev/null], [
--  AX_CHECK_LINK_FLAG([-Wl,--dynamicbase], [LDFLAGS="$LDFLAGS -Wl,--dynamicbase"])
--  AX_CHECK_LINK_FLAG([-Wl,--nxcompat], [LDFLAGS="$LDFLAGS -Wl,--nxcompat"])
--], [
--  AS_IF([test `(uname -s) 2>/dev/null` = "DragonFly"],
--    [
--      AX_CHECK_COMPILE_FLAG([-fstack-protector], [
--        AX_CHECK_LINK_FLAG([-fstack-protector],
--          [CFLAGS="$CFLAGS -fstack-protector"]
--        )
--      ])
--    ],
--    [
--      AX_CHECK_COMPILE_FLAG([-fstack-protector-all], [
--        AX_CHECK_LINK_FLAG([-fstack-protector-all],
--          [CFLAGS="$CFLAGS -fstack-protector-all"]
--        )
--      ])
--    ]
--  )
--  AS_IF([test "x$ac_compiler_gnu" = "xyes"],[
--    AS_IF([$CC --version 2>/dev/null | $GREP "Free Software Foundation" > /dev/null 2>&1],[
--      CPPFLAGS="$CPPFLAGS -D_FORTIFY_SOURCE=2"
--      AX_CHECK_COMPILE_FLAG([--param ssp-buffer-size=1], [CFLAGS="$CFLAGS --param ssp-buffer-size=1"])
--    ])
--  ])
 -])
 -
+-AX_CHECK_COMPILE_FLAG([-fcatch-undefined-c99-behavior], [CFLAGS="$CFLAGS -fcatch-undefined-c99-behavior"])
+-AX_CHECK_COMPILE_FLAG([-fno-strict-aliasing], [CFLAGS="$CFLAGS -fno-strict-aliasing"])
+-AX_CHECK_COMPILE_FLAG([-fno-strict-overflow], [CFLAGS="$CFLAGS -fno-strict-overflow"])
+-
+-case $host_os in
+-  cygwin* | mingw* | pw32* | cegcc*)
+-    AX_CHECK_LINK_FLAG([-Wl,--dynamicbase], [LDFLAGS="$LDFLAGS -Wl,--dynamicbase"])
+-    AX_CHECK_LINK_FLAG([-Wl,--nxcompat], [LDFLAGS="$LDFLAGS -Wl,--nxcompat"])
+-    AX_CHECK_COMPILE_FLAG([-fstack-protector-all], [
+-      AX_CHECK_LINK_FLAG([-fstack-protector-all],
+-        [CFLAGS="$CFLAGS -fstack-protector-all"]
+-      )
+-    ])
+-  ;;
+-  dragonfly*)
+-    AX_CHECK_COMPILE_FLAG([-fstack-protector], [
+-      AX_CHECK_LINK_FLAG([-fstack-protector],
+-        [CFLAGS="$CFLAGS -fstack-protector"]
+-      )
+-    ])
+-  ;;
+-  *)
+-    AX_CHECK_COMPILE_FLAG([-fstack-protector-all], [
+-      AX_CHECK_LINK_FLAG([-fstack-protector-all],
+-        [CFLAGS="$CFLAGS -fstack-protector-all"]
+-      )
+-    ])
+-  ;;
+-esac
+ 
  AX_CHECK_COMPILE_FLAG([-Wbounded], [CFLAGS="$CFLAGS -Wbounded"])
  AX_CHECK_COMPILE_FLAG([-Winit-self], [CFLAGS="$CFLAGS -Winit-self"])
- AX_CHECK_COMPILE_FLAG([-Wwrite-strings], [CFLAGS="$CFLAGS -Wwrite-strings"])
-@@ -87,11 +53,6 @@
+@@ -93,11 +58,6 @@
  AX_CHECK_COMPILE_FLAG([-Wswitch-enum], [CWFLAGS="$CWFLAGS -Wswitch-enum"])
  AX_CHECK_COMPILE_FLAG([-Wvariable-decl], [CWFLAGS="$CWFLAGS -Wvariable-decl"])
  
@@ -59,7 +54,7 @@
  AC_ARG_VAR([RONN], [path to the ronn text processor])
  AC_PATH_PROG([RONN], [ronn], [#])
  
-@@ -112,14 +73,6 @@
+@@ -118,14 +78,6 @@
    PROBES_SOURCE="probes_no_dtrace.h"
  ])
  
