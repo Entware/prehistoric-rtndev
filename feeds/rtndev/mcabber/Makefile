@@ -30,10 +30,19 @@ define Package/mcabber/Default
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
-define Package/mcabber/description
+define Package/mcabber/Default/description
   mcabber is a small Jabber console client. It includes features such as SASL/SSL/TLS support,
   MUC (Multi-User Chat) support, history logging, command completion, dynamic modules and external action triggers.
-  (For PGP and OTR support install mcabber-crypto package).
+endef
+
+define Package/mcabber/description
+$(call Package/mcabber/Default/description)
+  (For PGP and OTR support install mcabber-crypto package or mcabber-full pcakage)
+endef
+
+define Package/mcabber-full/description
+$(call Package/mcabber/Default/description)
+  OpenPGP encryption and OTR (Off-the-Record Messaging) support is available.
 endef
 
 define Package/mcabber/conffiles
@@ -49,6 +58,13 @@ define Package/mcabber-help
 $(call Package/mcabber/Default)
   TITLE:=Help files for mcabber
   DEPENDS:=
+  VARIANT:=normal
+endef
+
+define Package/mcabber-full
+$(call Package/mcabber/Default)
+  TITLE+= (full version)
+  DEPENDS:=+mcabber +mcabber-help +mcabber-crypto
   VARIANT:=normal
 endef
 
@@ -112,6 +128,11 @@ define Package/mcabber-help/install
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/doc/help/uk/*.txt $(1)/opt/share/mcabber/help/uk
 endef
 
+define Package/mcabber-full/install
+	true
+endef
+
 $(eval $(call BuildPackage,mcabber))
 $(eval $(call BuildPackage,mcabber-help))
 $(eval $(call BuildPackage,mcabber-crypto))
+$(eval $(call BuildPackage,mcabber-full))
