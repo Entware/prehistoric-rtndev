@@ -37,7 +37,7 @@ endef
 
 define Package/mcabber/description
 $(call Package/mcabber/Default/description)
-  (For PGP and OTR support install mcabber-crypto package or mcabber-full pcakage)
+  (For PGP and OTR support install mcabber-crypto package or mcabber-full package).
 endef
 
 define Package/mcabber-full/description
