@@ -8,19 +8,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=davfs2
-PKG_VERSION:=1.4.6-03062012
-PKG_RELEASE:=2
+PKG_VERSION:=1.4.7
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=:pserver:anonymous@cvs.sv.gnu.org:/sources/davfs2
-PKG_SOURCE_SUBDIR:=davfs2
-PKG_SOURCE_VERSION:=-D'06/03/2012'
-PKG_SOURCE_PROTO:=cvs
+PKG_SOURCE_URL:=http://download.savannah.gnu.org/releases/davfs2/
+PKG_MD5SUM:=c75f9d7d260e7364362b89beba2b3186
 
 PKG_FIXUP:=autoreconf
+#PKG_BUILD_DEPENDS:=gperf/host libopenssl
 PKG_INSTALL:=1
-
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
@@ -49,6 +46,9 @@ CONFIGURE_ARGS += \
 	ssbindir=/opt/sbin \
 	dav_localstatedir=/opt/var/run \
 	dav_syscachedir=/opt/var/cache \
+
+CONFIGURE_VARS += \
+	LIBS="-liconv"
 
 TARGET_CPPFLAGS += -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE
 
