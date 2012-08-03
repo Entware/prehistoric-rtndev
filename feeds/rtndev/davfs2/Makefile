@@ -16,7 +16,6 @@ PKG_SOURCE_URL:=http://download.savannah.gnu.org/releases/davfs2/
 PKG_MD5SUM:=c75f9d7d260e7364362b89beba2b3186
 
 PKG_FIXUP:=autoreconf
-#PKG_BUILD_DEPENDS:=gperf/host libopenssl
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
