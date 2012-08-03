@@ -1,6 +1,6 @@
 --- a/rutorrent/conf/config.php	2012-05-04 15:21:00.000000000 +0400
 +++ b/rutorrent/conf/config.php	2012-06-05 15:10:04.000000000 +0400
-@@ -17,7 +17,7 @@
+@@ -19,7 +19,7 @@
  	@define('PHP_GZIP_LEVEL', 2, true);
  
  	$do_diagnostic = true;
@@ -9,7 +9,7 @@
  
  	$saveUploadedTorrents = true;		// Save uploaded torrents to profile/torrents directory or not
  	$overwriteUploadedTorrents = false;     // Overwrite existing uploaded torrents in profile/torrents directory or make unique name
-@@ -25,15 +25,15 @@
+@@ -27,15 +27,15 @@
  	$topDirectory = '/';			// Upper available directory. Absolute path with trail slash.
  	$forbidUserSettings = false;
  

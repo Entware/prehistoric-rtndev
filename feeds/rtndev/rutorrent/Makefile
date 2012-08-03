@@ -10,7 +10,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rutorrent
-PKG_REV:=2084
+PKG_REV:=2101
 PKG_VERSION:=$(PKG_REV)
 PKG_RELEASE:=1
 
@@ -23,7 +23,7 @@ PKG_SOURCE:=$(PKG_SOURCE_SUBDIR).tar.gz
 include $(INCLUDE_DIR)/package.mk
 
 RUTORRENT_PLUGINS := \
-	autotools check_port chunks cookies cpuload create data datadir \
+	_noty autotools check_port chunks cookies cpuload create data datadir \
 	diskspace edit erasedata extratio extsearch feeds filedrop geoip \
 	_getdir history httprpc ipad loginmgr mediainfo ratio retrackers \
 	rpc rss rssurlrewrite rutracker_check scheduler screenshots seedingtime \
