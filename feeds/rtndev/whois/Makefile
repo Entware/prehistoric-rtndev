@@ -8,12 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=whois
-PKG_VERSION:=5.0.17
+PKG_VERSION:=5.0.18
 PKG_RELEASE:=1
 
 PKG_SOURCE:=whois_$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=http://ftp.debian.org/debian/pool/main/w/whois
-PKG_MD5SUM:=754ff9a089913bf198400eb937e24055
+PKG_MD5SUM:=15d777273d44a5b9a0814c1ea0d22b1a
+
 PKG_BUILD_DIR:=$(BUILD_DIR)/whois-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
@@ -42,7 +43,6 @@ define Package/whois/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/whois $(1)/opt/sbin/
 	$(INSTALL_DIR) $(1)/opt/etc
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/whois.conf $(1)/opt/etc/whois.conf
-
 endef
 
 $(eval $(call BuildPackage,whois))
