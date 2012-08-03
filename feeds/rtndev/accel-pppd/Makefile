@@ -9,12 +9,12 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=accel-pppd
-PKG_VERSION:=1.7.0
+PKG_VERSION:=1.7.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=accel-ppp-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/accel-ppp
-PKG_MDSUM:=094f004dd9e00f182d4efa83b727f767
+PKG_MDSUM:=3d80c8505f864a2a4a3e9ae584e0f28d
 PKG_INSTALL:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/accel-ppp-$(PKG_VERSION)

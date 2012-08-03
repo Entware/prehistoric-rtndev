@@ -1,5 +1,5 @@
---- a/accel-pppd/accel-ppp.conf	2012-06-15 18:05:12.000000000 +0400
-+++ b/accel-pppd/accel-ppp.conf	2012-07-16 15:09:39.575798975 +0400
+--- a/accel-pppd/accel-ppp.conf	2012-07-30 12:42:10.000000000 +0400
++++ b/accel-pppd/accel-ppp.conf	2012-08-03 16:41:57.916412866 +0400
 @@ -1,5 +1,5 @@
  [modules]
 -#path=/usr/local/lib/accel-ppp
@@ -16,7 +16,7 @@
  thread-count=4
  
  [ppp]
-@@ -75,7 +75,7 @@
+@@ -79,7 +79,7 @@
  verbose=1
  
  [l2tp]
@@ -25,7 +25,7 @@
  #hello-interval=60
  #timeout=60
  #rtimeout=5
-@@ -90,7 +90,7 @@
+@@ -96,7 +96,7 @@
  #dns2=172.16.1.1
  
  [radius]
@@ -34,7 +34,7 @@
  nas-identifier=accel-ppp
  nas-ip-address=127.0.0.1
  gw-ip-address=192.168.100.1
-@@ -120,9 +120,9 @@
+@@ -126,9 +126,9 @@
  192.168.4.0/24
  
  [log]
@@ -47,7 +47,7 @@
  #log-debug=/dev/stdout
  #syslog=accel-pppd,daemon
  #log-tcp=127.0.0.1:3000
-@@ -138,16 +138,16 @@
+@@ -144,16 +144,16 @@
  log-table=log
  
  [pppd-compat]
