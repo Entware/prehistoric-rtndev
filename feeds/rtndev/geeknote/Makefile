@@ -47,7 +47,7 @@ define Package/geeknote/install
 	$(INSTALL_DIR) $(1)/opt/usr/lib/geeknone/lib
 	$(CP) $(PKG_BUILD_DIR)/lib/* $(1)/opt/usr/lib/geeknone/lib
 	$(CP) ./files/httplib_TLSv1.py $(1)/opt/usr/lib/geeknone
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/{argparser.py,config.py,editor.py,geeknote.py,gnsync.py,log.py,oauth.py,out.py,storage.py,tools.py} $(1)/opt/usr/lib/geeknone
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/{argparser,config,editor,geeknote,gnsync,log,oauth,out,storage,tools}.py $(1)/opt/usr/lib/geeknone
 endef
 
 $(eval $(call BuildPackage,geeknote))

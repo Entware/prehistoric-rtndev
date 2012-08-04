@@ -46,7 +46,7 @@ define Package/mathomatic/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/mathomatic $(1)/opt/bin/
 	#$(INSTALL_BIN) $(PKG_BUILD_DIR)/m4/rmath $(1)/opt/bin/
 	#$(INSTALL_BIN) $(PKG_BUILD_DIR)/m4/functions.m4 $(1)/opt/bin/
-	#$(INSTALL_BIN) $(PKG_BUILD_DIR)/m4/matho $(1)/opt/bin/	
+	#$(INSTALL_BIN) $(PKG_BUILD_DIR)/m4/matho $(1)/opt/bin/
 endef
 
 $(eval $(call BuildPackage,mathomatic))

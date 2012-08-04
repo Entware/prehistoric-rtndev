@@ -26,6 +26,9 @@ define Package/uclibc-opt/description
  uclibc-opt used to configure libraries search path to /opt/lib. Nothing more.
 endef
 
+define Build/Prepare
+endef
+
 define Build/Configure
 endef
 

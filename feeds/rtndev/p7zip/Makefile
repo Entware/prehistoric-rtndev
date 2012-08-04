@@ -46,8 +46,7 @@ MAKE_FLAGS += \
 
 define Package/p7zip/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/7zr $(1)/opt/bin/
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/7za $(1)/opt/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/7z{r,a} $(1)/opt/bin/
 endef
 
 $(eval $(call BuildPackage,p7zip))

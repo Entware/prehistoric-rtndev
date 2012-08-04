@@ -33,6 +33,10 @@ define Package/microdc2/description
  A command-line based Direct Connect client.
 endef
 
+define Package/microdc2/conffiles
+/opt/etc/microdc2.conf
+endef
+
 CONFIGURE_ARGS += \
 	--disable-static \
 	--disable-rparh

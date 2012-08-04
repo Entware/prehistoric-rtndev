@@ -41,8 +41,8 @@ define Package/rsnapshot/conffiles
 endef
 
 CONFIGURE_ARGS += \
-        --exec-prefix=/opt \
-        --prefix=/opt \
+	--exec-prefix=/opt \
+	--prefix=/opt \
 	--disable-nls \
 	--without-logger \
 	ac_cv_path_PERL=/opt/bin/perl \

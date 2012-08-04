@@ -34,6 +34,10 @@ define Package/gogoclient/description
  receives the information for the tunnel, the client creates the static tunnel.
 endef
 
+define Package/gogoclient/conffiles
+/opt/etc/gw6c.conf
+endef
+
 define Build/Compile
 	$(call Build/Compile/Default,\
 		EXTRA_CFLAGS="$(TARGET_CFLAGS)" \
@@ -55,10 +59,6 @@ define Package/gogoclient/install
 	$(INSTALL_DIR) $(1)/opt/var/log
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S11gw6c $(1)/opt/etc/init.d/
-endef
-
-define Package/gogoclient/conffiles
-/opt/etc/gw6c.conf
 endef
 
 $(eval $(call BuildPackage,gogoclient))

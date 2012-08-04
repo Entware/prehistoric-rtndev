@@ -33,6 +33,10 @@ define Package/incron/description
  filesystem events rather than time periods.
 endef
 
+define Package/incron/conffiles
+/opt/etc/incron.conf
+endef
+
 define Package/incron/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/incrontab $(1)/opt/bin

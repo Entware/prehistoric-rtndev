@@ -46,18 +46,19 @@ CONFIGURE_ARGS += \
 	--with-eaccelerator-userid='"nobody"' \
 	--enable-eaccelerator=shared \
 
+define Package/php5-mod-eaccelerator/conffiles
+/opt/etc/php5/eaccelerator.ini
+endef
+
 define Build/Configure
 	( cd $(PKG_BUILD_DIR); $(STAGING_DIR_HOST)/opt/bin/phpize )
 	$(call Build/Configure/Default)
 endef
 
 define Package/php5-mod-eaccelerator/install
-	$(INSTALL_DIR) $(1)/opt/tmp
 	$(INSTALL_DIR) $(1)/opt/tmp/eaccelerator
-	$(INSTALL_DIR) $(1)/opt/etc
 	$(INSTALL_DIR) $(1)/opt/etc/php5
 	$(CP) ./files/eaccelerator.ini $(1)/opt/etc/php5
-	$(INSTALL_DIR) $(1)/opt/lib
 	$(INSTALL_DIR) $(1)/opt/lib/php
 	$(CP) $(PKG_BUILD_DIR)/modules/eaccelerator.so $(1)/opt/lib/php
 endef

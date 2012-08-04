@@ -38,6 +38,12 @@ endef
 CONFIGURE_ARGS += \
 	--with-mediadir=/opt/var \
 
+define Package/istgt/conffiles
+/opt/etc/istgt/auth.conf
+/opt/etc/istgt/istgt.conf
+/opt/etc/istgt/istgtcontrol.conf
+endef
+
 define Package/istgt/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/istgt $(1)/opt/bin

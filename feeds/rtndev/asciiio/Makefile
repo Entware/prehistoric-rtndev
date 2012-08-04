@@ -34,6 +34,10 @@ define Package/asciiio/description
  ascii.io lets you record your terminal sessions and share it with other geeks.
 endef
 
+define Package/asciiio/conffiles
+/opt/etc/ascii.io/config
+endef
+
 define Build/Configure
 endef
 

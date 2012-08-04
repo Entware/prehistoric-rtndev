@@ -31,9 +31,6 @@ endef
 
 define Package/dlengine/conffiles
 /opt/etc/dlengine.conf
-/opt/etc/httpd.conf
-/opt/etc/init.d/S50dlengine
-/opt/etc/init.d/S90busybox_httpd
 endef
 
 define Build/Compile

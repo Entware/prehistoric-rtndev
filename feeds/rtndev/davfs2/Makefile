@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=davfs2
 PKG_VERSION:=1.4.7
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://download.savannah.gnu.org/releases/davfs2/
@@ -50,6 +50,11 @@ CONFIGURE_VARS += \
 	LIBS="-liconv"
 
 TARGET_CPPFLAGS += -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE
+
+define Package/davfs2/conffiles
+/opt/etc/davfs2/davfs2.conf
+/opt/etc/davfs2/secrets
+endef
 
 define Package/davfs2/install
 	$(INSTALL_DIR) $(1)/opt/sbin

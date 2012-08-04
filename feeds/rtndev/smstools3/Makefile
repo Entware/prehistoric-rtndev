@@ -33,6 +33,10 @@ define Package/smstools3/description
  short messages through GSM modems and mobile phones.
 endef
 
+define Package/smstools3/conffiles
+/opt/etc/smsd.conf
+endef
+
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/src \
 		CC="$(TARGET_CC)" \

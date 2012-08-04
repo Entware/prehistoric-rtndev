@@ -47,7 +47,7 @@ define Build/InstallDev
 	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/loudmouth-1.0.pc $(1)/opt/lib/pkgconfig/
 endef
-	
+
 define Package/libloudmouth1/install
 	$(INSTALL_DIR) $(1)/opt/lib
 	$(CP) $(PKG_BUILD_DIR)/loudmouth/.libs/libloudmouth-1.so* $(1)/opt/lib

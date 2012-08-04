@@ -55,7 +55,7 @@ define Package/fidoip/install
 	$(CP) ./files/etc/* $(1)/opt/etc
 	$(INSTALL_DIR) $(1)/opt/var/fido/{2uplink,announce,badarea,carbonarea,fghigetdir,filebox,flags,inbound,localinb,magic,msgbasedir,netmailarea,nodelist,outbound,outfile,protinb,public,tempinb,tempoutb,uudecode}
 	$(INSTALL_DATA) ./files/nodelist/* $(1)/opt/var/fido/nodelist
-	touch $(1)/opt/var/fido/{binkd.log,echotoss.log,golded.log,hpt.log,htick.log,import.log,sqpack.log}
+	touch $(1)/opt/var/fido/{binkd,echotoss,golded,hpt,htick,import,sqpack}.log
 endef
 
 $(eval $(call BuildPackage,fidoip))

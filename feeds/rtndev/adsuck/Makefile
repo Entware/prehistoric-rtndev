@@ -47,7 +47,7 @@ endef
 define Package/adsuck/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/adsuck $(1)/opt/bin
-	$(INSTALL_DIR) $(1)/opt/etc $(1)/opt/etc/adsuck
+	$(INSTALL_DIR) $(1)/opt/etc/adsuck
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/files/*  $(1)/opt/etc/adsuck
 endef
 
