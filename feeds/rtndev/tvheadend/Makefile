@@ -18,7 +18,7 @@ PKG_REV:=d66746ca56b8937d2cf87ca60e51956647b731a5
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/andoma/tvheadend.git
+PKG_SOURCE_URL:=git://github.com/tvheadend/tvheadend.git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 EXTRA_CPPFLAGS += \
