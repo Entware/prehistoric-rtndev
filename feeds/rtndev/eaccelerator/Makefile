@@ -8,13 +8,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=php5-mod-eaccelerator
-PKG_VERSION:=0.9.6.1
+PKG_VERSION:=0.9.6-20120730
 PKG_RELEASE:=1
 
-PKG_SOURCE:=eaccelerator-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=@SF/eaccelerator
-PKG_MD5SUM:=32ccd838e06ef5613c2610c1c65ed228
-PKG_BUILD_DIR:=$(BUILD_DIR)/eaccelerator-$(PKG_VERSION)
+PKG_REV:=c5ac10d8701f0f58bb00df81bd089c47c4af7704
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=git://github.com/eaccelerator/eaccelerator.git
+PKG_SOURCE_VERSION:=$(PKG_REV)
+
 PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
@@ -56,9 +59,8 @@ define Build/Configure
 endef
 
 define Package/php5-mod-eaccelerator/install
-	$(INSTALL_DIR) $(1)/opt/tmp/eaccelerator
-	$(INSTALL_DIR) $(1)/opt/etc/php5
-	$(CP) ./files/eaccelerator.ini $(1)/opt/etc/php5
+	$(INSTALL_DIR) $(1)/opt/tmp/eaccelerator $(1)/opt/var/log  $(1)/opt/etc/php5
+	$(CP) $(PKG_BUILD_DIR)/eaccelerator.ini $(1)/opt/etc/php5
 	$(INSTALL_DIR) $(1)/opt/lib/php
 	$(CP) $(PKG_BUILD_DIR)/modules/eaccelerator.so $(1)/opt/lib/php
 endef
