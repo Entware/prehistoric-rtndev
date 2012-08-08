@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mathomatic
-PKG_VERSION:=16.0.1
+PKG_VERSION:=16.0.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=mathomatic-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://mathomatic.org
-PKG_MD5SUM:=550c4c27da68db1d3d62ed2888828548
+PKG_MD5SUM:=17d4034b9f4af59d55095d47e9096c7b
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
