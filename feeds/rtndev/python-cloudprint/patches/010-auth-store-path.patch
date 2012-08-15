@@ -1,0 +1,11 @@
+--- a/cloudprint/cloudprint.py	2012-08-15 09:41:11.315640095 +0400
++++ a/cloudprint/cloudprint.py	2012-08-15 09:41:30.147638071 +0400
+@@ -27,7 +27,7 @@
+         self.printer_id = None
+         self.cups= cups.Connection()
+         self.proxy =  platform.node() + '-Armooo-PrintProxy'
+-        self.auth_path = os.path.expanduser('~/.cloudprintauth')
++        self.auth_path = os.path.expanduser('/opt/var/.cloudprintauth')
+ 
+     def get_auth(self):
+         if self.auth:
