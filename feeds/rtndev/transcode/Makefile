@@ -44,12 +44,15 @@ CONFIGURE_ARGS += \
 	--disable-sse \
 	--disable-sse2 \
 	--disable-altivec \
+	--disable-ffmpeg \
+	--disable-libavcodec \
+	--disable-libavformat \
 	--disable-x86-textrels \
 	--disable-libdvdread \
 	--disable-lame \
 	--disable-iconv \
 	--disable-libjpeg \
-	--disable-ffmpeg \
+	--without-x
 
 define Package/transcode/install
 	$(INSTALL_DIR) $(1)/opt/bin
