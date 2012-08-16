@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nut
-PKG_VERSION:=2.6.4
+PKG_VERSION:=2.6.5
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.networkupstools.org/source/2.6/
-PKG_MD5SUM:=78d672fbbcd90683e49c667665a95f87
+PKG_MD5SUM:=e6eac4fa04baff0d0a827d64efe81a7e
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
