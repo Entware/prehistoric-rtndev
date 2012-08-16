@@ -1,6 +1,6 @@
---- a/configure.in	2012-05-15 15:22:42.000000000 +0400
-+++ b/configure.in	2012-05-16 18:51:09.496597899 +0400
-@@ -174,16 +174,7 @@
+--- a/configure.in	2012-08-16 16:09:01.209643392 +0400
++++ b/configure.in	2012-08-16 16:11:25.669640096 +0400
+@@ -180,15 +180,7 @@
  # Check whether we should use the version string from AC_INIT(), or use
  # git-describe to create one. This trick is copied from the pacman source.
  
@@ -11,8 +11,7 @@
  usegitver=no
 -if test "x$wantgitver" = "xyes" ; then
 -  AC_CHECK_PROGS([GIT], [git], [no])
--  AC_CHECK_FILE(["$srcdir/.git"], hasgitdir=yes)
--  test "x$GIT" != "xno" -a "x$hasgitdir" = "xyes" && usegitver=yes
+-  test "x$GIT" != "xno" -a -d "$srcdir/.git" && usegitver=yes
 -fi
  AM_CONDITIONAL(USE_GIT_VERSION, test "x$usegitver" = "xyes")
  
