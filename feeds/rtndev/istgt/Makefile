@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=istgt
-PKG_VERSION:=20120726
+PKG_VERSION:=20120811
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://shell.peach.ne.jp/~aoyama/wordpress/download
-PKG_MD5SUM:=22bf014d65f6412e41a7480a837c2b4e
+PKG_MD5SUM:=989e6bc6273b0b4b40c04dd93aba58a4
 
 PKG_INSTALL:=1
 
