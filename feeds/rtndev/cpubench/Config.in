@@ -1,0 +1,11 @@
+menu "Configuration"
+	depends on PACKAGE_cpubench
+
+config CPUBENCH_PREBUILDED
+	bool
+	prompt "Use prebuilded binary to improve accuracy"
+	default y
+	help
+		Do not compile new binary, use the same one on all systems
+
+endmenu
