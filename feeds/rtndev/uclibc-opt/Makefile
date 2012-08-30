@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=uclibc-opt
 PKG_VERSION:=0.9.32
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -38,6 +38,7 @@ endef
 define Package/uclibc-opt/install
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/rc.unslung $(1)/opt/etc/init.d/
+	$(INSTALL_BIN) ./files/profile $(1)/opt/etc/
 	$(INSTALL_DATA) ./files/rc.func $(1)/opt/etc/init.d/
 	touch $(1)/opt/etc/ld.so.conf
 	$(INSTALL_DIR) $(1)/opt/usr/lib

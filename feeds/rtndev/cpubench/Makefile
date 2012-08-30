@@ -28,8 +28,8 @@ define Package/cpubench/config
 endef
 
 define Package/cpubench/description
- OpenWRT's CPU Benchmark utility. It's firmware/repo independed,
- prebuilded static version.
+ OpenWRT's CPU Benchmark utility. It's firmware/repo independed, static
+ prebuilded (optional) version.
 endef
 
 define Build/Prepare
