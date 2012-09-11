@@ -37,7 +37,7 @@ define Package/rutorrent/Default
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=BitTorrent
-	DEPENDS:=+rtorrent +php5-cgi +coreutils-stat +coreutils-id
+	DEPENDS:=+rtorrent +coreutils-stat +coreutils-id
 	TITLE:=Yet another web front-end for rTorrent
 	URL:=http://rutorrent.googlecode.com
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
