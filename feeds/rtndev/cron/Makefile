@@ -11,7 +11,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cron
 PKG_VERSION:=4.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).shar
 PKG_SOURCE_URL:=ftp://ftp.isc.org/isc/cron
@@ -48,7 +48,7 @@ define Package/cron/install
 	$(INSTALL_DIR) \
 		$(1)/opt/var/run \
 		$(1)/opt/var/cron/crontabs \
-		$(1)/opt/etc/cron.{1min,5min,hourly,daily,weekly,monthly}
+		$(1)/opt/etc/cron.{1min,5mins,hourly,daily,weekly,monthly}
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S10cron $(1)/opt/etc/init.d/
 endef
