@@ -11,10 +11,6 @@ PKG_NAME:=25volt
 PKG_VERSION:=1.0
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://25volt.ru/download
-PKG_MD5SUM:=40e1ab11fd6f9026f5c97fb049771fc1
-
 include $(INCLUDE_DIR)/package.mk
 
 define Package/25volt
@@ -29,6 +25,11 @@ endef
 define Package/25volt/description
  25volt - A lightweight tool for monitoring ups POWERCOM Imperial IMD-1025AP
  and maybe other for FreeBSD and Linux.
+endef
+
+define Build/Prepare
+	$(INSTALL_DIR) $(PKG_BUILD_DIR)
+	$(INSTALL_DATA) ./src/main.c $(PKG_BUILD_DIR)/
 endef
 
 define Build/Compile
