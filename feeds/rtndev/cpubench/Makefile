@@ -34,12 +34,12 @@ endef
 
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
-	$(CP) $(SOURCE)/src/openwrt_cpu_bench_v06.c $(PKG_BUILD_DIR)
+	$(CP) ./src/openwrt_cpu_bench_v06.c $(PKG_BUILD_DIR)
 endef
 
 ifeq ($(CONFIG_CPUBENCH_PREBUILDED),y)
   define Build/Compile
-	$(CP) $(SOURCE)/files/cpubench $(PKG_BUILD_DIR)
+	$(CP) ./files/cpubench $(PKG_BUILD_DIR)
   endef
 else
   define Build/Compile

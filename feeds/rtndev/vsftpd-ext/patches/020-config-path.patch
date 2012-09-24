@@ -1,5 +1,5 @@
---- a/defs.h	2012-09-21 21:39:35.800406944 +0400
-+++ b/defs.h	2012-09-21 21:39:54.532403748 +0400
+--- a/defs.h
++++ b/defs.h
 @@ -1,7 +1,7 @@
  #ifndef VSF_DEFS_H
  #define VSF_DEFS_H
@@ -9,8 +9,8 @@
  
  #define VSFTP_COMMAND_FD        0
  
---- a/tunables.c	2012-09-21 23:11:44.024299195 +0400
-+++ b/tunables.c	2012-09-21 23:14:14.956302709 +0400
+--- a/tunables.c
++++ b/tunables.c
 @@ -254,19 +254,19 @@
    /* -rw------- */
    tunable_chown_upload_mode = 0600;
@@ -45,7 +45,7 @@
 +  install_str_setting("/opt/etc/vsftpd/vsftpd.email_passwords",
                        &tunable_email_password_file);
 -  install_str_setting("/usr/share/ssl/certs/vsftpd.pem",
-+  install_str_setting("/opt/share/ssl/certs/vsftpd.pem",
++  install_str_setting("/opt/etc/vsftpd/vsftpd.pem",
                        &tunable_rsa_cert_file);
    install_str_setting(0, &tunable_dsa_cert_file);
    install_str_setting("AES128-SHA:DES-CBC3-SHA", &tunable_ssl_ciphers);

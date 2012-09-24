@@ -22,7 +22,6 @@ define Package/vsftpd-ext
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=File Transfer
-#	DEPENDS:=+libcap +libssp
 	TITLE:=A fast and secure FTP server
 	URL:=http://vsftpd.devnet.ru
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
@@ -32,10 +31,7 @@ define Package/vsftpd-ext/descriptio
  vsftpd-ext is a GPL licensed FTP server for UNIX systems, including Linux.
 endef
 
-#define Build/Configure
-#endef
-
-define Package/vsftpd/conffiles
+define Package/vsftpd-ext/conffiles
 /opt/etc/vsftpd/vsftpd.conf
 endef
 
@@ -44,6 +40,9 @@ define Package/vsftpd-ext/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vsftpd $(1)/opt/sbin/
 	$(INSTALL_DIR) $(1)/opt/etc/vsftpd
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/vsftpd.conf $(1)/opt/etc/vsftpd/
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S49vsftpd $(1)/opt/etc/init.d/
+	$(INSTALL_DIR) $(1)/opt/share/empty
 endef
 
 $(eval $(call BuildPackage,vsftpd-ext))

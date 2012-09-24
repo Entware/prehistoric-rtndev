@@ -1,5 +1,5 @@
---- a/Makefile	2012-04-03 11:21:18.000000000 +0400
-+++ b/Makefile	2012-09-21 22:00:59.748381747 +0400
+--- a/Makefile
++++ b/Makefile
 @@ -1,16 +1,16 @@
  # Makefile for systems with GNU tools
 -CC 	=	gcc
@@ -11,7 +11,8 @@
 +CFLAGS ?= -g
 +CFLAGS	+=	-fPIE \
  	-Wall -W -Wshadow -Werror -Wformat-security \
- 	-D_FORTIFY_SOURCE=2 \
+-	-D_FORTIFY_SOURCE=2 \
++	#-D_FORTIFY_SOURCE=2 \
  	#-pedantic -Wconversion
  
 -LIBS	=	`./vsf_findlibs.sh`
