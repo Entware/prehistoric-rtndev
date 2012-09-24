@@ -1,0 +1,11 @@
+--- a/builddefs.h	2012-09-21 17:09:04.044700245 +0400
++++ b/builddefs.h	2012-09-21 17:13:00.916697847 +0400
+@@ -2,7 +2,7 @@
+ #define VSF_BUILDDEFS_H
+ 
+ #undef VSF_BUILD_TCPWRAPPERS
+-#define VSF_BUILD_PAM
++#undef VSF_BUILD_PAM
+ #undef VSF_BUILD_SSL
+ 
+ #endif /* VSF_BUILDDEFS_H */

@@ -1,0 +1,57 @@
+--- ./parseconf.c.orig	2012-09-22 23:31:17.494708562 +0400
++++ ./parseconf.c	2012-09-22 23:32:29.510712083 +0400
+@@ -36,6 +36,7 @@
+   { "anon_upload_enable", &tunable_anon_upload_enable },
+   { "anon_mkdir_write_enable", &tunable_anon_mkdir_write_enable },
+   { "anon_other_write_enable", &tunable_anon_other_write_enable },
++  { "allow_writable_root", &tunable_allow_writable_root },
+   { "chown_uploads", &tunable_chown_uploads },
+   { "connect_from_port_20", &tunable_connect_from_port_20 },
+   { "xferlog_enable", &tunable_xferlog_enable },
+--- ./tunables.c.orig	2012-09-22 23:33:37.642706173 +0400
++++ ./tunables.c	2012-09-22 23:34:46.406702239 +0400
+@@ -17,6 +17,7 @@
+ int tunable_anon_upload_enable;
+ int tunable_anon_mkdir_write_enable;
+ int tunable_anon_other_write_enable;
++int tunable_allow_writable_root;
+ int tunable_chown_uploads;
+ int tunable_connect_from_port_20;
+ int tunable_xferlog_enable;
+@@ -157,6 +158,7 @@
+   tunable_anon_upload_enable = 0;
+   tunable_anon_mkdir_write_enable = 0;
+   tunable_anon_other_write_enable = 0;
++  tunable_allow_writable_root = 0;
+   tunable_chown_uploads = 0;
+   tunable_connect_from_port_20 = 0;
+   tunable_xferlog_enable = 0;
+--- ./tunables.h.orig	2012-09-22 23:35:26.322707044 +0400
++++ ./tunables.h	2012-09-22 23:36:54.318700754 +0400
+@@ -18,6 +18,7 @@
+ extern int tunable_anon_upload_enable;        /* Enable STOR for anon users */
+ extern int tunable_anon_mkdir_write_enable;   /* MKD for anon */
+ extern int tunable_anon_other_write_enable;   /* APPE DELE RMD RNFR for anon */
++extern int tunable_allow_writable_root;       /* allow to start child even if root dir is writable */
+ extern int tunable_chown_uploads;             /* chown() anon uploaded files */
+ extern int tunable_connect_from_port_20;      /* PORT connects from port 20 */
+ extern int tunable_xferlog_enable;            /* Log transfers to a file */
+--- ./secutil.c.orig	2012-09-22 23:37:34.422702149 +0400
++++ ./secutil.c	2012-09-22 23:39:42.118706608 +0400
+@@ -11,6 +11,7 @@
+ #include "sysstr.h"
+ #include "utility.h"
+ #include "sysdeputil.h"
++#include "tunables.h"
+ 
+ void
+ vsf_secutil_change_credentials(const struct mystr* p_user_str,
+@@ -135,7 +136,7 @@
+   if ((options & VSF_SECUTIL_OPTION_CHROOT) &&
+       !(options & VSF_SECUTIL_OPTION_ALLOW_WRITEABLE_ROOT))
+   {
+-    if (vsf_sysutil_write_access("/"))
++    if (!tunable_allow_writable_root && vsf_sysutil_write_access("/"))
+     {
+       die("vsftpd: refusing to run with writable root inside chroot()");
+     }

@@ -1,0 +1,49 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=vsftpd-ext
+PKG_VERSION:=3.0.0
+PKG_RELEASE:=1
+
+PKG_SOURCE:=vsftpd-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=http://vsftpd.devnet.ru/files/$(PKG_VERSION)
+PKG_MDSUM:=ad9fa952558c2c5b0426ccaccff0f972
+PKG_UNPACK=$(HOST_TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xzf $(DL_DIR)/$(PKG_SOURCE)
+
+include $(INCLUDE_DIR)/package.mk
+
+define Package/vsftpd-ext
+	SECTION:=net
+	CATEGORY:=Network
+	SUBMENU:=File Transfer
+#	DEPENDS:=+libcap +libssp
+	TITLE:=A fast and secure FTP server
+	URL:=http://vsftpd.devnet.ru
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+endef
+
+define Package/vsftpd-ext/descriptio
+ vsftpd-ext is a GPL licensed FTP server for UNIX systems, including Linux.
+endef
+
+#define Build/Configure
+#endef
+
+define Package/vsftpd/conffiles
+/opt/etc/vsftpd/vsftpd.conf
+endef
+
+define Package/vsftpd-ext/install
+	$(INSTALL_DIR) $(1)/opt/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vsftpd $(1)/opt/sbin/
+	$(INSTALL_DIR) $(1)/opt/etc/vsftpd
+	$(INSTALL_CONF) $(PKG_BUILD_DIR)/vsftpd.conf $(1)/opt/etc/vsftpd/
+endef
+
+$(eval $(call BuildPackage,vsftpd-ext))
