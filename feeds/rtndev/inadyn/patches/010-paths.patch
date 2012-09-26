@@ -13,11 +13,6 @@
  
 --- a/src/inadyn_cmd.c	2012-09-26 20:28:23.744613872 +0400
 +++ b/src/inadyn_cmd.c	2012-09-26 20:30:34.056611817 +0400
-@@ -1,4 +1,3 @@
--/*
-  * Copyright (C) 2003-2004  Narcis Ilisei <inarcis2002@hotpop.com>
-  * Copyright (C) 2006  Steve Horbachuk
-  *
 @@ -166,7 +165,7 @@
  
  	{"-P",			1,	{set_pidfile, NULL}, ""},

@@ -43,7 +43,7 @@ define Package/inadyn/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/inadyn $(1)/opt/bin/
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_CONF) ./files/inadyn.conf $(1)/opt/etc/
-	$(INSTALL_BIN) ./files/Sxxinadyn.conf $(1)/opt/etc/init.d/
+	$(INSTALL_BIN) ./files/S52inadyn $(1)/opt/etc/init.d/
 endef
 
 define Package/istgt/conffiles
