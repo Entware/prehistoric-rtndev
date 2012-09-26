@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=inadyn
 PKG_VERSION:=1.99.2-20120926
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_REV:=a4d75aa8d4a0032a4f6466a5e236ba87f7c929c1
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
@@ -41,6 +41,13 @@ TARGET_CFLAGS += -Iinclude -DVERSION_STRING=\"$(VERSION)\"
 define Package/inadyn/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/inadyn $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_CONF) ./files/inadyn.conf $(1)/opt/etc/
+	$(INSTALL_BIN) ./files/Sxxinadyn.conf $(1)/opt/etc/init.d/
+endef
+
+define Package/istgt/conffiles
+/opt/etc/inadyn/inadyn.conf
 endef
 
 $(eval $(call BuildPackage,inadyn))
