@@ -1,7 +1,7 @@
---- a/rutorrent/conf/config.php	2012-05-04 15:21:00.000000000 +0400
-+++ b/rutorrent/conf/config.php	2012-06-05 15:10:04.000000000 +0400
+--- a/rutorrent/conf/config.php	2012-09-03 15:21:08.000000000 +0400
++++ b/rutorrent/conf/config.php	2012-09-26 14:39:10.196994769 +0400
 @@ -19,7 +19,7 @@
- 	@define('PHP_GZIP_LEVEL', 2, true);
+ 	$schedule_rand = 10;			// rand for schedulers start, +0..X seconds
  
  	$do_diagnostic = true;
 -	$log_file = '/tmp/errors.log';		// path to log file (comment or leave blank to disable logging)

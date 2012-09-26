@@ -1,5 +1,5 @@
---- ./cloudprint/cloudprint.py.orig	2012-09-26 13:55:18.929043017 +0400
-+++ ./cloudprint/cloudprint.py	2012-09-26 14:03:39.921032763 +0400
+--- a/cloudprint/cloudprint.py	2012-09-26 13:55:18.929043017 +0400
++++ b/cloudprint/cloudprint.py	2012-09-26 14:03:39.921032763 +0400
 @@ -27,8 +27,8 @@
          self.printer_id = None
          self.cups= cups.Connection()
