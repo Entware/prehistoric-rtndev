@@ -8,15 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mathomatic
-PKG_VERSION:=16.0.2
+PKG_VERSION:=16.0.4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=mathomatic-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://mathomatic.org
-PKG_MD5SUM:=17d4034b9f4af59d55095d47e9096c7b
+PKG_MD5SUM:=584f9ff071ebe0170b0da5a595dea9d0
 
 include $(INCLUDE_DIR)/package.mk
-include $(INCLUDE_DIR)/nls.mk
 
 define Package/mathomatic
 	SECTION:=utils
@@ -32,21 +31,20 @@ define Package/mathomatic/description
  simultaneously performing generalized standard, complex number, modular, and polynomial arithmetic, as needed.
 endef
 
-define Build/Configure
-	$(call Build/Compile/Default, \
-	prefix=/opt \
+MAKE_VARS += \
 	READLINE=1 \
-	LDLIBS="-lm -lreadline -lncurses" \
 	HANDHELD=1 \
-	)
-endef
+
+TARGET_LDFLAGS += \
+	-lreadline \
+	-lncurses
 
 define Package/mathomatic/install
 	$(INSTALL_DIR) $(1)/opt/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/mathomatic $(1)/opt/bin/
-	#$(INSTALL_BIN) $(PKG_BUILD_DIR)/m4/rmath $(1)/opt/bin/
-	#$(INSTALL_BIN) $(PKG_BUILD_DIR)/m4/functions.m4 $(1)/opt/bin/
-	#$(INSTALL_BIN) $(PKG_BUILD_DIR)/m4/matho $(1)/opt/bin/
+#	$(INSTALL_BIN) $(PKG_BUILD_DIR)/m4/rmath $(1)/opt/bin/
+#	$(INSTALL_BIN) $(PKG_BUILD_DIR)/m4/functions.m4 $(1)/opt/bin/
+#	$(INSTALL_BIN) $(PKG_BUILD_DIR)/m4/matho $(1)/opt/bin/
 endef
 
 $(eval $(call BuildPackage,mathomatic))
