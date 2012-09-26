@@ -10,12 +10,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=angband
-PKG_VERSION:=3.3.2
+PKG_VERSION:=3.4.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-v$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://rephial.org/downloads/3.3/
-PKG_MD5SUM:=76bb1cac39e8f3d1146bac5ff561fc3a
+PKG_SOURCE_URL:=http://rephial.org/downloads/3.4/
+PKG_MD5SUM:=ca12c1a735b6a28dce7ffe92344538a0
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-v$(PKG_VERSION)
 
 PKG_INSTALL:=1
@@ -25,7 +25,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/angband
 	SECTION:=games
 	CATEGORY:=Games
-	DEPENDS:=+libncurses
+	DEPENDS:=+libncursesw
 	TITLE:=single-player, text-based, dungeon simulation game
 	URL:=http://rephial.org
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
@@ -40,12 +40,11 @@ endef
 
 CONFIGURE_ARGS += \
 	--disable-x11 \
-	--disable-sdl-mixer \
-	--prefix=/opt
+	--disable-sdl \
 
 define Package/angband/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/* $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/angband $(1)/opt/bin
 	$(INSTALL_DIR) $(1)/opt/etc/angband/{edit,pref}
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/etc/angband/edit/*.txt $(1)/opt/etc/angband/edit
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/etc/angband/pref/*.prf $(1)/opt/etc/angband/pref
