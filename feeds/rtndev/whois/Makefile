@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=whois
-PKG_VERSION:=5.0.18
+PKG_VERSION:=5.0.19
 PKG_RELEASE:=1
 
 PKG_SOURCE:=whois_$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=http://ftp.debian.org/debian/pool/main/w/whois
-PKG_MD5SUM:=15d777273d44a5b9a0814c1ea0d22b1a
+PKG_MD5SUM:=16b0a0e5e3757287462bbeb01b66b191
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/whois-$(PKG_VERSION)
 
