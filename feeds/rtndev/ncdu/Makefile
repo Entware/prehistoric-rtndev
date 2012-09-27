@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ncdu
-PKG_VERSION:=1.8
+PKG_VERSION:=1.9
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://dev.yorhel.nl/download/
-PKG_MD5SUM:=94d7a821f8a0d7ba8ef3dd926226f7d5
+PKG_MD5SUM:=93258079db897d28bb8890e2db89b1fb
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -31,12 +31,9 @@ define Package/ncdu/description
  ncdu is a disk usage analyzer with an ncurses interface, aimed to be run on a remote server
 endef
 
-CONFIGURE_ARGS += \
-        --prefix=/opt
-
 define Package/ncdu/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/ncdu $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ncdu $(1)/opt/bin
 endef
 
 $(eval $(call BuildPackage,ncdu))
