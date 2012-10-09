@@ -37,7 +37,7 @@ define Package/libloudmouth1/description
 endef
 
 CONFIGURE_ARGS += \
-        --prefix=/opt \
+	--with-compile-warnings=no
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/opt/include/loudmouth-1.0/loudmouth
