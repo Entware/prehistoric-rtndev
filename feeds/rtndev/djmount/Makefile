@@ -40,7 +40,7 @@ endef
 
 CONFIGURE_ARGS += \
 	--disable-debug \
-	--with-libiconv-prefix=$(ICONV_PRFIX) \
+	--with-libiconv-prefix=$(ICONV_PREFIX) \
 	--with-external-libupnp \
 	--with-libupnp-prefix=$(STAGING_DIR)/opt \
 
