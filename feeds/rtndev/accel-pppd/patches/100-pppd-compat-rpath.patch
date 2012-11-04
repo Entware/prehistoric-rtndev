@@ -1,0 +1,23 @@
+From c8e89029002ebf05932d0247e8a03215dd1c66ef Mon Sep 17 00:00:00 2001
+From: Kozlov Dmitry <xeb@mail.ru>
+Date: Sat, 3 Nov 2012 02:16:02 +0400
+Subject: [PATCH] pppd_compat: set rpath to locate depending libraries
+
+---
+ accel-pppd/extra/CMakeLists.txt |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/accel-pppd/extra/CMakeLists.txt b/accel-pppd/extra/CMakeLists.txt
+index e7b9f07..cbaef49 100644
+--- a/accel-pppd/extra/CMakeLists.txt
++++ b/accel-pppd/extra/CMakeLists.txt
+@@ -1,5 +1,6 @@
+ ADD_LIBRARY(pppd_compat SHARED pppd_compat.c)
+ TARGET_LINK_LIBRARIES(pppd_compat sigchld)
++set_property(TARGET pppd_compat PROPERTY INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib/accel-ppp)
+ ADD_LIBRARY(ippool SHARED ippool.c)
+ ADD_LIBRARY(ipv6pool SHARED ipv6pool.c)
+ ADD_LIBRARY(sigchld SHARED sigchld.c)
+-- 
+1.7.4.1
+
