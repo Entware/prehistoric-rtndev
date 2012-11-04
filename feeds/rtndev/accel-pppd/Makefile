@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=accel-pppd
 PKG_VERSION:=1.7.2
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE:=accel-ppp-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/accel-ppp
