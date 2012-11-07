@@ -8,12 +8,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=microdc2
-PKG_VERSION:=0.15.6
+PKG_VERSION:=0.15.6-20121011
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://savio.km.ua/download/microdc2
-PKG_MD5SUM:=9175a7463936fe89e2e22c8ae2f5e020
+PKG_REV:=0b9add819d08edb7d70bf0dde53e0b30a7bdc15d
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=git://github.com/jnwatts/microdc2.git
+PKG_SOURCE_VERSION:=$(PKG_REV)
+
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
@@ -25,7 +29,7 @@ define Package/microdc2
 	SUBMENU:=P2P
 	DEPENDS:=$(ICONV_DEPENDS) +libxml2 +libreadline +libncurses
 	TITLE:=microdc2
-	URL:=http://corsair626.no-ip.org/microdc
+	URL:=https://github.com/jnwatts/microdc2
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
@@ -33,29 +37,22 @@ define Package/microdc2/description
  A command-line based Direct Connect client.
 endef
 
-define Package/microdc2/conffiles
-/opt/etc/microdc2.conf
-endef
-
 CONFIGURE_ARGS += \
-	--disable-static \
-	--disable-rparh
+	--with-libintl-prefix=$(INTL_PREFIX) \
+	--with-libiconv-prefix=$(ICONV_PREFIX)
 
-define Build/Compile
-	rm -rf $(PKG_INSTALL_DIR)
-	mkdir -p $(PKG_INSTALL_DIR)
-	$(MAKE) -C $(PKG_BUILD_DIR) \
-		LTLIBICONV="" \
-		DESTDIR="$(PKG_INSTALL_DIR)" \
-		install
+MAKE_FLAGS += \
+	LTLIBICONV=""
+
+define Package/microdc2/conffiles
+/opt/share/microdc2/config
 endef
 
 define Package/microdc2/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/microdc2 $(1)/opt/bin/
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/tthsum $(1)/opt/bin/
-	$(INSTALL_DIR) $(1)/opt/etc
-	$(INSTALL_CONF) ./files/microdc2.conf $(1)/opt/etc/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/{microdc2,tthsum} $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)/opt/share/microdc2
+	$(INSTALL_CONF) ./files/microdc2.conf $(1)/opt/share/microdc2/config
 endef
 
 $(eval $(call BuildPackage,microdc2))
