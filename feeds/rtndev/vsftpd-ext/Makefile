@@ -13,7 +13,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=vsftpd-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://vsftpd.devnet.ru/files/$(PKG_VERSION)
-#PKG_MDSUM:=ad9fa952558c2c5b0426ccaccff0f972
+PKG_MDSUM:=8b00c749719089401315bd3c44dddbb2
 PKG_UNPACK=$(HOST_TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xzf $(DL_DIR)/$(PKG_SOURCE)
 
 include $(INCLUDE_DIR)/package.mk
