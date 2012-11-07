@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=vsftpd-ext
-PKG_VERSION:=3.0.0
+PKG_VERSION:=3.0.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=vsftpd-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://vsftpd.devnet.ru/files/$(PKG_VERSION)
-PKG_MDSUM:=ad9fa952558c2c5b0426ccaccff0f972
+#PKG_MDSUM:=ad9fa952558c2c5b0426ccaccff0f972
 PKG_UNPACK=$(HOST_TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xzf $(DL_DIR)/$(PKG_SOURCE)
 
 include $(INCLUDE_DIR)/package.mk
