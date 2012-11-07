@@ -1,6 +1,6 @@
---- a/source/Makefile	2012-04-10 23:47:14.000000000 +0400
-+++ b/source/Makefile	2012-06-17 17:14:44.494311069 +0400
-@@ -119,13 +119,13 @@
+--- a/source/Makefile
++++ b/source/Makefile
+@@ -120,13 +120,13 @@
  CFOPTIMIZE += -flto=jobserver -fwhole-program
  endif
  
@@ -16,7 +16,15 @@
  
  #
  # The GCC and GXX variables are set later.
-@@ -265,7 +265,7 @@
+@@ -200,6 +200,7 @@
+ 	endif
+ 
+ endif
++BUILD_LUA = yes
+ ifneq (,$(findstring MINGW,$(uname_S)))
+ 	GAME = crawl.exe
+ 	bin_prefix = .
+@@ -270,7 +271,7 @@
  LIBPNG := contrib/install/$(ARCH)/lib/libpng.a
  LIBSDLIMAGE := contrib/install/$(ARCH)/lib/libSDL_image.a
  LIBFREETYPE := contrib/install/$(ARCH)/lib/libfreetype.a
@@ -25,16 +33,16 @@
  ifdef USE_LUAJIT
  LIBLUA := contrib/install/$(ARCH)/lib/libluajit.a
  else
-@@ -275,7 +275,7 @@
+@@ -279,7 +280,7 @@
+ LIBZ := contrib/install/$(ARCH)/lib/libz.a
  
  ifndef CROSSHOST
- 	LUA_INCLUDE_DIR := /usr/include/lua5.1
 -	SQLITE_INCLUDE_DIR := /usr/include
 +	SQLITE_INCLUDE_DIR := .
  else
  	# This is totally wrong, works only with some old-style setups, and
  	# on some architectures of Debian/new FHS multiarch -- excluding, for
-@@ -387,7 +387,6 @@
+@@ -389,7 +390,6 @@
  
  
  INCLUDES_L += -Icontrib/install/$(ARCH)/include
@@ -42,7 +50,7 @@
  
  INCLUDES_L += -Iutil -I.
  
-@@ -811,10 +810,8 @@
+@@ -894,10 +894,8 @@
  NC_INCLUDE = $(NC_PREFIX)/include/ncursesw
  endif
  
@@ -54,7 +62,7 @@
  endif
  
  endif
-@@ -835,13 +832,12 @@
+@@ -918,13 +916,12 @@
  CFWARN_L :=
  endif
  
@@ -69,7 +77,7 @@
  CFLAGS_L := $(CFOPTIMIZE_L) $(DEFINES_L) $(CFWARN_L) $(INCLUDES_L) $(CFOTHERS_L)
  ALL_CFLAGS := $(CFLAGS) $(CFLAGS_L)
  YACC_CFLAGS  := $(ALL_CFLAGS) -Wno-unused-function -Wno-sign-compare -DYYENABLE_NLS=0 -DYYLTYPE_IS_TRIVIAL=0
-@@ -936,8 +932,7 @@
+@@ -1019,8 +1016,7 @@
  CONTRIB_LIBS += $(LIBLUA)
  endif
  ifdef BUILD_SQLITE
