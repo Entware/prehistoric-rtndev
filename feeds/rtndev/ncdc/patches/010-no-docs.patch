@@ -1,13 +1,10 @@
---- a/Makefile.am	2012-05-15 11:53:35.000000000 +0400
-+++ b/Makefile.am	2012-05-16 19:10:10.772618089 +0400
-@@ -1,38 +1,5 @@
--EXTRA_DIST=ChangeLog doc/ncdc-db-upgrade.pod doc/ncdc.pod.in
--CLEANFILES=doc/ncdc.1 doc/ncdc-db-upgrade.1 doc/ncdc.pod
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,30 +1,5 @@
+-EXTRA_DIST=ChangeLog doc/ncdc.pod.in
+-CLEANFILES=doc/ncdc.1 doc/ncdc.pod
 -
 -man_MANS=doc/ncdc.1
--if ENABLE_DB_UPGRADE
--man_MANS+=doc/ncdc-db-upgrade.1
--endif
 -
 -noinst_PROGRAMS=gendoc
 -gendoc_SOURCES=doc/gendoc.c
@@ -20,23 +17,18 @@
 -	$(AM_V_GEN)pod2man --center "ncdc manual" --release "@PACKAGE@-@VERSION@" doc/ncdc.pod >doc/ncdc.1
 -endif
 -
--doc/ncdc-db-upgrade.1: $(srcdir)/doc/ncdc-db-upgrade.pod Makefile
--if USE_POD2MAN
--	$(AM_V_GEN)pod2man --center "ncdc manual" --release "@PACKAGE@-@VERSION@" "$(srcdir)/doc/ncdc-db-upgrade.pod" >doc/ncdc-db-upgrade.1
--endif
--
--
 -
 -if HAVE_MH
 -mkhdr=makeheaders
-+mkhdr=./makeheaders
- mkhdr_dep=
+-mkhdr_dep=
 -else
--mkhdr=./makeheaders$(EXEEXT)
+ mkhdr=./makeheaders$(EXEEXT)
 -mkhdr_dep=makeheaders$(EXEEXT)
 -noinst_PROGRAMS+=makeheaders
 -endif
 -makeheaders_SOURCES=deps/makeheaders.c
+-
++mkhdr_dep=
  
  
- 
+ bin_PROGRAMS=ncdc
