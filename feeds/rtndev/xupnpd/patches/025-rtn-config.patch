@@ -1,6 +1,6 @@
---- a/xupnpd.lua	2012-01-13 21:32:52.000000000 +0400
-+++ b/xupnpd.lua	2012-01-13 21:38:04.540710990 +0400
-@@ -26,7 +26,7 @@
+--- a/xupnpd.lua
++++ b/xupnpd.lua
+@@ -32,7 +32,7 @@
  --cfg.udpxy_url='http://192.168.1.1:4022'
  
  -- downstream interface for builtin multicast proxy (comment 'cfg.udpxy_url' for processing 'udp://@...' playlists)

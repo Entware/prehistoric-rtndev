@@ -11,9 +11,9 @@
 -cfg.ssdp_loop=1
 +cfg.ssdp_loop=0
  
- -- HTTP port for incoming connections
- cfg.http_port=4044
-@@ -13,10 +13,10 @@ cfg.http_port=4044
+ -- SSDP announcement interval
+ cfg.ssdp_notify_interval=15
+@@ -19,10 +19,10 @@
  cfg.log_facility='local0'
  
  -- 'cfg.daemon' detach server from terminal
