@@ -1,6 +1,6 @@
---- a/include/dyndns.h	2012-09-19 17:12:44.102062600 +0400
-+++ b/include/dyndns.h	2012-09-19 17:13:42.858052020 +0400
-@@ -51,8 +51,8 @@
+--- a/include/dyndns.h
++++ b/include/dyndns.h
+@@ -52,8 +52,8 @@
  
  /*test values*/
  #define DYNDNS_DEFAULT_DEBUG_LEVEL	1
@@ -11,14 +11,3 @@
  #define DYNDNS_DEFAULT_CACHE_FILE	DYNDNS_RUNTIME_DATA_DIR"/inadyn.cache"
  #define DYNDNS_DEFAULT_PIDFILE		DYNDNS_RUNTIME_DATA_DIR"/inadyn.pid"
  
---- a/src/inadyn_cmd.c	2012-09-26 20:28:23.744613872 +0400
-+++ b/src/inadyn_cmd.c	2012-09-26 20:30:34.056611817 +0400
-@@ -166,7 +165,7 @@
- 
- 	{"-P",			1,	{set_pidfile, NULL}, ""},
- 	{"--pidfile",		1,	{set_pidfile, NULL}, "<FILE>\n"
--	 "\t\t\tSet pidfile, default /var/run/inadyn/inadyn.pid."},
-+	 "\t\t\tSet pidfile, default /opt/var/run/inadyn.pid."},
- 
- 	{"-s",			0,	{set_syslog_handler, NULL}, ""},
- 	{"--syslog",		0,	{set_syslog_handler, NULL},
