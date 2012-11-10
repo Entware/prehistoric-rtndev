@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=asciiio
 PKG_VERSION:=0.x
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_REV:=51ac1f103795d8f05da201eedd4c947252b58c4b
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
@@ -46,7 +46,7 @@ endef
 
 define Package/asciiio/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/asciiio.py $(1)/opt/bin/asciiio
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/asciiio $(1)/opt/bin/
 	$(INSTALL_DIR) $(1)/opt/etc/ascii.io
 endef
 
