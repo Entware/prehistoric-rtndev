@@ -1,0 +1,13 @@
+diff --git a/accel-pppd/ctrl/l2tp/dict/dictionary.rfc2661 b/accel-pppd/ctrl/l2tp/dict/dictionary.rfc2661
+index 3fd9614..5561c7a 100644
+--- a/accel-pppd/ctrl/l2tp/dict/dictionary.rfc2661
++++ b/accel-pppd/ctrl/l2tp/dict/dictionary.rfc2661
+@@ -23,7 +23,7 @@ ATTRIBUTE     Called-Number              21     string    M=1
+ ATTRIBUTE     Calling-Number             22     string    M=1
+ ATTRIBUTE     Sub-Address                23     string    M=1
+ ATTRIBUTE     TX-Speed                   24     int32     M=1
+-ATTRIBUTE     RX-Speed                   38     int32     M=1
++ATTRIBUTE     RX-Speed                   38     int32
+ ATTRIBUTE     Physical-Channel-ID        25     int32     M=0
+ ATTRIBUTE     Private-Group-ID           37     int32     M=0
+ ATTRIBUTE     Sequencing-Required        39     none      M=1 H=0
