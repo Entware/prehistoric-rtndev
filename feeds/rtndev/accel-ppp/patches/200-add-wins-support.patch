@@ -1,7 +1,7 @@
 From 88753b9547515af00c849d98d09c663653858d38 Mon Sep 17 00:00:00 2001
 From: Vladislav Grishenko <themiron@mail.ru>
 Date: Sat, 10 Nov 2012 19:58:57 +0600
-Subject: [PATCH] add IPCP NBNS (WINS) support
+Subject: [PATCH] ppp: add NBNS (WINS) support
 
 ---
  accel-pppd/CMakeLists.txt      |    1 +
