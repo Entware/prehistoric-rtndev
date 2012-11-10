@@ -69,7 +69,7 @@ define Package/accel-ppp/install
 	$(INSTALL_DIR) $(1)/opt/etc
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/etc/accel-ppp.conf.dist $(1)/opt/etc
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
-	$(INSTALL_CONF) files/S60accel-ppp $(1)/opt/etc/init.d/
+	$(INSTALL_BIN) files/S60accel-ppp $(1)/opt/etc/init.d/
 endef
 
 $(eval $(call BuildPackage,accel-ppp))
