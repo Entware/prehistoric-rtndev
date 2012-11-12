@@ -47,10 +47,6 @@ CMAKE_OPTIONS += \
 TARGET_CFLAGS += \
 	-I$(STAGING_DIR)/opt/include \
 
-define Package/accel-ppp/conffiles
-/opt/etc/init.d/S60accel-ppp
-endef
-
 define Package/accel-ppp/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/accel-pppd $(1)/opt/sbin/
