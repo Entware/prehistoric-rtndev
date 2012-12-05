@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=xupnpd
-PKG_REV:=327
+PKG_REV:=358
 PKG_VERSION:=$(PKG_REV)
 PKG_RELEASE:=1
 
@@ -48,7 +48,10 @@ define Package/xupnpd/install
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/*.lua $(1)/opt/share/xupnpd
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/ui/* $(1)/opt/share/xupnpd/ui
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/www/* $(1)/opt/share/xupnpd/www
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/plugins/* $(1)/opt/share/xupnpd/plugins
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/plugins/*.lua $(1)/opt/share/xupnpd/plugins
+	$(INSTALL_DIR) $(1)/opt/share/xupnpd/plugins/{skel,staff}
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/plugins/skel/*.lua $(1)/opt/share/xupnpd/plugins/skel
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/plugins/staff/*.lua $(1)/opt/share/xupnpd/plugins/staff
 	$(CP) $(PKG_BUILD_DIR)/playlists/* $(1)/opt/share/xupnpd/playlists
 	$(INSTALL_DIR) $(1)/opt/share/xupnpd/playlists/example
 	$(CP) $(PKG_BUILD_DIR)/playlists/example/* $(1)/opt/share/xupnpd/playlists/example
