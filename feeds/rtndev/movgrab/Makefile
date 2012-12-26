@@ -1,0 +1,48 @@
+#
+# Copyright (C) 2011-2012 Entware
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=movgrab
+PKG_VERSION:=1.1.14
+PKG_RELEASE:=1
+
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://sites.google.com/site/columscode/files/
+PKG_MD5SUM:=63b0b6325e3bc0fe4372222608287877
+
+include $(INCLUDE_DIR)/package.mk
+
+define Package/movgrab
+	SECTION:=net
+	CATEGORY:=Network
+	#SUBMENU:=IP Addresses and Names
+	DEPENDS:=+zlib +libopenssl
+	TITLE:=movgrab is a commandline video downloader
+	URL:=https://sites.google.com/site/columscode/home/movgrab
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+endef
+
+define Package/movgrab/description
+ Movgrab is a command line tool for downloading video clips 
+ from websites such as YouTube, Daily Motion, Break.com, Vimeo, Blip.tv, Liveleak and others.
+endef
+
+TARGET_CFLAGS += $(TARGET_CPPFLAGS) $(TARGET_LDFLAGS)
+
+CONFIGURE_ARGS += \
+	--prefix=/opt \
+	--enable-ssl \
+	--enable-largefiles \
+
+define Package/movgrab/install
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/movgrab $(1)/opt/bin
+endef
+
+$(eval $(call BuildPackage,movgrab))
+
