@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=zsh
-PKG_VERSION:=5.0.0
+PKG_VERSION:=5.0.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/zsh
-PKG_MDSUM:=e8484468925cec8d9a84b8b04797e764
+PKG_MDSUM:=b8f2ad691acf58b3252225746480dcad
 
 PKG_INSTALL:=1
 
@@ -32,6 +32,11 @@ define Package/zsh/description
  Zsh is a shell designed for interactive use,
  although it is also a powerful scripting language.
 endef
+
+CONFIGURE_VARS += \
+	zsh_cv_sys_nis=no \
+	zsh_cv_sys_nis_plus=no
+
 
 CONFIGURE_ARGS += \
 	--enable-etcdir=/opt/etc \
