@@ -1,4 +1,4 @@
-/*
+	/*
 Copyright (c) 2012, SgE
 All rights reserved.
 
@@ -26,10 +26,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //--------------------------------------------------------------------------------
 
-MP709 control
-use ./mp709 on or ./mp709 off
+MP709 control http://www.masterkit.ru/main/set.php?code_id=579540
 
-to compile use command gcc mp709.c -o mp709_sge_mips -lusb-1.0 -lpthread
+to compile: gcc mp709.c -o mp709_sge_mips -lusb-1.0 -lpthread
 */
 
 #include <libusb-1.0/libusb.h>
@@ -40,25 +39,31 @@ to compile use command gcc mp709.c -o mp709_sge_mips -lusb-1.0 -lpthread
 
 #define DEV_VID 0x16C0
 #define DEV_PID 0x05DF
+#define DEV_NAME "MP709"
 #define DEV_CONFIG 1
 #define DEV_INTF 0
 
 unsigned char COMMAND_1[8] = {0xE7,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char COMMAND_2[8] = {0xE7,0x19,0x00,0x00,0x00,0x00,0x00,0x00};
+unsigned char COMMAND_3[8] = {0x7E,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
 
 int main(int argc, char * argv[])
 {
-	if (argc != 2 || argc == 2 && (strcasecmp(argv[1], "off") != 0) && (strcasecmp(argv[1], "on") != 0))
+	if (argc != 2 
+	||  argc == 2 && (strcasecmp(argv[1], "off") != 0) && (strcasecmp(argv[1], "on") != 0) && (strcasecmp(argv[1], "get") != 0))
 		goto usage;
 
 	libusb_device_handle *handle;
+	libusb_device *device;
 	int ret;
 	unsigned char buf[8];
+	unsigned char description[8];
+	struct libusb_device_descriptor desc;
 
 	ret = libusb_init(NULL);
 
 	if (ret < 0) {
-		printf("failed to initialise libusb!\n");
+		printf("failed to initialize libusb!\n");
 		goto exit;
 	}
 
@@ -66,7 +71,7 @@ int main(int argc, char * argv[])
 	handle = libusb_open_device_with_vid_pid(NULL, DEV_VID, DEV_PID);
 
 	if (handle == NULL) {
-		printf("no connected mp709 device found!\n");
+		printf("no connected " DEV_NAME " found!\n");
 		libusb_exit(NULL);
 		goto exit;
 	}
@@ -75,29 +80,58 @@ int main(int argc, char * argv[])
 		libusb_detach_kernel_driver(handle, DEV_INTF);
 
 	if ((ret = libusb_set_configuration(handle, DEV_CONFIG)) < 0) {
-		printf("mp709 device configuration failed!\n");
+		printf(DEV_NAME "configuration failed!\n");
 
 		goto done;
 	}
 
 	if (libusb_claim_interface(handle,  DEV_INTF) < 0) {
-		printf("mp709 device error!\n");
+		printf(DEV_NAME " interface claim error!\n");
 
 		goto finish;
 	}
 
-	if (strcasecmp(argv[1], "on") == 0) {
-		ret = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_CLASS|LIBUSB_RECIPIENT_INTERFACE|LIBUSB_ENDPOINT_OUT, 0x9, 0x300, 0, COMMAND_1, 8, 1000);
+	device = libusb_get_device(handle);
 
-		if (ret > 0)
-			printf("Relay ON\n");
+	ret = libusb_get_device_descriptor(device, &desc);
+	if (ret < 0)
+	{
+		printf("failed to get " DEV_NAME " descriptor\n");
+		goto finish;
+	} else {
+		if (libusb_get_string_descriptor_ascii(handle, desc.iProduct, description, 8-1) <= 0 || strcmp(DEV_NAME, description) != 0 ) {
+			printf("%s instead of " DEV_NAME " found!\n", description);
+			ret = -1;
+			goto finish;
+		}
 	}
 
-	if (strcasecmp(argv[1], "off") == 0) {
+	if (strcasecmp(argv[1], "on") == 0) 
+	{
+		ret = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_CLASS|LIBUSB_RECIPIENT_INTERFACE|LIBUSB_ENDPOINT_OUT, 0x9, 0x300, 0, COMMAND_1, 8, 1000);
+		if (ret > 0)
+			printf("OK\n");
+		else
+			printf("FAIL\n");
+	}
+
+	if (strcasecmp(argv[1], "off") == 0) 
+	{
 		ret = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_CLASS|LIBUSB_RECIPIENT_INTERFACE|LIBUSB_ENDPOINT_OUT, 0x9, 0x300, 0, COMMAND_2, 8, 1000);
+		if (ret > 0)
+			printf("OK\n");
+		else
+			printf("FAIL\n");
+	}
+
+	if (strcasecmp(argv[1], "get") == 0) {
+		ret = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_CLASS|LIBUSB_RECIPIENT_INTERFACE|LIBUSB_ENDPOINT_OUT, 0x9, 0x300, 0, COMMAND_3, 8, 1000);
+		ret = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_CLASS|LIBUSB_RECIPIENT_INTERFACE|LIBUSB_ENDPOINT_IN, 0x1, 0x300, 0, COMMAND_3, 8, 1000);
 
 		if (ret > 0)
-			printf("Relay OFF\n");
+			printf("%d\n", COMMAND_3[1] == 0x19 ? 0 : 1);
+		else
+			printf("FAIL\n");
 	}
 
 finish:
@@ -110,14 +144,11 @@ done:
 	if (ret > 0)
 		exit(0);
 	else
-	{
-		printf("mp709 device communication error!");
 		goto exit;
-	}
 
 usage:
 	printf("Invalid parameters!\n");
-	printf("Usage: mp709 <on|off>\n");
+	printf("Usage: mp709 <on|off|get>\n\n");
 exit:
 	exit(1);
 }
