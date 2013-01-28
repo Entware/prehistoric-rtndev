@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=movgrab
-PKG_VERSION:=1.1.14
+PKG_VERSION:=1.1.15
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://sites.google.com/site/columscode/files/
-PKG_MD5SUM:=63b0b6325e3bc0fe4372222608287877
+PKG_MD5SUM:=cde204c6277c3f0641cafc6ffafc4bf1
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -39,10 +39,14 @@ CONFIGURE_ARGS += \
 	--enable-ssl \
 	--enable-largefiles \
 
+define Build/Configure
+	rm -f $(PKG_BUILD_DIR)/libUseful-2.0/*.{o,a,so}
+	$(call Build/Configure/Default)
+endef
+
 define Package/movgrab/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/movgrab $(1)/opt/bin
 endef
 
 $(eval $(call BuildPackage,movgrab))
-
