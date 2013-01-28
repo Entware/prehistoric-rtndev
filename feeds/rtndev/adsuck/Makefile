@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=adsuck
-PKG_VERSION:=2.4.3
+PKG_VERSION:=2.5.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=https://opensource.conformal.com/snapshots/adsuck/
-PKG_MD5SUM:=dd661fcb403a406af2f112e37e6aec17
+PKG_MD5SUM:=f8e442da00e9364002de177352a5e302
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -37,10 +37,12 @@ define Build/Compile
 	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(STAGING_DIR)/opt/include -D_GNU_SOURCE -D_BSD_SOURCE -o $(PKG_BUILD_DIR)/adsuck.o $(PKG_BUILD_DIR)/adsuck.c
 	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(STAGING_DIR)/opt/include -D_GNU_SOURCE -D_BSD_SOURCE -o $(PKG_BUILD_DIR)/log.o $(PKG_BUILD_DIR)/log.c
 	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(STAGING_DIR)/opt/include -D_GNU_SOURCE -D_BSD_SOURCE -o $(PKG_BUILD_DIR)/linux/strlcpy.o $(PKG_BUILD_DIR)/linux/strlcpy.c
+	$(TARGET_CC) $(TARGET_CFLAGS) -c -I$(STAGING_DIR)/opt/include -D_GNU_SOURCE -D_BSD_SOURCE -o $(PKG_BUILD_DIR)/resolv.o $(PKG_BUILD_DIR)/resolv.c
 	$(TARGET_CC) $(TARGET_LDFLAGS) -L$(STAGING_DIR)/opt/lib -o $(PKG_BUILD_DIR)/adsuck \
 		$(PKG_BUILD_DIR)/adsuck.o \
 		$(PKG_BUILD_DIR)/log.o \
 		$(PKG_BUILD_DIR)/linux/strlcpy.o \
+		$(PKG_BUILD_DIR)/resolv.o \
 		-lldns -levent
 endef
 
