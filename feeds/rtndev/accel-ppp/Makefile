@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=accel-ppp
-PKG_VERSION:=1.7.2
-PKG_RELEASE:=6
+PKG_VERSION:=1.7.3
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/accel-ppp
-PKG_MDSUM:=f488d4269d112a39257e09985204d175
+PKG_MDSUM:=bf03f20d9df9a0694e5cd0be9b57d1b6
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
