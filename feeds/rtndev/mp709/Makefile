@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mp709
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -17,7 +17,7 @@ define Package/mp709
 	CATEGORY:=Utilities
 	DEPENDS:=+libusb-1.0
 	TITLE:=a tool for monipulating MP709 USB relay
-	URL:=http://wl500g.info/showthread.php?20497-%C4%EE%EC%E0%F8%ED%FF%FF-%E0%E2%F2%EE%EC%E0%F2%E8%E7%E0%F6%E8%FF-%E8%EB%E8-%D3%EC%ED%FB%E9-%E4%EE%EC&p=245321#post245321
+	URL:=http://wl500g.info/showthread.php?20497&p=257339#post257339
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
