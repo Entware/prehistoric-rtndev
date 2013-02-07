@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2006-2009 OpenWrt.org
+# Copyright (C) 2013 Entware team
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -9,14 +10,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=palantir
-PKG_VERSION:=2.7
+PKG_VERSION:=2.8pre3
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
+PKG_SOURCE:=$(PKG_NAME)-server-20120509.tgz
 PKG_SOURCE_URL:=http://www.fastpath.it/products/palantir/pub/
-PKG_MD5SUM:=3a5b1fb340857f6d8e357bf39b77583e
+PKG_MD5SUM:=294346b92cd02b67c4cbe9a6354e34b5
 
-PKG_BUILD_DEPENDS:=libjpeg
+#PKG_BUILD_DEPENDS:=libjpeg
 
 define Package/palantir
   SECTION:=multimedia
@@ -33,8 +34,10 @@ define Package/palantir/description
 endef
 
 define Package/palantir/conffiles
-/etc/palantir.conf
+/opt/etc/palantir.conf
 endef
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-server-20120509
 
 include $(INCLUDE_DIR)/package.mk
 
