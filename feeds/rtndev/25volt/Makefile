@@ -16,7 +16,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/25volt
 	SECTION:=utils
 	CATEGORY:=Utilities
-	DEPENDS:=+libusb
+	DEPENDS:=+libusb-compat
 	TITLE:=25volt a tool for monitoring ups POWERCOM Imperial series
 	URL:=http://25volt.ru
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com

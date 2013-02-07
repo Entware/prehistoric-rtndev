@@ -23,7 +23,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/nut
 	SECTION:=utils
 	CATEGORY:=Utilities
-	DEPENDS:=+libusb +libopenssl +libltdl +libneon +libgd +libpthread
+	DEPENDS:=+libusb-compat +libopenssl +libltdl +libneon +libgd +libpthread
 	TITLE:=Network UPS Tools
 	URL:=http://www.networkupstools.org
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com

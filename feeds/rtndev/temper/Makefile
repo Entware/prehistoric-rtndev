@@ -20,7 +20,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/temper
 	SECTION:=utils
 	CATEGORY:=Utilities
-	DEPENDS:=+libusb
+	DEPENDS:=+libusb-compat
 	TITLE:=TEMPer Temperature Sensor Linux Driver
 	URL:=http://relavak.wordpress.com/2009/10/17/temper-temperature-sensor-linux-driver
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
