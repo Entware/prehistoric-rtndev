@@ -10,13 +10,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=crashmail
-PKG_VERSION:=0.71
+PKG_VERSION:=0.88
 PKG_RELEASE:=1
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/crashmail-$(PKG_VERSION)
-PKG_SOURCE:=crashmail_$(PKG_VERSION).orig.tar.gz
-PKG_SOURCE_URL:=http://ftp.de.debian.org/debian/pool/main/c/crashmail
-PKG_MD5SUM:=8dbfa277fec07f477b67b6c7944432bb
+PKG_REV:=26e5374710c7868dab3d834be14bf4041041aae5
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=git://github.com/larsks/crashmail.git
+PKG_SOURCE_VERSION:=$(PKG_REV)
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -34,16 +36,17 @@ define Package/crashmail/description
  a FidoNet tosser for Amiga computers.
 endef
 
-define Build/Compile
-	mkdir -p  $(PKG_BUILD_DIR)/bin/
-	$(MAKE_VARS) $(MAKE) -C $(PKG_BUILD_DIR)/src \
-		$(MAKE_FLAGS) linux
-endef
+TARGET_CPPFLAGS += \
+	-I$(PKG_BUILD_DIR) \
+
+MAKE_FLAGS += \
+	AR="$(TARGET_CROSS)ar -ru" \
 
 define Package/crashmail/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) \
-		$(PKG_BUILD_DIR)/bin/crash{export,getnode,list,listout,mail,maint,stats,write} \
+		$(PKG_BUILD_DIR)/crashmail/crashmail \
+		$(PKG_BUILD_DIR)/tools/crash{export,getnode,list,listout,maint,stats,write} \
 		$(1)/opt/bin
 endef
 
