@@ -1,0 +1,26 @@
+--- a/makefile
++++ b/makefile
+@@ -17,12 +17,12 @@
+ #*******************************************************************************
+ # Release flags
+ #*******************************************************************************
+-CXXFLAGS = -O -g -Wall -Wextra
++#CXXFLAGS = -O -g -Wall -Wextra
+ 
+ #*******************************************************************************
+ # Include
+ #*******************************************************************************
+-INCLUDE = -Itinyxml -I/usr/include -I/usr/include/lua5.1
++INCLUDE = -Itinyxml $(CXXFLAGS)
+ 
+ #*******************************************************************************
+ # Files to compile and link
+@@ -47,7 +47,7 @@
+ #*******************************************************************************
+ 
+ PtokaX: $(OBJS)
+-	$(CXX) $(OBJS) $(CURDIR)/tinyxml/tinyxml.a -o PtokaX -lstdc++ -lpthread -llua5.1 -lrt -lz
++	$(CXX) $(LDFLAGS) $(OBJS) $(CURDIR)/tinyxml/tinyxml.a -o PtokaX -lstdc++ -lpthread -llua -lrt -lz
+ 
+ lua52: INCLUDE = -Itinyxml -I/usr/include -I/usr/include/lua5.2
+ lua52: $(OBJS)
