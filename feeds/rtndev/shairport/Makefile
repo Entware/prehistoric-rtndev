@@ -8,14 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=shairport
-PKG_VERSION:=0.05-20121002
+PKG_VERSION:=0.05-20130121
 PKG_RELEASE:=1
 
-PKG_REV:=4746bb11395d171ee800f074f489c42020a84932
+PKG_REV:=fd50ed068cbf0ab275d2ff0f25ed73ebf793927f
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/albertz/shairport.git
+PKG_SOURCE_URL:=git://github.com/skaman/shairport.git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_INSTALL:=1
@@ -25,7 +25,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/shairport
 	SECTION:=sound
 	CATEGORY:=Sound
-	DEPENDS:=+libao +libopenssl +avahi-daemon +avahi-utils +dbus
+	DEPENDS:=+libao +libopenssl
 	TITLE:=an AirPort Express emulator
 	URL:=http://github.com/albertz/shairport
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
