@@ -20,7 +20,6 @@ include $(INCLUDE_DIR)/package.mk
 define Package/movgrab
 	SECTION:=net
 	CATEGORY:=Network
-	#SUBMENU:=IP Addresses and Names
 	DEPENDS:=+zlib +libopenssl
 	TITLE:=movgrab is a commandline video downloader
 	URL:=https://sites.google.com/site/columscode/home/movgrab
