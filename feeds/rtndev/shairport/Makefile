@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011-2012 Entware
+# Copyright (C) 2011-2013 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -25,7 +25,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/shairport
 	SECTION:=sound
 	CATEGORY:=Sound
-	DEPENDS:=+libao +libopenssl +avahi-daemon +avahi-utils +dbus
+	DEPENDS:=+libao +libopenssl
 	TITLE:=an AirPort Express emulator
 	URL:=http://github.com/albertz/shairport
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
