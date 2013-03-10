@@ -55,7 +55,7 @@ CONFIGURE_ARGS += \
 define Build/Configure
 	chmod +x $(PKG_BUILD_DIR)/configure
 # This is a workaround for buggy 'patch' which can't delete text files
-# with CR, LF line ends
+# with CR+LF line ends
 	for file in `cat ./files/to_be_deleted.lst`; do \
 		$(RM) $(PKG_BUILD_DIR)/$$$$file; \
 	done
@@ -67,12 +67,17 @@ define Package/firefly/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/mt-daapd $(1)/opt/sbin
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/wavstreamer $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/contrib/mt-daapd-ssc.sh $(1)/opt/bin
 	$(INSTALL_DIR) $(1)/opt/lib/mt-daapd/plugins
 	$(INSTALL_BIN) \
 		$(PKG_INSTALL_DIR)/opt/lib/mt-daapd/plugins/{out-daap,rsp,ssc-ffmpeg,ssc-script}.so \
 		$(1)/opt/lib/mt-daapd/plugins
 	$(INSTALL_DIR) $(1)/opt/share/mt-daapd/admin-root
 	$(CP) $(PKG_INSTALL_DIR)/opt/share/mt-daapd/admin-root/* $(1)/opt/share/mt-daapd/admin-root
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_CONF) $(PKG_BUILD_DIR)/contrib/mt-daapd.conf $(1)/opt/etc
+	$(INSTALL_BIN) ./files/S43firefly $(1)/opt/etc/init.d
+	$(INSTALL_DIR) $(1)/opt/var/cache/mt-daapd
 endef
 
 $(eval $(call BuildPackage,firefly))
