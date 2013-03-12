@@ -54,12 +54,12 @@ CONFIGURE_ARGS += \
 	--enable-libmagic \
 	--enable-protocolinfo-extension \
 	--disable-libextractor \
-	--enable-ffmpeg \
+	--disable-ffmpeg \
 	--enable-libjs \
 	--disable-tombdebug \
 	--disable-upnpdebug \
-	--enable-youtube \
-	--enable-curl \
+	--disable-youtube \
+	--disable-curl \
 	--enable-sqlite3 \
 	--enable-sqlite-backup-defaults \
 	--disable-mysql \

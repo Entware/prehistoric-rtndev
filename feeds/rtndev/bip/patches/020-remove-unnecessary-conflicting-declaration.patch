@@ -1,0 +1,10 @@
+--- a/src/lex.l
++++ b/src/lex.l
+@@ -16,7 +16,6 @@
+ int linec;
+ #include "util.h"
+ extern list_t *root_list;
+-void yyparse(void);
+ void free_conf(list_t*);
+ int conf_error;
+ typedef struct bip bip_t;
