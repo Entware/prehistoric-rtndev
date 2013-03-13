@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libloudmouth1
 PKG_VERSION:=1.5.0-20121201
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=loudmouth-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://mcabber.com/files/
@@ -35,6 +35,9 @@ define Package/libloudmouth1/description
   Jabber protocol. It's designed to be easy to get started with and yet
   extensible to let you do anything the Jabber protocol allows.
 endef
+
+CONFIGURE_VARS += \
+	ac_cv_path_KRB5CONFIG=no
 
 CONFIGURE_ARGS += \
 	--with-compile-warnings=no
