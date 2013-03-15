@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=inadyn
 PKG_VERSION:=1.99.2-20121212
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_REV:=18e109c1936cc07c6dca16b1ff95fce9d49cd9bb
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
@@ -46,7 +46,7 @@ define Package/inadyn/install
 	$(INSTALL_BIN) ./files/S52inadyn $(1)/opt/etc/init.d/
 endef
 
-define Package/istgt/conffiles
+define Package/inadyn/conffiles
 /opt/etc/inadyn/inadyn.conf
 endef
 
