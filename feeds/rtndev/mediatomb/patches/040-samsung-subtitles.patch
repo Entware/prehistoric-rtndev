@@ -1,6 +1,6 @@
 --- a/src/config_manager.cc	(revision 2102)
 +++ b/src/config_manager.cc	(working copy)
-@@ -1433,6 +1433,14 @@
+@@ -1434,6 +1434,14 @@
      NEW_BOOL_OPTION(temp == "yes" ? true : false);
      SET_BOOL_OPTION(CFG_SERVER_EXTEND_PROTOCOLINFO_CL_HACK);
  */

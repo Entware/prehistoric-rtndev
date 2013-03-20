@@ -54,7 +54,7 @@ CONFIGURE_ARGS += \
 	--enable-libmagic \
 	--enable-protocolinfo-extension \
 	--disable-libextractor \
-	--disable-ffmpeg \
+	--enable-ffmpeg \
 	--enable-libjs \
 	--disable-tombdebug \
 	--disable-upnpdebug \
