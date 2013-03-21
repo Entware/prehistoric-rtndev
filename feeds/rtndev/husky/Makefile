@@ -15,9 +15,9 @@ PKG_SOURCE:=$(PKG_NAME)-all-$(PKG_VERSION)-source-20110312.tgz
 PKG_SOURCE_URL:=@SF/husky/husky/$(PKG_VERSION)-current/
 PKG_MD5SUM:=f1e2f1087db82b38da83b594f2460b97
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
-
 include $(INCLUDE_DIR)/package.mk
+
+PKG_UNPACK:=gzip -dc $(DL_DIR)/$(PKG_SOURCE) | $(TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xf -
 
 define Package/husky
 	SECTION:=net

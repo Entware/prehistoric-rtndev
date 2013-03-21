@@ -19,9 +19,9 @@ PKG_SOURCE_SUBDIR:=binkd
 PKG_SOURCE_VERSION:=-D'08/19/2011'
 PKG_SOURCE_PROTO:=cvs
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
-
 include $(INCLUDE_DIR)/package.mk
+
+PKG_UNPACK:=gzip -dc $(DL_DIR)/$(PKG_SOURCE) | $(TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xf -
 
 define Package/binkd
 	SECTION:=net
