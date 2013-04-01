@@ -24,7 +24,7 @@ define Package/istgt
 	SUBMENU:=Filesystem
 	DEPENDS:=+libopenssl +libpthread
 	TITLE:=An iSCSI target implementation
-	URL:=http://savannah.nongnu.org/projects/istgt
+	URL:=http://www.peach.ne.jp/archives/istgt/
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
