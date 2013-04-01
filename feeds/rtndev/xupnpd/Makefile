@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=xupnpd
-PKG_REV:=375
+PKG_REV:=383
 PKG_VERSION:=$(PKG_REV)
 PKG_RELEASE:=1
 
