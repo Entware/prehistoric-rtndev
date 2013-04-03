@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=uclibc-opt
 PKG_VERSION:=0.9.32
-PKG_RELEASE:=3
+PKG_RELEASE:=4
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -18,12 +18,12 @@ define Package/uclibc-opt
 	CATEGORY:=Libraries
 	DEPENDS:=+libc +libgcc +libstdcpp +libpthread +librt +ldconfig +findutils
 	TITLE:=uclibc-opt metapackage provides basic uclibc libraries
-	URL:=http://uclibc.org
+	URL:=http://wl500g-repo.googlecode.com
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/uclibc-opt/description
- uclibc-opt used to configure libraries search path to /opt/lib. Nothing more.
+ uclibc-opt is a metapackage to install Entware basi libraries.
 endef
 
 define Build/Prepare
@@ -47,8 +47,9 @@ endef
 define Package/uclibc-opt/postinst
 #!/bin/sh
 
-echo "Updating /opt/etc/ld.so.cache"
-/opt/bin/ldconfig
+echo -n "Updating /opt/etc/ld.so.cache... "
+/opt/bin/ldconfig > /dev/null 2>&1
+echo "done."
 endef
 
 $(eval $(call BuildPackage,uclibc-opt))
