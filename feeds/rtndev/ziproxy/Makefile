@@ -21,7 +21,7 @@ define Package/ziproxy
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=Web Servers/Proxies
-	DEPENDS:=+giflib +libjpeg-turbo +libpng +zlib +libsasl2 +libpthread
+	DEPENDS:=+giflib +libjpeg +libpng +zlib +libsasl2 +libpthread
 	TITLE:=compressing HTTP proxy server
 	URL:=http://ziproxy.sourceforge.net
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com

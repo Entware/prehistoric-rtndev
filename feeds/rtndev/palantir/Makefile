@@ -17,12 +17,10 @@ PKG_SOURCE:=$(PKG_NAME)-server-20120509.tgz
 PKG_SOURCE_URL:=http://www.fastpath.it/products/palantir/pub/
 PKG_MD5SUM:=294346b92cd02b67c4cbe9a6354e34b5
 
-#PKG_BUILD_DEPENDS:=libjpeg
-
 define Package/palantir
   SECTION:=multimedia
   CATEGORY:=Multimedia
-  DEPENDS:=+libjpeg-turbo +libpthread
+  DEPENDS:=+libjpeg +libpthread
   TITLE:=A multichannel interactive streaming solution
   URL:=http://www.fastpath.it/products/palantir/
 endef
