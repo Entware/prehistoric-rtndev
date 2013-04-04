@@ -1,0 +1,30 @@
+--- a/Distribution/doc/example/oscam.conf
++++ b/Distribution/doc/example/oscam.conf
+@@ -8,9 +8,9 @@
+ 
+ # logging
+ 
+-logfile       = /var/log/oscam/oscam.log
+-usrfile       = /var/log/oscam/oscamuser.log
+-cwlogdir      = /var/log/oscam/cw
++logfile       = /opt/var/log/oscam/oscam.log
++usrfile       = /opt/var/log/oscam/oscamuser.log
++cwlogdir      = /opt/var/log/oscam/cw
+ 
+ # monitor
+ 
+@@ -34,7 +34,7 @@
+ sampletime    = 2
+ samples       = 5
+ penalty       = 1
+-aclogfile     = /var/log/oscam/aclog.log
++aclogfile     = /opt/var/log/oscam/aclog.log
+ denysamples   = 9
+ 
+ # protocols
+@@ -68,4 +68,4 @@
+ [dvbapi]
+ enabled	      = 1
+ user          = user1
+-socket        = /tmp/camd.socket
++socket        = /opt/tmp/camd.socket
