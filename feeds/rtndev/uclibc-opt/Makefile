@@ -44,6 +44,10 @@ define Package/uclibc-opt/install
 	$(INSTALL_DIR) $(1)/opt/usr/lib
 endef
 
+define Package/uclibc-opt/conffiles
+/opt/etc/profile
+endef
+
 define Package/uclibc-opt/postinst
 #!/bin/sh
 
