@@ -17,13 +17,13 @@ define Package/uclibc-opt
 	SECTION:=libs
 	CATEGORY:=Libraries
 	DEPENDS:=+libc +libgcc +libstdcpp +libpthread +librt +ldconfig +findutils
-	TITLE:=uclibc-opt metapackage provides basic uclibc libraries
+	TITLE:=provides basic uclibc libraries
 	URL:=http://wl500g-repo.googlecode.com
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/uclibc-opt/description
- uclibc-opt is a metapackage to install Entware basi libraries.
+ uclibc-opt is a metapackage to install Entware basic libraries.
 endef
 
 define Build/Prepare
