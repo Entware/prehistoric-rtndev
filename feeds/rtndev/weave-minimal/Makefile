@@ -57,7 +57,8 @@ endef
 define Package/weave-minimal/postinst
 #!/bin/sh
 
-echo Don\'t forget to add new user by \'weave-minimal --register user:password\'
+echo Don\'t forget to add new user by
+echo \'weave-minimal --data-dir=/opt/var/weave --register user:password\'
 echo and edit host\\port at \'/opt/etc/init.d/S92weave-minimal\'
 endef
 
