@@ -8,10 +8,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-werkzeug
-PKG_VERSION:=0.9-20130326
+PKG_VERSION:=0.9-20130417
 PKG_RELEASE:=1
 
-PKG_REV:=14434dcd7aec5c28da0ca12b0e4ce8c8eb79dbd6
+PKG_REV:=0ef86135278e2583e5b3df8dca313278dedc723d
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -47,7 +47,6 @@ define Package/python-werkzeug/install
 	$(CP) \
 		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
 		$(1)$(PYTHON_PKG_DIR)
-#	$(INSTALL_DIR) $(1)/opt/bin
 endef
 
 $(eval $(call BuildPackage,python-werkzeug))
