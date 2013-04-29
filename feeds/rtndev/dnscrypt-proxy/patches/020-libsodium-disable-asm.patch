@@ -1,0 +1,145 @@
+diff --git a/configure.ac b/configure.ac
+index 32eaecc..970d8ef 100644
+--- a/src/libsodium/configure.ac
++++ b/src/libsodium/configure.ac
+@@ -179,6 +179,20 @@ AC_CHECK_HEADERS([wmmintrin.h], [], [], [
+ #pragma GCC target("aes")
+ ])
+ 
++AC_MSG_CHECKING(for access to floating-point rounding mode)
++AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
++  #include <fenv.h>
++  #pragma STDC FENV_ACCESS ON
++]], [[
++  const int previous_rounding_mode = fegetround();
++  fesetround(FE_TONEAREST);
++  fesetround(previous_rounding_mode);
++]])],
++[AC_MSG_RESULT(yes)
++ AC_DEFINE([HAVE_FENV_H], [1], [floating-point rounding mode is accessible])
++],
++[AC_MSG_RESULT(no)])
++
+ dnl Checks for typedefs, structures, and compiler characteristics.
+ 
+ AC_C_BIGENDIAN(
+@@ -201,10 +215,11 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
+    CPPFLAGS="$CPPFLAGS -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS"
+ ])
+ 
+-AC_MSG_CHECKING(whether we can assemble basic amd64 code)
+ HAVE_AMD64_ASM_V=0
+-AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
+-]], [[
++AS_IF([test "$enable_asm" != "no"],[
++  AC_MSG_CHECKING(whether we can assemble basic amd64 code)
++  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
++  ]], [[
+ #if defined(__amd64) || defined(__amd64__) || defined(__x86_64__)
+ /* neat */
+ #else
+@@ -212,10 +227,11 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
+ #endif
+ __asm__("pxor %xmm12,%xmm6");
+ ]])],
+-[AC_MSG_RESULT(yes)
+- AC_DEFINE([HAVE_AMD64_ASM], [1], [basic amd64 code can be assembled])
+- HAVE_AMD64_ASM_V=1],
+-[AC_MSG_RESULT(no)])
++  [AC_MSG_RESULT(yes)
++   AC_DEFINE([HAVE_AMD64_ASM], [1], [basic amd64 code can be assembled])
++   HAVE_AMD64_ASM_V=1],
++  [AC_MSG_RESULT(no)])
++])
+ AM_CONDITIONAL([HAVE_AMD64_ASM], [test $HAVE_AMD64_ASM_V = 1])
+ AC_SUBST(HAVE_AMD64_ASM_V)
+ 
+@@ -267,6 +283,19 @@ AC_ARG_ENABLE(pie,
+ [AS_HELP_STRING(--enable-pie,Produce position independent executables @<:@default=yes@:>@)],
+  enable_pie=$enableval, enable_pie="maybe")
+ 
++AC_ARG_ENABLE(asm,
++[AS_HELP_STRING(--disable-asm,Disable assembly implementations)],
++[
++  AS_IF([test "x$enableval" = "xno"], [
++    enable_asm="no"
++  ], [
++    enable_asm="yes"
++  ])
++],
++[
++  enable_asm="yes"
++])
++
+ AC_ARG_ENABLE(ssp,
+ [AS_HELP_STRING(--disable-ssp,Don't compile with -fstack-protector)],
+ [AS_IF([test "x$enableval" = "xno"], [
+diff --git a/src/libsodium/crypto_onetimeauth/poly1305/53/auth_poly1305_53.c b/src/libsodium/crypto_onetimeauth/poly1305/53/auth_poly1305_53.c
+index eebbc71..a24698f 100644
+--- a/src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/53/auth_poly1305_53.c
++++ b/src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/53/auth_poly1305_53.c
+@@ -4,7 +4,9 @@ D. J. Bernstein
+ Public domain.
+ */
+ 
+-#include <fenv.h>
++#ifdef HAVE_FENV_H
++# include <fenv.h>
++#endif
+ #include <stdint.h>
+ #include <stdlib.h>
+ 
+@@ -12,7 +14,9 @@ Public domain.
+ #include "crypto_onetimeauth_poly1305_53.h"
+ #include "utils.h"
+ 
+-#pragma STDC FENV_ACCESS ON
++#ifdef HAVE_FENV_H
++# pragma STDC FENV_ACCESS ON
++#endif
+ 
+ typedef uint8_t  uchar;
+ typedef int32_t  int32;
+@@ -238,12 +242,14 @@ int crypto_onetimeauth(unsigned char *out,const unsigned char *m,unsigned long l
+   register uint64 g3;
+   register uint64 g4;
+ 
++#ifdef HAVE_FENV_H
+   const int previous_rounding_mode = fegetround();
+   if (previous_rounding_mode != FE_TONEAREST) {
+       if (fesetround(FE_TONEAREST) != 0) {
+           return -1;
+       }
+   }
++#endif
+ 
+   r00 = *(uchar *) (r + 0);
+   constants = (char *) &poly1305_53_constants;
+@@ -1627,10 +1633,13 @@ nomorebytes:;
+   f3 >>= 8;
+   *(uchar *) (out + 15) = f3;
+ 
++#ifdef HAVE_FENV_H
+   if (previous_rounding_mode != FE_TONEAREST &&
+       fesetround(previous_rounding_mode) != 0) {
+       abort();
+   }
++#endif
++
+   return 0;
+ }
+ 
+diff --git a/src/libsodium/crypto_onetimeauth/poly1305/onetimeauth_poly1305_try.c b/src/libsodium/crypto_onetimeauth/poly1305/onetimeauth_poly1305_try.c
+index 8c11ee0..72e0191 100644
+--- a/src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/onetimeauth_poly1305_try.c
++++ b/src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/onetimeauth_poly1305_try.c
+@@ -123,7 +123,9 @@ crypto_onetimeauth_poly1305_implementation *
+ crypto_onetimeauth_pick_best_implementation(void)
+ {
+     crypto_onetimeauth_poly1305_implementation *implementations[] = {
++#ifdef HAVE_FENV_H
+         &crypto_onetimeauth_poly1305_53_implementation,
++#endif
+         &crypto_onetimeauth_poly1305_ref_implementation,
+         NULL
+     };

@@ -8,10 +8,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dnscrypt-proxy
-PKG_VERSION:=1.2.0
+PKG_VERSION:=1.3.0-20130427
 PKG_RELEASE:=1
 
-PKG_REV:=ab379019f81f8eddf06a906b5f5a7f04091776b7
+PKG_REV:=445bd07d3e994156dcac7aca75a3985d0a6ba287
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -56,6 +56,10 @@ endef
 
 CONFIGURE_ARGS += \
 	--disable-ssp
+
+TARGET_CFLAGS += \
+	-std=gnu99 \
+	-fPIC
 
 define Package/dnscrypt-proxy/install
 	$(INSTALL_DIR) $(1)/opt/sbin
