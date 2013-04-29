@@ -8,10 +8,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dropbox-uploader
-PKG_VERSION:=20130317
+PKG_VERSION:=0.11.7-20130424
 PKG_RELEASE:=1
 
-PKG_REV:=060f00d66fa75e8f1f0eee0ee5921fed6924c740
+PKG_REV:=51cbf276741729ed4f21c7b1b0bfa8c407903693
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -42,7 +42,7 @@ define Build/Compile
 endef
 
 define Package/dropbox-uploader/install
-	$(INSTALL_DIR) $(1)/opt/bin $(1)/opt/tmp $(1)/opt/etc
+	$(INSTALL_DIR) $(1)/opt/{bin,etc,tmp}
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/dropbox_uploader.sh $(1)/opt/bin/dropbox_uploader
 endef
 
