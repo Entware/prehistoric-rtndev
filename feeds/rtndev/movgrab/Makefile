@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=movgrab
-PKG_VERSION:=1.1.15
+PKG_VERSION:=1.2.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://sites.google.com/site/columscode/files/
-PKG_MD5SUM:=cde204c6277c3f0641cafc6ffafc4bf1
+PKG_MD5SUM:=db162d6963b9753d6235f23419d08a5a
 
 include $(INCLUDE_DIR)/package.mk
 
