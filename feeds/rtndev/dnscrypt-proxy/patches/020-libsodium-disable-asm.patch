@@ -1,9 +1,7 @@
-diff --git a/configure.ac b/configure.ac
-index 32eaecc..970d8ef 100644
---- a/src/libsodium/configure.ac
-+++ b/src/libsodium/configure.ac
-@@ -179,6 +179,20 @@ AC_CHECK_HEADERS([wmmintrin.h], [], [], [
- #pragma GCC target("aes")
+--- ./src/libsodium/configure.ac.orig	2013-04-23 00:20:37.000000000 +0400
++++ ./src/libsodium/configure.ac	2013-05-09 18:05:40.132933829 +0400
+@@ -144,6 +144,20 @@
+   LDFLAGS="$LDFLAGS -L/usr/local/lib"
  ])
  
 +AC_MSG_CHECKING(for access to floating-point rounding mode)
@@ -23,38 +21,7 @@ index 32eaecc..970d8ef 100644
  dnl Checks for typedefs, structures, and compiler characteristics.
  
  AC_C_BIGENDIAN(
-@@ -201,10 +215,11 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
-    CPPFLAGS="$CPPFLAGS -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS"
- ])
- 
--AC_MSG_CHECKING(whether we can assemble basic amd64 code)
- HAVE_AMD64_ASM_V=0
--AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
--]], [[
-+AS_IF([test "$enable_asm" != "no"],[
-+  AC_MSG_CHECKING(whether we can assemble basic amd64 code)
-+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
-+  ]], [[
- #if defined(__amd64) || defined(__amd64__) || defined(__x86_64__)
- /* neat */
- #else
-@@ -212,10 +227,11 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
- #endif
- __asm__("pxor %xmm12,%xmm6");
- ]])],
--[AC_MSG_RESULT(yes)
-- AC_DEFINE([HAVE_AMD64_ASM], [1], [basic amd64 code can be assembled])
-- HAVE_AMD64_ASM_V=1],
--[AC_MSG_RESULT(no)])
-+  [AC_MSG_RESULT(yes)
-+   AC_DEFINE([HAVE_AMD64_ASM], [1], [basic amd64 code can be assembled])
-+   HAVE_AMD64_ASM_V=1],
-+  [AC_MSG_RESULT(no)])
-+])
- AM_CONDITIONAL([HAVE_AMD64_ASM], [test $HAVE_AMD64_ASM_V = 1])
- AC_SUBST(HAVE_AMD64_ASM_V)
- 
-@@ -267,6 +283,19 @@ AC_ARG_ENABLE(pie,
+@@ -187,6 +201,19 @@
  [AS_HELP_STRING(--enable-pie,Produce position independent executables @<:@default=yes@:>@)],
   enable_pie=$enableval, enable_pie="maybe")
  
@@ -74,11 +41,9 @@ index 32eaecc..970d8ef 100644
  AC_ARG_ENABLE(ssp,
  [AS_HELP_STRING(--disable-ssp,Don't compile with -fstack-protector)],
  [AS_IF([test "x$enableval" = "xno"], [
-diff --git a/src/libsodium/crypto_onetimeauth/poly1305/53/auth_poly1305_53.c b/src/libsodium/crypto_onetimeauth/poly1305/53/auth_poly1305_53.c
-index eebbc71..a24698f 100644
---- a/src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/53/auth_poly1305_53.c
-+++ b/src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/53/auth_poly1305_53.c
-@@ -4,7 +4,9 @@ D. J. Bernstein
+--- ./src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/53/auth_poly1305_53.c.orig	2013-04-22 21:54:56.000000000 +0400
++++ ./src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/53/auth_poly1305_53.c	2013-05-09 18:05:40.132933829 +0400
+@@ -4,14 +4,18 @@
  Public domain.
  */
  
@@ -89,9 +54,8 @@ index eebbc71..a24698f 100644
  #include <stdint.h>
  #include <stdlib.h>
  
-@@ -12,7 +14,9 @@ Public domain.
+ #include "api.h"
  #include "crypto_onetimeauth_poly1305_53.h"
- #include "utils.h"
  
 -#pragma STDC FENV_ACCESS ON
 +#ifdef HAVE_FENV_H
@@ -100,7 +64,7 @@ index eebbc71..a24698f 100644
  
  typedef uint8_t  uchar;
  typedef int32_t  int32;
-@@ -238,12 +242,14 @@ int crypto_onetimeauth(unsigned char *out,const unsigned char *m,unsigned long l
+@@ -237,12 +241,14 @@
    register uint64 g3;
    register uint64 g4;
  
@@ -115,7 +79,7 @@ index eebbc71..a24698f 100644
  
    r00 = *(uchar *) (r + 0);
    constants = (char *) &poly1305_53_constants;
-@@ -1627,10 +1633,13 @@ nomorebytes:;
+@@ -1626,10 +1632,13 @@
    f3 >>= 8;
    *(uchar *) (out + 15) = f3;
  
@@ -129,11 +93,9 @@ index eebbc71..a24698f 100644
    return 0;
  }
  
-diff --git a/src/libsodium/crypto_onetimeauth/poly1305/onetimeauth_poly1305_try.c b/src/libsodium/crypto_onetimeauth/poly1305/onetimeauth_poly1305_try.c
-index 8c11ee0..72e0191 100644
---- a/src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/onetimeauth_poly1305_try.c
-+++ b/src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/onetimeauth_poly1305_try.c
-@@ -123,7 +123,9 @@ crypto_onetimeauth_poly1305_implementation *
+--- ./src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/onetimeauth_poly1305_try.c.orig	2013-04-23 00:20:37.000000000 +0400
++++ ./src/libsodium/src/libsodium/crypto_onetimeauth/poly1305/onetimeauth_poly1305_try.c	2013-05-09 18:05:40.132933829 +0400
+@@ -131,7 +131,9 @@
  crypto_onetimeauth_pick_best_implementation(void)
  {
      crypto_onetimeauth_poly1305_implementation *implementations[] = {
