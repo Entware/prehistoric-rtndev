@@ -11,7 +11,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=firefly
 PKG_REV:=1696
 PKG_VERSION:=r$(PKG_REV)
-PKG_RELEASE:=1
+PKG_RELEASE:=1a
 
 PKG_SOURCE_PROTO:=svn
 PKG_SOURCE_VERSION:=$(PKG_REV)
@@ -37,6 +37,10 @@ define Package/firefly/description
  Firefly Media Server (formerly mt-daapd) is an open-source audio media server
  for the Roku SoundBridge and iTunes. It serves media files using Roku Server
  Protocol (RSP) and Digital Audio Access Protocol (DAAP).
+endef
+
+define Package/firefly/conffiles
+/opt/etc/mt-daapd.conf
 endef
 
 CONFIGURE_VARS += \
@@ -77,7 +81,7 @@ define Package/firefly/install
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/contrib/mt-daapd.conf $(1)/opt/etc
 	$(INSTALL_BIN) ./files/S43firefly $(1)/opt/etc/init.d
-	$(INSTALL_DIR) $(1)/opt/var/cache/mt-daapd
+	$(INSTALL_DIR) $(1)/opt/var/cache/mt-daapd $(1)/opt/var/log
 endef
 
 $(eval $(call BuildPackage,firefly))
