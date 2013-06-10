@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ncdu
-PKG_VERSION:=1.9
+PKG_VERSION:=1.10
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://dev.yorhel.nl/download/
-PKG_MD5SUM:=93258079db897d28bb8890e2db89b1fb
+PKG_MD5SUM:=7535decc8d54eca811493e82d4bfab2d
 
 include $(INCLUDE_DIR)/package.mk
 
