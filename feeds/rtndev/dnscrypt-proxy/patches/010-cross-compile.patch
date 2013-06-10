@@ -1,22 +1,22 @@
---- a/configure.ac
-+++ b/configure.ac
+--- ./configure.ac.orig	2013-06-06 07:56:05.000000000 +0400
++++ ./configure.ac	2013-06-10 15:57:25.745419100 +0400
 @@ -1,7 +1,6 @@
  AC_PREREQ([2.61])
- AC_INIT([dnscrypt-proxy],[1.3.0],[http://dnscrypt.org])
+ AC_INIT([dnscrypt-proxy],[1.3.1],[http://dnscrypt.org])
  AC_CONFIG_MACRO_DIR([m4])
 -AC_CONFIG_AUX_DIR([libltdl/config])
  AC_CONFIG_SRCDIR([src/proxy/app.c])
  AC_CONFIG_HEADER([config.h])
- AC_CONFIG_SUBDIRS([src/libevent-modified src/libsodium])
+ AC_CONFIG_SUBDIRS([src/libevent-modified])
 @@ -17,7 +16,6 @@
  LX_CFLAGS=${CFLAGS-NONE}
  AC_PROG_CC_C99
  AC_USE_SYSTEM_EXTENSIONS
 -CPPFLAGS="$CPPFLAGS -D_FORTIFY_SOURCE=2"
  
- AS_IF([test "$cross_compiling" != no],
-   AC_DEFINE(CROSS_COMPILING,[1],[define if you are cross-compiling])
-@@ -43,27 +41,6 @@
+ AX_CHECK_COMPILE_FLAG([-fPIC], [
+   AX_CHECK_LINK_FLAG([-fPIC],
+@@ -39,27 +37,6 @@
  AX_CHECK_COMPILE_FLAG([-fno-strict-aliasing], [CFLAGS="$CFLAGS -fno-strict-aliasing"])
  AX_CHECK_COMPILE_FLAG([-fno-strict-overflow], [CFLAGS="$CFLAGS -fno-strict-overflow"])
  
@@ -41,10 +41,10 @@
 -  ;;
 -esac
 -
- AX_CHECK_COMPILE_FLAG([-Wbounded], [CFLAGS="$CFLAGS -Wbounded"])
  AX_CHECK_COMPILE_FLAG([-Winit-self], [CFLAGS="$CFLAGS -Winit-self"])
  AX_CHECK_COMPILE_FLAG([-Wwrite-strings], [CFLAGS="$CFLAGS -Wwrite-strings"])
-@@ -139,14 +116,6 @@
+ AX_CHECK_COMPILE_FLAG([-Wdiv-by-zero], [CFLAGS="$CFLAGS -Wdiv-by-zero"])
+@@ -134,14 +111,6 @@
    PROBES_SOURCE="probes_no_dtrace.h"
  ])
  
@@ -59,7 +59,7 @@
  dnl Checks for header files.
  
  AC_SYS_LARGEFILE
-@@ -348,7 +317,6 @@
+@@ -344,7 +313,6 @@
          *) AS_VAR_APPEND([nxflags], [" $flag"]) ;;
        esac
      done
@@ -67,7 +67,7 @@
    ])
    CPPFLAGS="$CPPFLAGS -DDEBUG=1"
  ])
-@@ -367,12 +335,6 @@
+@@ -363,12 +331,6 @@
  AC_SUBST([MAINT])
  AC_SUBST([PROBES_SOURCE])
  

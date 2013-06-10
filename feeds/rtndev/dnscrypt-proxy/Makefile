@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dnscrypt-proxy
-PKG_VERSION:=1.3.0
+PKG_VERSION:=1.3.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://download.dnscrypt.org/dnscrypt-proxy/
-PKG_MD5SUM:=34ac17be24f64446599420e159cf794a
+PKG_MD5SUM:=85e0b9ede4e727669bac69f846c11272
 
 PKG_INSTALL:=1
 PKG_FIXUP:=autoreconf
@@ -24,6 +24,7 @@ define Package/dnscrypt-proxy/Default
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=IP Addresses and Names
+	DEPENDS:=+libsodium
 	TITLE:=A tool for securing communications between a client and a DNS resolver
 	URL:=http://www.opendns.com/technology/dnscrypt
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
@@ -53,10 +54,6 @@ endef
 
 CONFIGURE_ARGS += \
 	--disable-ssp
-
-TARGET_CFLAGS += \
-	-std=gnu99 \
-	-fPIC
 
 define Package/dnscrypt-proxy/install
 	$(INSTALL_DIR) $(1)/opt/sbin
