@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=uqmi
-PKG_VERSION:=20130305
-PKG_REV:=b61b3e8ff2b29e08b53eabc7b813c1c87c734947
+PKG_VERSION:=20130510
+PKG_REV:=ab2b11f053aa767ff002935878ebfa9750a996e4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
@@ -24,7 +24,7 @@ include $(INCLUDE_DIR)/cmake.mk
 define Package/uqmi
 	SECTION:=utils
 	CATEGORY:=Utilities
-	DEPENDS:=+libubox
+	DEPENDS:=+libblobmsg-json
 	TITLE:=standalone QMI utility
 	URL:=http://nbd.name/gitweb.cgi?p=uqmi.git
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
