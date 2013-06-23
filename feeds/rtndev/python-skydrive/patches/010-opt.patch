@@ -1,0 +1,7 @@
+--- a/skydrive/conf.py	2013-03-25 05:26:54.000000000 +0400
++++ b/skydrive/conf.py	2013-06-24 02:22:19.797926496 +0400
+@@ -14,3 +14,3 @@
+ 	#: Path to configuration file to use in from_conf() by default.
+-	conf_path_default = b'~/.lcrc'
++	conf_path_default = b'/opt/etc/.lcrc'
+ 
