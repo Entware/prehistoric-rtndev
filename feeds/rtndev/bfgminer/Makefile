@@ -12,15 +12,22 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bfgminer
 PKG_TITLE:=BFGMiner
-PKG_VERSION:=3.0.2
+PKG_VERSION:=3.1.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tbz2
 PKG_SOURCE_URL:=http://luke.dashjr.org/programs/bitcoin/files/$(PKG_NAME)/$(PKG_VERSION)/
+PKG_MD5SUM:=da53b236ba1731f3f1d062f57079f04a
 
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
+
+define Download/uthash
+	FILE:=v1.9.8
+	URL:=https://codeload.github.com/troydhanson/uthash/tar.gz/
+endef
+$(eval $(call Download,uthash))
 
 define Package/$(PKG_NAME)/Default
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
@@ -62,8 +69,15 @@ CONFIGURE_ARGS += --disable-x6500 --disable-ztex
 endif
 
 TARGET_CFLAGS += -std=gnu99
+TARGET_CFLAGS += -Iuthash-1.9.8/src
 
 CONFIGURE_ARGS += --without-libudev
+CONFIGURE_ARGS += --without-sensors
+
+define Build/Prepare
+	$(call Build/Prepare/Default)
+	gzip -dc $(DL_DIR)/v1.9.8 | $(HOST_TAR) -C $(PKG_BUILD_DIR) $(TAR_OPTIONS)
+endef
 
 define Build/Configure
 	# Need to remake configure etc to pick up on cross-compiler libtool
@@ -115,7 +129,7 @@ endef
 
 define Package/$(PKG_NAME)-bitstream-$(1)/install
 	$(INSTALL_DIR) $$(1)/opt/share/$(PKG_NAME)/bitstreams
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/bitstreams/$(subst -,_,$(1))* $$(1)/opt/share/$(PKG_NAME)/bitstreams
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/share/$(PKG_NAME)/bitstreams/$(subst -,_,$(1))* $$(1)/opt/share/$(PKG_NAME)/bitstreams
 endef
 
 ALL_$(PKG_NAME)_PACKAGES += $(PKG_NAME)-bitstream-$(1)
