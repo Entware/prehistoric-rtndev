@@ -1,0 +1,27 @@
+--- a/Makefile
++++ b/Makefile
+@@ -2,8 +2,8 @@
+ SHELL = /bin/sh
+ 
+ # Compiler to use
+-CC = g++
+-CFLAGS = -O2
++#CC = g++
++#CFLAGS = -O2
+ #CFLAGS += -g -Wall
+ #CFLAGS += -ansi
+ #CFLAGS += -pedantic
+@@ -37,11 +37,11 @@
+ CFLAGS += -pthread
+ 
+ # External libraries
+-LDFLAGS = -lbz2
++LDFLAGS += -lbz2
+ LDFLAGS += -lpthread
+ 
+ # Where you want pbzip2 installed when you do 'make install'
+-PREFIX = /usr
++#PREFIX = /usr
+ 
+ all: pbzip2
+ 
