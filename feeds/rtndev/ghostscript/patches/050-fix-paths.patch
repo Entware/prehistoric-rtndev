@@ -1,0 +1,46 @@
+--- ./lib/unix-lpr.sh.orig	2013-07-03 16:05:19.480691780 +0400
++++ ./lib/unix-lpr.sh	2013-07-03 16:06:37.996688247 +0400
+@@ -19,16 +19,16 @@
+ # executable name set in the makefile
+ GS_EXECUTABLE=gs
+ 
+-PBMPLUSPATH=/usr/local/bin
+-PSFILTERPATH=/usr/local/lib/ghostscript
+-LOCALPATH=/usr/local/bin
+-X11HOME=/usr/X11R6
++PBMPLUSPATH=/opt/bin
++PSFILTERPATH=/opt/lib/ghostscript
++LOCALPATH=/opt/bin
++X11HOME=/opt/usr/X11R6
+ 
+ PATH=/bin:/usr/bin:/usr/ucb:/usr/etc
+ PATH=${PATH}\:${LOCALPATH}\:${PBMPLUSPATH}\:${PSFILTERPATH}
+-LD_LIBRARY_PATH=${X11HOME}/lib
++#LD_LIBRARY_PATH=${X11HOME}/lib
+ 
+-export PATH LD_LIBRARY_PATH acctfile host user
++#export PATH LD_LIBRARY_PATH acctfile host user
+ 
+ user= host= acctfile=/dev/null
+ 
+--- ./lib/lprsetup.sh.orig	2013-07-03 16:09:01.784686789 +0400
++++ ./lib/lprsetup.sh	2013-07-03 16:09:58.816683058 +0400
+@@ -14,14 +14,14 @@
+ # The kind of printer (accepted values: 'parallel' and 'serial')
+ PRINTERTYPE=parallel
+ 
+-GSDIR=/usr/local/lib/ghostscript
++GSDIR=/opt/lib/ghostscript
+ GSFILTERDIR=$GSDIR/filt
+-SPOOLDIR=/var/spool
++SPOOLDIR=/opt/var/spool
+ GSIF=unix-lpr.sh
+ PCAP=printcap.insert
+ 
+-PATH=/bin:/usr/bin:/usr/ucb
+-export PATH
++#PATH=/bin:/usr/bin:/usr/ucb
++#export PATH
+ 
+ if [ ! -w $GSDIR ]; then
+   echo "$GSDIR must be writable to create filter directory"
