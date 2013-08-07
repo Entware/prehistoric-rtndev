@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=asterisk18-chan-dongle
-PKG_REV=29
+PKG_REV=34
 PKG_VERSION:=r$(PKG_REV)
 PKG_RELEASE:=1
 
