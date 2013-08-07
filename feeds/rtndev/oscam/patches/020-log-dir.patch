@@ -13,7 +13,7 @@
  
  # monitor
  
-@@ -34,7 +34,7 @@
+@@ -35,7 +35,7 @@
  sampletime    = 2
  samples       = 5
  penalty       = 1
@@ -22,7 +22,7 @@
  denysamples   = 9
  
  # protocols
-@@ -68,4 +68,4 @@
+@@ -69,4 +69,4 @@
  [dvbapi]
  enabled	      = 1
  user          = user1
