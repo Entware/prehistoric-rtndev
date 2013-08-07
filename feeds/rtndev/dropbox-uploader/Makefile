@@ -8,10 +8,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dropbox-uploader
-PKG_VERSION:=0.11.7-20130424
+PKG_VERSION:=0.11.9-20130708
 PKG_RELEASE:=1
 
-PKG_REV:=51cbf276741729ed4f21c7b1b0bfa8c407903693
+PKG_REV:=b805522e80d8c1abe4996259ce897f24def75c7f
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -24,7 +24,8 @@ define Package/dropbox-uploader
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=File Transfer
-	DEPENDS:=+bash +curl +coreutils-stat
+	DEPENDS:=+bash +curl +sed +coreutils-basename +coreutils-date \
+	    +coreutils-stat +coreutils-dd +coreutils-printf +coreutils-mkdir
 	TITLE:=BASH script for Dropbox
 	URL:=https://github.com/andreafabrizi/Dropbox-Uploader
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com

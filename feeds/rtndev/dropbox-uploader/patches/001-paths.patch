@@ -1,27 +1,29 @@
---- a/dropbox_uploader.sh	2013-03-17 04:37:25.000000000 +0400
-+++ b/dropbox_uploader.sh	2013-03-17 04:41:25.000000000 +0400
-@@ -1,3 +1,3 @@
+--- a/dropbox_uploader.sh
++++ b/dropbox_uploader.sh
+@@ -1,4 +1,4 @@
 -#!/usr/bin/env bash
 +#!/opt/bin/bash
  #
  # Dropbox Uploader
-@@ -21,10 +21,10 @@
+ #
+@@ -20,7 +20,7 @@
+ #
  
  #Default configuration file
 -CONFIG_FILE=~/.dropbox_uploader
 +CONFIG_FILE=/opt/etc/.dropbox_uploader
  
- #If you are experiencing problems establishing SSL connection with the DropBox
- #server, try to uncomment this option.
- #Note: This option explicitly allows curl to perform "insecure" SSL connections and transfers.
--#CURL_ACCEPT_CERTIFICATES="-k"
+ #Default chunk size in Mb for the upload process
+ #It is recommended to increase this value only if you have enough free space on your /tmp partition
+@@ -30,9 +30,10 @@
+ #Curl location
+ #If not set, curl will be searched into the $PATH
+ #CURL_BIN="/usr/bin/curl"
 +CURL_ACCEPT_CERTIFICATES="-k"
  
- #Default chunk size in Mb for the upload process
-@@ -44,5 +44,5 @@
- 
- #Temporary folder
+ #Default values
 -TMP_DIR="/tmp"
 +TMP_DIR="/opt/tmp"
- 
- #Don't edit these...
+ DEBUG=0
+ QUIET=0
+ SHOW_PROGRESSBAR=0
