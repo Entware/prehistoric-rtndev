@@ -11,12 +11,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pagekite
-PKG_VERSION:=0.5.6c
+PKG_VERSION:=0.5.6d
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pagekite.net/pk/src/$(PKG_SOURCE)
-PKG_MD5SUM:=531864f322a4e1c3e1f26b6d8207b09b
+PKG_MD5SUM:=2e1982c3fc9dc9461e7b1e24ffffe468
 
 PKG_BUILD_DEPENDS:=python
 
