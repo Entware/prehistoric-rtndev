@@ -10,7 +10,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rutorrent
-PKG_REV:=2315
+PKG_REV:=2340
 PKG_VERSION:=3.5-r$(PKG_REV)
 PKG_RELEASE:=1
 
@@ -23,12 +23,12 @@ PKG_SOURCE:=$(PKG_SOURCE_SUBDIR).tar.gz
 include $(INCLUDE_DIR)/package.mk
 
 RUTORRENT_PLUGINS := \
-	_noty autotools check_port chunks cookies cpuload create data datadir \
-	diskspace edit erasedata extratio extsearch feeds filedrop geoip \
-	_getdir history httprpc ipad loginmgr mediainfo ratio retrackers \
-	rpc rss rssurlrewrite rutracker_check scheduler screenshots seedingtime \
-	show_peers_like_wtorrent source _task theme throttle tracklabels \
-	trafic unpack
+	autotools check_port chunks cookies cpuload create data datadir \
+	diskspace edit erasedata extratio extsearch feeds filedrop \
+	geoip _getdir history httprpc ipad loginmgr mediainfo _noty \
+	ratio retrackers rpc rss rssurlrewrite rutracker_check scheduler \
+	screenshots seedingtime show_peers_like_wtorrent source _task \
+	theme throttle tracklabels trafic unpack
 
 DEPENDS_screenshots = +ffmpeg
 DEPENDS_unpack = +unrar
@@ -68,6 +68,7 @@ endef
 $(foreach a,$(RUTORRENT_PLUGINS),$(eval $(call GenPlugin,rutorrent-plugin-$(a),$(a))))
 
 define Build/Configure
+	$(SED) 's,$$$$Rev$$$$,$(PKG_REV),g' $(PKG_BUILD_DIR)/rutorrent/js/webui.js
 endef
 
 define Build/Compile
