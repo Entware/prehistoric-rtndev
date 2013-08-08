@@ -68,7 +68,7 @@ endef
 $(foreach a,$(RUTORRENT_PLUGINS),$(eval $(call GenPlugin,rutorrent-plugin-$(a),$(a))))
 
 define Build/Configure
-	$(SED) 's,$$$$Rev$$$$,$(PKG_REV),g' $(PKG_BUILD_DIR)/rutorrent/js/webui.js
+	$(SED) 's,\$$$$Rev: 2312 \$$$$,$(PKG_REV),g' $(PKG_BUILD_DIR)/rutorrent/js/webui.js
 endef
 
 define Build/Compile
