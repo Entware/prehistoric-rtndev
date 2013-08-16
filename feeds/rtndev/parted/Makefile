@@ -16,7 +16,6 @@ PKG_SOURCE_URL:=http://ftp.gnu.org/gnu/$(PKG_NAME)
 PKG_MD5SUM:=5d89d64d94bcfefa9ce8f59f4b81bdcb
 
 PKG_INSTALL:=1
-PKG_BUILD_DEPENDS:=libuuid
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -24,6 +23,7 @@ define Package/parted
 	SECTION:=utils
 	CATEGORY:=Utilities
 	SUBMENU:=disc
+	DEPENDS:=+libblkid
 	TITLE:=manipulates partition tables
 	URL:=http://www.gnu.org/software/parted/
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
