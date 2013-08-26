@@ -16,7 +16,7 @@ PKG_RELEASE:=1a
 PKG_SOURCE_PROTO:=svn
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_URL:=http://mt-daapd.svn.sourceforge.net/svnroot/mt-daapd/trunk
+PKG_SOURCE_URL:=http://svn.code.sf.net/p/mt-daapd/code/trunk
 PKG_SOURCE:=$(PKG_SOURCE_SUBDIR).tar.gz
 
 PKG_INSTALL:=1
