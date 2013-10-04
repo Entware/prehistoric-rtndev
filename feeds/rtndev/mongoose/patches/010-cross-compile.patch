@@ -1,0 +1,20 @@
+--- a/Makefile
++++ b/Makefile
+@@ -17,7 +17,7 @@
+ # -DUSE_LUA               - embed Lua in Mongoose (+100kb)
+ 
+ PROG        = mongoose
+-CFLAGS      = -std=c99 -O2 -W -Wall -pedantic -pthread
++CFLAGS      += -std=c99 -W -Wall -pedantic -pthread
+ 
+ # To build with Lua, download and unzip Lua 5.2.1 source code into the
+ # mongoose directory, and then add $(LUA_SOURCES) to CFLAGS
+@@ -103,7 +103,7 @@
+ # "-Wl,--as-needed" turned on by default  in cc command.
+ # Also, this is turned in many other distros in static linkage builds.
+ linux:
+-	$(CC) mongoose.c main.c -o $(PROG) -ldl $(CFLAGS)
++	$(CC) mongoose.c main.c -o $(PROG) -ldl $(CFLAGS) $(LDFLAGS)
+ 
+ mac: bsd
+ bsd:
