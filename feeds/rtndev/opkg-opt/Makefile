@@ -37,7 +37,8 @@ define Build/Compile
 endef
 
 define Package/opkg-opt/install
-	$(INSTALL_DIR) $(1)/opt/var/{log,run}
+	$(INSTALL_DIR) $(1)/opt/tmp $(1)/opt/var/{log,run}
+	touch $(1)/opt/tmp/.opkg-opt-placeholder
 endef
 
 $(eval $(call BuildPackage,opkg-opt))
