@@ -7,35 +7,35 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=asciiio
+PKG_NAME:=asciinema
 PKG_VERSION:=0.x
 PKG_RELEASE:=3
 
-PKG_REV:=51ac1f103795d8f05da201eedd4c947252b58c4b
+PKG_REV:=504333459ad5022a5750d36e14c1468d342bc846
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/sickill/ascii.io-cli.git
+PKG_SOURCE_URL:=git://github.com/sickill/asciinema.git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/asciiio
+define Package/asciinema
 	SECTION:=utils
 	CATEGORY:=Utilities
 	SUBMENU:=Terminal
 	DEPENDS:=+python +python-bzip2 +ncurses-bin +curl
 	TITLE:=A terminal sessions recorder
-	URL:=http://ascii.io
+	URL:=http://asciinema.org/
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
-define Package/asciiio/description
- ascii.io lets you record your terminal sessions and share it with other geeks.
+define Package/asciinema/description
+ asciinema lets you record your terminal sessions and share it with other geeks.
 endef
 
-define Package/asciiio/conffiles
-/opt/etc/ascii.io/config
+define Package/asciinema/conffiles
+#/opt/etc/ascii.io/config
 endef
 
 define Build/Configure
@@ -44,10 +44,10 @@ endef
 define Build/Compile
 endef
 
-define Package/asciiio/install
+define Package/asciinema/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/asciiio $(1)/opt/bin/
-	$(INSTALL_DIR) $(1)/opt/etc/ascii.io
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/asciinema $(1)/opt/bin/
+#	$(INSTALL_DIR) $(1)/opt/etc/ascii.io
 endef
 
-$(eval $(call BuildPackage,asciiio))
+$(eval $(call BuildPackage,asciinema))
