@@ -133,27 +133,10 @@ diff -Naur ghostscript-9.05.orig/avr32-arch.h ghostscript-9.05/avr32-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naur ghostscript-9.05.orig/base/cross.mak ghostscript-9.05/base/cross.mak
---- ghostscript-9.05.orig/base/cross.mak	1969-12-31 19:00:00.000000000 -0500
-+++ ghostscript-9.05/base/cross.mak	2012-02-13 13:08:44.000000000 -0500
-@@ -0,0 +1,5 @@
-+
-+cross_prepare:
-+	mkdir -p $(GLGEN)
-+	cp -f $(ARCH)-arch.h $(GLGEN)/arch.h
-+	touch $(GLGEN)/arch.h
-diff -Naur ghostscript-9.05.orig/base/Makefile.in ghostscript-9.05/base/Makefile.in
---- ghostscript-9.05.orig/base/Makefile.in	2012-02-13 13:07:44.000000000 -0500
-+++ ghostscript-9.05/base/Makefile.in	2012-02-13 13:08:44.000000000 -0500
-@@ -640,3 +640,4 @@
- check : default
- 	$(NO_OP)
- 
-+include $(GLSRCDIR)/cross.mak
 diff -Naur ghostscript-9.05.orig/base/unixhead.mak ghostscript-9.05/base/unixhead.mak
 --- ghostscript-9.05.orig/base/unixhead.mak	2012-02-13 13:07:44.000000000 -0500
 +++ ghostscript-9.05/base/unixhead.mak	2012-02-13 13:08:44.000000000 -0500
-@@ -55,7 +55,7 @@
+@@ -53,7 +53,7 @@
  
  # Define generic commands.
  

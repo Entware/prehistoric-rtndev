@@ -10,12 +10,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ghostscript
-PKG_VERSION:=9.06
+PKG_VERSION:=9.10
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://downloads.ghostscript.com/public/$(PKG-SOURCE)
-PKG_MD5SUM:=153ddb0622cb155d2f600146f1e28d84
+PKG_MD5SUM:=5f0c0a2670b08466a4050ddbd1f3de63
 
 PKG_BUILD_DEPENDS:=ghostscript/host
 PKG_INSTALL:=1
@@ -39,7 +39,6 @@ endef
 
 HOST_CONFIGURE_ARGS += \
 	--without-x \
-	--without-jasper \
 	--without-jbig2dec \
 	--without-pdftoraster \
 	--without-libpaper \
@@ -47,12 +46,12 @@ HOST_CONFIGURE_ARGS += \
 	--without-libidn \
 
 CONFIGURE_ARGS += \
+	--enable-little-endian \
 	--disable-gtk \
 	--without-libidn \
 	--without-x \
-	--without-jasper \
 	--without-jbig2dec \
-	--with-install-cups \
+	--enable-cups \
 	--with-fontpath=/opt/share/fonts/ghostscript/fonts/:/opt/share/ghostscript/9.06/Resource/Font/:/opt/share/fonts/default/ghostscript/:/opt/share/fonts/default/TrueType/:/opt/share/fonts/default/Type1:/opt/share/cups/fonts/:/opt/share/fonts/:/opt/share/fonts/ubuntu/:/opt/share/fonts/truetype/liberation/ \
 	--with-system-libtiff \
 	--with-cups-serverbin=/opt/lib/cups \
@@ -97,10 +96,6 @@ define Package/ghostscript/install
 	$(RM) $(1)/opt/bin/gs
 	$(CP) ./files/gs $(1)/opt/bin/
 	#--------------------------------------------------------------
-	$(INSTALL_DIR) $(1)/opt/lib/cups/filter
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/lib/cups/filter/gsto* $(1)/opt/lib/cups/filter
-	$(INSTALL_DIR) $(1)/opt/share/cups/model
-	$(CP) $(PKG_INSTALL_DIR)/opt/share/cups/model/*.ppd $(1)/opt/share/cups/model
 	$(INSTALL_DIR) $(1)/opt/share/ghostscript/$(PKG_VERSION)/lib
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/ghostscript/$(PKG_VERSION)/lib/* \
 	        $(1)/opt/share/ghostscript/$(PKG_VERSION)/lib
@@ -109,8 +104,6 @@ define Package/ghostscript/install
 	# $(INSTALL_DIR) $(1)/opt/share/ghostscript/$(PKG_VERSION)/examples/cjk
 	$(CP) -r $(PKG_INSTALL_DIR)/opt/share/ghostscript/$(PKG_VERSION)/examples \
 	    $(1)/opt/share/ghostscript/$(PKG_VERSION)/examples
-	$(INSTALL_DIR) $(1)/opt/etc/cups
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/etc/cups/gstoraster.convs $(1)/opt/etc/cups
 endef
 
 $(eval $(call HostBuild))

@@ -1,0 +1,10 @@
+--- ./Makefile.in.orig	2013-10-10 15:59:32.238721673 +0400
++++ ./Makefile.in	2013-10-10 16:02:28.422718315 +0400
+@@ -641,3 +641,7 @@
+ check : default
+ 	$(NO_OP)
+ 
++cross_prepare:
++	mkdir -p $(GLGENDIR)
++	cp -f $(ARCH)-arch.h $(GLGENDIR)/arch.h
++	touch $(GLGENDIR)/arch.h
