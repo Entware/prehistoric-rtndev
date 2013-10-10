@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=findutils
-PKG_VERSION:=4.5.11
+PKG_VERSION:=4.5.12
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).orig.tar.gz
 PKG_SOURCE_URL:=http://ftp.debian.org/debian/pool/main/f/findutils
-PKG_MD5SUM:=05307c7b283873d6da03fd6ada36895a
+PKG_MD5SUM:=e5f8d618aab0641cbbb738c43bcbc104
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
