@@ -52,7 +52,7 @@
  
  INCLUDES_L += -Iutil -I.
  
-@@ -927,10 +927,8 @@
+@@ -929,10 +929,8 @@
  NC_INCLUDE = $(NC_PREFIX)/include/ncursesw
  endif
  
@@ -64,7 +64,7 @@
  endif
  
  endif
-@@ -951,7 +949,6 @@
+@@ -953,7 +951,6 @@
  CFWARN_L :=
  endif
  
@@ -72,7 +72,7 @@
  
  ifdef REPORT
  CFOTHERS += -ftime-report
-@@ -960,7 +957,7 @@
+@@ -962,7 +959,7 @@
  ifdef ANDROID
  CFLAGS   := $(CFOPTIMIZE) $(CFOTHERS) $(CFWARN) $(CFLAGS)
  else
@@ -81,7 +81,7 @@
  endif
  CFLAGS_L := $(CFOPTIMIZE_L) $(DEFINES_L) $(CFWARN_L) $(INCLUDES_L) $(CFOTHERS_L)
  ALL_CFLAGS := $(CFLAGS) $(CFLAGS_L)
-@@ -1056,8 +1053,7 @@
+@@ -1058,8 +1055,7 @@
  CONTRIB_LIBS += $(LIBLUA)
  endif
  ifdef BUILD_SQLITE
