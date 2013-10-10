@@ -12,12 +12,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bfgminer
 PKG_TITLE:=BFGMiner
-PKG_VERSION:=3.1.4
+PKG_VERSION:=3.2.1
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tbz2
-PKG_SOURCE_URL:=http://luke.dashjr.org/programs/bitcoin/files/$(PKG_NAME)/$(PKG_VERSION)/
-PKG_MD5SUM:=1e8a83aa0366ef2167d671cd5120a194
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).zip
+PKG_SOURCE_URL:=http://luke.dashjr.org/programs/bitcoin/files/$(PKG_NAME)/$(PKG_VERSION)
+PKG_MD5SUM:=6759ac240d6a6e14f6f49d380cc8c750
 
 PKG_INSTALL:=1
 
@@ -90,7 +90,7 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/opt/bin $(1)/opt/lib
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/$(PKG_NAME) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/$(PKG_NAME)-rpc $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/lib/libblkmaker*.so* $(1)/opt/lib
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libblkmaker*.so* $(1)/opt/lib
 endef
 
 ALL_$(PKG_NAME)_PACKAGES += $(PKG_NAME)
@@ -112,41 +112,6 @@ define Package/bitforce-firmware-flash/install
 endef
 
 ALL_$(PKG_NAME)_PACKAGES += bitforce-firmware-flash
-
-#### Bitstreams ####
-
-define Package/$(PKG_NAME)/BitstreamTemplate
-
-define Package/$(PKG_NAME)-bitstream-$(1)
-$(call Package/$(PKG_NAME)/Default)
-	TITLE:=$(2)
-	PKGARCH:=all
-endef
-
-define Package/$(PKG_NAME)-bitstream-$(1)/description
-$(2)
-endef
-
-define Package/$(PKG_NAME)-bitstream-$(1)/install
-	$(INSTALL_DIR) $$(1)/opt/share/$(PKG_NAME)/bitstreams
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/share/$(PKG_NAME)/bitstreams/$(subst -,_,$(1))* $$(1)/opt/share/$(PKG_NAME)/bitstreams
-endef
-
-ALL_$(PKG_NAME)_PACKAGES += $(PKG_NAME)-bitstream-$(1)
-
-endef
-
-define Package/$(PKG_NAME)/ZtexBitstreamTemplate
-$(call Package/$(PKG_NAME)/BitstreamTemplate,ztex-$(1),Ztex $(2) FPGA bitstream (for $(PKG_TITLE) w/ libusb support))
-endef
-
-$(eval $(call Package/$(PKG_NAME)/BitstreamTemplate,fpgaminer,ModMiner/X6500 FPGA bitstream (for $(PKG_TITLE))))
-$(eval $(call Package/$(PKG_NAME)/ZtexBitstreamTemplate,ufm1_15b1,1.15b))
-$(eval $(call Package/$(PKG_NAME)/ZtexBitstreamTemplate,ufm1_15d1,1.15d))
-$(eval $(call Package/$(PKG_NAME)/ZtexBitstreamTemplate,ufm1_15d3,1.15d))
-$(eval $(call Package/$(PKG_NAME)/ZtexBitstreamTemplate,ufm1_15d4,1.15d & 1.15x))
-$(eval $(call Package/$(PKG_NAME)/ZtexBitstreamTemplate,ufm1_15y1,1.15y))
-
 
 
 $(foreach bitstream,$(ALL_$(PKG_NAME)_PACKAGES),$(eval $(call BuildPackage,$(bitstream))))
