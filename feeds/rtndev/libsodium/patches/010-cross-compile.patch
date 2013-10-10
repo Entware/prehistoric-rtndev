@@ -1,6 +1,6 @@
 --- a/configure.ac
 +++ b/configure.ac
-@@ -263,6 +263,20 @@
+@@ -274,6 +274,20 @@
  ],
  [AC_MSG_RESULT(no)])
  
