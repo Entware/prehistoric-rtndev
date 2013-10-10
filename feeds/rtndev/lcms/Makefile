@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lcms
-PKG_VERSION:=2.4
+PKG_VERSION:=2.5
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)2-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/$(PKG_NAME)
-PKG_MD5SUM:=861ef15fa0bc018f9ddc932c4ad8b6dd
+PKG_MD5SUM:=396d106600251441ff195fcaa277d10b
 
 PKG_INSTALL:=1
 
@@ -43,8 +43,9 @@ define Package/lcms/install
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/lib
+	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/* $(1)/opt/lib
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/lcms2.pc $(1)/opt/lib/pkgconfig
 	$(INSTALL_DIR) $(1)/opt/include
 	$(CP) $(PKG_INSTALL_DIR)/opt/include/lcms2*.h $(1)/opt/include
 endef
