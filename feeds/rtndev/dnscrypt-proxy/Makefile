@@ -13,7 +13,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://download.dnscrypt.org/dnscrypt-proxy/
-PKG_MD5SUM:=605f7d122652b321564c204b6a4b167c
+PKG_MD5SUM:=ae0e45e2f8e1fd3e315747e67cf2eccc
 
 PKG_INSTALL:=1
 PKG_FIXUP:=autoreconf
