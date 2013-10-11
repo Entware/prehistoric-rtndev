@@ -10,7 +10,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rutorrent
-PKG_REV:=2340
+PKG_REV:=2376
 PKG_VERSION:=3.5-r$(PKG_REV)
 PKG_RELEASE:=1
 
@@ -25,7 +25,7 @@ include $(INCLUDE_DIR)/package.mk
 RUTORRENT_PLUGINS := \
 	autotools check_port chunks cookies cpuload create data datadir \
 	diskspace edit erasedata extratio extsearch feeds filedrop \
-	geoip _getdir history httprpc ipad loginmgr mediainfo _noty \
+	geoip _getdir history httprpc ipad loginmgr lookat mediainfo _noty \
 	ratio retrackers rpc rss rssurlrewrite rutracker_check scheduler \
 	screenshots seedingtime show_peers_like_wtorrent source _task \
 	theme throttle tracklabels trafic unpack
@@ -68,7 +68,7 @@ endef
 $(foreach a,$(RUTORRENT_PLUGINS),$(eval $(call GenPlugin,rutorrent-plugin-$(a),$(a))))
 
 define Build/Configure
-	$(SED) 's,\$$$$Rev: 2312 \$$$$,$(PKG_REV),g' $(PKG_BUILD_DIR)/rutorrent/js/webui.js
+	$(SED) 's,\$$$$Rev: 2361 \$$$$,$(PKG_REV),g' $(PKG_BUILD_DIR)/rutorrent/js/webui.js
 endef
 
 define Build/Compile
