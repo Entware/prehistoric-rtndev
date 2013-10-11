@@ -9,12 +9,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-skydrive
-PKG_VERSION:=13.06.4
+PKG_VERSION:=13.08.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/p/python-skydrive/
-PKG_MD5SUM:=7be2277a6cbe29e4c2be6c767f03a864
+PKG_MD5SUM:=36d1a67c8f687da7dfebcccefa31f9cd
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)

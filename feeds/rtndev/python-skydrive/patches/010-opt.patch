@@ -1,7 +1,11 @@
---- a/skydrive/conf.py	2013-03-25 05:26:54.000000000 +0400
-+++ b/skydrive/conf.py	2013-06-24 02:22:19.797926496 +0400
-@@ -14,3 +14,3 @@
- 	#: Path to configuration file to use in from_conf() by default.
--	conf_path_default = b'~/.lcrc'
-+	conf_path_default = b'/opt/etc/.lcrc'
+--- ./skydrive/conf.py.orig	2013-08-17 12:25:37.000000000 +0400
++++ ./skydrive/conf.py	2013-10-11 11:34:26.765441633 +0400
+@@ -12,7 +12,7 @@
  
+ class ConfigMixin(object):
+     #: Path to configuration file to use in from_conf() by default.
+-    conf_path_default = b'~/.lcrc'
++    conf_path_default = b'/opt/etc/.lcrc'
+ 
+     #: If set to some path, updates will be written back to it.
+     conf_save = False
