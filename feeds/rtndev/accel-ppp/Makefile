@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=accel-ppp
-PKG_VERSION:=1.8.8-beta-20131014
+PKG_VERSION:=1.8.0-beta-20131014
 PKG_REV:=e112b9a40ce02081d52cfc144a9842ff3b4cd8d4
 PKG_RELEASE:=1
 
@@ -46,12 +46,14 @@ CMAKE_OPTIONS += \
 	-DRADIUS=TRUE \
 	-DNETSNMP=FALSE \
 	-DLOG_FILE=FALSE \
+	-DLIB_SUFFIX= \
 
 TARGET_CFLAGS += \
 	-I$(STAGING_DIR)/opt/include \
 
-TARGET_LDFLAGS += \
-	-lpthread
+define Package/accel-ppp/conffiles
+/opt/etc/accel-ppp.conf
+endef
 
 define Package/accel-ppp/install
 	$(INSTALL_DIR) $(1)/opt/sbin
@@ -69,7 +71,7 @@ define Package/accel-ppp/install
 		$(PKG_INSTALL_DIR)/opt/share/accel-ppp/radius/dictionary* \
 		$(1)/opt/share/accel-ppp/radius
 	$(INSTALL_DIR) $(1)/opt/etc
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/etc/accel-ppp.conf.dist $(1)/opt/etc
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/accel-pppd/accel-ppp.conf $(1)/opt/etc
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) files/S60accel-ppp $(1)/opt/etc/init.d/
 endef
