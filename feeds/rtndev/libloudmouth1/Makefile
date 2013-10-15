@@ -37,7 +37,8 @@ define Package/libloudmouth1/description
 endef
 
 CONFIGURE_VARS += \
-	ac_cv_path_KRB5CONFIG=no
+	ac_cv_path_KRB5CONFIG=no \
+	LIBS="-liconv -lintl -lgobject-2.0"
 
 CONFIGURE_ARGS += \
 	--with-compile-warnings=no

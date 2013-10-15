@@ -38,12 +38,13 @@ endef
 EXTRA_CFLAGS += \
 	-I$(ICONV_PREFIX)/include \
 	-I$(STAGING_DIR)/opt/include/fuse \
-	-DICONV_CONST=const
+	-DICONV_CONST=const \
 
 EXTRA_LDFLAGS += \
 	-L$(INTL_PREFIX)/lib \
 	-L$(ICONV_PREFIX)/lib \
-	-liconv
+	-liconv \
+	-lpthread \
 
 define Package/fuse-convmvfs/install
 	$(INSTALL_DIR) $(1)/opt/bin

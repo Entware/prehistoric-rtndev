@@ -1,13 +1,6 @@
---- ./accel-pppd/accel-ppp.conf.orig	2012-12-07 18:08:24.000000000 +0400
-+++ ./accel-pppd/accel-ppp.conf	2013-01-28 10:12:27.499571271 +0400
-@@ -1,5 +1,5 @@
- [modules]
--#path=/usr/local/lib/accel-ppp
-+#path=/opt/lib/accel-ppp
- log_file
- #log_syslog
- #log_tcp
-@@ -31,7 +31,7 @@
+--- ./accel-pppd/accel-ppp.conf.orig	2013-10-15 10:55:04.000000000 +0400
++++ ./accel-pppd/accel-ppp.conf	2013-10-15 10:56:41.253533713 +0400
+@@ -30,7 +30,7 @@
  #ipv6pool
  
  [core]
@@ -15,17 +8,17 @@
 +log-error=/opt/var/log/accel-ppp/core.log
  thread-count=4
  
- [ppp]
+ [common]
 @@ -79,7 +79,7 @@
- verbose=1
  
  [l2tp]
+ verbose=1
 -#dictionary=/usr/local/share/accel-ppp/l2tp/dictionary
 +#dictionary=/opt/share/accel-ppp/l2tp/dictionary
  #hello-interval=60
  #timeout=60
  #rtimeout=5
-@@ -100,7 +100,7 @@
+@@ -131,7 +131,7 @@
  #wins2=172.16.1.1
  
  [radius]
@@ -34,7 +27,7 @@
  nas-identifier=accel-ppp
  nas-ip-address=127.0.0.1
  gw-ip-address=192.168.100.1
-@@ -130,9 +130,9 @@
+@@ -162,9 +162,9 @@
  192.168.4.0/24
  
  [log]
@@ -47,7 +40,7 @@
  #log-debug=/dev/stdout
  #syslog=accel-pppd,daemon
  #log-tcp=127.0.0.1:3000
-@@ -148,16 +148,16 @@
+@@ -180,16 +180,16 @@
  log-table=log
  
  [pppd-compat]

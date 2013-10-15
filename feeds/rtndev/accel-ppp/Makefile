@@ -8,12 +8,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=accel-ppp
-PKG_VERSION:=1.7.3
+PKG_VERSION:=1.8.8-beta-20131014
+PKG_REV:=e112b9a40ce02081d52cfc144a9842ff3b4cd8d4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=@SF/accel-ppp
-PKG_MDSUM:=bf03f20d9df9a0694e5cd0be9b57d1b6
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_URL:=git://git.code.sf.net/p/$(PKG_NAME)/code
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=$(PKG_REV)
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
@@ -46,6 +49,9 @@ CMAKE_OPTIONS += \
 
 TARGET_CFLAGS += \
 	-I$(STAGING_DIR)/opt/include \
+
+TARGET_LDFLAGS += \
+	-lpthread
 
 define Package/accel-ppp/install
 	$(INSTALL_DIR) $(1)/opt/sbin

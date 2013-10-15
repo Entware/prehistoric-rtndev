@@ -12,7 +12,7 @@ PKG_VERSION:=20121028
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://shell.peach.ne.jp/~aoyama/wordpress/wp-content/uploads/downloads/2012/10
+PKG_SOURCE_URL:=ftp://ftp.freebsd.org/pub/FreeBSD/ports/distfiles
 PKG_MD5SUM:=45028da626e3a3e5a79688eea67b0c2e
 PKG_INSTALL:=1
 
