@@ -1,83 +1,11 @@
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index c0ec2a6..1bf5d3a 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -6,7 +6,8 @@ project(accel-ppp C)
+--- ./CMakeLists.txt.orig	2013-10-15 13:59:26.000000000 +0400
++++ ./CMakeLists.txt	2013-10-16 17:33:21.991530179 +0400
+@@ -6,7 +6,7 @@
  
  include(cmake/cpack.cmake)
  
 -SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fvisibility=hidden -fno-strict-aliasing -D_GNU_SOURCE -fPIC -rdynamic")
-+#SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fvisibility=hidden -fno-strict-aliasing -D_GNU_SOURCE -fPIC -rdynamic")
 +SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fvisibility=hidden -fno-strict-aliasing -D_GNU_SOURCE -rdynamic")
  
  IF (NOT DEFINED LIB_SUFFIX)
  	EXECUTE_PROCESS(
-diff --git a/accel-pppd/CMakeLists.txt b/accel-pppd/CMakeLists.txt
-index af9e5f4..fd30331 100644
---- a/accel-pppd/CMakeLists.txt
-+++ b/accel-pppd/CMakeLists.txt
-@@ -72,11 +72,11 @@ ADD_EXECUTABLE(accel-pppd
- 	ppp/ppp_ccp.c	
- 	ppp/ccp_mppe.c
- 
--	cli/std_cmd.c
--	cli/show_sessions.c
--	cli/telnet.c
--	cli/tcp.c
--	cli/cli.c
-+#	cli/std_cmd.c
-+#	cli/show_sessions.c
-+#	cli/telnet.c
-+#	cli/tcp.c
-+#	cli/cli.c
- 	
- 	libnetlink/libnetlink.c
- 	libnetlink/iputils.c
-@@ -95,7 +95,8 @@ ADD_EXECUTABLE(accel-pppd
- 	memdebug.c
- )
- 
--TARGET_LINK_LIBRARIES(accel-pppd triton rt pthread ${crypto_lib} pcre)
-+#TARGET_LINK_LIBRARIES(accel-pppd triton rt pthread ${crypto_lib} pcre)
-+TARGET_LINK_LIBRARIES(accel-pppd triton rt pthread ${crypto_lib})
- set_property(TARGET accel-pppd PROPERTY CMAKE_SKIP_BUILD_RPATH FALSE)
- set_property(TARGET accel-pppd PROPERTY CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
- set_property(TARGET accel-pppd PROPERTY INSTALL_RPATH_USE_LINK_PATH FALSE)
-diff --git a/accel-pppd/cli/cli.h b/accel-pppd/cli/cli.h
-index b02b2bb..0b8a2ac 100644
---- a/accel-pppd/cli/cli.h
-+++ b/accel-pppd/cli/cli.h
-@@ -1,7 +1,8 @@
- #ifndef __CLI_H
- #define __CLI_H
- 
--#include <pcre.h>
-+//#include <pcre.h>
-+typedef struct pcre {} pcre;
- #include <list.h>
- 
- #define CLI_CMD_OK 0
-diff --git a/accel-pppd/ctrl/CMakeLists.txt b/accel-pppd/ctrl/CMakeLists.txt
-index 9b6a11d..a7e0af0 100644
---- a/accel-pppd/ctrl/CMakeLists.txt
-+++ b/accel-pppd/ctrl/CMakeLists.txt
-@@ -1,4 +1,4 @@
- ADD_SUBDIRECTORY(pptp)
- ADD_SUBDIRECTORY(pppoe)
- ADD_SUBDIRECTORY(l2tp)
--ADD_SUBDIRECTORY(ipoe)
-+#ADD_SUBDIRECTORY(ipoe)
-diff --git a/accel-pppd/extra/chap-secrets.c b/accel-pppd/extra/chap-secrets.c
-index d2d752a..cdc3006 100644
---- a/accel-pppd/extra/chap-secrets.c
-+++ b/accel-pppd/extra/chap-secrets.c
-@@ -33,7 +33,9 @@ static struct ipdb_t ipdb;
- struct hash_chain
- {
- 	struct list_head entry;
-+#ifdef CRYPTO_OPENSSL
- 	const EVP_MD *md;
-+#endif
- };
- 
- struct cs_pd_t
