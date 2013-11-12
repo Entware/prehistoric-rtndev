@@ -12,12 +12,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bfgminer
 PKG_TITLE:=BFGMiner
-PKG_VERSION:=3.2.1
+PKG_VERSION:=3.4.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).zip
 PKG_SOURCE_URL:=http://luke.dashjr.org/programs/bitcoin/files/$(PKG_NAME)/$(PKG_VERSION)
-PKG_MD5SUM:=6759ac240d6a6e14f6f49d380cc8c750
+PKG_MD5SUM:=d4433e4e0f61cf752a74e99a9dea711b
 
 PKG_INSTALL:=1
 
