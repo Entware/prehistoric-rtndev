@@ -1,11 +1,11 @@
---- ./CMakeLists.txt.orig	2013-10-15 13:59:26.000000000 +0400
-+++ ./CMakeLists.txt	2013-10-16 17:33:21.991530179 +0400
+--- ./CMakeLists.txt.orig	2013-11-12 12:00:44.000000000 +0400
++++ ./CMakeLists.txt	2013-11-12 12:04:15.614198955 +0400
 @@ -6,7 +6,7 @@
  
  include(cmake/cpack.cmake)
  
--SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fvisibility=hidden -fno-strict-aliasing -D_GNU_SOURCE -fPIC -rdynamic")
-+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fvisibility=hidden -fno-strict-aliasing -D_GNU_SOURCE -rdynamic")
+-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fno-strict-aliasing -D_GNU_SOURCE -fPIC -rdynamic")
++SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fno-strict-aliasing -D_GNU_SOURCE -rdynamic")
  
  IF (NOT DEFINED LIB_SUFFIX)
  	EXECUTE_PROCESS(

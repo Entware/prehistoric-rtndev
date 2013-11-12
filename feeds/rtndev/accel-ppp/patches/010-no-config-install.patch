@@ -1,6 +1,6 @@
---- ./accel-pppd/CMakeLists.txt.orig	2013-10-15 11:06:58.653525631 +0400
-+++ ./accel-pppd/CMakeLists.txt	2013-10-15 11:07:13.417525847 +0400
-@@ -106,11 +106,3 @@
+--- ./accel-pppd/CMakeLists.txt.orig
++++ ./accel-pppd/CMakeLists.txt
+@@ -107,11 +107,3 @@
  )
  
  INSTALL(FILES accel-ppp.conf.5 DESTINATION share/man/man5)
