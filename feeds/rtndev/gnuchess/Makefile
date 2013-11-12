@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gnuchess
-PKG_VERSION:=6.0.3
+PKG_VERSION:=6.1.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://ftp.gnu.org/pub/gnu/chess
-PKG_MD5SUM:=28625afb8f48b86211ee1d217c308064
+PKG_MD5SUM:=41b0771cee225eff9563d42e7f93263c
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -46,7 +46,7 @@ define Package/gnuchess/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/gnuchess $(1)/opt/bin/
 	$(INSTALL_DIR) $(1)/opt/share/gnuchess
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/src/book.bin $(1)/opt/share/gnuchess/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/src/smallbook.bin $(1)/opt/share/gnuchess/
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/src/gnuchess.ini $(1)/opt/share/gnuchess
 endef
 
