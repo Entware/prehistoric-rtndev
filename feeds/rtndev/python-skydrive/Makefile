@@ -14,7 +14,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/p/python-skydrive/
-#PKG_MD5SUM:=
+PKG_MD5SUM:=2978c287f02aace6b09aa82d81a4bad2
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
