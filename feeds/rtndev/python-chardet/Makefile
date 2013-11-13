@@ -20,7 +20,7 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/chardet-$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
-#PKG_BUILD_DEPENDS:=python distribute/host
+PKG_BUILD_DEPENDS:=python distribute/host
 
 define Package/$(PKG_NAME)
   SUBMENU:=Python
