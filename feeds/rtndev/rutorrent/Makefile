@@ -10,8 +10,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rutorrent
-PKG_REV:=2376
-PKG_VERSION:=3.5-r$(PKG_REV)
+PKG_REV:=2454
+PKG_VERSION:=3.6
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=svn
@@ -68,7 +68,7 @@ endef
 $(foreach a,$(RUTORRENT_PLUGINS),$(eval $(call GenPlugin,rutorrent-plugin-$(a),$(a))))
 
 define Build/Configure
-	$(SED) 's,\$$$$Rev: 2361 \$$$$,$(PKG_REV),g' $(PKG_BUILD_DIR)/rutorrent/js/webui.js
+	$(SED) 's,\$$$$Rev: 2404 \$$$$,$(PKG_REV),g' $(PKG_BUILD_DIR)/rutorrent/js/webui.js
 endef
 
 define Build/Compile
