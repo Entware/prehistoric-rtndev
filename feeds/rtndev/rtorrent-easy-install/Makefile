@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rtorrent-easy-install
-PKG_VERSION:=0.1
+PKG_VERSION:=0.2
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
@@ -53,7 +53,7 @@ echo -e "\n#### Welcome to rtorrent easy installation script! \n\
     Please, answer a few question to configure torrent client. \n\
     Default aswers given in [brackets], just hit Enter to accept it.\n"
 
-www_cfg=/opt/etc/lighttpd/lighttpd.conf
+www_cfg=/opt/etc/lighttpd/conf.d/99-rtorrent-fastcgi-scgi-auth.conf
 rt_cfg=/opt/etc/rtorrent/rtorrent.conf
 
 #### Configuring web-server
