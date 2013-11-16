@@ -1,0 +1,42 @@
+--- ./libjbig/Makefile.orig	2008-08-30 21:20:52.000000000 +0400
++++ ./libjbig/Makefile	2013-11-16 21:20:58.543294422 +0400
+@@ -7,7 +7,7 @@
+ # Options for the compiler: A high optimization level is suggested
+ CFLAGS = -g -O -Wall -ansi -pedantic # --coverage
+ 
+-all: libjbig.a tstcodec tstcodec85
++all: libjbig.a libjbig.so libjbig85.a libjbig85.so
+ 
+ tstcodec: tstcodec.o jbig.o jbig_ar.o
+ 	$(CC) $(CFLAGS) -o tstcodec $+
+@@ -17,13 +17,26 @@
+ 
+ libjbig.a: jbig.o jbig_ar.o
+ 	rm -f libjbig.a
+-	ar rc libjbig.a jbig.o jbig_ar.o
+-	-ranlib libjbig.a
++	$(AR) rc libjbig.a jbig.o jbig_ar.o
++	-$(RANLIB) libjbig.a
+ 
+ libjbig85.a: jbig85.o jbig_ar.o
+ 	rm -f libjbig85.a
+-	ar rc libjbig85.a jbig85.o jbig_ar.o
+-	-ranlib libjbig85.a
++	$(AR) rc libjbig85.a jbig85.o jbig_ar.o
++	-$(RANLIB) libjbig85.a
++
++SOBJS = jbig.lo jbig_ar.lo
++
++libjbig.so: $(SOBJS)
++	$(CC) -shared $(LDFLAGS) -o $@ -Wl,-soname -Wl,$@ $(SOBJS)
++
++SOBJS85 = jbig85.lo jbig_ar.lo
++
++libjbig85.so: $(SOBJS85)
++	$(CC) -shared $(LDFLAGS) -o $@ -Wl,-soname -Wl,$@ $(SOBJS85)
++
++%.lo: %.c jbig.h jbig85.h jbig_ar.h
++	$(CC) -fPIC -c $< -o $@
+ 
+ jbig.o: jbig.c jbig.h jbig_ar.h
+ jbig85.o: jbig85.c jbig85.h jbig_ar.h
