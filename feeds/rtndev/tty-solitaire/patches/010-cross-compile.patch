@@ -1,0 +1,14 @@
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+-CC      = gcc
+-CFLAGS  = -W -Wall -pedantic -ansi -std=c99 -g
+-LDFLAGS = -lncursesw
+-PREFIX  = /usr/local
++CC      ?= gcc
++CFLAGS  += -W -Wall -pedantic -ansi -std=c99 -g
++LDFLAGS += -lncursesw
++PREFIX  ?= /usr/local
+ 
+ EXECUTABLE = ttysolitaire
+ SRC_DIR    = src
