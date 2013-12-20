@@ -8,10 +8,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=weave-minimal
-PKG_VERSION:=1.3
+PKG_VERSION:=1.4.1
 PKG_RELEASE:=1
 
-PKG_REV:=927bd754f31916053119d5d7224f4878718c8b8c
+PKG_REV:=43dc2f1a0d001d4d1fb7b803ac3456aab909932d
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -26,7 +26,7 @@ $(call include_mk, python-package.mk)
 define Package/weave-minimal
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=+python-sqlite3 +python-werkzeug +distribute +dtach
+	DEPENDS:=+python-sqlite3 +python-werkzeug +distribute +dtach +python-gevent
 	TITLE:=a Firefox Sync Server
 	URL:=https://github.com/posativ/weave-minimal
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
