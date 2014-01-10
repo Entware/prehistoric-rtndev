@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nyancat
-PKG_VERSION:=1.2.1
-PKG_REV:=07a8fd0efa34af737c3016c6ad15675671b905b2
+PKG_VERSION:=1.2.2
+PKG_REV:=837cd3290230dc9f82912bb657c4cc341c3e0bae
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
@@ -34,7 +34,7 @@ endef
 
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/src \
-		LFLAGS="$(TARGET_CFLAGS) $(TARGET_LDFLAGS)" \
+		LDFLAGS="$(TARGET_CFLAGS) $(TARGET_LDFLAGS)" \
 		CC="$(TARGET_CC)"
 endef
 
