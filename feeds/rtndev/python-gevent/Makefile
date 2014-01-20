@@ -13,7 +13,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=gevent-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/g/gevent
-#PKG_MD5SUM:=ca9dcaa7880762d8ebbc266b11252960
+PKG_MD5SUM:=33aef51a06268f5903fea378e1388e4d
 PKG_BUILD_DEPENDS:=python
 PKG_BUILD_DIR:=$(BUILD_DIR)/gevent-$(PKG_VERSION)
 
