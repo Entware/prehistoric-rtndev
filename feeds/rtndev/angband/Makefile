@@ -10,12 +10,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=angband
-PKG_VERSION:=3.4.1
+PKG_VERSION:=3.5.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-v$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://rephial.org/downloads/3.4/
-PKG_MD5SUM:=3ea22e5caabc3de7b49bac13ba922a8c
+PKG_SOURCE_URL:=http://rephial.org/downloads/3.5/
+PKG_MD5SUM:=4f6ee37abdb411285deb1685ddecba6a
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-v$(PKG_VERSION)
 
 PKG_INSTALL:=1
@@ -40,7 +40,7 @@ endef
 
 CONFIGURE_ARGS += \
 	--disable-x11 \
-	--disable-sdl \
+	--with-private-dirs \
 
 define Package/angband/install
 	$(INSTALL_DIR) $(1)/opt/bin

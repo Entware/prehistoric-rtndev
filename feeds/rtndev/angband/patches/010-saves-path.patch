@@ -1,11 +1,11 @@
---- a/src/config.h	2012-05-07 23:33:59.524510810 +0400
-+++ b/src/config.h	2012-05-07 23:34:53.303834711 +0400
-@@ -54,7 +54,7 @@
+--- a/src/config.h
++++ b/src/config.h
+@@ -53,7 +53,7 @@
+  * for storing pref files and character dumps.
   */
- #ifdef SET_UID
- # ifndef PRIVATE_USER_PATH
--#  define PRIVATE_USER_PATH "~/.angband"
-+#  define PRIVATE_USER_PATH "/opt/var"
- # endif /* PRIVATE_USER_PATH */
- #endif /* SET_UID */
+ #if defined(UNIX) && !defined(MACH_O_CARBON) && !defined(PRIVATE_USER_PATH)
+-# define PRIVATE_USER_PATH "~/.angband"
++# define PRIVATE_USER_PATH "/opt/var"
+ #endif
+ 
  
