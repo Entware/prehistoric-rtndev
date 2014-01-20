@@ -11,14 +11,13 @@ PKG_NAME:=rtmpdump
 PKG_VERSION:=2.4-20121209
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_REV:=3a1e20c08cc4f7ad8b6684fadd0bfb4420376809
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/svnpenn/rtmpdump.git
-PKG_SOURCE_VERSION:=$(PKG_REV)
+PKG_SOURCE:=$(PKG_NAME)-2.3.tgz
+PKG_SOURCE_URL:=http://rtmpdump.mplayerhq.hu/download
+PKG_MD5SUM:=eb961f31cd55f0acf5aad1a7b900ef59
 
 PKG_INSTALL:=1
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-2.3
 
 include $(INCLUDE_DIR)/package.mk
 
