@@ -8,15 +8,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bip
-PKG_VERSION:=0.8.8
+PKG_VERSION:=0.8.9
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://projects.duckcorp.org/attachments/download/39
-PKG_MD5SUM:=261d53ead8a35d08caa7dc0f76566b98
+PKG_SOURCE_URL:=https://projects.duckcorp.org/attachments/download/61
+PKG_MD5SUM:=04158ad020db221ed87cdc03660ef6c9
 
 PKG_INSTALL:=1
-PKG_FIXUP:=autoreconf
+#PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
