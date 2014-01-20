@@ -1,0 +1,11 @@
+--- ./configure.ac.orig	2014-01-19 19:25:14.299726917 +0400
++++ ./configure.ac	2014-01-19 19:25:33.383724322 +0400
+@@ -15,7 +15,7 @@
+ AC_CONFIG_MACRO_DIR([autotools])
+ 
+ # Init automake
+-AM_INIT_AUTOMAKE([1.12.0 foreign subdir-objects serial-tests])
++AM_INIT_AUTOMAKE([foreign subdir-objects])
+ AM_MAINTAINER_MODE
+ AB_INIT
+ 
