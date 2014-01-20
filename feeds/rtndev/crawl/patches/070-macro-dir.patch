@@ -1,6 +1,6 @@
 --- a/source/initfile.cc
 +++ b/source/initfile.cc
-@@ -717,7 +717,7 @@
+@@ -710,7 +710,7 @@
      if (macro_dir.empty())
      {
  #ifdef UNIX
