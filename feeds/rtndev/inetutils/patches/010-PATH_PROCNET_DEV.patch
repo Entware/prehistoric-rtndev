@@ -1,6 +1,6 @@
 --- inetutils-1.8/ifconfig/system/linux.c	2010-07-02 11:22:57.097314405 -0400
 +++ inetutils-1.8/ifconfig/system/linux.c	2010-07-02 11:22:33.536065810 -0400
-@@ -49,6 +49,10 @@
+@@ -50,6 +50,10 @@
  #include "../ifconfig.h"
  
  
