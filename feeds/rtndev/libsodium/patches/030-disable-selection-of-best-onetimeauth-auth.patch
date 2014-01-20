@@ -1,6 +1,6 @@
 --- a/src/libsodium/sodium/core.c
 +++ b/src/libsodium/sodium/core.c
-@@ -13,9 +13,11 @@
+@@ -11,9 +11,11 @@
      if (initialized != 0) {
          return 1;
      }

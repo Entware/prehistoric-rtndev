@@ -20,4 +20,4 @@
 +
  dnl Checks for typedefs, structures, and compiler characteristics.
  
- AC_C_BIGENDIAN(
+ AC_C_INLINE
