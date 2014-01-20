@@ -9,12 +9,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-chardet
-PKG_VERSION:=2.1.1
+PKG_VERSION:=2.2.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=chardet-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/c/chardet/
-PKG_MD5SUM:=295367fd210d20f3febda615a88e1ef0
+PKG_MD5SUM:=4a758402eaefd0331bdedc7ecb6f452c
 PKG_BUILD_DIR:=$(BUILD_DIR)/chardet-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
@@ -47,7 +47,8 @@ define Package/$(PKG_NAME)/install
 	    $(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
 	    $(1)$(PYTHON_PKG_DIR)/
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/chardetect.py $(1)/opt/bin/
+	 $(SED) 's,$(STAGING_DIR)/opt/bin/hostpython,/opt/bin/python,g' $(PKG_INSTALL_DIR)/opt/bin/chardetect
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/chardetect $(1)/opt/bin/
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
