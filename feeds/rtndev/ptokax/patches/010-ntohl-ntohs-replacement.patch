@@ -1,9 +1,10 @@
---- a/core/hashRegManager.cpp
-+++ b/core/hashRegManager.cpp
-@@ -473,6 +473,21 @@
- }
- //---------------------------------------------------------------------------
- 
+--- ./core/hashRegManager.cpp.orig	2013-12-09 06:53:37.000000000 +0400
++++ ./core/hashRegManager.cpp	2014-01-19 20:39:35.263658701 +0400
+@@ -42,6 +42,22 @@
+     #include "../gui.win/RegisteredUserDialog.h"
+     #include "../gui.win/RegisteredUsersDialog.h"
+ #endif
++
 +uint32_t SwapWord(uint32_t a)
 +{
 +  a = ((a & 0x000000FF) << 24) |
@@ -19,10 +20,10 @@
 +  return a;
 +}
 +
- void hashRegMan::Load(void) {
- #ifdef _WIN32
-     if(FileExist((PATH + "\\cfg\\RegisteredUsers.pxb").c_str()) == false) {
-@@ -509,7 +524,7 @@
+ //---------------------------------------------------------------------------
+ clsRegManager * clsRegManager::mPtr = NULL;
+ //---------------------------------------------------------------------------
+@@ -624,7 +640,7 @@
      }
  
      {
@@ -31,7 +32,7 @@
  
          if(ui32FileVersion < 1) {
              return;
-@@ -525,7 +540,7 @@
+@@ -641,7 +657,7 @@
  
      while(bSuccess == true) {
  		if(pxbRegs.ui16ItemLengths[0] < 65 && pxbRegs.ui16ItemLengths[1] < 65 && pxbRegs.ui16ItemLengths[2] == 2) {

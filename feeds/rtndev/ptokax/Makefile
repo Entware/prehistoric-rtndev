@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ptokax
-PKG_VERSION:=0.5.0.0
+PKG_VERSION:=0.5.0.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_VERSION)-nix-src.tgz
-PKG_SOURCE_URL:=http://www.czdc.org/PtokaX
-PKG_MD5SUM:=3711a087fad483f4af015c829ea423c0
+PKG_SOURCE_URL:=http://www.ptokax.org/files
+PKG_MD5SUM:=911b97d0c696b82a75786fd8be96a626
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -34,22 +34,8 @@ define Package/ptokax/description
  for Neo-Modus Direct Connect Peer-To-Peer sharing network.
 endef
 
-define Download/files
- define Download/$(1)
-  FILE:=$(2)
-  URL:=$(4)
-  MD5SUM:=$(3)
- endef
- $$(eval $$(call Download,$(1)))
-endef
-
-define Build/Configure
-	$(call Build/Configure/Default)
-	$(eval $(call Download/files,tinyxml,tinyxml_2_6_2.zip,2a0aaf609c9e670ec9748cd01ed52dae,@SF/tinyxml/tinyxml/2.6.2))
-	unzip -d $(PKG_BUILD_DIR) $(DL_DIR)/tinyxml_2_6_2.zip tinyxml/tiny{str.h,xml.cpp,xmlerror.cpp,str.cpp,xml.h,xmlparser.cpp}
-endef
-
 define Build/Compile
+	$(MAKE_VARS) $(MAKE) -C $(PKG_BUILD_DIR)/skein $(MAKE_FLAGS)
 	$(MAKE_VARS) $(MAKE) -C $(PKG_BUILD_DIR)/tinyxml $(MAKE_FLAGS)
 	$(call Build/Compile/Default)
 endef
