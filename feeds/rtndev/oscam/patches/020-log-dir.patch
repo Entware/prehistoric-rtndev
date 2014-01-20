@@ -22,9 +22,3 @@
  denysamples   = 9
  
  # protocols
-@@ -69,4 +69,4 @@
- [dvbapi]
- enabled	      = 1
- user          = user1
--socket        = /tmp/camd.socket
-+socket        = /opt/tmp/camd.socket
