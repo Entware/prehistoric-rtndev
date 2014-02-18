@@ -9,14 +9,13 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bip
 PKG_VERSION:=0.8.9
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://projects.duckcorp.org/attachments/download/61
 PKG_MD5SUM:=04158ad020db221ed87cdc03660ef6c9
 
 PKG_INSTALL:=1
-#PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -36,7 +35,7 @@ define Package/bip/description
  IRC client(s) upon connection.
 endef
 
-define Package/ziproxy/conffiles
+define Package/bip/conffiles
 /opt/etc/bip.conf
 endef
 
