@@ -8,15 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=spdylay
-PKG_VERSION:=1.2.2
+PKG_VERSION:=1.2.3
 PKG_RELEASE:=1
 
-PKG_REV:=0d3a1a46ffe5d53f0208c3129b60bdc27964f588
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/tatsuhiro-t/spdylay.git
-PKG_SOURCE_VERSION:=$(PKG_REV)
+PKG_SOURCE_URL:=https://github.com/tatsuhiro-t/spdylay/releases/download/v$(PKG_VERSION)
+PKG_MD5SUM:=39bb2ae2af2953b77afa77405f3c72b2
 
 PKG_INSTALL:=1
 PKG_FIXUP:=autoreconf
