@@ -8,15 +8,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=duo_unix
-PKG_VERSION:=1.9.6
+PKG_VERSION:=1.9.7
 PKG_RELEASE:=1
 
-PKG_REV:=a671760331308b6d7a0131e6480b9a18e31752fa
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/duosecurity/duo_unix.git
-PKG_SOURCE_VERSION:=$(PKG_REV)
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://dl.duosecurity.com
+PKG_MD5SUM:=bcaddb5cdd5917e92cf7df0575704a06
+
+#PKG_REV:=432faeed150f5b7a57f6494d76a750f33aab8d59
+#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+#PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+#PKG_SOURCE_PROTO:=git
+#PKG_SOURCE_URL:=git://github.com/duosecurity/duo_unix.git
+#PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -24,8 +28,6 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/duo_unix/Default
-	SECTION:=admin
-	CATEGORY:=Administration
 	DEPENDS:=+libopenssl +libssp
 	TITLE:=two-factor authentication for Unix systems
 	URL:=https://www.duosecurity.com/
@@ -34,11 +36,23 @@ endef
 
 define Package/libduo
 	$(call Package/duo_unix/Default)
-	TITLE+= (a resolver before dnscrypt-proxy start)
+	TITLE+= (libpam library)
+	SECTION:=libs
+	CATEGORY:=Libraries
+endef
+
+define Package/pam_duo
+	$(call Package/duo_unix/Default)
+	TITLE+= (PAM library)
+	SECTION:=libs
+	CATEGORY:=Libraries
+	DEPENDS+= +libduo +libpam
 endef
 
 define Package/duo_unix
 	$(call Package/duo_unix/Default)
+	SECTION:=admin
+	CATEGORY:=Administration
 	DEPENDS+= +libduo
 endef
 
@@ -46,13 +60,16 @@ define Package/libduo/description
  A library for two-factor authentication as a Duo:Security service
 endef
 
+define Package/pam_duo/description
+ A library for PAM authentication as a Duo:Security service
+endef
+
 define Package/duo_unix/description
  Provides simple two-factor authentication as a Duo:Security service
 endef
 
-#CONFIGURE_ARGS += \
-#	--with-pam
-# libpam is marked as @BROKEN for now
+CONFIGURE_ARGS += \
+	--with-pam=/opt/lib/security \
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/opt/include
@@ -68,6 +85,13 @@ define Package/libduo/install
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libduo.so* $(1)/opt/lib
 endef
 
+define Package/pam_duo/install
+	$(INSTALL_DIR) $(1)/opt/lib/security
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/lib/security/pam_duo.so $(1)/opt/lib/security
+	$(INSTALL_DIR) $(1)/opt/etc
+	$(INSTALL_CONF) $(PKG_INSTALL_DIR)/opt/etc/pam_duo.conf $(1)/opt/etc
+endef
+
 define Package/duo_unix/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/login_duo $(1)/opt/sbin
@@ -76,4 +100,5 @@ define Package/duo_unix/install
 endef
 
 $(eval $(call BuildPackage,libduo))
+$(eval $(call BuildPackage,pam_duo))
 $(eval $(call BuildPackage,duo_unix))
