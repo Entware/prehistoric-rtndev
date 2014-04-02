@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=accel-ppp
-PKG_VERSION:=1.8.0-beta-20131107
-PKG_REV:=bc536e14dc0334340d69e486ff1574b1d86fe3b8
+PKG_VERSION:=1.8.0-beta-20140401
+PKG_REV:=f6bad674803eb1a6205ed9c440992aa0af7e535a
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
@@ -56,6 +56,8 @@ define Package/accel-ppp/conffiles
 endef
 
 define Package/accel-ppp/install
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/accel-cmd $(1)/opt/bin/
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/accel-pppd $(1)/opt/sbin/
 	$(INSTALL_DIR) $(1)/opt/lib/accel-ppp

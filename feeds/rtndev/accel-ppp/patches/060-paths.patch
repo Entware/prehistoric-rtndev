@@ -1,0 +1,28 @@
+--- ./accel-pppd/extra/pppd_compat.c.orig	2014-04-02 16:16:13.451202877 +0400
++++ ./accel-pppd/extra/pppd_compat.c	2014-04-02 16:16:39.767209236 +0400
+@@ -27,11 +27,11 @@
+ 
+ #include "memdebug.h"
+ 
+-static char *conf_ip_up = "/etc/ppp/ip-up";
++static char *conf_ip_up = "/opt/etc/ppp/ip-up";
+ static char *conf_ip_pre_up;
+-static char *conf_ip_down = "/etc/ppp/ip-down";
++static char *conf_ip_down = "/opt/etc/ppp/ip-down";
+ static char *conf_ip_change;
+-static char *conf_radattr_prefix = "/var/run/radattr";
++static char *conf_radattr_prefix = "/opt/var/run/radattr";
+ static int conf_verbose = 0;
+ 
+ static void *pd_key;
+--- ./accel-pppd/extra/chap-secrets.c.orig	2014-04-02 16:16:07.463206976 +0400
++++ ./accel-pppd/extra/chap-secrets.c	2014-04-02 16:16:50.331206483 +0400
+@@ -21,7 +21,7 @@
+ 
+ #include "memdebug.h"
+ 
+-static char *def_chap_secrets = "/etc/ppp/chap-secrets";
++static char *def_chap_secrets = "/opt/etc/ppp/chap-secrets";
+ static char *conf_chap_secrets;
+ static int conf_encrypted;
+ static in_addr_t conf_gw_ip_address = 0;
