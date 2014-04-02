@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=asciinema
-PKG_VERSION:=0.9.7
+PKG_VERSION:=0.9.8
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/a/$(PKG_NAME)
-PKG_MD5SUM:=df9cde430210db8f054e78e163914ca5
+PKG_MD5SUM:=ae8662d033af0e973d5864a247117e7f
 PKG_BUILD_DEPENDS:=distribute/host
 
 include $(INCLUDE_DIR)/package.mk
