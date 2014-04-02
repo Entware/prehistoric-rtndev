@@ -8,18 +8,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-cloudprint
-PKG_VERSION:=0.10-20130909
+PKG_VERSION:=0.11
 PKG_RELEASE:=1
 
-PKG_REV:=8e8305570d94dfdc88cdc754cf5caec98125343b
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/armooo/cloudprint.git
-PKG_SOURCE_VERSION:=$(PKG_REV)
+PKG_SOURCE:=cloudprint-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=http://pypi.python.org/packages/source/c/cloudprint
+PKG_MD5SUM:=3990129390f4a1ddfa28767a3c293930
 
 PKG_BUILD_DEPENDS:=distribute/host
 
+PKG_BUILD_DIR:=$(BUILD_DIR)/cloudprint-$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
