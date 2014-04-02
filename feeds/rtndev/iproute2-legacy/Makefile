@@ -47,6 +47,7 @@ $(call Package/iproute2-legacy/Default)
 endef
 
 define Build/Configure
+	mv $(PKG_BUILD_DIR)/include/libnetlink.h $(PKG_BUILD_DIR)/include/libnetlink-legacy.h
 	$(SED) "s,-I/usr/include/db3,," $(PKG_BUILD_DIR)/Makefile
 	$(SED) "s,^KERNEL_INCLUDE.*,KERNEL_INCLUDE=$(LINUX_DIR)/include," \
 		$(PKG_BUILD_DIR)/Makefile
@@ -76,9 +77,9 @@ endef
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_BUILD_DIR)/include/libnetlink.h $(1)/opt/include/
+	$(CP) $(PKG_BUILD_DIR)/include/libnetlink-legacy.h $(1)/opt/include/
 	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_BUILD_DIR)/lib/libnetlink.a $(1)/opt/lib/
+	$(CP) $(PKG_BUILD_DIR)/lib/libnetlink.a $(1)/opt/lib/libnetlink-legacy.a
 endef
 
 define Package/ip-legacy/install

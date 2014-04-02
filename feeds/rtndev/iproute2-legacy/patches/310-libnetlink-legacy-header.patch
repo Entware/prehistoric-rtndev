@@ -1,0 +1,44 @@
+--- ./ip/rtmon.c.orig	2014-04-02 16:54:29.143166911 +0400
++++ ./ip/rtmon.c	2014-04-02 16:54:39.335163286 +0400
+@@ -23,7 +23,7 @@
+ #include "SNAPSHOT.h"
+ 
+ #include "utils.h"
+-#include "libnetlink.h"
++#include "libnetlink-legacy.h"
+ 
+ int resolve_hosts = 0;
+ static int init_phase = 1;
+--- ./include/utils.h.orig	2014-04-02 16:54:53.115164549 +0400
++++ ./include/utils.h	2014-04-02 16:54:59.919162610 +0400
+@@ -5,7 +5,7 @@
+ #include <resolv.h>
+ #include <stdlib.h>
+ 
+-#include "libnetlink.h"
++#include "libnetlink-legacy.h"
+ #include "ll_map.h"
+ #include "rtm_map.h"
+ 
+--- ./lib/ll_map.c.orig	2014-04-02 16:55:35.431167594 +0400
++++ ./lib/ll_map.c	2014-04-02 16:55:43.779161141 +0400
+@@ -20,7 +20,7 @@
+ #include <string.h>
+ #include <linux/if.h>
+ 
+-#include "libnetlink.h"
++#include "libnetlink-legacy.h"
+ #include "ll_map.h"
+ 
+ extern unsigned int if_nametoindex (const char *);
+--- ./lib/libnetlink.c.orig	2014-04-02 16:55:12.303165284 +0400
++++ ./lib/libnetlink.c	2014-04-02 16:55:22.459165432 +0400
+@@ -23,7 +23,7 @@
+ #include <time.h>
+ #include <sys/uio.h>
+ 
+-#include "libnetlink.h"
++#include "libnetlink-legacy.h"
+ 
+ int rcvbuf = 1024 * 1024;
+ 
