@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=3proxy
-PKG_VERSION:=0.6.1
+PKG_VERSION:=0.7-devel
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
-PKG_SOURCE_URL:=http://www.3proxy.ru/0.6.1
-PKG_MD5SUM:=03790467a12e16ed8785ae688ecf9b68
+PKG_SOURCE_URL:=http://www.3proxy.ru/current
+PKG_MD5SUM:=a04eab0ad1a1e4d7459460d9af9fe2df
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -21,7 +21,7 @@ define Package/3proxy
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=Web Servers/Proxies
-	DEPENDS:=+libpthread
+	DEPENDS:=+libpthread +libopenssl
 	TITLE:=3proxy free proxy server
 	URL:=http://www.3proxy.ru
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
@@ -47,22 +47,11 @@ endef
 define Package/3proxy/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) \
-		$(PKG_BUILD_DIR)/src/3proxy \
-		$(PKG_BUILD_DIR)/src/countersutil \
-		$(PKG_BUILD_DIR)/src/dighosts \
-		$(PKG_BUILD_DIR)/src/ftppr \
-		$(PKG_BUILD_DIR)/src/mycrypt \
-		$(PKG_BUILD_DIR)/src/pop3p \
-		$(PKG_BUILD_DIR)/src/proxy \
-		$(PKG_BUILD_DIR)/src/socks \
-		$(PKG_BUILD_DIR)/src/tcppm \
-		$(PKG_BUILD_DIR)/src/udppm  $(1)/opt/bin
-	$(INSTALL_DIR) $(1)/opt/etc
+		$(PKG_BUILD_DIR)/src/{3proxy,countersutil,dighosts,ftppr,mycrypt,pop3p,proxy,socks,tcppm,udppm} \
+		$(1)/opt/bin
 	$(INSTALL_DIR) $(1)/opt/etc/3proxy
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/scripts/3proxy.cfg $(1)/opt/etc/3proxy
-	touch $(1)/opt/etc/3proxy/passwd
-	touch $(1)/opt/etc/3proxy/counters
-	touch $(1)/opt/etc/3proxy/bandlimiters
+	touch $(1)/opt/etc/3proxy/{passwd,counters,bandlimiters}
 	chmod 0600 $(1)/opt/etc/3proxy/*
 	$(CP) $(PKG_BUILD_DIR)/scripts/add3proxyuser.sh $(1)/opt/etc/3proxy
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
