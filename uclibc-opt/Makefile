@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=uclibc-opt
 PKG_VERSION:=0.9.32
-PKG_RELEASE:=4
+PKG_RELEASE:=5
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -53,6 +53,10 @@ define Package/uclibc-opt/postinst
 
 echo -n "Updating /opt/etc/ld.so.cache... "
 /opt/bin/ldconfig > /dev/null 2>&1
+echo "done."
+
+echo -n "Changing feed URL in /opt/etc/opkg.conf... "
+sed -i -e 's|http://wl500g-repo.googlecode.com/svn/ipkg/openwrt|http://entware.wl500g.info/binaries/entware|g' /opt/etc/opkg.conf
 echo "done."
 endef
 
