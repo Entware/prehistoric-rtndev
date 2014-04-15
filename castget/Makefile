@@ -8,17 +8,20 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=castget
-PKG_VERSION:=1.1.0
+PKG_VERSION:=1.2.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=http://savannah.nongnu.org/download/$(PKG_NAME)
-PKG_MD5SUM:=e80096715efc17d1d87de793871e0006
+PKG_SOURCE_URL:=http://download.savannah.gnu.org/releases/castget
+#PKG_MD5SUM:=e80096715efc17d1d87de793871e0006
 
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
+
+TARGET_LDFLAGS += \
+	-Wl,-rpath-link=$(STAGING_DIR)/opt/lib/libiconv-full/lib
 
 define Package/castget
 	SECTION:=net
