@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=davfs2
-PKG_VERSION:=1.4.7
-PKG_RELEASE:=2
+PKG_VERSION:=1.5.0
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://download.savannah.gnu.org/releases/davfs2/
-PKG_MD5SUM:=c75f9d7d260e7364362b89beba2b3186
+PKG_MD5SUM:=be573450f32c8dd058577ac9129cde9c
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -25,7 +25,7 @@ define Package/davfs2
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=Filesystem
-	DEPENDS:=+libneon +libfuse +libopenssl $(ICONV_DEPENDS) $(INTL_DEPENDS)
+	DEPENDS:=libneon
 	TITLE:=Mounts a WebDAV resource
 	URL:=http://savannah.nongnu.org/projects/davfs2
 	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
@@ -45,9 +45,6 @@ CONFIGURE_ARGS += \
 	ssbindir=/opt/sbin \
 	dav_localstatedir=/opt/var/run \
 	dav_syscachedir=/opt/var/cache \
-
-CONFIGURE_VARS += \
-	LIBS="-liconv"
 
 TARGET_CPPFLAGS += -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE
 
