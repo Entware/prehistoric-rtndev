@@ -24,7 +24,7 @@ define Package/balance
 #	DEPENDS:=+libpthread
 	TITLE:=load balancing proxy
 	URL:=http://www.inlab.de/balance.html
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/balance/description

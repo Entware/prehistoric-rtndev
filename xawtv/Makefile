@@ -26,7 +26,7 @@ define Package/xawtv
 	DEPENDS:=+alsa-lib +libncursesw +libv4l +libjpeg
 	TITLE:=a small suite of V4L apps
 	URL:=https://www.kraxel.org/blog/linux/xawtv/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/xawtv/description

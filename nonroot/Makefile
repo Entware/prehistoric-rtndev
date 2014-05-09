@@ -28,7 +28,7 @@ define Package/nonroot
 	CATEGORY:=Utilities
 	TITLE:=run commands as non-root
 	URL:=http://github.com/hampus/nonroot/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/nonroot/description

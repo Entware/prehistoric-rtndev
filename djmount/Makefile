@@ -27,7 +27,7 @@ define Package/djmount
 	DEPENDS:=+libupnp +libfuse $(ICONV_DEPENDS)
 	TITLE:=mount MediaServers content as a Linux filesystem
 	URL:=http://djmount.sourceforge.net
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/djmount/description

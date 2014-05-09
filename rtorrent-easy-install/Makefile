@@ -21,7 +21,7 @@ define Package/rtorrent-easy-install
 	    +lighttpd-mod-fastcgi +lighttpd-mod-scgi +lighttpd-mod-auth
 	TITLE:=Easy installation script for rtorrent with web UI
 	URL:=http://github.com/abhinavseewoosungkur/scripts/blob/develop/rutorrent-entware.sh
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/rtorrent-easy-install/description

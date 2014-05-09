@@ -26,7 +26,7 @@ define Package/cron
 	CATEGORY:=Utilities
 	TITLE:=Vixie cron
 	URL:=ftp://ftp.isc.org/isc/cron
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/cron/description

@@ -26,7 +26,7 @@ define Package/inadyn
 	SUBMENU:=IP Addresses and Names
 	TITLE:=a simple and small DDNS client
 	URL:=https://github.com/vampik/inadyn
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/inadyn/description

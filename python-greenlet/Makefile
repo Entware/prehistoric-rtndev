@@ -27,7 +27,7 @@ define Package/python-greenlet
 	DEPENDS:=+python
 	TITLE:=lightweight in-process concurrent programming
 	URL:=https://pypi.python.org/pypi/greenlet
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/python-greenlet/description

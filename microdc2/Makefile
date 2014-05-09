@@ -30,7 +30,7 @@ define Package/microdc2
 	DEPENDS:=$(ICONV_DEPENDS) +libxml2 +libreadline +libncurses
 	TITLE:=microdc2
 	URL:=https://github.com/jnwatts/microdc2
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/microdc2/description

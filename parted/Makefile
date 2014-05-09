@@ -26,7 +26,7 @@ define Package/parted
 	DEPENDS:=+libblkid
 	TITLE:=manipulates partition tables
 	URL:=http://www.gnu.org/software/parted/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/parted/description

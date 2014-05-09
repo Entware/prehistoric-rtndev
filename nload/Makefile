@@ -23,7 +23,7 @@ define Package/nload
 	DEPENDS:=+libstdcpp +libncurses
 	TITLE:=real time monitor for network traffic
 	URL:=http://nload.sourceforge.net
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/nload/description

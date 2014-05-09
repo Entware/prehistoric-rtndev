@@ -28,7 +28,7 @@ define Package/lcms
 	DEPENDS:=+libtiff
 	TITLE:=little CMS color engine
 	URL:=http://www.littlecms.com/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/lcms/description

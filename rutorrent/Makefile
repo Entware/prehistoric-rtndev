@@ -40,7 +40,7 @@ define Package/rutorrent/Default
 	DEPENDS:=+rtorrent +coreutils-stat +coreutils-id
 	TITLE:=Yet another web front-end for rTorrent
 	URL:=http://rutorrent.googlecode.com
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/rutorrent

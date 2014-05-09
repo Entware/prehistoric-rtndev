@@ -27,7 +27,7 @@ define Package/dnscrypt-proxy/Default
 	DEPENDS:=+libsodium
 	TITLE:=A tool for securing communications between a client and a DNS resolver
 	URL:=http://www.opendns.com/technology/dnscrypt
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/dnscrypt-proxy

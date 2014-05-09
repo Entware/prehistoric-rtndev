@@ -28,7 +28,7 @@ define Package/accel-ppp
 	DEPENDS:=+libopenssl +libpcre +libpthread +librt
 	TITLE:=accel-ppp VPN server
 	URL:=http://sourceforge.net/apps/trac/accel-ppp/wiki
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/accel-ppp/description

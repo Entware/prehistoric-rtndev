@@ -26,7 +26,7 @@ define Package/geeknote
 	DEPENDS:=+python +python-sqlite3 +python-openssl
 	TITLE:=command line client for Evernote
 	URL:=http://www.geeknote.me
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/geeknote/description

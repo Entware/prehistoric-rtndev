@@ -30,7 +30,7 @@ define Package/automatic
 	DEPENDS:=+libcurl +libpcre +libxml2
 	TITLE:=RSS torrents downloader
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/automatic/description

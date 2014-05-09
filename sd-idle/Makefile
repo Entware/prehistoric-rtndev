@@ -19,7 +19,7 @@ define Package/sd-idle
 	SUBMENU:=disc
 	TITLE:=Disk idle spindown program
 	URL:=http://tomatousb.org/forum/t-271603/sd-idle-2-6-disk-idle-spindown-program-for-2-6
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/sd-idle/description

@@ -28,7 +28,7 @@ define Package/python-cloudprint
 	DEPENDS:=+python +python-cups +python-openssl
 	TITLE:=Python bindings for the cloudprint API
 	URL:=http://cyberelk.net/tim/software/pycloudprint/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/python-cloudprint/description

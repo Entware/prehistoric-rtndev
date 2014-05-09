@@ -23,18 +23,18 @@ $(call include_mk, python-package.mk)
 PKG_BUILD_DEPENDS:=python distribute/host
 
 define Package/$(PKG_NAME)
-  SUBMENU:=Python
-  SECTION:=lang
-  CATEGORY:=Languages
-  TITLE:=Python universal enconding detector
-  URL:=https://github.com/erikrose/chardet
-  DEPENDS:= +python
-  MAINTAINER:= Entware team, wl500g-repo.googlecode.com
+	SUBMENU:=Python
+	SECTION:=lang
+	CATEGORY:=Languages
+	TITLE:=Python universal enconding detector
+	URL:=https://github.com/erikrose/chardet
+	DEPENDS:=+python
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/$(PKG_NAME)/description
-  Chardet guesses the encoding of text files.
-  Includes a command-line script which reports on the encodings of one or more files
+ Chardet guesses the encoding of text files. Includes a command-line script
+ which reports on the encodings of one or more files.
 endef
 
 define Build/Compile

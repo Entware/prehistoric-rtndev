@@ -25,7 +25,7 @@ define Package/smstools3
 	DEPENDS:=+iconv
 	TITLE:=smstools3
 	URL:=http://smstools3.kekekasvi.com
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/smstools3/description

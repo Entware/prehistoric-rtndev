@@ -25,7 +25,7 @@ define Package/pvpgn
 	DEPENDS:=+libsqlite3 +libstdcpp +zlib
 	TITLE:=A bnetd based gaming network server emulation project
 	URL:=http://pvpgn.berlios.de
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/pvpgn/description

@@ -23,7 +23,7 @@ define Package/gnuchess
 	TITLE:=GNU Chess
 	DEPENDS:=+libreadline +libncurses +libpthread +libstdcpp
 	URL:=http://www.gnu.org/software/chess/chess.html
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/gnuchess/description

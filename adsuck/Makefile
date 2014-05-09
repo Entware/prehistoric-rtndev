@@ -24,7 +24,7 @@ define Package/adsuck
 	DEPENDS:=+libldns +libevent2
 	TITLE:=adsuck is a small DNS server that spoofs blacklisted addresses
 	URL:=https://opensource.conformal.com/wiki/adsuck
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/adsuck/description

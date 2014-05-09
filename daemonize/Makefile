@@ -25,7 +25,7 @@ define Package/daemonize
 	CATEGORY:=Utilities
 	TITLE:=runs a command as a daemon
 	URL:=http://software.clapper.org/daemonize/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/daemonize/description

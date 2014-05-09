@@ -30,7 +30,7 @@ define Package/mediatomb
 		+$(ICONV_DEPENDS)
 	TITLE:=A powerfull UPNP media server
 	URL:=http://www.mediatomb.cc
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/mediatomb/description

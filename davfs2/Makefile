@@ -28,7 +28,7 @@ define Package/davfs2
 	DEPENDS:=libneon
 	TITLE:=Mounts a WebDAV resource
 	URL:=http://savannah.nongnu.org/projects/davfs2
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/davfs2/description

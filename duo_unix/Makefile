@@ -31,7 +31,7 @@ define Package/duo_unix/Default
 	DEPENDS:=+libopenssl +libssp
 	TITLE:=two-factor authentication for Unix systems
 	URL:=https://www.duosecurity.com/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/libduo

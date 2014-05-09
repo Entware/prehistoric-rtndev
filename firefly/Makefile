@@ -30,7 +30,7 @@ define Package/firefly
 	DEPENDS:=$(ICONV_DEPENDS) +libvorbis +libflac +ffmpeg +libsqlite3 +libid3tag
 	TITLE:=Firefly Media Server
 	URL:=http://www.fireflymediaserver.org/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/firefly/description

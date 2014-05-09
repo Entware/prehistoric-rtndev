@@ -28,7 +28,7 @@ define Package/p7zip
 	DEPENDS:=+libpthread +libstdcpp
 	TITLE:=Command line version of 7-zip for POSIX systems
 	URL:=http://p7zip.sourceforge.net
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/p7zip/description

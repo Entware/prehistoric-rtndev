@@ -25,7 +25,7 @@ define Package/istgt
 	DEPENDS:=+libopenssl +libpthread
 	TITLE:=An iSCSI target implementation
 	URL:=http://www.peach.ne.jp/archives/istgt/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/istgt/description

@@ -31,7 +31,7 @@ define Package/cjdns
 	DEPENDS:=+libpthread
 	TITLE:=Experimental self configuring routing protocol
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/cjdns/description

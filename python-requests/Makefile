@@ -24,20 +24,20 @@ $(call include_mk, python-package.mk)
 #PKG_BUILD_DEPENDS:=python distribute/host
 
 define Package/$(PKG_NAME)
-  SUBMENU:=Python
-  SECTION:=lang
-  CATEGORY:=Languages
-  TITLE:=Python HTTP for Humans
-  URL:=http://python-requests.org
-  DEPENDS:= +python
-  MAINTAINER:= Entware team, wl500g-repo.googlecode.com
+	SUBMENU:=Python
+	SECTION:=lang
+	CATEGORY:=Languages
+	TITLE:=Python HTTP for Humans
+	URL:=http://python-requests.org
+	DEPENDS:=+python
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/$(PKG_NAME)/description
-  Requests allow you to send HTTP/1.1 requests. You can add headers, 
-  form data, multipart files, and parameters with simple Python dictionaries, 
-  and access the response data in the same way. It's powered by 
-  httplib and urllib3, but it does all the hard work and crazy hacks for you.
+ Requests allow you to send HTTP/1.1 requests. You can add headers,
+ form data, multipart files, and parameters with simple Python dictionaries,
+ and access the response data in the same way. It's powered by
+ httplib and urllib3, but it does all the hard work and crazy hacks for you.
 endef
 
 define Build/Compile

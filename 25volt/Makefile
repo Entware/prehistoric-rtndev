@@ -19,7 +19,7 @@ define Package/25volt
 	DEPENDS:=+libusb-compat
 	TITLE:=25volt a tool for monitoring Powercom/APC UPSs
 	URL:=http://c61.no-ip.org/forum/viewtopic.php?f=2&t=69
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/25volt/description

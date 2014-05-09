@@ -29,7 +29,7 @@ define Package/weave-minimal
 	DEPENDS:=+python-sqlite3 +python-werkzeug +distribute +dtach +python-gevent
 	TITLE:=a Firefox Sync Server
 	URL:=https://github.com/posativ/weave-minimal
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/weave-minimal/description

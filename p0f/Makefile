@@ -23,7 +23,7 @@ define Package/p0f
 	DEPENDS:=+libpcap
 	TITLE:=Purely passive traffic fingerprinting
 	URL:=http://lcamtuf.coredump.cx/p0f3
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/p0f/description

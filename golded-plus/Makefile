@@ -28,7 +28,7 @@ define Package/golded-plus
 	DEPENDS:=+libncursesw +libstdcpp
 	TITLE:=GoldED Plus FTN Editor
 	URL:=http://golded-plus.sourceforge.net
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/golded-plus/description

@@ -25,7 +25,7 @@ define Package/libhid
 	DEPENDS:=+libusb-compat
 	TITLE:=a user-space USB HID access library
 	URL:=http://libhid.alioth.debian.org/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/libhid/description

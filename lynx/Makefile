@@ -25,7 +25,7 @@ define Package/lynx
 	DEPENDS:=+libncursesw +libopenssl +zlib +libbz2 +libidn
 	TITLE:=a text web browser
 	URL:=http://lynx.isc.org/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/lynx/description

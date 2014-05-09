@@ -25,7 +25,7 @@ define Package/xpdf
 	DEPENDS:=+libstdcpp
 	TITLE:=PDF manipulations tool
 	URL:=http://www.foolabs.com/xpdf/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/xpdf/description

@@ -24,7 +24,7 @@ define Package/ziproxy
 	DEPENDS:=+giflib +libjpeg +libpng +zlib +libsasl2 +libpthread
 	TITLE:=compressing HTTP proxy server
 	URL:=http://ziproxy.sourceforge.net
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/ziproxy/description

@@ -26,7 +26,7 @@ define Package/mp707
 	DEPENDS:=+libusb-compat +libstdcpp
 	TITLE:=USB thermometer MP707(BM1707) utility
 	URL:=http://wl500g.info/showthread.php?20497&p=257339#post257339
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/mp707/description

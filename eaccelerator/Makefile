@@ -29,7 +29,7 @@ define Package/php5-mod-eaccelerator
 	DEPENDS:=+php5
 	TITLE:=php5-mod-eaccelerator
 	URL:=http://sourceforge.net/projects/eaccelerator
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/php5-mod-eaccelerator/description

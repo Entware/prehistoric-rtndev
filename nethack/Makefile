@@ -25,7 +25,7 @@ define Package/nethack
 	DEPENDS:=+libncurses
 	TITLE:=NetHack is a single player dungeon exploration game
 	URL:=http://www.nethack.org
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/nethack/description

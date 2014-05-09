@@ -30,7 +30,7 @@ endef
 $(eval $(call Download,uthash))
 
 define Package/$(PKG_NAME)/Default
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 	SECTION:=utils
 	CATEGORY:=Utilities
 	URL:=http://luke.dashjr.org/programs/$(PKG_NAME)

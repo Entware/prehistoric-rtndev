@@ -27,7 +27,7 @@ define Package/python-gevent
 	DEPENDS:=+python-greenlet +libevent2
 	TITLE:=Python networking library
 	URL:=http://www.gevent.org/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/python-gevent/description

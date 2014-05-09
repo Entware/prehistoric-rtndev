@@ -28,7 +28,7 @@ define Package/wdfs
 	DEPENDS:=+libneon +libfuse +libopenssl +glib2 $(ICONV_DEPENDS) $(INTL_DEPENDS)
 	TITLE:=webdav filesystem for fuse
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/wdfs/description

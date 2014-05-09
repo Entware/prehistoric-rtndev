@@ -26,7 +26,7 @@ define Package/bip
 	DEPENDS:=+libopenssl
 	TITLE:=multi user irc proxy
 	URL:=https://projects.duckcorp.org/projects/bip
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/bip/description

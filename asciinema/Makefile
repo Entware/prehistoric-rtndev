@@ -26,7 +26,7 @@ define Package/asciinema
 	DEPENDS:=+distribute +python-bzip2 +python-requests +ncurses-bin
 	TITLE:=A terminal sessions recorder
 	URL:=http://asciinema.org/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/asciinema/description

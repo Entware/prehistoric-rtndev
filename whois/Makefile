@@ -24,7 +24,7 @@ define Package/whois
 	CATEGORY:=Network
 	TITLE:=intelligent WHOIS client
 	URL:=http://ftp.debian.org/debian/pool/main/w/whois
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/whois/description

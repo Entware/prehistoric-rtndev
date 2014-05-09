@@ -25,7 +25,7 @@ define Package/husky
 	SUBMENU:=FTN
 	TITLE:=HUSKY is a portable fidosoft project
 	URL:=http://husky.sourceforge.net
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/husky/description

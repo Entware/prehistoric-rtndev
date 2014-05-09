@@ -28,7 +28,7 @@ define Package/python-cups
 	DEPENDS:=+python +cups
 	TITLE:=Python bindings for the CUPS API
 	URL:=http://cyberelk.net/tim/software/pycups/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/python-cups/description

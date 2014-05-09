@@ -27,7 +27,7 @@ define Package/python-oauth
 	DEPENDS:=+python
 	TITLE:=Library for OAuth 1.0a
 	URL:=http://code.google.com/p/oauth
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/python-oauth/description

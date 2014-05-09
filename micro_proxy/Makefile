@@ -26,7 +26,7 @@ define Package/micro_proxy
 	DEPENDS:=+xinetd
 	TITLE:=micro_proxy free proxy server
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/micro_proxy/description

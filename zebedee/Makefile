@@ -24,7 +24,7 @@ define Package/zebedee
 	DEPENDS:=+zlib +bzip2 +libopenssl +libpthread
 	TITLE:=Zebedee Secure Tunnel
 	URL:=http://www.winton.org.uk/zebedee
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/zebedee/description

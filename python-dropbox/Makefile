@@ -27,7 +27,7 @@ define Package/python-dropbox
 	DEPENDS:=+python +distribute +python-oauth +simplejson +python-openssl
 	TITLE:=Dropbox SDK for Python
 	URL:=https://www.dropbox.com/developers/reference/sdk
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/python-dropbox/description

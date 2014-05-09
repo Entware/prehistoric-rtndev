@@ -28,7 +28,7 @@ define Package/crashmail
 	SUBMENU:=FTN
 	TITLE:=CrashMail II
 	URL:=http://packages.debian.org/ru/squeeze/crashmail
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/crashmail/description

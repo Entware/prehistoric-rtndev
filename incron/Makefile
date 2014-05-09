@@ -24,7 +24,7 @@ define Package/incron
 	DEPENDS:=+libstdcpp
 	TITLE:=inotify cron, a daemon system analogous to cron
 	URL:=http://inotify.aiken.cz
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/incron/description

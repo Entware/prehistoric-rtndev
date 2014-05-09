@@ -27,7 +27,7 @@ define Package/python-cheetah
 	DEPENDS:=+python
 	TITLE:=Python-powered template engine
 	URL:=http://www.cheetahtemplate.org/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/python-cheetah/description

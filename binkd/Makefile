@@ -30,7 +30,7 @@ define Package/binkd
 	DEPENDS:=+zlib +libbz2
 	TITLE:=transfers files between two Fidonet systems over TCP/IP
 	URL:=cvs.happy.kiev.ua
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/binkd/description

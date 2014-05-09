@@ -26,7 +26,7 @@ define Package/sitecopy
 	DEPENDS:=+libexpat +libneon
 	TITLE:=WebDAV sync utility
 	URL:=http://www.manyfish.co.uk/sitecopy/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/sitecopy/description

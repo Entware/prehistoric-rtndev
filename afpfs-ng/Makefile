@@ -27,7 +27,7 @@ define Package/afpfs-ng
 	DEPENDS:=+libfuse +libgcrypt +libgmp +libncurses +libreadline
 	TITLE:=a client for Apple Filing Protocol
 	URL:=https://sites.google.com/site/alexthepuffin/home
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/afpfs-ng/description

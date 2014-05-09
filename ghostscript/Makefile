@@ -30,7 +30,7 @@ define Package/ghostscript
 	DEPENDS:=+cups +libcupsimage +libfreetype +fontconfig +libtiff +libjpeg +libpng +libexpat +lcms +zlib +ghostscript-fonts-std +libdbus
 	TITLE:=ghostscript interpreter
 	URL:=http://gimp-print.sourceforge.net/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/ghostscript/description

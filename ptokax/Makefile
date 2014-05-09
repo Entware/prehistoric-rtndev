@@ -26,7 +26,7 @@ define Package/ptokax
 	DEPENDS:=+liblua +libpthread +zlib +libstdcpp +librt
 	TITLE:=DC hub
 	URL:=http://www.czdc.org/PtokaX/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/ptokax/description

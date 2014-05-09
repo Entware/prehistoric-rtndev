@@ -23,7 +23,7 @@ define Package/movgrab
 	DEPENDS:=+zlib +libopenssl
 	TITLE:=movgrab is a commandline video downloader
 	URL:=https://sites.google.com/site/columscode/home/movgrab
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/movgrab/description

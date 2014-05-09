@@ -31,7 +31,7 @@ define Package/splix
 	DEPENDS:=+cups +libcupsimage +libjbig
 	TITLE:=Samsung CUPS drivers
 	URL:=http://splix.ap2c.org/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/splix/description

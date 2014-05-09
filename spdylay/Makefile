@@ -27,7 +27,7 @@ define Package/spdylay
 	DEPENDS:=+libevent2-openssl +libevent2 +libxml2 +libstdcpp
 	TITLE:=a SPDY C Library
 	URL:=https://github.com/tatsuhiro-t/spdylay
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/spdylay/description

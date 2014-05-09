@@ -24,7 +24,7 @@ define Package/ncdu
 	DEPENDS:=+libncursesw
 	TITLE:=NCurses Disk Usage
 	URL:=http://dev.yorhel.nl/ncdu
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/ncdu/description

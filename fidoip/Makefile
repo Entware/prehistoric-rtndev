@@ -20,7 +20,7 @@ define Package/fidoip
 	DEPENDS:=+binkd +husky +golded-nsf +zip +unzip +bash
 	TITLE:=Complete Fidonet software suite
 	URL:=http://sourceforge.net/projects/fidoip
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/fidoip/description

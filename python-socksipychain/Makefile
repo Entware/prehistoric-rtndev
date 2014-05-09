@@ -23,20 +23,19 @@ $(call include_mk, python-package.mk)
 PKG_BUILD_DEPENDS:=python distribute/host
 
 define Package/$(PKG_NAME)
-  SUBMENU:=Python
-  SECTION:=lang
-  CATEGORY:=Languages
-  TITLE:=Chaining support for socksipy
-  URL:=https://pagekite.net/wiki/Floss/PySocksipyChain/
-  DEPENDS:= +python
-  MAINTAINER:= Entware team, wl500g-repo.googlecode.com
+	SUBMENU:=Python
+	SECTION:=lang
+	CATEGORY:=Languages
+	TITLE:=Chaining support for socksipy
+	URL:=https://pagekite.net/wiki/Floss/PySocksipyChain/
+	DEPENDS:=+python
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/$(PKG_NAME)/description
-  Chaining support for socksipy
-  
-  Socksipy is: A Python SOCKS client module. It provides a socket-like interface 
-  that supports connections to any TCP service through the use of a SOCKS4, SOCKS5 or HTTP proxy
+ Chaining support for socksipy - a Python SOCKS client module. It provides
+ a socket-like interface that supports connections to any TCP service through
+ the use of a SOCKS4, SOCKS5 or HTTP proxy.
 endef
 
 define Build/Compile

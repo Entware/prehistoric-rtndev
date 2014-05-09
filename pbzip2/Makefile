@@ -26,7 +26,7 @@ define Package/pbzip2
 	DEPENDS:=+libpthread +libstdcpp +libbz2
 	TITLE:=parallel bzip2
 	URL:=http://compression.ca/pbzip2/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/pbzip2/description

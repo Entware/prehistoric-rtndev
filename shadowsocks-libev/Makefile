@@ -29,7 +29,7 @@ define Package/shadowsocks-libev/Default
 	DEPENDS:=+libev +libpthread
 	TITLE:=lightweight Socks5 proxy
 	URL:=https://github.com/madeye/shadowsocks-libev
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/shadowsocks-libev

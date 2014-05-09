@@ -30,7 +30,7 @@ define Package/golded-nsf
 	DEPENDS:=+libncurses +libpcrecpp +screen
 	TITLE:=GoldEd-NSF FTN Editor
 	URL:=http://fghi.pp.ru/golded
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/golded-nsf/description

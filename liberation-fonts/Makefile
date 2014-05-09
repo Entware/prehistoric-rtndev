@@ -26,7 +26,7 @@ define Package/liberation-fonts
 	DEPENDS:=+fontconfig
 	TITLE:=ghostscript, standard fonts
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/liberation-fonts/description

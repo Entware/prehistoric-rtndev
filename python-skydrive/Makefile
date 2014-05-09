@@ -22,17 +22,17 @@ $(call include_mk, python-package.mk)
 #PKG_BUILD_DEPENDS:=python distribute/host
 
 define Package/$(PKG_NAME)
-  SUBMENU:=Python
-  SECTION:=lang
-  CATEGORY:=Languages
-  TITLE:=Python and CLI interface to MS Skydrive REST API v5.0
-  URL:=https://github.com/mk-fg/python-skydrive
-  DEPENDS:= +python +python-requests +pyyaml +python-chardet +python-openssl
-  MAINTAINER:= Entware team, wl500g-repo.googlecode.com
+	SUBMENU:=Python
+	SECTION:=lang
+	CATEGORY:=Languages
+	TITLE:=Python and CLI interface to MS Skydrive REST API v5.0
+	URL:=https://github.com/mk-fg/python-skydrive
+	DEPENDS:=+python +python-requests +pyyaml +python-chardet +python-openssl
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/$(PKG_NAME)/description
-  Python and command-line interface for SkyDrive API (version 5.0)
+ Python and command-line interface for SkyDrive API (version 5.0).
 endef
 
 define Package/$(PKG_NAME)/conffiles

@@ -24,7 +24,7 @@ define Package/libsodium
 	CATEGORY:=Libraries
 	TITLE:=library for network communication, encryption, decryption, etc
 	URL:=https://github.com/jedisct1/libsodium
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/libsodium/description

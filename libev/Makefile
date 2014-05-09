@@ -24,7 +24,7 @@ define Package/libev
 	CATEGORY:=Libraries
 	TITLE:=event loop library
 	URL:=http://software.schmorp.de/pkg/libev
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/libev/description

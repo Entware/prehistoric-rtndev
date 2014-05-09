@@ -26,7 +26,7 @@ define Package/rntrack
 	DEPENDS:=+libstdcpp
 	TITLE:=A FTN Messages tracker
 	URL:=http://sourceforge.net/projects/ftrack-as
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/rntrack/description

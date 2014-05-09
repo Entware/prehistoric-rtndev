@@ -26,7 +26,7 @@ define Package/esniper
 	DEPENDS:=+libcurl
 	TITLE:=a lightweight tool for sniping ebay auctions
 	URL:=http://esniper.sourceforge.net/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/esniper/description

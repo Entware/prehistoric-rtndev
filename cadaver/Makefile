@@ -28,7 +28,7 @@ define Package/cadaver
 	DEPENDS:=+libncurses +libexpat +libneon +libopenssl +libreadline
 	TITLE:=Command-line WebDAV client
 	URL:=http://www.webdav.org/cadaver/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/cadaver/description

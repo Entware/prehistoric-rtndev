@@ -22,7 +22,7 @@ define Package/yamdi
 	CATEGORY:=Multimedia
 	TITLE:=FLV metadata injector
 	URL:=http://yamdi.sourceforge.net/
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/yamdi/description

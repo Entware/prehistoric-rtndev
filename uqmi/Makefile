@@ -27,7 +27,7 @@ define Package/uqmi
 	DEPENDS:=+libblobmsg-json
 	TITLE:=standalone QMI utility
 	URL:=http://nbd.name/gitweb.cgi?p=uqmi.git
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/uqmi/description
