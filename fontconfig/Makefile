@@ -48,8 +48,6 @@ define Package/fontconfig/install
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libfontconfig.so* $(1)/opt/lib/
 	$(INSTALL_DIR) $(1)/opt/share/fontconfig/conf.avail
 	$(CP) $(PKG_INSTALL_DIR)/opt/share/fontconfig/conf.avail/* $(1)/opt/share/fontconfig/conf.avail
-#	$(INSTALL_DIR) $(1)/opt/share/xml/fontconfig
-#	$(CP) $(PKG_INSTALL_DIR)/opt/share/xml/fontconfig/fonts.dtd $(1)/opt/share/xml/fontconfig
 endef
 
 define Package/fontconfig/postinst
@@ -58,8 +56,6 @@ define Package/fontconfig/postinst
 endef
 
 define Build/InstallDev
-#	$(INSTALL_DIR) $(1)/opt/bin
-#	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fc-* $(1)/opt/bin/
 	$(INSTALL_DIR) $(1)/opt/include/fontconfig
 	$(CP) $(PKG_INSTALL_DIR)/opt/include/fontconfig/*.h $(1)/opt/include/fontconfig/
 	$(INSTALL_DIR) $(1)/opt/lib

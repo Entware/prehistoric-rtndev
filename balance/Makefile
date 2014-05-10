@@ -21,7 +21,6 @@ define Package/balance
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=Web Servers/Proxies
-#	DEPENDS:=+libpthread
 	TITLE:=load balancing proxy
 	URL:=http://www.inlab.de/balance.html
 	MAINTAINER:=Entware team, entware.wl500g.info
@@ -32,15 +31,9 @@ define Package/balance/description
  generic tcp proxy with round robin load balancing and failover mechanisms.
 endef
 
-#define Package/balance/conffiles
-#/opt/etc/balance/balance.cfg
-#endef
-
 define Package/balance/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/balance $(1)/opt/bin
-#	$(INSTALL_DIR) $(1)/opt/etc/init.d
-#	$(INSTALL_BIN) ./files/S2balance $(1)/opt/etc/init.d
 endef
 
 $(eval $(call BuildPackage,balance))

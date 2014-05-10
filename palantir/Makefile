@@ -18,11 +18,12 @@ PKG_SOURCE_URL:=http://www.fastpath.it/products/palantir/pub/
 PKG_MD5SUM:=d5cb935aa2a675051078fb4eb100da0f
 
 define Package/palantir
-  SECTION:=multimedia
-  CATEGORY:=Multimedia
-  DEPENDS:=+libjpeg +libpthread
-  TITLE:=A multichannel interactive streaming solution
-  URL:=http://www.fastpath.it/products/palantir/
+	SECTION:=multimedia
+	CATEGORY:=Multimedia
+	DEPENDS:=+libjpeg +libpthread
+	TITLE:=A multichannel interactive streaming solution
+	URL:=http://www.fastpath.it/products/palantir/
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/palantir/description
@@ -42,7 +43,7 @@ include $(INCLUDE_DIR)/package.mk
 export CPPFLAGS=$(TARGET_CPPFLAGS)
 export LDFLAGS=$(TARGET_LDFLAGS)
 
-define Build/Compile	
+define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/server/libgsm \
 		$(TARGET_CONFIGURE_OPTS) \
 		CCINC="$(TARGET_CPPFLAGS)" \
@@ -54,7 +55,7 @@ define Build/Compile
 		palantir
 endef
 
-define Package/palantir/install	
+define Package/palantir/install
 	$(INSTALL_DIR) $(1)/opt/etc
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/server/palantir-mips.conf.sample $(1)/opt/etc/palantir.conf
 	$(INSTALL_DIR) $(1)/opt/sbin

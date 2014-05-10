@@ -20,10 +20,11 @@ PKG_MD5SUM:=4136d7b4c04df68b686570afa26988ac
 include $(INCLUDE_DIR)/package.mk
 
 define Package/libelf
-  SECTION:=libs
-  CATEGORY:=Libraries
-  TITLE:=ELF object file access library
-  URL:=http://www.mr511.de/software/
+	SECTION:=libs
+	CATEGORY:=Libraries
+	TITLE:=ELF object file access library
+	URL:=http://www.mr511.de/software/
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 TARGET_CFLAGS += $(FPIC)

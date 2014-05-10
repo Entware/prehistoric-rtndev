@@ -23,10 +23,11 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/ipset-$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
 
 define Package/ipset4
-  SECTION:=net
-  CATEGORY:=Network
-  TITLE:=IPset v4 administration utility
-  URL:=http://ipset.netfilter.org/
+	SECTION:=net
+	CATEGORY:=Network
+	TITLE:=IPset v4 administration utility
+	URL:=http://ipset.netfilter.org/
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 IPSET_MAKEOPTS:= -C $(PKG_BUILD_DIR) \

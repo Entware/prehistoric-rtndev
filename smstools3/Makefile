@@ -42,7 +42,7 @@ define Build/Compile
 		CC="$(TARGET_CC)" \
 		CFLAGS="$(TARGET_CPPFLAGS) -D NUMBER_OF_MODEMS=64 -D NOSTATS -D_FILE_OFFSET_BITS=64 -W -Wall" \
 		LFLAGS="$(TARGET_LDFLAGS)" \
-		VERSION="3.1.14" 
+		VERSION="3.1.14"
 endef
 
 define Package/smstools3/install

@@ -28,15 +28,15 @@ define Package/whois
 endef
 
 define Package/whois/description
-  This package provides a commandline client for the WHOIS (RFC 3912) protocol,
-  which queries online servers for information such as contact details for domains
-  and IP address assignments. It can intelligently select the appropriate WHOIS server for most queries.
+ This package provides a commandline client for the WHOIS (RFC 3912) protocol,
+ which queries online servers for information such as contact details
+ for domains and IP address assignments. It can intelligently select
+ the appropriate WHOIS server for most queries.
 endef
 
 define Package/whois/conffiles
 /opt/etc/whois.conf
 endef
-
 
 define Package/whois/install
 	$(INSTALL_DIR) $(1)/opt/sbin

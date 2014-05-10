@@ -17,7 +17,6 @@ PKG_MDSUM:=d6fb12b46e80a50c9b9f91dd48e2b234
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
 include $(INCLUDE_DIR)/package.mk
-#include $(INCLUDE_DIR)/cmake.mk
 
 define Package/nethogs
 	SECTION:=net

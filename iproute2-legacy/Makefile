@@ -21,15 +21,16 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/iproute2-$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
 
 define Package/iproute2-legacy/Default
-  SECTION:=net
-  CATEGORY:=Network
-  URL:=http://linux-net.osdl.org/index.php/Iproute2
+	SECTION:=net
+	CATEGORY:=Network
+	URL:=http://linux-net.osdl.org/index.php/Iproute2
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/ip-legacy
 $(call Package/iproute2-legacy/Default)
-  SUBMENU:=Routing and Redirection
-  TITLE:=Routing control utility
+	SUBMENU:=Routing and Redirection
+	TITLE:=Routing control utility
 endef
 
 define Package/ip-legacy/conffiles
@@ -38,12 +39,12 @@ endef
 
 define Package/tc-legacy
 $(call Package/iproute2-legacy/Default)
-  TITLE:=Traffic control utility
+	TITLE:=Traffic control utility
 endef
 
 define Package/genl-legacy
 $(call Package/iproute2-legacy/Default)
-  TITLE:=General netlink utility frontend
+	TITLE:=General netlink utility frontend
 endef
 
 define Build/Configure

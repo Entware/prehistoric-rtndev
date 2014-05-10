@@ -55,7 +55,7 @@ echo -n "Updating /opt/etc/ld.so.cache... "
 /opt/bin/ldconfig > /dev/null 2>&1
 echo "done."
 
-echo -n "Changing feed URL in /opt/etc/opkg.conf... "
+echo -n "Changing feed URL in /opt/etc/opkg.conf if necessary... "
 sed -i -e 's|http://wl500g-repo.googlecode.com/svn/ipkg/openwrt|http://entware.wl500g.info/binaries/entware|g' /opt/etc/opkg.conf
 echo "done."
 endef

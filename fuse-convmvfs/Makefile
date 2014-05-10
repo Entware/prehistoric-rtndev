@@ -29,6 +29,7 @@ define Package/fuse-convmvfs
 	DEPENDS:=$(ICONV_DEPENDS) +libfuse +libstdcpp
 	TITLE:=mirrors a whole filesystem tree from one charset to another
 	URL:=http://fuse-convmvfs.sourceforge.net/
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/fuse-convmvfs/description

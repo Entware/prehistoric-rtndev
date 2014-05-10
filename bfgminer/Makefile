@@ -113,5 +113,4 @@ endef
 
 ALL_$(PKG_NAME)_PACKAGES += bitforce-firmware-flash
 
-
 $(foreach bitstream,$(ALL_$(PKG_NAME)_PACKAGES),$(eval $(call BuildPackage,$(bitstream))))
