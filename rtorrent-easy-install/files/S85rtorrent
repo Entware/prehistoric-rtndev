@@ -2,7 +2,7 @@
 
 ENABLED=yes
 PROCS=rtorrent
-ARGS="-n -o import=/opt/etc/rtorrent/rtorrent.conf"
+ARGS="-D -n -o import=/opt/etc/rtorrent/rtorrent.conf"
 PREARGS="screen -dmS rtorrent"
 DESC=$PROCS
 PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
