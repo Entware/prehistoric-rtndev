@@ -65,10 +65,16 @@ define Package/pvpgn/conffiles
 /opt/etc/versioncheck.conf
 endef
 
+define Download/pvpgn_supp
+	URL:=$(PKG_SOURCE_URL)
+	FILE:=$(PVPGN_SUPP).tar.gz
+	MD5SUM:=89d0e5bc7b87df9229d1ef8636b20a08
+endef
+$(eval $(call Download,pvpgn_supp))
+
 define Build/Prepare
 	$(call Build/Prepare/Default)
-	wget -O $(PKG_BUILD_DIR)/$(PVPGN_SUPP).tar.gz http://download.berlios.de/pvpgn/$(PVPGN_SUPP).tar.gz
-	tar -C $(PKG_BUILD_DIR) -xvzf $(PKG_BUILD_DIR)/$(PVPGN_SUPP).tar.gz
+	tar -C $(PKG_BUILD_DIR) -xvzf $(DL_DIR)/$(PVPGN_SUPP).tar.gz
 endef
 
 define Package/pvpgn/install
