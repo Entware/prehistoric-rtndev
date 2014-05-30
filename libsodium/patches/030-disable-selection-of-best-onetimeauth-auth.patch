@@ -1,9 +1,9 @@
 --- a/src/libsodium/sodium/core.c
 +++ b/src/libsodium/sodium/core.c
-@@ -11,9 +11,11 @@
-     if (initialized != 0) {
+@@ -13,9 +13,11 @@
          return 1;
      }
+     sodium_runtime_get_cpu_features();
 +#ifdef HAVE_FENV_H
      if (crypto_onetimeauth_pick_best_implementation() == NULL) {
          return -1;

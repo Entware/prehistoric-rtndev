@@ -1,8 +1,8 @@
 --- a/configure.ac
 +++ b/configure.ac
-@@ -274,6 +274,20 @@
- ],
- [AC_MSG_RESULT(no)])
+@@ -276,6 +276,20 @@
+ 
+ AC_CHECK_HEADERS([sys/mman.h])
  
 +AC_MSG_CHECKING(for access to floating-point rounding mode)
 +AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
