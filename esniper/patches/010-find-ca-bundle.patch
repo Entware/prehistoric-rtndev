@@ -1,6 +1,6 @@
---- a/http.c	2012-02-06 22:04:06.000000000 +0100
-+++ b/http.c	2012-07-27 10:54:20.893054646 +0200
-@@ -200,6 +200,9 @@
+--- a/http.c
++++ b/http.c
+@@ -201,6 +201,9 @@
  int
  initCurlStuff(void)
  {
@@ -10,7 +10,7 @@
  	/* list for custom headers */
  	struct curl_slist *slist=NULL;
  
-@@ -241,6 +244,12 @@
+@@ -242,6 +245,12 @@
  	if ((curlrc = curl_easy_setopt(easyhandle, CURLOPT_COOKIEFILE, "")))
  		return initCurlStuffFailed();
  
