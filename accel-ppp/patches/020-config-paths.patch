@@ -1,5 +1,5 @@
---- ./accel-pppd/accel-ppp.conf.orig
-+++ ./accel-pppd/accel-ppp.conf
+--- a/accel-pppd/accel-ppp.conf
++++ b/accel-pppd/accel-ppp.conf
 @@ -30,7 +30,7 @@
  #ipv6pool
  
@@ -17,8 +17,8 @@
 +#dictionary=/opt/share/accel-ppp/l2tp/dictionary
  #hello-interval=60
  #timeout=60
- #rtimeout=5
-@@ -132,7 +132,7 @@
+ #rtimeout=1
+@@ -134,7 +134,7 @@
  #wins2=172.16.1.1
  
  [radius]
@@ -27,7 +27,7 @@
  nas-identifier=accel-ppp
  nas-ip-address=127.0.0.1
  gw-ip-address=192.168.100.1
-@@ -163,9 +163,9 @@
+@@ -165,9 +165,9 @@
  192.168.4.0/24
  
  [log]
@@ -40,7 +40,7 @@
  #log-debug=/dev/stdout
  #syslog=accel-pppd,daemon
  #log-tcp=127.0.0.1:3000
-@@ -181,16 +181,16 @@
+@@ -183,16 +183,16 @@
  log-table=log
  
  [pppd-compat]

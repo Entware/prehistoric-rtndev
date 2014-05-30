@@ -1,5 +1,5 @@
---- ./CMakeLists.txt.orig	2013-11-12 12:00:44.000000000 +0400
-+++ ./CMakeLists.txt	2013-11-12 12:04:15.614198955 +0400
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -6,7 +6,7 @@
  
  include(cmake/cpack.cmake)

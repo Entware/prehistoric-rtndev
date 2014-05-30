@@ -1,5 +1,5 @@
---- ./accel-pppd/CMakeLists.txt.orig
-+++ ./accel-pppd/CMakeLists.txt
+--- a/accel-pppd/CMakeLists.txt
++++ b/accel-pppd/CMakeLists.txt
 @@ -107,11 +107,3 @@
  )
  

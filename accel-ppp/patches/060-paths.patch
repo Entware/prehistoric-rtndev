@@ -1,5 +1,5 @@
---- ./accel-pppd/extra/pppd_compat.c.orig	2014-04-02 16:16:13.451202877 +0400
-+++ ./accel-pppd/extra/pppd_compat.c	2014-04-02 16:16:39.767209236 +0400
+--- a/accel-pppd/extra/pppd_compat.c
++++ b/accel-pppd/extra/pppd_compat.c
 @@ -27,11 +27,11 @@
  
  #include "memdebug.h"
@@ -15,8 +15,8 @@
  static int conf_verbose = 0;
  
  static void *pd_key;
---- ./accel-pppd/extra/chap-secrets.c.orig	2014-04-02 16:16:07.463206976 +0400
-+++ ./accel-pppd/extra/chap-secrets.c	2014-04-02 16:16:50.331206483 +0400
+--- a/accel-pppd/extra/chap-secrets.c
++++ b/accel-pppd/extra/chap-secrets.c
 @@ -21,7 +21,7 @@
  
  #include "memdebug.h"
