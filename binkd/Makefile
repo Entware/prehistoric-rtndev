@@ -10,18 +10,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=binkd
-PKG_VERSION:=1.0a-561
+PKG_VERSION:=1.1a-26
+PKG_REV:=bbe5331d4b9b901677acb5dce0fb85f06da54ef8
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=:pserver:binkd@cvs.happy.kiev.ua:/cvs
-PKG_SOURCE_SUBDIR:=binkd
-PKG_SOURCE_VERSION:=-D'08/19/2011'
-PKG_SOURCE_PROTO:=cvs
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_URL:=https://github.com/green525/binkd
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=$(PKG_REV)
+
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
-
-PKG_UNPACK:=gzip -dc $(DL_DIR)/$(PKG_SOURCE) | $(TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xf -
 
 define Package/binkd
 	SECTION:=net
@@ -29,7 +30,7 @@ define Package/binkd
 	SUBMENU:=FTN
 	DEPENDS:=+zlib +libbz2
 	TITLE:=transfers files between two Fidonet systems over TCP/IP
-	URL:=cvs.happy.kiev.ua
+	URL:=https://github.com/green525/binkd
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
@@ -52,7 +53,7 @@ define Package/binkd/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/binkd $(1)/opt/sbin/
 	$(INSTALL_DIR) $(1)/opt/etc
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/binkd.conf $(1)/opt/etc/binkd.conf.dist
+	$(INSTALL_CONF) $(PKG_BUILD_DIR)/binkd.conf $(1)/opt/etc/binkd.conf
 endef
 
 $(eval $(call BuildPackage,binkd))
