@@ -1,5 +1,5 @@
---- ./Makefile.Linux.orig	2012-06-26 04:04:42.000000000 +0400
-+++ ./Makefile.Linux	2014-04-02 17:37:13.663117792 +0400
+--- a/Makefile.Linux
++++ b/Makefile.Linux
 @@ -9,17 +9,14 @@
  # library support. Add -DSAFESQL for poorely written ODBC library / drivers.
  
