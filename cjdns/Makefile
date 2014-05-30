@@ -5,6 +5,8 @@
 # See /LICENSE for more information.
 #
 # Reworked version of https://github.com/cjdelisle/cjdns-openwrt/blob/master/cjdns/Makefile
+# A newer versions include node.js code and can't be cross-compiled.
+#
 
 include $(TOPDIR)/rules.mk
 

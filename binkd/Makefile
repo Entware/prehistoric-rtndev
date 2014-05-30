@@ -4,8 +4,6 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-# Please note: Embedded dev support was broken between r562 and r565
-#
 
 include $(TOPDIR)/rules.mk
 

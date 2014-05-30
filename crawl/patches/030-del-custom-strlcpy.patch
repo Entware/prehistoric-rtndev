@@ -1,5 +1,5 @@
---- ./source/libutil.h.orig
-+++ ./source/libutil.h
+--- a/source/libutil.h
++++ b/source/libutil.h
 @@ -72,7 +72,6 @@
  
  int numcmp(const char *a, const char *b, int limit = 0);
@@ -8,9 +8,9 @@
  
  int strwidth(const char *s);
  int strwidth(const string &s);
---- ./source/libutil.cc.orig
-+++ ./source/libutil.cc
-@@ -1063,26 +1063,6 @@
+--- a/source/libutil.cc
++++ b/source/libutil.cc
+@@ -1070,26 +1070,6 @@
  
  mouse_mode mouse_control::ms_current_mode = MOUSE_MODE_NORMAL;
  
