@@ -1,5 +1,5 @@
---- a/source/Makefile
-+++ b/source/Makefile
+--- ./source/Makefile.orig	2013-06-01 08:17:58.000000000 +0400
++++ ./source/Makefile	2013-06-10 15:33:18.009456663 +0400
 @@ -101,7 +101,7 @@
  #
  
@@ -26,7 +26,7 @@
  ifneq (,$(findstring MINGW,$(uname_S)))
  	GAME = crawl.exe
  	bin_prefix = .
-@@ -250,7 +251,7 @@
+@@ -253,7 +254,7 @@
  LIBPNG := contrib/install/$(ARCH)/lib/libpng.a
  LIBSDLIMAGE := contrib/install/$(ARCH)/lib/libSDL_image.a
  LIBFREETYPE := contrib/install/$(ARCH)/lib/libfreetype.a
@@ -35,7 +35,7 @@
  ifdef USE_LUAJIT
  LIBLUA := contrib/install/$(ARCH)/lib/libluajit.a
  else
-@@ -259,7 +260,7 @@
+@@ -262,7 +263,7 @@
  LIBZ := contrib/install/$(ARCH)/lib/libz.a
  
  ifndef CROSSHOST
@@ -44,43 +44,35 @@
  else
  	# This is totally wrong, works only with some old-style setups, and
  	# on some architectures of Debian/new FHS multiarch -- excluding, for
-@@ -374,7 +375,6 @@
+@@ -377,7 +378,6 @@
  
  
- INCLUDES_L += -isystem contrib/install/$(ARCH)/include
+ INCLUDES_L += -Icontrib/install/$(ARCH)/include
 -LIBS += -Lcontrib/install/$(ARCH)/lib
  
  INCLUDES_L += -Iutil -I.
  
-@@ -700,7 +700,6 @@
- 
- # On clang, unknown -Wfoo is merely a warning, thus -Werror.
- CFWARN_L += $(shell w=-Wno-array-bounds;echo|$(GXX) -E -x c++ - -Werror $$w >/dev/null 2>&1 && echo $$w)
--CFWARN_L += $(shell w=-Wno-format-zero-length;echo|$(GXX) -E -x c++ - -Werror $$w >/dev/null 2>&1 && echo $$w)
- CFWARN   += $(shell w=-Wmissing-declarations;echo|$(GXX) -E -x c++ - -Werror $$w >/dev/null 2>&1 && echo $$w)
- CFWARN   += $(shell w=-Wredundant-decls;echo|$(GXX) -E -x c++ - -Werror $$w >/dev/null 2>&1 && echo $$w)
- 
-@@ -943,10 +942,9 @@
+@@ -929,10 +929,8 @@
  NC_INCLUDE = $(NC_PREFIX)/include/ncursesw
  endif
  
--INCLUDES_L += -isystem $(NC_INCLUDE)
- 
+-INCLUDES_L += -I$(NC_INCLUDE)
+-
  ifndef TILES
 -LIBS += -L$(NC_PREFIX)/lib -l$(NC_LIB)
 +LIBS += -l$(NC_LIB)
  endif
  
  endif
-@@ -975,7 +973,6 @@
-   LDFLAGS += -fuse-ld=gold
+@@ -953,7 +951,6 @@
+ CFWARN_L :=
  endif
  
 -LDFLAGS += $(CFOPTIMIZE) $(CFOPTIMIZE_L)
  
  ifdef REPORT
  CFOTHERS += -ftime-report
-@@ -984,7 +981,7 @@
+@@ -962,7 +959,7 @@
  ifdef ANDROID
  CFLAGS   := $(CFOPTIMIZE) $(CFOTHERS) $(CFWARN) $(CFLAGS)
  else
@@ -89,7 +81,7 @@
  endif
  CFLAGS_L := $(CFOPTIMIZE_L) $(DEFINES_L) $(CFWARN_L) $(INCLUDES_L) $(CFOTHERS_L)
  ALL_CFLAGS := $(CFLAGS) $(CFLAGS_L)
-@@ -1081,8 +1078,7 @@
+@@ -1058,8 +1055,7 @@
  CONTRIB_LIBS += $(LIBLUA)
  endif
  ifdef BUILD_SQLITE

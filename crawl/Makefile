@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011-2014 Entware
+# Copyright (C) 2011-2013 Entware
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=crawl
-PKG_VERSION:=0.14.1
+PKG_VERSION:=0.12.3
 PKG_RELEASE:=1
 
 PKG_SOURCE:=stone_soup-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=@SF/crawl-ref/Stone%20Soup/$(PKG_VERSION)
-PKG_MD5SUM:=4170966d32c4edb053cd4381a9290637
+PKG_MD5SUM:=7af488c85203f1129116d9fb9d7070be
 PKG_BUILD_DIR:=$(BUILD_DIR)/stone_soup-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
@@ -24,7 +24,7 @@ define Package/crawl
 	DEPENDS:=+zlib +libstdcpp +libncursesw +libsqlite3
 	TITLE:=Dungeon Crawl Stone Soup is a role-playing roguelike game
 	URL:=http://crawl.develz.org
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
 endef
 
 define Package/crawl/description
