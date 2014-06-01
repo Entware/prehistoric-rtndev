@@ -10,16 +10,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=golded-plus
-PKG_VERSION:=115-20110223
+PKG_VERSION:=115-20130111
 PKG_RELEASE:=1
 
-PKG_SOURCE:=gps$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=@SF/golded-plus/Golded%2B%201.1.5%20snapshots
-PKG_MD5SUM:=6a1d63e7a39ced6e9907e2c8b8e1e666
+PKG_SOURCE:=gpsrc-$(PKG_VERSION).tgz
+PKG_SOURCE_URL:=@SF/golded-plus/Golded%2B%201.1.5%20snapshots/2013.01.11
+PKG_MD5SUM:=fe213515b6a2814ec24b96f395fbaf01
 
 include $(INCLUDE_DIR)/package.mk
 
-PKG_UNPACK:=bzip2 -c -d $(DL_DIR)/$(PKG_SOURCE) | $(TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xf -
+PKG_UNPACK:=gzip -c -d $(DL_DIR)/$(PKG_SOURCE) | $(TAR) -C $(PKG_BUILD_DIR) --strip-components=2 -xf -
 
 define Package/golded-plus
 	SECTION:=net
