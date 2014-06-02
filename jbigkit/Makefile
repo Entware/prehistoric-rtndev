@@ -8,14 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=jbigkit
-PKG_VERSION:=2.0
+PKG_VERSION:=2.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.cl.cam.ac.uk/~mgk25/download
-PKG_MD5SUM:=3dd87f605abb1a97a22dc79d8b3e8f6c
+PKG_MD5SUM:=ebcf09bed9f14d7fa188d3bd57349522
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
+#PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
 include $(INCLUDE_DIR)/package.mk
 
