@@ -1,5 +1,5 @@
---- a/hpucode/Makefile	2012-04-06 16:23:42.031951905 +0400
-+++ b/hpucode/Makefile	2012-04-06 16:23:52.574547630 +0400
+--- a/hpucode/Makefile
++++ b/hpucode/Makefile
 @@ -32,7 +32,7 @@
  
  

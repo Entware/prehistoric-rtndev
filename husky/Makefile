@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=husky
-PKG_VERSION:=1.9
+PKG_VERSION:=1.9-20140519
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-all-$(PKG_VERSION)-source-20110312.tgz
-PKG_SOURCE_URL:=@SF/husky/husky/$(PKG_VERSION)-current/
-PKG_MD5SUM:=f1e2f1087db82b38da83b594f2460b97
+PKG_SOURCE:=$(PKG_NAME)-all-1.9-source-20140519.tgz
+PKG_SOURCE_URL:=@SF/husky/husky/1.9-current/2014.05.19
+PKG_MD5SUM:=8c5f0a4b8971d4f9e0e872befb348826
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -41,29 +41,18 @@ TARGET_LDFLAGS += \
 	-L$(PKG_INSTALL_DIR)/opt/lib \
 	-Wl,-rpath-link=$(PKG_INSTALL_DIR)/opt/lib
 
-define Build/Compile
+define Build/Configure
 	$(CP) ./files/Makefile $(PKG_BUILD_DIR)
 	$(CP) $(PKG_BUILD_DIR)/huskybse/huskymak.cfg $(PKG_BUILD_DIR)
-	$(SED) 's|^PREFIX=/usr/local|PREFIX=$(PKG_INSTALL_DIR)/opt|g' \
+	$(SED) 's|^\(PREFIX\)=.*|\1=\$(PKG_INSTALL_DIR)/opt|g' \
 		$(PKG_BUILD_DIR)/huskymak.cfg
-	$(SED) 's|^LDCONFIG=/sbin/ldconfig||g' \
+	$(SED) 's|^\(OPTLFLAGS\)=.*|\1=-s $(TARGET_LDFLAGS)|g' \
 		$(PKG_BUILD_DIR)/huskymak.cfg
-	$(SED) 's|^OPTIBOPT=-c -s -m 555|OPTIBOPT=-c -m 555|g' \
-		$(PKG_BUILD_DIR)/huskymak.cfg
-	$(SED) 's|^OPTLFLAGS=-s|OPTLFLAGS=-s $(TARGET_LDFLAGS)|g' \
-		$(PKG_BUILD_DIR)/huskymak.cfg
-	$(SED) 's|^MKSHARED=gcc |MKSHARED=gcc|g' \
-		$(PKG_BUILD_DIR)/huskymak.cfg
-	$(call Build/Compile/Default)
 endef
 
 define Package/husky/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/* $(1)/opt/sbin
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/lib{areafix,fidoconfig,husky}.so{,.1.9,.1.9.0} \
-		$(PKG_INSTALL_DIR)/opt/lib/libsmapi.so{,.2.5,.2.5.0} \
-		$(1)/opt/lib
 endef
 
 $(eval $(call BuildPackage,husky))
