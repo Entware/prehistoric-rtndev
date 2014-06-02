@@ -1,5 +1,5 @@
---- ./Makefile.am.orig	2013-09-26 23:52:08.000000000 +0400
-+++ ./Makefile.am	2013-10-11 10:12:19.185526322 +0400
+--- a/Makefile.am
++++ b/Makefile.am
 @@ -3,38 +3,8 @@
  AM_CFLAGS=$(GLIB_CFLAGS) $(GNUTLS_CFLAGS) $(SQLITE_CFLAGS)
  AM_CPPFLAGS=-I$(builddir)/src -I$(srcdir)/deps -I$(srcdir)/deps/ylib

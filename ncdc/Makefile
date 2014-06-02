@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ncdc
-PKG_VERSION:=1.19
+PKG_VERSION:=1.19.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://dev.yorhel.nl/download
-PKG_MD5SUM:=e6b0f22e57c79e879f112ed574393848
+PKG_MD5SUM:=a7d23df7d0e291d1e3c8fb2a9a69f7a9
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
