@@ -35,6 +35,7 @@ endef
 define Package/weave-minimal/description
  This is a lightweight implementation of Mozilla User API v1.0 and Storage
  API v1.1 without LDAP, MySQL, Redis etc. overhead.
+ DOES NOT WORK WITH FIREFOX 29 OR LATER.
 endef
 
 define Build/Compile

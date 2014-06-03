@@ -1,5 +1,5 @@
---- a/whois.conf	2008-07-17 03:02:39.000000000 +0400
-+++ b/whois.conf	2012-07-01 00:18:09.000000000 +0400
+--- a/whois.conf
++++ b/whois.conf
 @@ -9,3 +9,9 @@
  # Eg: 
  # \.nz$ nz.whois-servers.net
@@ -10,9 +10,9 @@
 +\.pp\.ru$  whois.nic.ru
 +\.msk\.ru$ whois.nic.ru
 +\.spb\.ru$ whois.nic.ru
---- a/config.h	2010-12-01 03:37:59.000000000 +0300
-+++ b/config.h	2012-07-01 00:32:55.000000000 +0400
-@@ -12,5 +12,5 @@
+--- a/config.h
++++ b/config.h
+@@ -9,5 +9,5 @@
  /* Configuration file */
 -/*
 -#define CONFIG_FILE "/etc/whois.conf"

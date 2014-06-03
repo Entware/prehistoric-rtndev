@@ -1,12 +1,12 @@
---- a/config.h	2010-12-01 03:37:59.000000000 +0300
-+++ b/config.h	2012-07-01 00:34:29.000000000 +0400
-@@ -19,3 +19,3 @@
+--- a/config.h
++++ b/config.h
+@@ -16,3 +16,3 @@
  #ifdef linux
 -# define ENABLE_NLS
 +/* # define ENABLE_NLS */
  #endif
---- a/Makefile	2012-06-25 05:20:41.000000000 +0400
-+++ b/Makefile	2012-08-03 21:51:55.136073851 +0400
+--- a/Makefile
++++ b/Makefile
 @@ -56,7 +56,7 @@
  CPPFLAGS += $(DEFS) $(INCLUDES)
  
