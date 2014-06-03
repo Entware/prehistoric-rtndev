@@ -9,12 +9,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-requests
-PKG_VERSION:=2.2.1
+PKG_VERSION:=2.3.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=requests-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/r/requests/
-PKG_MD5SUM:=ac27081135f58d1a43e4fb38258d6f4e
+PKG_MD5SUM:=7449ffdc8ec9ac37bbcd286003c80f00
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/requests-$(PKG_VERSION)
 
