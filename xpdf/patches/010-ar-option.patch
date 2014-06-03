@@ -22,7 +22,7 @@
  #------------------------------------------------------------------------
 --- a/splash/Makefile.in
 +++ b/splash/Makefile.in
-@@ -83,7 +83,7 @@
+@@ -77,7 +77,7 @@
  
  $(LIBPREFIX)splash.a: $(SPLASH_OBJS)
  	rm -f $(LIBPREFIX)splash.a
