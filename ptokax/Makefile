@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ptokax
-PKG_VERSION:=0.5.0.1
+PKG_VERSION:=0.5.0.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_VERSION)-nix-src.tgz
 PKG_SOURCE_URL:=http://www.ptokax.org/files
-PKG_MD5SUM:=911b97d0c696b82a75786fd8be96a626
+PKG_MD5SUM:=897d9793554b7e85e3ca84d9781cb670
 
 include $(INCLUDE_DIR)/package.mk
 
