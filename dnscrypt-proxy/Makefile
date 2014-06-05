@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dnscrypt-proxy
 PKG_VERSION:=1.4.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://download.dnscrypt.org/dnscrypt-proxy/
@@ -58,6 +58,10 @@ CONFIGURE_ARGS += \
 define Package/dnscrypt-proxy/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/dnscrypt-proxy $(1)/opt/sbin
+	$(INSTALL_DIR) $(1)/opt/share/dnscrypt-proxy
+	$(INSTALL_DATA) \
+	    $(PKG_INSTALL_DIR)/opt/share/dnscrypt-proxy/dnscrypt-resolvers.csv \
+	    $(1)/opt/share/dnscrypt-proxy
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S09dnscrypt-proxy $(1)/opt/etc/init.d/
 endef
@@ -67,5 +71,55 @@ define Package/dnscrypt-proxy-hostip/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/hostip $(1)/opt/sbin/dnscrypt-proxy-hostip
 endef
 
+define Package/dnscrypt-proxy/postinst
+#!/bin/sh
+
+[ -z "$$(which grep)" ] && exit 0
+[ -z "$$(which awk)" ] && exit 0
+
+echo "By default, dnscrypt-proxy will use the OpenDNS dnscrypt server."
+echo "You may choose another one if you wish:"
+
+SRVLIST=/opt/share/dnscrypt-proxy/dnscrypt-resolvers.csv
+i=0
+for serv in $$(cat $$SRVLIST | awk -F "," "{print \$$1}")
+do
+    fullname=$$(grep "^$$serv," $$SRVLIST | awk -F "," "{print \$$2}" )
+    if [ ! $$i -eq 0 ]
+    then
+        echo "$$i) $$serv ($$fullname)"
+    fi
+    i=`expr $$i + 1`
+done
+read -p "Choose server from list or hit Enter to continue [1-`expr $$i - 1`]: " OPTION
+[ -z "$$OPTION" ] && exit 0
+srv=none
+i=0
+for serv in $$(cat $$SRVLIST | awk -F "," "{print \$$1}")
+do
+    if [ ! $$i -eq 0 ] && [ $$i -eq $$OPTION ]
+    then
+	srv=$$serv
+	break
+    fi
+    i=`expr $$i + 1`
+done
+[ "$$srv" == "none" ] && exit 0
+SCRIPT=/opt/etc/init.d/S09dnscrypt-proxy
+cat > $$SCRIPT << EOF
+#!/bin/sh
+
+ENABLED=yes
+PROCS=dnscrypt-proxy
+ARGS="--local-address=127.0.0.1:65053 --daemonize -R $$srv"
+PREARGS=""
+DESC=$$PROCS
+PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+. /opt/etc/init.d/rc.func
+
+EOF
+chmod +x $$SCRIPT
+endef
 $(eval $(call BuildPackage,dnscrypt-proxy))
 $(eval $(call BuildPackage,dnscrypt-proxy-hostip))
