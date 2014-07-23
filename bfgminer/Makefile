@@ -12,19 +12,19 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bfgminer
 PKG_TITLE:=BFGMiner
-PKG_VERSION:=3.10.0
+PKG_VERSION:=4.4.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).zip
 PKG_SOURCE_URL:=http://luke.dashjr.org/programs/bitcoin/files/$(PKG_NAME)/$(PKG_VERSION)
-PKG_MD5SUM:=985611e16d4d5c0ef9e5154ea88d84b6
+PKG_MD5SUM:=a2dea59452c27eb87dc857ac0e52fa3c
 
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
 define Download/uthash
-	FILE:=v1.9.8
+	FILE:=v1.9.9
 	URL:=https://codeload.github.com/troydhanson/uthash/tar.gz/
 endef
 $(eval $(call Download,uthash))
@@ -69,14 +69,14 @@ CONFIGURE_ARGS += --disable-x6500 --disable-ztex
 endif
 
 TARGET_CFLAGS += -std=gnu99
-TARGET_CFLAGS += -Iuthash-1.9.8/src
+TARGET_CFLAGS += -Iuthash-1.9.9/src
 
 CONFIGURE_ARGS += --without-libudev
 CONFIGURE_ARGS += --without-sensors
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
-	gzip -dc $(DL_DIR)/v1.9.8 | $(HOST_TAR) -C $(PKG_BUILD_DIR) $(TAR_OPTIONS)
+	gzip -dc $(DL_DIR)/v1.9.9 | $(HOST_TAR) -C $(PKG_BUILD_DIR) $(TAR_OPTIONS)
 endef
 
 define Build/Configure
