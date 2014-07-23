@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libsodium
-PKG_VERSION:=0.5.0
+PKG_VERSION:=0.6.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://download.dnscrypt.org/libsodium/releases
-PKG_MD5SUM:=6e61dbde3a6b06b898a0e18ca27ab161
+PKG_MD5SUM:=894da0e07a715dd8e44f8b3486093e70
 
 PKG_INSTALL:=1
 
@@ -32,19 +32,29 @@ define Package/libsodium/description
  decryption, signatures, etc.
 endef
 
+define Package/libsodium/config
+menu "Configuration"
+    config LIBSODIUM_MINIMAL
+	bool "Create a smaller library"
+	default n
+endmenu
+endef
+
 TARGET_CFLAGS += \
 	-std=gnu99 \
 
 CONFIGURE_ARGS += \
 	--disable-ssp \
 	--disable-asm \
+	$(if $(CONFIG_LIBSODIUM_MINIMAL),--enable-minimal=yes,--enable-minimal=no)
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/opt/include/sodium
 	$(CP) $(PKG_INSTALL_DIR)/opt/include/*.h $(1)/opt/include
 	$(CP) $(PKG_INSTALL_DIR)/opt/include/sodium/*.h $(1)/opt/include/sodium
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libsodium.{a,la,so*} $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libsodium.{a,la,so*} $(1)/opt/lib
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/libsodium.pc $(1)/opt/lib/pkgconfig
 endef
 
 define Package/libsodium/install
