@@ -8,20 +8,23 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=3proxy
-PKG_VERSION:=0.7
+PKG_VERSION:=0.7.1.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=http://3proxy.ru/$(PKG_VERSION)
-PKG_MD5SUM:=b2a7b643d3e3d348ce97ed094075fc53
+PKG_MD5SUM:=cbc22bf28644c5f3092aa1d925de7d33
 
 include $(INCLUDE_DIR)/package.mk
+
+PKG_UNPACK:=gzip -dc $(DL_DIR)/$(PKG_SOURCE) | $(TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xf -
 
 define Package/3proxy
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=Web Servers/Proxies
-	DEPENDS:=+libpthread +libopenssl
+	DEPENDS:=+libpthread
+# +libopenssl
 	TITLE:=3proxy free proxy server
 	URL:=http://www.3proxy.ru
 	MAINTAINER:=Entware team, entware.wl500g.info
