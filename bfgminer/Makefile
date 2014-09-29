@@ -12,12 +12,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bfgminer
 PKG_TITLE:=BFGMiner
-PKG_VERSION:=4.4.0
+PKG_VERSION:=4.8.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).zip
 PKG_SOURCE_URL:=http://luke.dashjr.org/programs/bitcoin/files/$(PKG_NAME)/$(PKG_VERSION)
-PKG_MD5SUM:=a2dea59452c27eb87dc857ac0e52fa3c
+PKG_MD5SUM:=dcda1497b890a6c62173a54362c3d6bb
 
 PKG_INSTALL:=1
 
@@ -91,26 +91,9 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/$(PKG_NAME) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/$(PKG_NAME)-rpc $(1)/opt/bin
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libblkmaker*.so* $(1)/opt/lib
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libbase58.so* $(1)/opt/lib
 endef
 
 ALL_$(PKG_NAME)_PACKAGES += $(PKG_NAME)
-
-#### BitForce firmware flash ####
-
-define Package/bitforce-firmware-flash
-$(call Package/$(PKG_NAME)/Default)
-	TITLE:=BitForce firmware flash tool
-endef
-
-define Package/bitforce-firmware-flash/description
-BitForce firmware flash tool
-endef
-
-define Package/bitforce-firmware-flash/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/bitforce-firmware-flash $(1)/opt/bin
-endef
-
-ALL_$(PKG_NAME)_PACKAGES += bitforce-firmware-flash
 
 $(foreach bitstream,$(ALL_$(PKG_NAME)_PACKAGES),$(eval $(call BuildPackage,$(bitstream))))

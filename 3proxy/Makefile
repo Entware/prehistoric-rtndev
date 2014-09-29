@@ -24,7 +24,6 @@ define Package/3proxy
 	CATEGORY:=Network
 	SUBMENU:=Web Servers/Proxies
 	DEPENDS:=+libpthread
-# +libopenssl
 	TITLE:=3proxy free proxy server
 	URL:=http://www.3proxy.ru
 	MAINTAINER:=Entware team, entware.wl500g.info
