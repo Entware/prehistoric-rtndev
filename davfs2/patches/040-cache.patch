@@ -1,6 +1,6 @@
 --- a/src/cache.c
 +++ b/src/cache.c
-@@ -55,7 +55,6 @@
+@@ -58,7 +58,6 @@
  #ifdef HAVE_SYS_TYPES_H
  #include <sys/types.h>
  #endif
@@ -8,7 +8,7 @@
  
  #include <ne_alloc.h>
  #include <ne_string.h>
-@@ -124,6 +123,105 @@ static const char* const type[] = {
+@@ -127,6 +126,105 @@ static const char* const type[] = {
      [END] = NULL
  };
  

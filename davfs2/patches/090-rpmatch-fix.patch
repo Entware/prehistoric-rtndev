@@ -1,6 +1,6 @@
 --- a/src/webdav.c
 +++ b/src/webdav.c
-@@ -2059,15 +2059,12 @@ ssl_verify(void *userdata, int failures,
+@@ -2036,15 +2036,12 @@ ssl_verify(void *userdata, int failures,
                       "verify the fingerprint! The server might be faked\n"
                       "or there might be a man-in-the-middle-attack.\n"));
              printf(_("Accept certificate for this session? [y,N] "));

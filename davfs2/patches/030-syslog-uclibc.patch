@@ -1,7 +1,7 @@
 --- a/src/webdav.c
 +++ b/src/webdav.c
-@@ -38,9 +38,7 @@
- #include <limits.h>
+@@ -41,9 +41,7 @@
+ #include <stdint.h>
  #endif
  #include <stdio.h>
 -#ifdef HAVE_STDLIB_H
@@ -10,7 +10,7 @@
  #include <string.h>
  #ifdef HAVE_SYSLOG_H
  #include <syslog.h>
-@@ -149,7 +147,11 @@ static const ne_propname quota_names[] =
+@@ -163,7 +161,11 @@
      {NULL, NULL}
  };
  
@@ -23,7 +23,7 @@
  
  static char *none_match_header = "If-None-Match: *\r\n";
  
-@@ -352,7 +354,8 @@ dav_init_webdav(const dav_args *args)
+@@ -368,7 +370,8 @@
          error(EXIT_FAILURE, errno, _("socket library initialization failed"));
  
      if (args->neon_debug & ~NE_DBG_HTTPPLAIN) {
@@ -33,7 +33,7 @@
          cookie_io_functions_t *log_func = malloc(sizeof(cookie_io_functions_t));
          if (!log_func) abort();
          log_func->read = NULL;
-@@ -1537,21 +1540,27 @@ log_writer(void *cookie, const char *buf
+@@ -1544,21 +1547,27 @@
  
      size_t written = 0;
      const char *bpos = buffer;
