@@ -1,5 +1,5 @@
---- ./lib/unix-lpr.sh.orig	2013-07-03 16:05:19.480691780 +0400
-+++ ./lib/unix-lpr.sh	2013-07-03 16:06:37.996688247 +0400
+--- a/lib/unix-lpr.sh
++++ b/lib/unix-lpr.sh
 @@ -19,16 +19,16 @@
  # executable name set in the makefile
  GS_EXECUTABLE=gs
@@ -23,24 +23,32 @@
  
  user= host= acctfile=/dev/null
  
---- ./lib/lprsetup.sh.orig	2013-07-03 16:09:01.784686789 +0400
-+++ ./lib/lprsetup.sh	2013-07-03 16:09:58.816683058 +0400
-@@ -14,14 +14,14 @@
+--- a/lib/lprsetup.sh
++++ b/lib/lprsetup.sh
+@@ -33,14 +33,10 @@
  # The kind of printer (accepted values: 'parallel' and 'serial')
  PRINTERTYPE=parallel
  
--GSDIR=/usr/local/lib/ghostscript
+-if [ "x$GSPATH"="x" ] ; then
+-  GSDIR=`which gs | awk -F / 'sub(FS $NF,x)' | awk -F / 'sub(FS $NF,x)'`/lib/ghostscript
+-else
+-  GSDIR=$GSPATH
+-fi
 +GSDIR=/opt/lib/ghostscript
+ 
  GSFILTERDIR=$GSDIR/filt
 -SPOOLDIR=/var/spool
 +SPOOLDIR=/opt/var/spool
  GSIF=unix-lpr.sh
  PCAP=printcap.insert
  
+@@ -55,9 +51,6 @@
+   echo
+ fi
+ 
 -PATH=/bin:/usr/bin:/usr/ucb
 -export PATH
-+#PATH=/bin:/usr/bin:/usr/ucb
-+#export PATH
- 
+-
  if [ ! -w $GSDIR ]; then
    echo "$GSDIR must be writable to create filter directory"
+   exit 1
