@@ -1,6 +1,6 @@
 --- a/ev_epoll.c
 +++ b/ev_epoll.c
-@@ -235,11 +235,6 @@
+@@ -238,11 +238,6 @@
  int inline_size
  epoll_init (EV_P_ int flags)
  {

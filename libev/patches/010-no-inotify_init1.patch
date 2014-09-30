@@ -1,6 +1,6 @@
 --- a/ev.c
 +++ b/ev.c
-@@ -4064,11 +4064,6 @@
+@@ -4158,11 +4158,6 @@
  inline_size int
  infy_newfd (void)
  {
