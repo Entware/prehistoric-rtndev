@@ -8,14 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=inadyn
-PKG_VERSION:=1.99.2-20130429
+PKG_VERSION:=1.99.10
 PKG_RELEASE:=1
 
-PKG_REV:=9b4005a6340b5d8216afa321340506275362120d
+PKG_REV:=5c6c174113932fd380745d15a01906d382905a4c
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/vampik/inadyn.git
+PKG_SOURCE_URL:=https://github.com/troglobit/inadyn
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 include $(INCLUDE_DIR)/package.mk
@@ -24,6 +24,7 @@ define Package/inadyn
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=IP Addresses and Names
+	DEPENDS:=+libgnutls-openssl
 	TITLE:=a simple and small DDNS client
 	URL:=https://github.com/vampik/inadyn
 	MAINTAINER:=Entware team, entware.wl500g.info
@@ -36,7 +37,7 @@ define Package/inadyn/description
  Andrey Tikhomirov.
 endef
 
-TARGET_CFLAGS += -Iinclude -DVERSION_STRING=\"$(VERSION)\"
+TARGET_CFLAGS += -Iinclude
 
 define Package/inadyn/install
 	$(INSTALL_DIR) $(1)/opt/bin

@@ -1,13 +1,13 @@
---- a/include/dyndns.h
-+++ b/include/dyndns.h
-@@ -52,8 +52,8 @@
+--- a/include/ddns.h
++++ b/include/ddns.h
+@@ -36,8 +36,8 @@
+ #define SUPPORT_ADDR	"troglobit@gmail.com"
  
- /*test values*/
- #define DYNDNS_DEFAULT_DEBUG_LEVEL	1
--#define DYNDNS_DEFAULT_CONFIG_FILE	"/etc/inadyn.conf"
--#define DYNDNS_RUNTIME_DATA_DIR		"/var/run/inadyn"
-+#define DYNDNS_DEFAULT_CONFIG_FILE	"/opt/etc/inadyn.conf"
-+#define DYNDNS_RUNTIME_DATA_DIR		"/opt/var/run"
- #define DYNDNS_DEFAULT_CACHE_FILE	DYNDNS_RUNTIME_DATA_DIR"/inadyn.cache"
- #define DYNDNS_DEFAULT_PIDFILE		DYNDNS_RUNTIME_DATA_DIR"/inadyn.pid"
+ /* Test values */
+-#define DEFAULT_CONFIG_FILE	"/etc/inadyn.conf"
+-#define RUNTIME_DATA_DIR	"/var/run/inadyn"
++#define DEFAULT_CONFIG_FILE	"/opt/etc/inadyn.conf"
++#define RUNTIME_DATA_DIR	"/opt/var/run"
+ #define DEFAULT_PIDFILE		RUNTIME_DATA_DIR "/inadyn.pid"
  
+ #define DYNDNS_MY_IP_SERVER	"checkip.dyndns.org"
