@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=parted
-PKG_VERSION:=3.1
+PKG_VERSION:=3.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=http://ftp.gnu.org/gnu/$(PKG_NAME)
-PKG_MD5SUM:=5d89d64d94bcfefa9ce8f59f4b81bdcb
+#PKG_MD5SUM:=5d89d64d94bcfefa9ce8f59f4b81bdcb
 
 PKG_INSTALL:=1
 
