@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gnuchess
-PKG_VERSION:=6.1.1
+PKG_VERSION:=6.1.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://ftp.gnu.org/pub/gnu/chess
-PKG_MD5SUM:=1299cbd0025a7cf4fbba21e6c2ef6278
+PKG_MD5SUM:=44e1d96f0eb04751351eccb22973e06f
 
 include $(INCLUDE_DIR)/package.mk
 
