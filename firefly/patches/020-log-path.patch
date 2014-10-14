@@ -1,5 +1,5 @@
---- a/contrib/mt-daapd.conf	2013-05-10 22:28:40.000000000 +0400
-+++ b/contrib/mt-daapd.conf	2013-06-05 01:52:35.107918472 +0400
+--- a/contrib/mt-daapd.conf
++++ b/contrib/mt-daapd.conf
 @@ -196,3 +196,3 @@
  
 -logfile = /var/log/mt-daapd.log
