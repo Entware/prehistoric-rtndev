@@ -60,7 +60,8 @@ ifeq ($(BUILD_VARIANT),polarssl)
 CONFIGURE_ARGS += --with-crypto-library=polarssl
 endif
 
-TARGET_LDFLAGS += -lev
+TARGET_LDFLAGS += -lev -L$(STAGING_DIR)/opt/lib/libev
+TARGET_CFLAGS += -I$(STAGING_DIR)/opt/include/libev
 
 define Package/shadowsocks-libev/install
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
