@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=3proxy
 PKG_VERSION:=0.7.1.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=http://3proxy.ru/$(PKG_VERSION)
@@ -51,6 +51,11 @@ define Package/3proxy/install
 	$(INSTALL_BIN) \
 		$(PKG_BUILD_DIR)/src/{3proxy,countersutil,dighosts,ftppr,mycrypt,pop3p,proxy,socks,tcppm,udppm} \
 		$(1)/opt/bin
+	$(INSTALL_DIR) $(1)/opt/etc/3proxy
+	$(INSTALL_DIR) $(1)/opt/lib/3proxy
+	$(INSTALL_BIN) \
+		$(PKG_BUILD_DIR)/src/{PCRE,Strings,Traffic,Transparent}Plugin.ld.so \
+		$(1)/opt/lib/3proxy
 	$(INSTALL_DIR) $(1)/opt/etc/3proxy
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/scripts/3proxy.cfg $(1)/opt/etc/3proxy
 	touch $(1)/opt/etc/3proxy/{passwd,counters,bandlimiters}
