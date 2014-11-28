@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dropbox-uploader
-PKG_VERSION:=0.14-141126
+PKG_VERSION:=0.14-20141126
 PKG_RELEASE:=1
 
 PKG_REV:=32b0a8dded4d845dc48d9486c2bf2bb1423de3d6
