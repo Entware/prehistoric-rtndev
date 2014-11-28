@@ -1,31 +1,30 @@
---- a/rutorrent/conf/config.php	2012-09-03 15:21:08.000000000 +0400
-+++ b/rutorrent/conf/config.php	2012-09-26 14:39:10.196994769 +0400
-@@ -19,7 +19,7 @@
- 	$schedule_rand = 10;			// rand for schedulers start, +0..X seconds
+--- a/rutorrent/conf/config.php
++++ b/rutorrent/conf/config.php
+@@ -31,7 +31,7 @@
+ $do_diagnostic = true;
  
- 	$do_diagnostic = true;
--	$log_file = '/tmp/errors.log';		// path to log file (comment or leave blank to disable logging)
-+	$log_file = '/opt/tmp/errors.log';		// path to log file (comment or leave blank to disable logging)
+ // Path to log file. Set to '' to disable logging.
+-$log_file = '/tmp/errors.log';
++$log_file = '/opt/tmp/errors.log';
  
- 	$saveUploadedTorrents = true;		// Save uploaded torrents to profile/torrents directory or not
- 	$overwriteUploadedTorrents = false;     // Overwrite existing uploaded torrents in profile/torrents directory or make unique name
-@@ -27,15 +27,15 @@
- 	$topDirectory = '/';			// Upper available directory. Absolute path with trail slash.
- 	$forbidUserSettings = false;
+ // If set to true, all .torrent files added via webui will be saved in share/torrents
+ // (or share/users/USERNAME/torrents) directory. If set to false, all .torrent files
+@@ -51,14 +51,14 @@
  
--	$scgi_port = 5000;
--	$scgi_host = "127.0.0.1";
-+	// $scgi_port = 5000;
-+	// $scgi_host = "127.0.0.1";
+ // '$scgi_port' and '$scgi_host' must match 'scgi_port' setting in rTorrent
+ // configuration file.
+-$scgi_port = 5000;
+-$scgi_host = "127.0.0.1";
++//$scgi_port = 5000;
++//$scgi_host = "127.0.0.1";
  
- 	// For web->rtorrent link through unix domain socket 
- 	// (scgi_local in rtorrent conf file), change variables 
- 	// above to something like this:
- 	//
--	// $scgi_port = 0;
--	// $scgi_host = "unix:///tmp/rpc.socket";
-+	$scgi_port = 0;
-+	$scgi_host = "unix:///opt/var/rpc.socket";
+ // For webserver->rTorrent connection via unix domain socket, change '$scgi_port'
+ // and '$scgi_host' variables to something like this ('$scgi_host' must match
+ // 'scgi_local' setting in rTorrent configuration file):
+-//$scgi_port = 0;
+-//$scgi_host = "unix:///tmp/rpc.socket";
++$scgi_port = 0;
++$scgi_host = "unix:///opt/var/rpc.socket";
  
- 	$XMLRPCMountPoint = "/RPC2";		// DO NOT DELETE THIS LINE!!! DO NOT COMMENT THIS LINE!!!
- 
+ // DO NOT DELETE THIS LINE!!! DO NOT COMMENT THIS LINE!!!
+ $XMLRPCMountPoint = "/RPC2";
