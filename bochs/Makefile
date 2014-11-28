@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bochs
-PKG_VERSION:=2.6.6
+PKG_VERSION:=2.6.7
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/$(PKG_NAME)/$(PKG_VERSION)
-PKG_MDSUM:=f5c8483bc478381dd5979f6b3972d44e
+PKG_MDSUM:=8ae62e24c19dc862f5e8660a34ab31b2
 
 PKG_INSTALL:=1
 
@@ -49,7 +49,7 @@ TARGET_LDFLAGS += \
 
 define Package/bochs/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/{bochs,bxcommit,bximage} \
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/{bochs,bximage} \
 		$(1)/opt/bin/
 	$(INSTALL_DIR) $(1)/opt/share/bochs
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/bochs/{BIOS,VGABIOS}-* \
