@@ -51,7 +51,6 @@ define Package/3proxy/install
 	$(INSTALL_BIN) \
 		$(PKG_BUILD_DIR)/src/{3proxy,countersutil,dighosts,ftppr,mycrypt,pop3p,proxy,socks,tcppm,udppm} \
 		$(1)/opt/bin
-	$(INSTALL_DIR) $(1)/opt/etc/3proxy
 	$(INSTALL_DIR) $(1)/opt/lib/3proxy
 	$(INSTALL_BIN) \
 		$(PKG_BUILD_DIR)/src/{PCRE,Strings,Traffic,Transparent}Plugin.ld.so \
