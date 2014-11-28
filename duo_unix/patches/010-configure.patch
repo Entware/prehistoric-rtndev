@@ -1,5 +1,5 @@
---- ./configure.ac.orig	2014-01-19 19:25:14.299726917 +0400
-+++ ./configure.ac	2014-01-19 19:25:33.383724322 +0400
+--- a/configure.ac
++++ b/configure.ac
 @@ -15,7 +15,7 @@
  AC_CONFIG_MACRO_DIR([autotools])
  
@@ -9,3 +9,12 @@
  AM_MAINTAINER_MODE
  AB_INIT
  
+@@ -86,8 +86,6 @@
+ 
+ # Check OpenSSL
+ AX_CHECK_OPENSSL([], AC_MSG_FAILURE([OpenSSL not found]))
+-# Define if X509_TEA_set_state exists
+-AX_CHECK_X509(AC_DEFINE([HAVE_X509_TEA_SET_STATE],[1],[Define if X509_set_state exists]), [])
+ # Default PAM install dir
+ case "$host" in
+      *darwin*)         PAM_DIR="/usr/lib/pam" ;;
