@@ -8,10 +8,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=inadyn
-PKG_VERSION:=1.99.10
+PKG_VERSION:=1.99.12
 PKG_RELEASE:=1
 
-PKG_REV:=5c6c174113932fd380745d15a01906d382905a4c
+PKG_REV:=b09e6cc68a10a5271e960057e53ddc49bae3976e
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -48,7 +48,7 @@ define Package/inadyn/install
 endef
 
 define Package/inadyn/conffiles
-/opt/etc/inadyn/inadyn.conf
+/opt/etc/inadyn.conf
 endef
 
 $(eval $(call BuildPackage,inadyn))

@@ -1,7 +1,7 @@
 --- a/include/ddns.h
 +++ b/include/ddns.h
-@@ -36,8 +36,8 @@
- #define SUPPORT_ADDR	"troglobit@gmail.com"
+@@ -37,8 +37,8 @@
+ #define SUPPORT_ADDR	PACKAGE_BUGREPORT
  
  /* Test values */
 -#define DEFAULT_CONFIG_FILE	"/etc/inadyn.conf"
