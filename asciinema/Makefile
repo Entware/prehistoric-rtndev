@@ -23,7 +23,7 @@ define Package/asciinema
 	SECTION:=utils
 	CATEGORY:=Utilities
 	SUBMENU:=Terminal
-	DEPENDS:=+distribute +python-bzip2 +python-requests +ncurses-bin
+	DEPENDS:=+distribute +python-requests +ncurses-bin
 	TITLE:=A terminal sessions recorder
 	URL:=http://asciinema.org/
 	MAINTAINER:=Entware team, entware.wl500g.info

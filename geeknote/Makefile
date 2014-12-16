@@ -24,7 +24,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/geeknote
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=+python +python-sqlite3 +python-openssl
+	DEPENDS:=+python
 	TITLE:=command line client for Evernote
 	URL:=http://www.geeknote.me
 	MAINTAINER:=Entware team, entware.wl500g.info
