@@ -52,6 +52,10 @@ define Package/accel-ppp/conffiles
 /opt/etc/accel-ppp.conf
 endef
 
+define Build/InstallDev
+	true
+endef
+
 define Package/accel-ppp/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/accel-cmd $(1)/opt/bin/

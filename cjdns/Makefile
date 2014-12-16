@@ -48,6 +48,10 @@ CMAKE_OPTIONS += \
 	-DHAVE_NACL=1 \
 	-DNACL_INCLUDE_DIRS="$(STAGING_DIR)/opt/include/nacl"
 
+define Build/InstallDev
+	true
+endef
+
 define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/cjdroute2 $(1)/opt/sbin/

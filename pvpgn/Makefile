@@ -77,6 +77,10 @@ define Build/Prepare
 	tar -C $(PKG_BUILD_DIR) -xvzf $(DL_DIR)/$(PVPGN_SUPP).tar.gz
 endef
 
+define Build/InstallDev
+	true
+endef
+
 define Package/pvpgn/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/bn{bot,cdb,chat,ftp,pass,stat} $(1)/opt/bin/

@@ -52,6 +52,10 @@ define Build/Configure
 	$(call Build/Configure/Default)
 endef
 
+define Build/InstallDev
+	true
+endef
+
 define Package/oscam/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/oscam $(1)/opt/bin
