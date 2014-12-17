@@ -28,7 +28,7 @@ define Package/$(PKG_NAME)
 	CATEGORY:=Network
 	TITLE:=Make localhost servers publicly visible.
 	URL:=http://pagekite.net
-	DEPENDS+=+python +openssl-util +python-socksipychain +net-tools-arp
+	DEPENDS+=+python +python-openssl +openssl-util +python-socksipychain +net-tools-arp
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 

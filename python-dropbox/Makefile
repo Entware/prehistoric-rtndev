@@ -24,7 +24,7 @@ define Package/python-dropbox
 	SECTION:=lang
 	CATEGORY:=Languages
 	SUBMENU:=Python
-	DEPENDS:=+python +distribute +python-oauth +simplejson
+	DEPENDS:=+python +distribute +python-oauth +simplejson +python-openssl
 	TITLE:=Dropbox SDK for Python
 	URL:=https://www.dropbox.com/developers/reference/sdk
 	MAINTAINER:=Entware team, entware.wl500g.info

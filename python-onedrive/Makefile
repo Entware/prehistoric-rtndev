@@ -27,7 +27,7 @@ define Package/$(PKG_NAME)
 	CATEGORY:=Languages
 	TITLE:=Python and CLI interface to MS OneDrive REST API v5.0
 	URL:=https://github.com/mk-fg/python-onedrive
-	DEPENDS:=+python +python-requests +pyyaml +python-chardet
+	DEPENDS:=+python +python-requests +pyyaml +python-chardet +python-openssl
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
