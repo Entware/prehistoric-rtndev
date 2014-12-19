@@ -20,8 +20,8 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/bochs
-	SECTION:=emulator
-	CATEGORY:=Emulators
+	SECTION:=utils
+	CATEGORY:=Utilities
 	DEPENDS:=+libpthread +libstdcpp
 	TITLE:=x86 PC emulator
 	URL:=http://bochs.sourceforge.net/
