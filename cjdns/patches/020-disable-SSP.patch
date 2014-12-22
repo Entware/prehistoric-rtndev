@@ -1,0 +1,37 @@
+--- a/node_build/make.js
++++ b/node_build/make.js
+@@ -151,33 +151,7 @@
+         }
+     });
+ 
+-    var uclibc = process.env['UCLIBC'] == '1';
+-    var libssp = process.env['SSP_SUPPORT'] == 'y';
+-    if (builder.config.systemName == 'win32') {
+-        builder.config.libs.push('-lssp');
+-    } else if ((!uclibc && builder.config.systemName !== 'sunos') || libssp) {
+-        builder.config.cflags.push(
+-            // Broken GCC patch makes -fstack-protector-all not work
+-            // workaround is to give -fno-stack-protector first.
+-            // see: https://bugs.launchpad.net/ubuntu/+source/gcc-4.5/+bug/691722
+-            '-fno-stack-protector',
+-            '-fstack-protector-all',
+-            '-Wstack-protector'
+-        );
+-
+-        // Static libssp provides __stack_chk_fail_local, which x86 needs in
+-        // order to avoid expensively looking up the location of __stack_chk_fail.
+-        var x86 = process.env['TARGET_ARCH'] == 'i386';
+-        if (uclibc) {
+-            if (x86) {
+-                builder.config.libs.push('-Wl,-Bstatic', '-lssp', '-Wl,-Bdynamic');
+-            } else {
+-                builder.config.libs.push('-lssp');
+-            }
+-        }
+-    } else {
+-        console.log("Stack Smashing Protection (security feature) is disabled");
+-    }
++    console.log("Stack Smashing Protection (security feature) is disabled");
+ 
+     var dependencyDir = builder.config.buildDir + '/dependencies';
+     var libuvLib = dependencyDir + '/libuv/out/Release/libuv.a';
