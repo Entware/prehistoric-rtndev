@@ -57,7 +57,7 @@ www_cfg=/opt/etc/lighttpd/conf.d/99-rtorrent-fastcgi-scgi-auth.conf
 rt_cfg=/opt/etc/rtorrent/rtorrent.conf
 
 #### Configuring web-server
-cat >> $$www_cfg << EOF
+cat > $$www_cfg << EOF
 
 server.modules += ( "mod_scgi" )
 scgi.server = (
