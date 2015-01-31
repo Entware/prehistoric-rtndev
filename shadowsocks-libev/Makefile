@@ -9,7 +9,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=shadowsocks-libev
-PKG_VERSION:=1.4.8
+PKG_VERSION:=2.1.2
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
 PKG_SOURCE_URL:=https://github.com/madeye/shadowsocks-libev/archive
@@ -26,7 +26,7 @@ define Package/shadowsocks-libev/Default
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=Web Servers/Proxies
-	DEPENDS:=+libev +libpthread
+	DEPENDS:=+libev +libsodium +libpthread
 	TITLE:=lightweight Socks5 proxy
 	URL:=https://github.com/madeye/shadowsocks-libev
 	MAINTAINER:=Entware team, entware.wl500g.info
@@ -60,7 +60,7 @@ ifeq ($(BUILD_VARIANT),polarssl)
 CONFIGURE_ARGS += --with-crypto-library=polarssl
 endif
 
-TARGET_LDFLAGS += -lev -L$(STAGING_DIR)/opt/lib/libev
+TARGET_LDFLAGS += -lsodium -lev -L$(STAGING_DIR)/opt/lib/libev
 TARGET_CFLAGS += -I$(STAGING_DIR)/opt/include/libev
 
 define Package/shadowsocks-libev/install
