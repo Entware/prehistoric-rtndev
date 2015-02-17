@@ -1,6 +1,6 @@
 #
 # Copyright 2013 Luke Dashjr
-# Copyright (C) 2013 Entware
+# Copyright (C) 2013 - 2015 Entware
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -12,12 +12,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bfgminer
 PKG_TITLE:=BFGMiner
-PKG_VERSION:=4.10.0
+PKG_VERSION:=5.0.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).zip
 PKG_SOURCE_URL:=http://luke.dashjr.org/programs/bitcoin/files/$(PKG_NAME)/$(PKG_VERSION)
-PKG_MD5SUM:=9b8207cc2cd0e1cd42f465c5b4054a70
+PKG_MD5SUM:=af1ae0d0f0ac31b7caeb5aab421a20d8
 
 PKG_INSTALL:=1
 
