@@ -9,15 +9,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=p7zip
-PKG_VERSION:=9.20.1
-PKG_RELEASE:=2
+PKG_VERSION:=9.38
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION)_src_all.tar.bz2
-PKG_SOURCE_URL:=@SF/p7zip
-PKG_MD5SUM:=bd6caaea567dc0d995c990c5cc883c89
+PKG_SOURCE_URL:=@SF/p7zip/$(PKG_VERSION)
+PKG_MD5SUM:=c0394e60078e84d43fbca152cb3a1e1c
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)_$(PKG_VERSION)
-PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -46,7 +45,7 @@ MAKE_FLAGS += \
 
 define Package/p7zip/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/7z{r,a} $(1)/opt/bin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/7z{r,a} $(1)/opt/bin/
 endef
 
 $(eval $(call BuildPackage,p7zip))
