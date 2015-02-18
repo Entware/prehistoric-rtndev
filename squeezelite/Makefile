@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=squeezelite
-PKG_VERSION:=1.6.5
-PKG_REV:=1bcddea0adb1a4dc6a96b46b30571867aa529b9a
+PKG_VERSION:=1.7.1
+PKG_REV:=1860ed3d422a668bebd4b1c5a4b428bd0ef9eabc
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
