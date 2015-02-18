@@ -9,12 +9,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-chardet
-PKG_VERSION:=2.2.1
+PKG_VERSION:=2.3.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=chardet-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/c/chardet/
-PKG_MD5SUM:=4a758402eaefd0331bdedc7ecb6f452c
+PKG_MD5SUM:=25274d664ccb5130adae08047416e1a8
 PKG_BUILD_DIR:=$(BUILD_DIR)/chardet-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
