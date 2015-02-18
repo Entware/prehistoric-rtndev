@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=husky
-PKG_VERSION:=1.9-20140519
+PKG_VERSION:=1.9-20150211
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-all-1.9-source-20140519.tgz
-PKG_SOURCE_URL:=@SF/husky/husky/1.9-current/2014.05.19
-PKG_MD5SUM:=8c5f0a4b8971d4f9e0e872befb348826
+PKG_SOURCE:=$(PKG_NAME)-all-1.9-source-20150211.tgz
+PKG_SOURCE_URL:=@SF/husky/husky/1.9-current/2015.02.11
+PKG_MD5SUM:=6dc36f0c2d0a49a603a107035ba5f07a
 
 include $(INCLUDE_DIR)/package.mk
 
