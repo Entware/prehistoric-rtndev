@@ -9,12 +9,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-onedrive
-PKG_VERSION:=14.11.9
+PKG_VERSION:=15.02.10
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/p/$(PKG_NAME)/
-PKG_MD5SUM:=4db2a4b46fd24fe8d4e617030a1e2001
+PKG_MD5SUM:=6a98e31fe77c146367040fce4ebfe228
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
@@ -36,12 +36,9 @@ define Package/$(PKG_NAME)/description
  REST API v5.0.
 endef
 
-define Package/$(PKG_NAME)/conffiles
-/opt/etc/.lcrc
-endef
-
 define Build/Compile
 	$(call Build/Compile/PyMod,,install --prefix=/opt --root=$(PKG_INSTALL_DIR))
+	$(SED) 's,/usr/bin/env python,/opt/bin/python,g' $(PKG_BUILD_DIR)/onedrive/cli_tool.py
 endef
 
 define Package/$(PKG_NAME)/install
