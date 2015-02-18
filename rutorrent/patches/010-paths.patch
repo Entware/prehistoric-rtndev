@@ -9,7 +9,7 @@
  
  // If set to true, all .torrent files added via webui will be saved in share/torrents
  // (or share/users/USERNAME/torrents) directory. If set to false, all .torrent files
-@@ -51,14 +51,14 @@
+@@ -51,25 +51,25 @@
  
  // '$scgi_port' and '$scgi_host' must match 'scgi_port' setting in rTorrent
  // configuration file.
@@ -28,3 +28,19 @@
  
  // DO NOT DELETE THIS LINE!!! DO NOT COMMENT THIS LINE!!!
  $XMLRPCMountPoint = "/RPC2";
+ 
+ // Path to external binaries (e.g. /usr/bin/php). Set to '' to search in $PATH.
+ $pathToExternals = array(
+-    "php"	=> '',
+-    "curl"	=> '',
+-    "gzip"	=> '',
+-    "id"	=> '',
+-    "stat"	=> '',
++    "php"	=> '/opt/bin/php-cgi',
++    "curl"	=> '/opt/bin/curl',
++    "gzip"	=> '/opt/bin/gzip',
++    "id"	=> '/opt/bin/id',
++    "stat"	=> '/opt/bin/stat',
+ );
+ 
+ // List of local interfaces.

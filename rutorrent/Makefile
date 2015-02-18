@@ -12,7 +12,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=rutorrent
 PKG_REV:=2600
 PKG_VERSION:=3.6-r$(PKG_REV)
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE_PROTO:=svn
 PKG_SOURCE_VERSION:=$(PKG_REV)
@@ -37,7 +37,7 @@ define Package/rutorrent/Default
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=BitTorrent
-	DEPENDS:=+rtorrent-rpc +coreutils-stat +coreutils-id
+	DEPENDS:=+rtorrent-rpc +coreutils-stat +coreutils-id +gzip +curl
 	TITLE:=Yet another web front-end for rTorrent
 	URL:=http://rutorrent.googlecode.com
 	MAINTAINER:=Entware team, entware.wl500g.info
