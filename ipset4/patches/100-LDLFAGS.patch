@@ -1,0 +1,10 @@
+--- a/Makefile
++++ b/Makefile
+@@ -67,7 +67,6 @@
+ CFLAGS:=$(ABI_FLAGS) $(COPT_FLAGS) $(WARN_FLAGS) -Ikernel/include -I. # -g -DIPSET_DEBUG
+ CFLAGS+=-DIP_NF_SET_HASHSIZE=$(IP_NF_SET_HASHSIZE)
+ SH_CFLAGS:=$(CFLAGS) -fPIC
+-LDFLAGS:=$(ABI_FLAGS)
+ SETTYPES:=ipmap portmap macipmap
+ SETTYPES+=iptree iptreemap
+ SETTYPES+=iphash nethash ipporthash ipportiphash ipportnethash
