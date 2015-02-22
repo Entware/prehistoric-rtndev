@@ -8,17 +8,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-werkzeug
-PKG_VERSION:=0.10-20130904
+PKG_VERSION:=0.10.1
 PKG_RELEASE:=1
 
-PKG_REV:=e96a92443f928e243706c655a183cde5eb508347
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/mitsuhiko/werkzeug.git
-PKG_SOURCE_VERSION:=$(PKG_REV)
+PKG_SOURCE:=Werkzeug-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://pypi.python.org/packages/source/W/Werkzeug
+PKG_MD5SUM:=231d10996b7c3c1efe1776f22d570f83
 
 PKG_BUILD_DEPENDS:=distribute/host
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/Werkzeug-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
