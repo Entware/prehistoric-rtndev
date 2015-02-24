@@ -18,12 +18,14 @@ PKG_SOURCE_URL:=https://code.google.com/p/squeezelite/
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
+PKG_BUILD_DEPENDS:=+libvorbis +libflac +libmad +faad2 +libmpg123 
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/squeezelite
 	SECTION:=sound
 	CATEGORY:=Sound
-	DEPENDS:=+alsa-lib +libmpg123
+	DEPENDS:=+alsa-lib
 	TITLE:=headless squeezebox emulator
 	URL:=https://code.google.com/p/squeezelite/
 	MAINTAINER:=Entware team, entware.wl500g.info
