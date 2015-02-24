@@ -23,7 +23,7 @@ $(call include_mk, python-package.mk)
 define Package/weave-minimal
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=+python-sqlite3 +python-werkzeug +dtach +python-gevent
+	DEPENDS:=+python-sqlite3 +python-werkzeug +dtach +python-gevent +python-openssl +distribute
 	TITLE:=a Firefox Sync Server
 	URL:=https://github.com/posativ/weave-minimal
 	MAINTAINER:=Entware team, entware.wl500g.info
