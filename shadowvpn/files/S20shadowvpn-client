@@ -5,7 +5,7 @@ PATH=/opt/bin:/opt/sbin:/sbin:/bin:/usr/sbin:/usr/bin
 start()
 {
     shadowvpn \
-        -c /etc/shadowvpn/client.conf \
+        -c /opt/etc/shadowvpn/client.conf \
         -s start
 }
 
