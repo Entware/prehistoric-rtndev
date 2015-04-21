@@ -18,16 +18,16 @@ PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=git://github.com/jnwatts/microdc2.git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
+PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
-include $(INCLUDE_DIR)/nls.mk
 
 define Package/microdc2
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=P2P
-	DEPENDS:=$(ICONV_DEPENDS) +libxml2 +libreadline +libncurses
+	DEPENDS:=+libxml2 +libreadline +libncurses
 	TITLE:=microdc2
 	URL:=https://github.com/jnwatts/microdc2
 	MAINTAINER:=Entware team, entware.wl500g.info
@@ -36,10 +36,6 @@ endef
 define Package/microdc2/description
  A command-line based Direct Connect client.
 endef
-
-CONFIGURE_ARGS += \
-	--with-libintl-prefix=$(INTL_PREFIX) \
-	--with-libiconv-prefix=$(ICONV_PREFIX)
 
 MAKE_FLAGS += \
 	LTLIBICONV=""
