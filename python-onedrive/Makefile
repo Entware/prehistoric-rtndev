@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-onedrive
 PKG_VERSION:=15.02.10
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/p/$(PKG_NAME)/
@@ -27,7 +27,7 @@ define Package/$(PKG_NAME)
 	CATEGORY:=Languages
 	TITLE:=Python and CLI interface to MS OneDrive REST API v5.0
 	URL:=https://github.com/mk-fg/python-onedrive
-	DEPENDS:=+python +python-requests +pyyaml +python-chardet +python-openssl
+	DEPENDS:=+python +python-requests +python-yaml +python-chardet +python-openssl
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
