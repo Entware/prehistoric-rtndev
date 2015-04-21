@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=asciinema
 PKG_VERSION:=0.9.8
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/a/$(PKG_NAME)
@@ -23,7 +23,7 @@ define Package/asciinema
 	SECTION:=utils
 	CATEGORY:=Utilities
 	SUBMENU:=Terminal
-	DEPENDS:=+distribute +python-bzip2 +python-requests +ncurses-bin
+	DEPENDS:=+distribute +python-requests +ncurses-bin
 	TITLE:=A terminal sessions recorder
 	URL:=http://asciinema.org/
 	MAINTAINER:=Entware team, entware.wl500g.info
