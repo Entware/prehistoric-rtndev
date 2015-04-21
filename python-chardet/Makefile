@@ -47,7 +47,7 @@ define Package/$(PKG_NAME)/install
 	    $(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
 	    $(1)$(PYTHON_PKG_DIR)/
 	$(INSTALL_DIR) $(1)/opt/bin
-	 $(SED) 's,$(STAGING_DIR)/opt/bin/hostpython,/opt/bin/python,g' $(PKG_INSTALL_DIR)/opt/bin/chardetect
+	$(SED) 's,$(HOST_PYTHON_BIN),/opt/bin/python,g' $(PKG_INSTALL_DIR)/opt/bin/chardetect
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/chardetect $(1)/opt/bin/
 endef
 
