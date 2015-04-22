@@ -50,6 +50,7 @@ define Package/$(PKG_NAME)/install
 
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/* $(1)/opt/bin/
+	$(SED) 's,$(HOST_PYTHON_BIN),/opt/bin/python,g' $(1)/opt/bin/sockschain
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
