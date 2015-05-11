@@ -1,6 +1,6 @@
 --- a/Daemon.cpp
 +++ b/Daemon.cpp
-@@ -91,7 +91,7 @@
+@@ -94,7 +94,7 @@
  			{
  				if (isDaemon)
  				{
