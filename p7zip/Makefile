@@ -4,17 +4,16 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-# (c) Cezary Jackiewicz <cezary@eko.one.pl>
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=p7zip
-PKG_VERSION:=9.38
+PKG_VERSION:=9.38.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION)_src_all.tar.bz2
-PKG_SOURCE_URL:=@SF/p7zip/$(PKG_VERSION)
-PKG_MD5SUM:=c0394e60078e84d43fbca152cb3a1e1c
+PKG_SOURCE_URL:=@SF/p7zip/p7zip/$(PKG_VERSION)
+PKG_MD5SUM:=6cba8402ccab2370d3b70c5e28b3d651
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)_$(PKG_VERSION)
 
