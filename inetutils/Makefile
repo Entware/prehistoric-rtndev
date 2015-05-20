@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=inetutils
-PKG_VERSION:=1.9.2
+PKG_VERSION:=1.9.3
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://ftp.gnu.org/gnu/$(PKG_NAME)
-PKG_MD5SUM:=aa1a9a132259db83e66c1f3265065ba2
+PKG_MD5SUM:=491a75cb382ce3f68122e4556addfcae
 
 PKG_INSTALL:=1
 
