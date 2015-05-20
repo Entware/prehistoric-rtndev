@@ -6,7 +6,7 @@
  INCFLAGS =
  
  ## NOTE: The NEEDED_CXXFLAGS are here so that custom CXXFLAGS can be specified at build time
-@@ -35,7 +35,7 @@
+@@ -37,7 +37,7 @@
    LDLIBS += -lpthread -static-libstdc++ -static-libgcc
    USE_AESNI := no
  else
