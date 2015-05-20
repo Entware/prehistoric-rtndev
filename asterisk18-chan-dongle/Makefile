@@ -8,15 +8,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=asterisk18-chan-dongle
-PKG_REV=42
-PKG_VERSION:=r$(PKG_REV)
+PKG_VERSION:=1.1-20150411
+PKG_REV:=5263047a3d240b34b1776be0993ae0af01993823
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://asterisk-chan-dongle.googlecode.com/svn/trunk/
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_URL:=https://github.com/bg111/asterisk-chan-dongle
+PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_REV)
-PKG_SOURCE_PROTO:=svn
 
 PKG_FIXUP:=autoreconf
 
@@ -29,8 +29,8 @@ define Package/asterisk18-chan-dongle
 	SUBMENU:=Telephony
 	DEPENDS:=+asterisk18 $(ICONV_DEPENDS) $(INTL_DEPENDS)
 	TITLE:=Huawei UMTS 3G dongle support
-	URL:=http://code.google.com/p/asterisk-chan-dongle
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	URL:=https://github.com/bg111/asterisk-chan-dongle
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/asterisk18-chan-dongle/description
