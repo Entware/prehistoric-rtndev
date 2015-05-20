@@ -1,6 +1,6 @@
---- a/makefile
-+++ b/makefile
-@@ -17,12 +17,12 @@
+--- ./makefile.orig	2014-09-28 22:44:24.000000000 +0400
++++ ./makefile	2015-05-20 15:19:53.000000000 +0300
+@@ -22,12 +22,12 @@
  #*******************************************************************************
  # Release flags
  #*******************************************************************************
@@ -11,16 +11,19 @@
  # Include
  #*******************************************************************************
 -INCLUDE = -Itinyxml -Iskein/Optimized_32bit -I/usr/include -I/usr/include/lua5.1
-+INCLUDE = -Itinyxml  -Iskein/Optimized_32bit $(CXXFLAGS)
++INCLUDE = -Itinyxml -Iskein/Optimized_32bit $(CXXFLAGS)
  
  #*******************************************************************************
  # Files to compile and link
-@@ -49,7 +49,7 @@
+@@ -52,10 +52,9 @@
+ # then remove -llua5.1 and after tinyxml/tinyxml.a add /usr/local/lib/liblua.a (default path when is Lua compiled from sources).
+ #*******************************************************************************
+ 
+-PtokaX: INCLUDE = -Iskein/Optimized_32bit -I/usr/include -I/usr/include/lua5.1
  PtokaX: $(OBJS)
  	cd skein; $(MAKE)
- 	cd tinyxml; $(MAKE)
--	$(CXX) $(OBJS) $(CURDIR)/tinyxml/tinyxml.a $(CURDIR)/skein/skein.a -o PtokaX -lstdc++ -lpthread -llua5.1 -lrt -lz
-+	$(CXX) $(LDFLAGS) $(OBJS) $(CURDIR)/tinyxml/tinyxml.a $(CURDIR)/skein/skein.a -o PtokaX -lstdc++ -lpthread -llua -lrt -lz
+-	$(CXX) $(OBJS) $(CURDIR)/skein/skein.a -o PtokaX -lstdc++ -lpthread -llua5.1 -lrt -ltinyxml -lz
++	$(CXX) $(LDFLAGS) $(OBJS) $(CURDIR)/skein/skein.a $(CURDIR)/tinyxml/tinyxml.a -o PtokaX -lstdc++ -lpthread -llua -lrt -lz
  
- lua52: INCLUDE = -Itinyxml -Iskein/Optimized_32bit -I/usr/include -I/usr/include/lua5.2
+ lua52: INCLUDE = -Iskein/Optimized_32bit -I/usr/include -I/usr/include/lua5.2
  lua52: $(OBJS)
