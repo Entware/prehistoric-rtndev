@@ -6,6 +6,7 @@
 # See /LICENSE for more information.
 #
 # Makefile taken from http://github.com/FranciscoBorges/openwrt-printing-packages
+# Patches should be reworked for newer releases.
 
 include $(TOPDIR)/rules.mk
 

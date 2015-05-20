@@ -1,6 +1,6 @@
 --- a/cloudfuse.c
 +++ b/cloudfuse.c
-@@ -413,13 +413,7 @@
+@@ -542,13 +542,7 @@
  
  char *get_home_dir()
  {
