@@ -25,7 +25,7 @@ define Package/crawl
 	DEPENDS:=+zlib +libstdcpp +libncursesw +libsqlite3
 	TITLE:=Dungeon Crawl Stone Soup is a role-playing roguelike game
 	URL:=http://crawl.develz.org
-	MAINTAINER:=Entware team, wl500g-repo.googlecode.com
+	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
 define Package/crawl/description

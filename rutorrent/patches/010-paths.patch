@@ -1,46 +1,45 @@
---- a/rutorrent/conf/config.php
-+++ b/rutorrent/conf/config.php
-@@ -31,7 +31,7 @@
- $do_diagnostic = true;
+--- a/conf/config.php
++++ b/conf/config.php
+@@ -19,7 +19,7 @@
+ 	$schedule_rand = 10;			// rand for schedulers start, +0..X seconds
  
- // Path to log file. Set to '' to disable logging.
--$log_file = '/tmp/errors.log';
-+$log_file = '/opt/tmp/errors.log';
+ 	$do_diagnostic = true;
+-	$log_file = '/tmp/errors.log';		// path to log file (comment or leave blank to disable logging)
++	$log_file = '/opt/var/log/rutorrent_errors.log';		// path to log file (comment or leave blank to disable logging)
  
- // If set to true, all .torrent files added via webui will be saved in share/torrents
- // (or share/users/USERNAME/torrents) directory. If set to false, all .torrent files
-@@ -51,25 +51,25 @@
+ 	$saveUploadedTorrents = true;		// Save uploaded torrents to profile/torrents directory or not
+ 	$overwriteUploadedTorrents = false;     // Overwrite existing uploaded torrents in profile/torrents directory or make unique name
+@@ -27,24 +27,24 @@
+ 	$topDirectory = '/';			// Upper available directory. Absolute path with trail slash.
+ 	$forbidUserSettings = false;
  
- // '$scgi_port' and '$scgi_host' must match 'scgi_port' setting in rTorrent
- // configuration file.
--$scgi_port = 5000;
--$scgi_host = "127.0.0.1";
-+//$scgi_port = 5000;
-+//$scgi_host = "127.0.0.1";
+-	$scgi_port = 5000;
+-	$scgi_host = "127.0.0.1";
++	// $scgi_port = 5000;
++	// $scgi_host = "127.0.0.1";
  
- // For webserver->rTorrent connection via unix domain socket, change '$scgi_port'
- // and '$scgi_host' variables to something like this ('$scgi_host' must match
- // 'scgi_local' setting in rTorrent configuration file):
--//$scgi_port = 0;
--//$scgi_host = "unix:///tmp/rpc.socket";
-+$scgi_port = 0;
-+$scgi_host = "unix:///opt/var/rpc.socket";
+ 	// For web->rtorrent link through unix domain socket 
+ 	// (scgi_local in rtorrent conf file), change variables 
+ 	// above to something like this:
+ 	//
+-	// $scgi_port = 0;
+-	// $scgi_host = "unix:///tmp/rpc.socket";
++	$scgi_port = 0;
++	$scgi_host = "unix:///opt/var/rpc.socket";
  
- // DO NOT DELETE THIS LINE!!! DO NOT COMMENT THIS LINE!!!
- $XMLRPCMountPoint = "/RPC2";
+ 	$XMLRPCMountPoint = "/RPC2";		// DO NOT DELETE THIS LINE!!! DO NOT COMMENT THIS LINE!!!
  
- // Path to external binaries (e.g. /usr/bin/php). Set to '' to search in $PATH.
- $pathToExternals = array(
--    "php"	=> '',
--    "curl"	=> '',
--    "gzip"	=> '',
--    "id"	=> '',
--    "stat"	=> '',
-+    "php"	=> '/opt/bin/php-cgi',
-+    "curl"	=> '/opt/bin/curl',
-+    "gzip"	=> '/opt/bin/gzip',
-+    "id"	=> '/opt/bin/id',
-+    "stat"	=> '/opt/bin/stat',
- );
+ 	$pathToExternals = array(
+-		"php" 	=> '',			// Something like /usr/bin/php. If empty, will be found in PATH.
+-		"curl"	=> '',			// Something like /usr/bin/curl. If empty, will be found in PATH.
+-		"gzip"	=> '',			// Something like /usr/bin/gzip. If empty, will be found in PATH.
+-		"id"	=> '',			// Something like /usr/bin/id. If empty, will be found in PATH.
+-		"stat"	=> '',			// Something like /usr/bin/stat. If empty, will be found in PATH.
++		"php" 	=> '/opt/bin/php-cgi',			// Something like /usr/bin/php. If empty, will be found in PATH.
++		"curl"	=> '/opt/bin/curl',			// Something like /usr/bin/curl. If empty, will be found in PATH.
++		"gzip"	=> '/opt/bin/gzip',			// Something like /usr/bin/gzip. If empty, will be found in PATH.
++		"id"	=> '/opt/bin/id',			// Something like /usr/bin/id. If empty, will be found in PATH.
++		"stat"	=> '/opt/bin/stat',			// Something like /usr/bin/stat. If empty, will be found in PATH.
+ 	);
  
- // List of local interfaces.
+ 	$localhosts = array( 			// list of local interfaces
