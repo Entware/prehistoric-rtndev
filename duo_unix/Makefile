@@ -15,13 +15,6 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://dl.duosecurity.com
 PKG_MD5SUM:=0a0210fb075f283188aa9a4e49db63f3
 
-#PKG_REV:=432faeed150f5b7a57f6494d76a750f33aab8d59
-#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-#PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-#PKG_SOURCE_PROTO:=git
-#PKG_SOURCE_URL:=git://github.com/duosecurity/duo_unix.git
-#PKG_SOURCE_VERSION:=$(PKG_REV)
-
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
 
