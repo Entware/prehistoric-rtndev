@@ -24,7 +24,7 @@ define Package/inotify-tools
 	CATEGORY:=Utilities
 	SUBMENU:=Filesystem
 	TITLE:=package of some commandline utilities relating to inotify
-	URL:=https://github.com/rvoicilas/inotify-tools
+	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 

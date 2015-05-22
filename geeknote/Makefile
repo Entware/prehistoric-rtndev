@@ -16,7 +16,7 @@ PKG_REV:=c8a74e486ed9f906227f99bf532ba0688c25d0fe
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/VitaliyRodnenko/geeknote.git
+PKG_SOURCE_URL:=https://github.com/VitaliyRodnenko/geeknote
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 include $(INCLUDE_DIR)/package.mk

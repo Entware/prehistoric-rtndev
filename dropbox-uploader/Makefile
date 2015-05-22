@@ -15,7 +15,7 @@ PKG_REV:=32b0a8dded4d845dc48d9486c2bf2bb1423de3d6
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/andreafabrizi/Dropbox-Uploader.git
+PKG_SOURCE_URL:=https://github.com/andreafabrizi/Dropbox-Uploader
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 include $(INCLUDE_DIR)/package.mk
@@ -27,7 +27,7 @@ define Package/dropbox-uploader
 	DEPENDS:=+bash +curl +sed +coreutils-basename +coreutils-date \
 	    +coreutils-stat +coreutils-dd +coreutils-mkdir
 	TITLE:=BASH script for Dropbox
-	URL:=https://github.com/andreafabrizi/Dropbox-Uploader
+	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 

@@ -15,7 +15,7 @@ PKG_REV:=30bd14bdf0d58d3818cf4135ae8d689f01924590
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/jnwatts/microdc2.git
+PKG_SOURCE_URL:=https://github.com/jnwatts/microdc2
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_FIXUP:=autoreconf
@@ -29,7 +29,7 @@ define Package/microdc2
 	SUBMENU:=P2P
 	DEPENDS:=+libxml2 +libreadline +libncurses
 	TITLE:=microdc2
-	URL:=https://github.com/jnwatts/microdc2
+	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 

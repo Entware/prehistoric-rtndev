@@ -26,7 +26,7 @@ define Package/inadyn
 	SUBMENU:=IP Addresses and Names
 	DEPENDS:=+libgnutls-openssl
 	TITLE:=a simple and small DDNS client
-	URL:=https://github.com/vampik/inadyn
+	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 

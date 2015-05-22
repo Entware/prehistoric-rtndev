@@ -14,7 +14,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_URL:=git://github.com/bubbafix/openwrt-bm1707.git
+PKG_SOURCE_URL:=https://github.com/bubbafix/openwrt-bm1707
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
@@ -25,7 +25,7 @@ define Package/mp707
 	CATEGORY:=Utilities
 	DEPENDS:=+libusb-compat +libstdcpp
 	TITLE:=USB thermometer MP707(BM1707) utility
-	URL:=http://wl500g.info/showthread.php?20497&p=257339#post257339
+	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 

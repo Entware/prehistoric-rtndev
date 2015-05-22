@@ -17,7 +17,7 @@ PKG_REV:=26e5374710c7868dab3d834be14bf4041041aae5
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/larsks/crashmail.git
+PKG_SOURCE_URL:=https://github.com/larsks/crashmail
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 include $(INCLUDE_DIR)/package.mk
@@ -27,7 +27,7 @@ define Package/crashmail
 	CATEGORY:=Network
 	SUBMENU:=FTN
 	TITLE:=CrashMail II
-	URL:=http://packages.debian.org/ru/squeeze/crashmail
+	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 

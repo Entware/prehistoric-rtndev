@@ -27,7 +27,7 @@ define Package/hubicfuse
 	SUBMENU:=Filesystem
 	DEPENDS:=+curl +libfuse +libjson-c +libxml2 +libmagic
 	TITLE:=mounts Hubic's cloud files
-	URL:=https://github.com/TurboGit/hubicfuse
+	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 

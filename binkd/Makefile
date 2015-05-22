@@ -28,7 +28,7 @@ define Package/binkd
 	SUBMENU:=FTN
 	DEPENDS:=+zlib +libbz2
 	TITLE:=transfers files between two Fidonet systems over TCP/IP
-	URL:=https://github.com/green525/binkd
+	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 

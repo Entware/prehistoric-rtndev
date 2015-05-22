@@ -29,7 +29,7 @@ define Package/asterisk18-chan-dongle
 	SUBMENU:=Telephony
 	DEPENDS:=+asterisk18 $(ICONV_DEPENDS) $(INTL_DEPENDS)
 	TITLE:=Huawei UMTS 3G dongle support
-	URL:=https://github.com/bg111/asterisk-chan-dongle
+	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 

@@ -30,7 +30,7 @@ define Package/shadowvpn
 	CATEGORY:=Network
 	SUBMENU:=VPN
 	TITLE:=ShadowVPN
-	URL:=https://github.com/clowwindy/ShadowVPN
+	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 

@@ -15,7 +15,7 @@ PKG_REV:=235dd1e519c95a9736a2dc0303c64fec358076e1
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/hampus/nonroot.git
+PKG_SOURCE_URL:=https://github.com/hampus/nonroot
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_FIXUP:=autoreconf
@@ -27,7 +27,7 @@ define Package/nonroot
 	SECTION:=utils
 	CATEGORY:=Utilities
 	TITLE:=run commands as non-root
-	URL:=http://github.com/hampus/nonroot/
+	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
