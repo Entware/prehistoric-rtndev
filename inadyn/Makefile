@@ -24,7 +24,7 @@ define Package/inadyn
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=IP Addresses and Names
-	DEPENDS:=+libgnutls-openssl
+	DEPENDS:=+libopenssl
 	TITLE:=a simple and small DDNS client
 	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
@@ -36,6 +36,8 @@ define Package/inadyn/description
  IP detection which runs well behind a NAT router. This is a fork by
  Andrey Tikhomirov.
 endef
+
+CONFIGURE_ARGS += --enable-openssl
 
 TARGET_CFLAGS += -Iinclude
 
