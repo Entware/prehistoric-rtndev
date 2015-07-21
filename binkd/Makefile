@@ -9,12 +9,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=binkd
 PKG_VERSION:=1.1a-26
-PKG_REV:=bbe5331d4b9b901677acb5dce0fb85f06da54ef8
-PKG_RELEASE:=1
+PKG_REV:=5166f892ef509d7e7eca766a7d29877bcb3bc4cb
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_URL:=https://github.com/green525/binkd
+PKG_SOURCE_URL:=https://github.com/pgul/binkd
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
