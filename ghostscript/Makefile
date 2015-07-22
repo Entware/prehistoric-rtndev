@@ -11,12 +11,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ghostscript
-PKG_VERSION:=9.15
+PKG_VERSION:=9.16
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://downloads.ghostscript.com/public/$(PKG-SOURCE)
-PKG_MD5SUM:=5a78ab0990ff6ec3a103576bc8777c46
+PKG_MD5SUM:=829319325bbdb83f5c81379a8f86f38f
 
 PKG_BUILD_DEPENDS:=ghostscript/host
 PKG_INSTALL:=1

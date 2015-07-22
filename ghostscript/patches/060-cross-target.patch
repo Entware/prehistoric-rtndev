@@ -1,6 +1,6 @@
 --- a/Makefile.in
 +++ b/Makefile.in
-@@ -644,3 +644,7 @@
+@@ -642,3 +642,7 @@
  check : default
  	$(NO_OP)
  

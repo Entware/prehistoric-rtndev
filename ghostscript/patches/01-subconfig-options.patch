@@ -1,6 +1,6 @@
 --- a/configure
 +++ b/configure
-@@ -5229,7 +5229,7 @@
+@@ -5276,7 +5276,7 @@
  SUBCONFIG_OPTS=""
  
  if test x$build_alias != x; then
