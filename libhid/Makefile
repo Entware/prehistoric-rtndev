@@ -4,6 +4,7 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
+# Used by wmr-oregon only. No need to be updated.
 
 include $(TOPDIR)/rules.mk
 

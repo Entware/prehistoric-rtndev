@@ -1,6 +1,6 @@
 --- a/utils/config.c
 +++ b/utils/config.c
-@@ -40,35 +40,10 @@
+@@ -41,35 +41,10 @@
  
  void config_file_init(char **configfile)
  {
