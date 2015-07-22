@@ -1,8 +1,0 @@
-#!/bin/sh
-/opt/sbin/hpt -c /opt/etc/fido/config scan
-/opt/sbin/hpt -c /opt/etc/fido/config pack
-/opt/sbin/binkd -p -P 2:5020/828 /opt/etc/binkd.cfg
-/opt/sbin/hpt -c /opt/etc/fido/config toss
-/opt/sbin/htick -c /opt/etc/fido/config toss
-/opt/sbin/htick -c /opt/etc/fido/config announce
-/opt/sbin/hpt -c /opt/etc/fido/config link

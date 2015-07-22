@@ -1,8 +1,0 @@
---- a/cfgs/config/xlatcfg.pl	2012-04-07 23:05:12.668828546 +0400
-+++ b/cfgs/config/xlatcfg.pl	2012-04-07 23:05:19.580744787 +0400
-@@ -1,4 +1,4 @@
--#!/usr/bin/perl
-+#!/opt/bin/perl
- # $Id: xlatcfg.pl,v 1.5 2005/12/17 18:27:09 stas_degteff Exp $
- # xlatcfg.pl
- # Generate xlatcharset directives for the config of Golded+

@@ -1,2 +1,0 @@
-#!/bin/sh
-screen -c /opt/etc/fido/screenrc -S golded /opt/sbin/ge
