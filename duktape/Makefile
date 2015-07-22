@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=duktape
-PKG_VERSION:=1.2.1
+PKG_VERSION:=1.2.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=http://duktape.org
-PKG_MDSUM:=86362304a347fd88bcbcdfc00ff3663c
+PKG_MDSUM:=297062e642dadbb14a8ea296d9eecdf7
 
 include $(INCLUDE_DIR)/package.mk
 
