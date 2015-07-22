@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-cloudprint
-PKG_VERSION:=0.11
+PKG_VERSION:=0.13
 PKG_RELEASE:=1
 
 PKG_SOURCE:=cloudprint-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/c/cloudprint
-PKG_MD5SUM:=3990129390f4a1ddfa28767a3c293930
+PKG_MD5SUM:=d8b349ffa3154b275f4d512e1b66485c
 
 PKG_BUILD_DEPENDS:=distribute/host
 

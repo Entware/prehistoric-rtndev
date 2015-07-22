@@ -1,22 +1,11 @@
 --- a/cloudprint/cloudprint.py
 +++ b/cloudprint/cloudprint.py
-@@ -50,8 +50,8 @@
-         self.auth = None
-         self.cups= cups.Connection()
-         self.proxy =  platform.node() + '-Armooo-PrintProxy'
--        self.auth_path = os.path.expanduser('~/.cloudprintauth')
--        self.xmpp_auth_path = os.path.expanduser('~/.cloudprintauth.sasl')
-+        self.auth_path = '/opt/var/.cloudprintauth'
-+        self.xmpp_auth_path = '/opt/var/.cloudprintauth.sasl'
-         self.username = None
-         self.password = None
-         self.sleeptime = 0
-@@ -383,7 +383,7 @@
-     print '-d\t\t: enable daemon mode (requires the daemon module)'
-     print '-l\t\t: logout of the google account'
-     print '-p pid_file\t: path to write the pid to (default cloudprint.pid)'
--    print '-a account_file\t: path to google account ident data (default ~/.cloudprintauth)'
-+    print '-a account_file\t: path to google account ident data (default /opt/var/.cloudprintauth)'
-     print '\t\t account_file format:\t <Google username>'
-     print '\t\t\t\t\t <Google password>'
-     print '-c\t\t: establish and store login credentials, then exit'
+@@ -416,7 +416,7 @@
+                         help='logout of the google account')
+     parser.add_argument('-p', metavar='pid_file', dest='pidfile', default='cloudprint.pid',
+                         help='path to write the pid to (default %(default)s)')
+-    parser.add_argument('-a', metavar='account_file', dest='authfile', default=os.path.expanduser('~/.cloudprintauth.json'),
++    parser.add_argument('-a', metavar='account_file', dest='authfile', default='/opt/var/.cloudprintauth.json',
+                         help='path to google account ident data (default %(default)s)')
+     parser.add_argument('-c', dest='authonly', action='store_true',
+                         help='establish and store login credentials, then exit')
