@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-werkzeug
-PKG_VERSION:=0.10.1
+PKG_VERSION:=0.10.4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=Werkzeug-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/W/Werkzeug
-PKG_MD5SUM:=231d10996b7c3c1efe1776f22d570f83
+PKG_MD5SUM:=66a488e0ac50a9ec326fe020b3083450
 
 PKG_BUILD_DEPENDS:=distribute/host
 
