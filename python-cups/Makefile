@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-cups
-PKG_VERSION:=1.9.72
+PKG_VERSION:=1.9.73
 PKG_RELEASE:=1
 
 PKG_SOURCE:=pycups-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://cyberelk.net/tim/data/pycups
-PKG_MD5SUM:=c790bfbf4a3e9da2412c12c860fe191f
+PKG_MD5SUM:=ee0e7204d7a2ae942e2f4c4508afdbfb
 
 PKG_BUILD_DEPENDS:=distribute/host
 PKG_BUILD_DIR:=$(BUILD_DIR)/pycups-$(PKG_VERSION)
