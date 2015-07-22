@@ -10,12 +10,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=angband
-PKG_VERSION:=3.5.1
+PKG_VERSION:=4.0.1
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-v$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://rephial.org/downloads/3.5/
-PKG_MD5SUM:=3b9a324551cfd48b101f197a8441f135
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=http://rephial.org/downloads/4.0/
+PKG_MD5SUM:=242dca62b4c4cd1749305287b7636691
 
 PKG_INSTALL:=1
 
@@ -44,13 +44,13 @@ CONFIGURE_ARGS += \
 define Package/angband/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/angband $(1)/opt/bin
-	$(INSTALL_DIR) $(1)/opt/etc/angband/{edit,pref}
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/etc/angband/edit/*.txt $(1)/opt/etc/angband/edit
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/etc/angband/pref/*.prf $(1)/opt/etc/angband/pref
-	$(INSTALL_DIR) $(1)/opt/share/angband/{file,help,info}
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/angband/file/*.txt $(1)/opt/share/angband/file
+	$(INSTALL_DIR) $(1)/opt/etc/angband/{customize,gamedata}
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/etc/angband/customize/*.prf $(1)/opt/etc/angband/customize
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/etc/angband/gamedata/*.txt $(1)/opt/etc/angband/gamedata
+	$(INSTALL_DIR) $(1)/opt/share/angband/{help,screens,user/info}
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/angband/help/*.{txt,hlp} $(1)/opt/share/angband/help
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/angband/info/*.txt $(1)/opt/share/angband/info
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/angband/screens/*.txt $(1)/opt/share/angband/screens
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/angband/user/info/*.{txt,hlp} $(1)/opt/share/angband/user/info
 endef
 
 $(eval $(call BuildPackage,angband))
