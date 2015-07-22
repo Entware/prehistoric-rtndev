@@ -12,12 +12,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bfgminer
 PKG_TITLE:=BFGMiner
-PKG_VERSION:=5.1.0
+PKG_VERSION:=5.2.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).zip
 PKG_SOURCE_URL:=http://luke.dashjr.org/programs/bitcoin/files/$(PKG_NAME)/$(PKG_VERSION)
-PKG_MD5SUM:=e177906d373c73c292f66e9b5e25c291
+PKG_MD5SUM:=b9caca01226a38018766c4894e5f31d7
 
 PKG_INSTALL:=1
 
@@ -88,10 +88,8 @@ endef
 
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/opt/bin $(1)/opt/lib
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/$(PKG_NAME) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/$(PKG_NAME)-rpc $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libblkmaker*.so* $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libbase58.so* $(1)/opt/lib
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/$(PKG_NAME){,-rpc} $(1)/opt/bin
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/lib{blkmaker*,base58}.so* $(1)/opt/lib
 endef
 
 ALL_$(PKG_NAME)_PACKAGES += $(PKG_NAME)
