@@ -1,6 +1,6 @@
 --- a/src/Makefile.am
 +++ b/src/Makefile.am
-@@ -10,27 +10,27 @@
+@@ -10,28 +10,28 @@
  endif
  
  automatic_SOURCES = \
@@ -15,6 +15,7 @@
 -   $(top_srcdir)/src/output.c         \
 -   $(top_srcdir)/src/filters.c        \
 -   $(top_srcdir)/src/prowl.c          \
+-   $(top_srcdir)/src/pushalot.c       \
 -   $(top_srcdir)/src/regex.c          \
 -   $(top_srcdir)/src/rss_feed.c       \
 -   $(top_srcdir)/src/state.c          \
@@ -36,6 +37,7 @@
 +   output.c         \
 +   filters.c        \
 +   prowl.c          \
++   pushalot.c       \
 +   regex.c          \
 +   rss_feed.c       \
 +   state.c          \
@@ -49,18 +51,18 @@
  
  noinst_HEADERS =    \
     $(top_srcdir)/include/automatic.h      \
-@@ -57,7 +57,7 @@
+@@ -59,7 +59,7 @@
  
  automatic_mw_SOURCES =  \
-    $(automatic_SOURCES) \
--	 $(top_srcdir)/src/memwatch.c
-+	 memwatch.c
+   $(automatic_SOURCES) \
+-	$(top_srcdir)/src/memwatch.c
++	memwatch.c
  
  if DBG_BUILD
    automatic_mwdir = .
 --- a/src/tests/Makefile.am
 +++ b/src/tests/Makefile.am
-@@ -5,58 +5,58 @@
+@@ -5,65 +5,65 @@
  TESTS = $(check_PROGRAMS)
  
  GLOBAL_SOURCES = \
@@ -119,6 +121,17 @@
 +   ../urlcode.c         \
 +   ../web.c             \
     prowl_test.c
+ 
+ pushalot_test_SOURCES = $(GLOBAL_SOURCES) \
+-   $(top_srcdir)/src/pushalot.c           \
+-   $(top_srcdir)/src/regex.c              \
+-   $(top_srcdir)/src/urlcode.c            \
+-   $(top_srcdir)/src/web.c                \
++   ../pushalot.c           \
++   ../regex.c              \
++   ../urlcode.c            \
++   ../web.c                \
+    pushalot_test.c
  
  toasty_test_SOURCES = $(GLOBAL_SOURCES) \
 -   $(top_srcdir)/src/toasty.c           \
