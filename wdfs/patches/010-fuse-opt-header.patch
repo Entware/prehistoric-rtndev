@@ -1,5 +1,5 @@
---- a/src/wdfs-main.c	2012-04-13 15:34:50.564827185 +0400
-+++ b/src/wdfs-main.c	2012-04-13 15:35:00.080709108 +0400
+--- a/src/wdfs-main.c
++++ b/src/wdfs-main.c
 @@ -32,7 +32,7 @@
  #include <assert.h>
  #include <unistd.h>
