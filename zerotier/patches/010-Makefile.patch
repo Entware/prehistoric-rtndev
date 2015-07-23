@@ -1,20 +1,10 @@
 --- a/Makefile
 +++ b/Makefile
-@@ -1,16 +1 @@
--# Common makefile -- loads make rules for each platform
--
+@@ -1,6 +1,6 @@
+ # Common makefile -- loads make rules for each platform
+ 
 -OSTYPE=$(shell uname -s)
--
--ifeq ($(OSTYPE),Darwin)
--	include make-mac.mk
--endif
--
--ifeq ($(OSTYPE),Linux)
--	include make-linux.mk
--endif
--
--ifeq ($(OSTYPE),FreeBSD)
--	include make-freebsd.mk
--endif
--
-+include make-linux.mk
++OSTYPE=Linux
+ 
+ ifeq ($(OSTYPE),Darwin)
+ 	include make-mac.mk
