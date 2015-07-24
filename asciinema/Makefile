@@ -9,12 +9,11 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=asciinema
 PKG_VERSION:=0.9.8
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/a/$(PKG_NAME)
 PKG_MD5SUM:=ae8662d033af0e973d5864a247117e7f
-PKG_BUILD_DEPENDS:=distribute/host
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
@@ -23,7 +22,7 @@ define Package/asciinema
 	SECTION:=utils
 	CATEGORY:=Utilities
 	SUBMENU:=Terminal
-	DEPENDS:=+distribute +python-requests +ncurses-bin
+	DEPENDS:=+python-requests +ncurses-bin +python-setuptools
 	TITLE:=A terminal sessions recorder
 	URL:=http://asciinema.org/
 	MAINTAINER:=Entware team, entware.wl500g.info
@@ -38,15 +37,18 @@ define Package/asciinema/conffiles
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,install --prefix=/opt --root=$(PKG_INSTALL_DIR))
+	$(call Build/Compile/PyMod,,\
+		install --prefix="$(PKG_INSTALL_DIR)/opt" \
+	)
 endef
 
 define Package/asciinema/install
 	$(INSTALL_DIR) $(1)$(PYTHON_PKG_DIR)
-	$(CP) $(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* $(1)$(PYTHON_PKG_DIR)
+	$(CP) \
+	    $(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/asciinema-*.egg \
+	    $(1)$(PYTHON_PKG_DIR)
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/$(PKG_NAME) $(1)/opt/bin
-	$(SED) '1s/#\!.*/#\!\/opt\/bin\/python/' $(1)/opt/bin/$(PKG_NAME)
+	$(CP) $(PKG_INSTALL_DIR)/opt/bin/$(PKG_NAME) $(1)/opt/bin
 endef
 
 $(eval $(call BuildPackage,asciinema))
