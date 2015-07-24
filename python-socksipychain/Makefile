@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-socksipychain
 PKG_VERSION:=2.0.12
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=SocksipyChain-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pagekite.net/pk/src/$(PKG_SOURCE)
@@ -19,8 +19,6 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/SocksipyChain-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
-
-PKG_BUILD_DEPENDS:=python distribute/host
 
 define Package/$(PKG_NAME)
 	SUBMENU:=Python
@@ -39,7 +37,10 @@ define Package/$(PKG_NAME)/description
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,install --prefix=/opt --root=$(PKG_INSTALL_DIR))
+	$(call Build/Compile/PyMod,,install \
+	    --prefix=/opt \
+	    --root=$(PKG_INSTALL_DIR) \
+	)
 endef
 
 define Package/$(PKG_NAME)/install
@@ -47,7 +48,6 @@ define Package/$(PKG_NAME)/install
 	$(CP) \
 	    $(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
 	    $(1)$(PYTHON_PKG_DIR)/
-
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/* $(1)/opt/bin/
 	$(SED) 's,$(HOST_PYTHON_BIN),/opt/bin/python,g' $(1)/opt/bin/sockschain
