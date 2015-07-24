@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-chardet
 PKG_VERSION:=2.3.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=chardet-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/c/chardet/
@@ -20,7 +20,7 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/chardet-$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
-PKG_BUILD_DEPENDS:=python distribute/host
+PKG_BUILD_DEPENDS:=python
 
 define Package/$(PKG_NAME)
 	SUBMENU:=Python
@@ -28,7 +28,7 @@ define Package/$(PKG_NAME)
 	CATEGORY:=Languages
 	TITLE:=Python universal enconding detector
 	URL:=https://github.com/erikrose/chardet
-	DEPENDS:=+python
+	DEPENDS:=+python-setuptools
 	MAINTAINER:=Entware team, entware.wl500g.info
 endef
 
