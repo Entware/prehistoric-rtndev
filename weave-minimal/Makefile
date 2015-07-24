@@ -9,13 +9,11 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=weave-minimal
 PKG_VERSION:=1.5.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/w/weave-minimal
 PKG_MD5SUM:=82309b0354bebfd07f6ecb2a75bb5a97
-
-PKG_BUILD_DEPENDS:=distribute/host
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
@@ -23,7 +21,7 @@ $(call include_mk, python-package.mk)
 define Package/weave-minimal
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=+python-sqlite3 +python-werkzeug +dtach +python-gevent +python-openssl +distribute
+	DEPENDS:=+python-sqlite3 +python-werkzeug +dtach +python-gevent +python-openssl +python-setuptools
 	TITLE:=a Firefox Sync Server
 	URL:=https://github.com/posativ/weave-minimal
 	MAINTAINER:=Entware team, entware.wl500g.info
@@ -36,15 +34,14 @@ define Package/weave-minimal/description
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,install --prefix=/opt --root=$(PKG_INSTALL_DIR))
+	$(call Build/Compile/PyMod,,install --prefix="$(PKG_INSTALL_DIR)/opt")
 endef
 
 define Package/weave-minimal/install
 	$(INSTALL_DIR) $(1)$(PYTHON_PKG_DIR)
 	$(CP) \
-		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
+		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/weave_minimal*.egg \
 		$(1)$(PYTHON_PKG_DIR)
-	$(SED) 's,$(HOST_PYTHON_BIN),/opt/bin/python,g' $(PKG_INSTALL_DIR)/opt/bin/weave-minimal
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/weave-minimal $(1)/opt/bin
 	$(INSTALL_DIR) $(1)/opt/etc/init.d

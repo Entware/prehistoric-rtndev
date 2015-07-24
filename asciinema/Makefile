@@ -37,9 +37,7 @@ define Package/asciinema/conffiles
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,\
-		install --prefix="$(PKG_INSTALL_DIR)/opt" \
-	)
+	$(call Build/Compile/PyMod,,install --prefix="$(PKG_INSTALL_DIR)/opt")
 endef
 
 define Package/asciinema/install
