@@ -9,15 +9,14 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-cloudprint
 PKG_VERSION:=0.13
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=cloudprint-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/c/cloudprint
 PKG_MD5SUM:=d8b349ffa3154b275f4d512e1b66485c
 
-PKG_BUILD_DEPENDS:=distribute/host
-
 PKG_BUILD_DIR:=$(BUILD_DIR)/cloudprint-$(PKG_VERSION)
+
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
@@ -25,7 +24,7 @@ define Package/python-cloudprint
 	SECTION:=lang
 	CATEGORY:=Languages
 	SUBMENU:=Python
-	DEPENDS:=+python +python-cups +python-openssl
+	DEPENDS:=+python-setuptools +python-cups +python-openssl +python-requests
 	TITLE:=Python bindings for the cloudprint API
 	URL:=http://cyberelk.net/tim/software/pycloudprint/
 	MAINTAINER:=Entware team, entware.wl500g.info
@@ -37,7 +36,10 @@ define Package/python-cloudprint/description
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,install --prefix=/opt --root=$(PKG_INSTALL_DIR))
+	$(call Build/Compile/PyMod,,install \
+		--prefix=/opt \
+		--root=$(PKG_INSTALL_DIR) \
+	)
 endef
 
 define Package/python-cloudprint/install
@@ -47,7 +49,8 @@ define Package/python-cloudprint/install
 		$(1)$(PYTHON_PKG_DIR)
 	chmod +x $(1)$(PYTHON_PKG_DIR)/cloudprint/cloudprint.py
 	$(INSTALL_DIR) $(1)/opt/{bin,var}
-	ln -s $(PYTHON_PKG_DIR)/cloudprint/cloudprint.py $(1)/opt/bin/cloudprint
+	ln -s $(PYTHON_PKG_DIR)/cloudprint/cloudprint.py \
+		$(1)/opt/bin/cloudprint
 endef
 
 $(eval $(call BuildPackage,python-cloudprint))
