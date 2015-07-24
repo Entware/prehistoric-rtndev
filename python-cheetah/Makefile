@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-cheetah
 PKG_VERSION:=2.4.4
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=Cheetah-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/C/Cheetah
@@ -24,7 +24,7 @@ define Package/python-cheetah
 	SECTION:=lang
 	CATEGORY:=Languages
 	SUBMENU:=Python
-	DEPENDS:=+python
+	DEPENDS:=+python-setuptools
 	TITLE:=Python-powered template engine
 	URL:=http://www.cheetahtemplate.org/
 	MAINTAINER:=Entware team, entware.wl500g.info
@@ -39,7 +39,10 @@ define Package/python-cheetah/description
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,install --prefix=/opt --root=$(PKG_INSTALL_DIR))
+	$(call Build/Compile/PyMod,,install \
+	    --prefix=/opt \
+	    --root=$(PKG_INSTALL_DIR) \
+	)
 endef
 
 define Package/python-cheetah/install
@@ -48,7 +51,11 @@ define Package/python-cheetah/install
 		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
 		$(1)$(PYTHON_PKG_DIR)
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/cheetah{,-analyze,-compile} $(1)/opt/bin
+	$(INSTALL_BIN) \
+		$(PKG_INSTALL_DIR)/opt/bin/cheetah{,-analyze,-compile} \
+		$(1)/opt/bin
+	 $(SED) 's,/usr/bin/env python,/opt/bin/python,g' \
+		$(1)/opt/bin/cheetah{,-analyze,-compile}
 endef
 
 $(eval $(call BuildPackage,python-cheetah))
