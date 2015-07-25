@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-requests
 PKG_VERSION:=2.4.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=requests-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/r/requests/
@@ -20,8 +20,6 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/requests-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
-
-#PKG_BUILD_DEPENDS:=python distribute/host
 
 define Package/$(PKG_NAME)
 	SUBMENU:=Python
@@ -41,7 +39,10 @@ define Package/$(PKG_NAME)/description
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,install --prefix=/opt --root=$(PKG_INSTALL_DIR))
+	$(call Build/Compile/PyMod,,install \
+		--prefix=/opt \
+		--root=$(PKG_INSTALL_DIR) \
+	)
 endef
 
 define Package/$(PKG_NAME)/install
