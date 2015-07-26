@@ -14,9 +14,9 @@ PKG_RELEASE:=1
 PKG_SOURCE:=oauth-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://pypi.python.org/packages/source/o/oauth
 PKG_MD5SUM:=30ed3cc8c11d7841a89feab437aabf81
-PKG_BUILD_DEPENDS:=distribute/host
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/oauth-$(PKG_VERSION)
+
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
@@ -35,7 +35,10 @@ define Package/python-oauth/description
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,install --prefix=/opt --root=$(PKG_INSTALL_DIR))
+	$(call Build/Compile/PyMod,,install \
+		--prefix=/opt \
+		--root="$(PKG_INSTALL_DIR)" \
+	)
 endef
 
 define Package/python-oauth/install
