@@ -39,7 +39,8 @@ MAKE_VARS += ZT_ENABLE_NETWORK_CONTROLLER=1
 define Package/zerotier/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/zerotier-one $(1)/opt/bin
-	$(LN) zerotier-one $(1)/opt/bin/zerotier-{cli,idtool}
+	$(LN) zerotier-one $(1)/opt/bin/zerotier-cli
+	$(LN) zerotier-one $(1)/opt/bin/zerotier-idtool
 	$(INSTALL_DIR) $(1)/opt/var/lib/zerotier-one
 endef
 
