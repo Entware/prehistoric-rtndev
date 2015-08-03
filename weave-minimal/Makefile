@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=weave-minimal
 PKG_VERSION:=1.5.1
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/w/weave-minimal
@@ -34,16 +34,21 @@ define Package/weave-minimal/description
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,install --prefix="$(PKG_INSTALL_DIR)/opt")
+	$(call Build/Compile/PyMod,,install \
+	    --prefix=/opt \
+	    --root="$(PKG_INSTALL_DIR)" \
+	)
 endef
 
 define Package/weave-minimal/install
 	$(INSTALL_DIR) $(1)$(PYTHON_PKG_DIR)
 	$(CP) \
-		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/weave_minimal*.egg \
+		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
 		$(1)$(PYTHON_PKG_DIR)
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/weave-minimal $(1)/opt/bin
+	$(SED) 's,$(HOST_PYTHON_BIN),/opt/bin/python,g' \
+	    $(PKG_INSTALL_DIR)/opt/bin/weave-minimal
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S92weave-minimal $(1)/opt/etc/init.d
 	$(INSTALL_DIR) $(1)/opt/var/weave
