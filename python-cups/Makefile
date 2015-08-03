@@ -15,7 +15,6 @@ PKG_SOURCE:=pycups-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://cyberelk.net/tim/data/pycups
 PKG_MD5SUM:=ee0e7204d7a2ae942e2f4c4508afdbfb
 
-PKG_BUILD_DEPENDS:=distribute/host
 PKG_BUILD_DIR:=$(BUILD_DIR)/pycups-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk

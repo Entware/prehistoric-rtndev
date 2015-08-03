@@ -15,8 +15,6 @@ PKG_SOURCE:=Werkzeug-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/W/Werkzeug
 PKG_MD5SUM:=66a488e0ac50a9ec326fe020b3083450
 
-PKG_BUILD_DEPENDS:=distribute/host
-
 PKG_BUILD_DIR:=$(BUILD_DIR)/Werkzeug-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
