@@ -4,8 +4,6 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-# Thanks to MercuryV @ wl500g.info
-#
 
 include $(TOPDIR)/rules.mk
 
