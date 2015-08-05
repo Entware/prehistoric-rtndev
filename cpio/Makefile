@@ -34,10 +34,6 @@ define Package/cpio/description
  the English (and some other) language.
 endef
 
-define Package/cpio/description
- GNU cpio, a program to manage archives of files
-endef
-
 define Package/cpio/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/cpio $(1)/opt/bin
