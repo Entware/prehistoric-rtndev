@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=weave-minimal
 PKG_VERSION:=1.5.1
-PKG_RELEASE:=3
+PKG_RELEASE:=4
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/w/weave-minimal
@@ -45,8 +45,8 @@ define Package/weave-minimal/install
 	$(CP) \
 		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
 		$(1)$(PYTHON_PKG_DIR)
-	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/weave-minimal $(1)/opt/bin
+	$(INSTALL_DIR) $(1)/opt/bin
 	$(SED) 's,$(HOST_PYTHON_BIN),/opt/bin/python,g' \
 	    $(PKG_INSTALL_DIR)/opt/bin/weave-minimal
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
