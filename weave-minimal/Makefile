@@ -45,10 +45,10 @@ define Package/weave-minimal/install
 	$(CP) \
 		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
 		$(1)$(PYTHON_PKG_DIR)
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/weave-minimal $(1)/opt/bin
-	$(INSTALL_DIR) $(1)/opt/bin
 	$(SED) 's,$(HOST_PYTHON_BIN),/opt/bin/python,g' \
 	    $(PKG_INSTALL_DIR)/opt/bin/weave-minimal
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/weave-minimal $(1)/opt/bin
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S92weave-minimal $(1)/opt/etc/init.d
 	$(INSTALL_DIR) $(1)/opt/var/weave
