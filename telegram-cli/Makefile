@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=telegram-cli
-PKG_VERSION:=1.0.0-20150730
+PKG_VERSION:=1.3.1-20150730
 PKG_REV:=2052f4b381337d75e783facdbfad56b04dec1a9c
 PKG_RELEASE:=1
 
@@ -18,6 +18,7 @@ PKG_SOURCE_URL:=https://github.com/vysheng/tg
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
+PKG_REMOVE_FILES:=ax_lua.m4
 PKG_FIXUP:=autoreconf
 
 PKG_BUILD_DEPENDS:=telegram-cli/host
@@ -30,7 +31,7 @@ define Package/telegram-cli
 	SECTION:=net
 	CATEGORY:=Network
 	DEPENDS:=+libconfig +libopenssl +libreadline +libevent2 +jansson \
-	    +libpthread +libncursesw
+	    +libpthread +libncursesw +liblua
 	TITLE:=CLI for Telegram
 	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
@@ -41,13 +42,14 @@ define Package/telegram-cli/description
 endef
 
 CONFIGURE_ARGS += \
-	--disable-liblua \
 	--disable-python \
 	--disable-valgrind \
 	--with-zlib=$(STAGING_DIR)/opt
 
 CONFIGURE_VARS += \
-	LIBS=-lncursesw
+	LIBS=-lncursesw \
+	LUA_INCLUDE="-I$(STAGING_DIR)/opt/include" \
+	LUA_LIB="-L$(STAGING_DIR)/opt/lib -llua"
 
 define Host/Configure
 	(cd $(HOST_BUILD_DIR)/tgl; \
