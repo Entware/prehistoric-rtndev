@@ -1,6 +1,13 @@
---- a/accel-pppd/accel-ppp.conf
-+++ b/accel-pppd/accel-ppp.conf
-@@ -30,7 +30,7 @@
+--- ./accel-pppd/accel-ppp.conf.orig	2015-09-23 10:42:47.000000000 +0300
++++ ./accel-pppd/accel-ppp.conf	2015-09-23 10:45:24.035420025 +0300
+@@ -1,5 +1,5 @@
+ [modules]
+-log_file
++#log_file
+ #log_syslog
+ #log_tcp
+ #log_pgsql
+@@ -31,7 +31,7 @@
  #ipv6pool
  
  [core]
@@ -9,7 +16,7 @@
  thread-count=4
  
  [common]
-@@ -79,7 +79,7 @@
+@@ -83,7 +83,7 @@
  
  [l2tp]
  verbose=1
@@ -18,7 +25,16 @@
  #hello-interval=60
  #timeout=60
  #rtimeout=1
-@@ -134,7 +134,7 @@
+@@ -128,7 +128,7 @@
+ #attr-l4-redirect-table=4
+ #attr-l4-redirect-ipset=l4-redirect
+ #local-net=192.168.0.0/16
+-#lua-file=/etc/accel-ppp.lua
++#lua-file=/opt/etc/accel-ppp.lua
+ #offer-delay=0,100:100,200:200,-1:1000
+ #vlan-mon=eth0,10-200
+ #vlan-timeout=60
+@@ -151,7 +151,7 @@
  #wins2=172.16.1.1
  
  [radius]
@@ -27,7 +43,7 @@
  nas-identifier=accel-ppp
  nas-ip-address=127.0.0.1
  gw-ip-address=192.168.100.1
-@@ -165,9 +165,9 @@
+@@ -180,9 +180,9 @@
  192.168.4.0/24
  
  [log]
@@ -40,7 +56,7 @@
  #log-debug=/dev/stdout
  #syslog=accel-pppd,daemon
  #log-tcp=127.0.0.1:3000
-@@ -183,16 +183,16 @@
+@@ -198,16 +198,16 @@
  log-table=log
  
  [pppd-compat]

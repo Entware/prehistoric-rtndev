@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=accel-ppp
-PKG_VERSION:=1.9.0-20150305
-PKG_REV:=c5e859f1d3a4317f304366e5f083ef4ff7828e5d
+PKG_VERSION:=1.9.0-20150819
+PKG_REV:=30cff41b56be0d4c3e407e8aa4de5b289eef2ab0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
@@ -50,6 +50,9 @@ CMAKE_OPTIONS += \
 
 TARGET_CFLAGS += \
 	-I$(STAGING_DIR)/opt/include \
+
+TARGET_LDFLAGS += \
+	-Wl,-rpath,/opt/lib/accel-ppp
 
 define Package/accel-ppp/conffiles
 /opt/etc/accel-ppp.conf
