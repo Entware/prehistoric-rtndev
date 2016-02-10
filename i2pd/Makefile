@@ -17,13 +17,14 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/orignal/i2pd
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_REV)
+PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/i2pd
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=+libcryptoxx +boost-filesystem +boost-regex +boost-program_options +boost-date_time
+	DEPENDS:=+libcryptoxx +boost-filesystem +boost-regex +boost-program_options +boost-date_time +libatomic
 	TITLE:=simplified C++ implementation of I2P client
 	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, entware.wl500g.info
