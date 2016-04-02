@@ -30,7 +30,7 @@ define Package/mediafire-fuse
 	DEPENDS:=+libcurl +libfuse +jansson
 	TITLE:=mediafire account utilities
 	URL:=https://github.com/TurboGit/mediafire-fuse
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/mediafire-fuse/description

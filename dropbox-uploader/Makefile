@@ -28,7 +28,7 @@ define Package/dropbox-uploader
 	    +coreutils-stat +coreutils-dd +coreutils-mkdir
 	TITLE:=BASH script for Dropbox
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/dropbox-uploader/description

@@ -24,7 +24,7 @@ define Package/cups-pdf
 	DEPENDS:=+ghostscript
 	TITLE:=PDF printer software
 	URL:=http://www.cups-pdf.de/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/cups-pdf/description

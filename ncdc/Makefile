@@ -28,7 +28,7 @@ define Package/ncdc
 	TITLE:=ncdc is a modern and lightweight DC client
 	DEPENDS:=+libncursesw +bzip2 +libgnutls +libsqlite3 +glib2 $(ICONV_DEPENDS)
 	URL:=http://dev.yorhel.nl/ncdc
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/ncdc/description

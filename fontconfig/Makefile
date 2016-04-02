@@ -28,7 +28,7 @@ define Package/fontconfig
 	DEPENDS:=+libfreetype +libexpat +libpthread
 	TITLE:=Fontconfig, configure and customize font access
 	URL:=http://fontconfig.org
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/fontconfig/description

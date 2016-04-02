@@ -27,7 +27,7 @@ define Package/rtmpdump/Default
 	DEPENDS:=+zlib +libopenssl +libpthread
 	TITLE:=rtmpdump is a toolkit for RTMP streams
 	URL:=http://rtmpdump.mplayerhq.hu/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/librtmp

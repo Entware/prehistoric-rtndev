@@ -26,7 +26,7 @@ define Package/mkvtoolnix
 	    +liblzo +libmagic +libmatroska +libvorbis
 	TITLE:=tools for Matroska files
 	URL:=http://matroska.org/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/mkvtoolnix/description

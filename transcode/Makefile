@@ -28,7 +28,7 @@ define Package/transcode
 	DEPENDS:=+zlib +libpthread
 	TITLE:=A/V transcoding suite
 	URL:=http://tcforge.berlios.de/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/transcode/description

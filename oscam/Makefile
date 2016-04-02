@@ -27,7 +27,7 @@ define Package/oscam
 	DEPENDS:=+libpcsclite +libopenssl
 	TITLE:=CAM software
 	URL:=http://www.streamboard.tv/oscam/wiki
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/oscam/description

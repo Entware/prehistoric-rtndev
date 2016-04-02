@@ -26,7 +26,7 @@ define Package/tty-solitaire
 	TITLE:=klondlike solitaire game
 	DEPENDS:=libncursesw
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/tty-solitaire/description

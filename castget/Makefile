@@ -30,7 +30,7 @@ define Package/castget
 	DEPENDS:=+libcurl +glib2 +libxml2 $(ICONV_DEPENDS) $(INTL_DEPENDS)
 	TITLE:=a command-line podcast downloader
 	URL:=http://www.nongnu.org/castget
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/castget/description

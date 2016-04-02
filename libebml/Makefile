@@ -25,7 +25,7 @@ define Package/libebml
 	DEPENDS:=+libstdcpp
 	TITLE:=Extensible Binary Meta Language access library
 	URL:=http://matroska.org/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/libebml/description

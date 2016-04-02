@@ -29,7 +29,7 @@ define Package/loadwatch
 	DEPENDS:=+libelf
 	TITLE:=run processes only at acceptable system load
 	URL:=http://loadwatch.sourceforge.net
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/loadwatch/description

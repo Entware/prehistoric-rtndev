@@ -19,7 +19,7 @@ define Package/uclibc-opt
 	DEPENDS:=+libc +libgcc +libstdcpp +libpthread +librt +ldconfig +findutils
 	TITLE:=provides basic uclibc libraries
 	URL:=http://entware.wl500g.info
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/uclibc-opt/description

@@ -28,7 +28,7 @@ define Package/ghostscript-fonts-std
 	DEPENDS:=+fontconfig
 	TITLE:=ghostscript, standard fonts
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/ghostscript-fonts-std/description

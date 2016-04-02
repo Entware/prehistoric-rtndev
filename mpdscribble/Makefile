@@ -30,7 +30,7 @@ define Package/mpdscribble
 	DEPENDS:=+libmpdclient +libsoup +libcurl
 	TITLE:=MPD player with Last.fm scrobbler
 	URL:=http://mpd.wikia.com/wiki/Client:Mpdscribble
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/mpdscribble/description

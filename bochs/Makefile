@@ -25,7 +25,7 @@ define Package/bochs
 	DEPENDS:=+libpthread +libstdcpp
 	TITLE:=x86 PC emulator
 	URL:=http://bochs.sourceforge.net/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/bochs/description

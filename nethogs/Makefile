@@ -26,7 +26,7 @@ define Package/nethogs
 	DEPENDS:=+libncurses +libpcap +libstdcpp
 	TITLE:=NetHogs is a small 'net top' tool
 	URL:=http://nethogs.sourceforge.net/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/nethogs/description

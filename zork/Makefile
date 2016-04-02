@@ -24,7 +24,7 @@ define Package/zork
 	CATEGORY:=Games
 	TITLE:=Zork (also named as Dungeon) is a text adventure game
 	URL:=http://richelbilderbeek.nl/GameZork.htm
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/zork/description

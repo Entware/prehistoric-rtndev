@@ -26,7 +26,7 @@ define Package/i2pd
 	DEPENDS:=+libcryptoxx +boost-filesystem +boost-regex +boost-program_options +boost-date_time
 	TITLE:=simplified C++ implementation of I2P client
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/i2pd/description

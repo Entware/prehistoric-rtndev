@@ -30,7 +30,7 @@ define Package/asterisk18-chan-dongle
 	DEPENDS:=+asterisk18 $(ICONV_DEPENDS) $(INTL_DEPENDS)
 	TITLE:=Huawei UMTS 3G dongle support
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/asterisk18-chan-dongle/description

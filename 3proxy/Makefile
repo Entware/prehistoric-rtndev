@@ -26,7 +26,7 @@ define Package/3proxy
 	DEPENDS:=+libpthread
 	TITLE:=3proxy free proxy server
 	URL:=http://www.3proxy.ru
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/3proxy/description

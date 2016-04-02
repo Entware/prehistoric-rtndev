@@ -21,7 +21,7 @@ define Package/jbigkit/Default
 	SUBMENU:=Printing
 	TITLE:=JBIG1 implementation
 	URL:=http://www.cl.cam.ac.uk/~mgk25/jbigkit/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/libjbig

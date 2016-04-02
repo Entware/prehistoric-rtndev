@@ -24,7 +24,7 @@ define Package/vsftpd-ext
 	SUBMENU:=File Transfer
 	TITLE:=A fast and secure FTP server
 	URL:=http://vsftpd.devnet.ru
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/vsftpd-ext/descriptio

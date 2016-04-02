@@ -28,7 +28,7 @@ define Package/nonroot
 	CATEGORY:=Utilities
 	TITLE:=run commands as non-root
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/nonroot/description

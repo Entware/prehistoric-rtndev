@@ -30,7 +30,7 @@ define Package/microdc2
 	DEPENDS:=+libxml2 +libreadline +libncurses
 	TITLE:=microdc2
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/microdc2/description

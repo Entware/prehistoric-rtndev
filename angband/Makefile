@@ -27,7 +27,7 @@ define Package/angband
 	DEPENDS:=+libncursesw
 	TITLE:=single-player, text-based, dungeon simulation game
 	URL:=http://rephial.org
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/angband/description

@@ -29,7 +29,7 @@ define Package/inadyn
 	DEPENDS:=+libopenssl
 	TITLE:=a simple and small DDNS client
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/inadyn/description

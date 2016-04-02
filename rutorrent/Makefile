@@ -39,7 +39,7 @@ define Package/rutorrent/Default
 	DEPENDS:=+rtorrent-rpc +coreutils-stat +coreutils-id +gzip +curl
 	TITLE:=Yet another web front-end for rTorrent
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/rutorrent

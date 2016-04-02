@@ -24,7 +24,7 @@ define Package/duktape
 	DEPENDS:=+libreadline +libncurses
 	TITLE:=Duktape JavaScript engine
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/duktape/description

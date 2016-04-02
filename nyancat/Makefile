@@ -25,7 +25,7 @@ define Package/nyancat
 	CATEGORY:=Utilities
 	TITLE:=Nyancat rendered in your terminal
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/nyancat/description

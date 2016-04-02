@@ -25,7 +25,7 @@ define Package/aspell
 	DEPENDS:=+libncursesw +libaspell
 	TITLE:=spell checker
 	URL:=http://aspell.net/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/libaspell
@@ -34,7 +34,7 @@ define Package/libaspell
 	DEPENDS:=+libstdcpp
 	TITLE:=spell checker library
 	URL:=http://aspell.net/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/aspell/description

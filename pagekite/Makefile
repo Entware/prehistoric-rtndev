@@ -29,7 +29,7 @@ define Package/$(PKG_NAME)
 	TITLE:=Make localhost servers publicly visible.
 	URL:=http://pagekite.net
 	DEPENDS+=+python +python-openssl +openssl-util +python-socksipychain +net-tools-arp
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/$(PKG_NAME)/description

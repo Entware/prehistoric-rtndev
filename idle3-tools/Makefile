@@ -27,7 +27,7 @@ define Package/idle3-tools
 	SUBMENU:=disc
 	TITLE:=WD idle3 timer settings
 	URL:=http://idle3-tools.sourceforge.net/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/idle3-tools/description

@@ -25,7 +25,7 @@ define Package/libmatroska
 	DEPENDS:=+libebml
 	TITLE:=MKV container format library
 	URL:=http://matroska.org/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/libmatroska/description

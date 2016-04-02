@@ -25,7 +25,7 @@ define Package/cavezofphear
 	DEPENDS:=+libncurses
 	TITLE:=CAVEZ of PHEAR is a boulder dash / digger like game
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/cavezofphear/description

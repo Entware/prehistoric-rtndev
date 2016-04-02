@@ -33,7 +33,7 @@ define Package/gutenprint
 	DEPENDS:=+cups +libcupsimage $(ICONV_DEPENDS)
 	TITLE:=Gutenprint CUPS drivers
 	URL:=http://gimp-print.sourceforge.net/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/gutenprint/description

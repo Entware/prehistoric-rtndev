@@ -34,7 +34,7 @@ define Package/telegram-cli
 	    +libpthread +libncursesw +liblua
 	TITLE:=CLI for Telegram
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/telegram-cli/description

@@ -25,7 +25,7 @@ define Package/inetutils
 	DEPENDS:=+libreadline +libncurses
 	TITLE:=GNU network utilities
 	URL:=http://www.gnu.org/software/inetutils/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/inetutils/description

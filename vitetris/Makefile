@@ -23,7 +23,7 @@ define Package/vitetris
 	DEPENDS:=+libncurses
 	TITLE:=Terminal-based Tetris clone
 	URL:=http://www.victornils.net/tetris
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/vitetris/description

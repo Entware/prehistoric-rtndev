@@ -23,7 +23,7 @@ define Package/superstartrek
 	CATEGORY:=Games
 	TITLE:=A quite possibly the best of the Star Trek games from the 1970s
 	URL:=http://www.almy.us/sst.html
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/superstartrek/description

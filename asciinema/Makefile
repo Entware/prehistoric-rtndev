@@ -25,7 +25,7 @@ define Package/asciinema
 	DEPENDS:=+python-requests +ncurses-bin +python-setuptools
 	TITLE:=A terminal sessions recorder
 	URL:=http://asciinema.org/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/asciinema/description

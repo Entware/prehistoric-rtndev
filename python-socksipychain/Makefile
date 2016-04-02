@@ -27,7 +27,7 @@ define Package/$(PKG_NAME)
 	TITLE:=Chaining support for socksipy
 	URL:=https://pagekite.net/wiki/Floss/PySocksipyChain/
 	DEPENDS:=+python-setuptools
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/$(PKG_NAME)/description

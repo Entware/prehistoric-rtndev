@@ -25,7 +25,7 @@ define Package/eventlog
 #	DEPENDS:=+libstdcpp
 	TITLE:=Extensible Binary Meta Language access library
 	URL:=http://matroska.org/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/eventlog/description

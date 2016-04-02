@@ -22,7 +22,7 @@ define Package/dos2unix
 	CATEGORY:=Utilities
 	TITLE:=text file format converter
 	URL:=http://waterlan.home.xs4all.nl/dos2unix.html
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/dos2unix/description

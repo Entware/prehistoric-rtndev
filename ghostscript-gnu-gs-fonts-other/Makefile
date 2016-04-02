@@ -28,7 +28,7 @@ define Package/ghostscript-gnu-gs-fonts-other
 	DEPENDS:=+fontconfig
 	TITLE:=ghostscript, the other standard fonts
 	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/ghostscript-gnu-gs-fonts-other/description

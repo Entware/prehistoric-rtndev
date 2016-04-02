@@ -27,7 +27,7 @@ define Package/zerotier
 	DEPENDS:=+libstdcpp +libsqlite3
 	TITLE:=Ethernet virtualization engine
 	URL:=https://www.zerotier.com/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/zerotier/description

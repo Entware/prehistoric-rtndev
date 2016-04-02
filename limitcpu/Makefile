@@ -26,7 +26,7 @@ define Package/limitcpu
 	DEPENDS:=+librt
 	TITLE:=CPU usage limiter
 	URL:=http://limitcpu.sourceforge.net
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/limitcpu/description

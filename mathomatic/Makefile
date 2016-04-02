@@ -23,7 +23,7 @@ define Package/mathomatic
 	DEPENDS:=+libreadline +libncurses
 	TITLE:=Small computer algebra system.
 	URL:=http://www.mathomatic.org/math/
-	MAINTAINER:=Entware team, entware.wl500g.info
+	MAINTAINER:=Entware team, old.entware.net
 endef
 
 define Package/mathomatic/description
