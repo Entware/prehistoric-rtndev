@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=uclibc-opt
 PKG_VERSION:=0.9.32
-PKG_RELEASE:=5
+PKG_RELEASE:=7
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -51,9 +51,28 @@ endef
 define Package/uclibc-opt/postinst
 #!/bin/sh
 
-echo -n "Updating /opt/etc/ld.so.cache... "
 /opt/bin/ldconfig > /dev/null 2>&1
-echo "done."
+
+echo 'Entware development is continued as Entware-ng.'
+echo 'Updates are no longer provided for this repo from October 2015.'
+
+# Check this device for MIPS R2 support
+wget -qO /opt/tmp/opkg http://pkg.entware.net/binaries/mipsel/installer/opkg
+chmod +x /opt/tmp/opkg
+/opt/tmp/opkg -v > /dev/null 2>&1
+if [ $$? -eq 0 ] ; then
+cat << EOF
+
+Please, consider upgrade to Entware-ng by typing
+
+wget -qO - http://pkg.entware.net/binaries/mipsel/installer/upgrade.sh | sh
+
+Don't forget to backup any valuable data before upgrade.
+EOF
+fi
+rm -fr /opt/tmp/opkg
+
+sleep 5
 endef
 
 $(eval $(call BuildPackage,uclibc-opt))
