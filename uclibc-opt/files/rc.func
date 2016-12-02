@@ -17,7 +17,7 @@ ansi_ul="\033[4m";
 start() {
     [ "$CRITICAL" != "yes" -a "$CALLER" = "cron" ] && return 7
         [ "$ENABLED" != "yes" ] && return 8
-    echo -e -n "$ansi_white Starting $DESC... "
+    echo -e -n "$ansi_white Starting $DESC... $ansi_std"
     if [ -n "`pidof $PROC`" ]; then
         echo -e "            $ansi_yellow already running. $ansi_std"
         return 0
@@ -47,7 +47,7 @@ start() {
 stop() {
     case "$ACTION" in
         stop | restart)
-            echo -e -n "$ansi_white Shutting down $PROC... "
+            echo -e -n "$ansi_white Shutting down $PROC... $ansi_std"
             killall $PROC 2>/dev/null
             COUNTER=0
             LIMIT=10
@@ -57,7 +57,7 @@ stop() {
             done
             ;;
         kill)
-            echo -e -n "$ansi_white Killing $PROC... "
+            echo -e -n "$ansi_white Killing $PROC... $ansi_std"
             killall -9 $PROC 2>/dev/null
             ;;
     esac
@@ -84,7 +84,7 @@ check() {
 
 reconfigure() {
     SIGNAL=SIGHUP
-    echo -e "$ansi_white Sending $SIGNAL to $PROC... "
+    echo -e "$ansi_white Sending $SIGNAL to $PROC... $ansi_std"
     killall -$SIGNAL $PROC 2>/dev/null
 }
 
